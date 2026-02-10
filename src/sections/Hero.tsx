@@ -64,7 +64,7 @@ export function Hero({ onExplore }: HeroProps) {
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight"
           style={{ perspective: '1000px' }}
         >
-          <span className="block">探索干细胞研究的</span>
+          <span className="block">探索再生医学研究的</span>
           <span className="block mt-2 bg-gradient-to-r from-[#4ECDC4] via-white to-[#A8DADC] bg-clip-text text-transparent">
             前沿数据
           </span>
