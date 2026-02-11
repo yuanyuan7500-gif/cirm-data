@@ -1003,8 +1003,8 @@
   "activeGrants": [
     {
       "grantNumber": "DISC0-18130",
-      "programType": "",
-      "grantType": "",
+      "programType": "Discovery",
+      "grantType": "DISC 0",
       "grantTitle": "Unlocking the regenerative potential of hepatocyte plasticity for diseases of the biliary system",
       "diseaseFocus": "Liver Disease, Liver Fibrosis, Metabolic Disorders",
       "principalInvestigator": "Holger F Willenbring — University of California, San Francisco",
@@ -1014,8 +1014,8 @@
     },
     {
       "grantNumber": "DISC0-18038",
-      "programType": "",
-      "grantType": "",
+      "programType": "Discovery",
+      "grantType": "DISC 0",
       "grantTitle": "Base Editing, Single-Cell Multiomics, and Cardiac Organoids to Decode Genetic Variants",
       "diseaseFocus": null,
       "principalInvestigator": "Joseph C. Wu — Stanford University",
@@ -1025,8 +1025,8 @@
     },
     {
       "grantNumber": "DISC0-17998",
-      "programType": "",
-      "grantType": "",
+      "programType": "Discovery",
+      "grantType": "DISC 0",
       "grantTitle": "Global profiling of miRNA-based gene activation to enable a new category of genetic medicine",
       "diseaseFocus": null,
       "principalInvestigator": "Chi Zhang — Iris Medicine, Inc.",
@@ -1036,8 +1036,8 @@
     },
     {
       "grantNumber": "DISC0-17976",
-      "programType": "",
-      "grantType": "",
+      "programType": "Discovery",
+      "grantType": "DISC 0",
       "grantTitle": "Enhancing clinical predictability with novel models of iPSC-derived nociceptor for chronic pain",
       "diseaseFocus": null,
       "principalInvestigator": "Fernando Aleman — Navega Therapeutics",
@@ -1047,8 +1047,8 @@
     },
     {
       "grantNumber": "DISC0-17946",
-      "programType": "",
-      "grantType": "",
+      "programType": "Discovery",
+      "grantType": "DISC 0",
       "grantTitle": "High-Throughput Discovery of Embryo Formation Factors Using Stem Cell-Based Human Embryo Models",
       "diseaseFocus": null,
       "principalInvestigator": "Magdalena Zernicka-Goetz — California Institute of Technology",
