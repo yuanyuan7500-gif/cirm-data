@@ -71,13 +71,27 @@ export function ChartsSection({ data }: ChartsSectionProps) {
   }, []);
 
   // Prepare pie chart data
-  const pieData = Object.entries(data.programStats).map(([name, stat]) => ({
-    name,
-    value: stat.projects,
-    amount: stat.amount,
-  }));
+ // 原始数据转换
+const rawPieData = Object.entries(data.programStats).map(([name, stat]) => ({
+  name,
+  value: stat.projects,
+  amount: stat.amount,
+}));
 
-  // Prepare yearly trend data
+// 合并 Preclinical 相关类型
+const preclinicalTypes = ['Preclinical', 'Preclinical/Translational', 'Translational'];
+const preclinicalData = rawPieData.filter(item => preclinicalTypes.includes(item.name));
+const otherData = rawPieData.filter(item => !preclinicalTypes.includes(item.name));
+
+// 计算合并后的值
+const mergedPreclinical = {
+  name: 'Preclinical/Translational',
+  value: preclinicalData.reduce((sum, item) => sum + item.value, 0),
+  amount: preclinicalData.reduce((sum, item) => sum + item.amount, 0),
+};
+
+// 最终的 pieData
+const pieData = [mergedPreclinical, ...otherData];  // Prepare yearly trend data
   const yearlyData = Object.entries(data.yearlyStats)
     .filter(([year]) => parseInt(year) >= 2007 && parseInt(year) <= 2025)
     .sort(([a], [b]) => parseInt(a) - parseInt(b))
