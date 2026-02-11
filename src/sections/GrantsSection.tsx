@@ -253,9 +253,13 @@ export function GrantsSection({ data }: GrantsSectionProps) {
   项目列表（类型：{grant.programType}，总项目数：{data.activeGrants?.length || 0}）
 </h4>
 {data.activeGrants && data.activeGrants.length > 0 ? (
-  data.activeGrants
-    .slice(0, 3)
-    .map((subGrant) => (
+  {data.activeGrants
+  .filter((g) => {
+    const grantTypePrefix = grant.grantType.split('(')[0].trim();
+    return g.programType === grant.programType && 
+           g.grantType === grantTypePrefix;
+  })
+  .map((subGrant) => (
       <div key={subGrant.grantNumber} className="text-sm text-gray-600 py-2 border-b border-gray-200 last:border-0">
         <div className="font-medium">{subGrant.grantTitle}</div>
         <div className="text-xs text-gray-500">
