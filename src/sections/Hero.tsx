@@ -54,7 +54,7 @@ export function Hero({ onExplore }: HeroProps) {
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
           <Microscope className="w-4 h-4 text-[#4ECDC4]" />
           <span className="text-sm text-white/90 font-medium">
-            加州再生医学研究所数据门户
+            加州再生医学研究所相关项目数据汇总
           </span>
         </div>
 
