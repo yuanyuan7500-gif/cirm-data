@@ -252,11 +252,11 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                             <h4 className="font-medium text-gray-700 mb-2">项目列表：</h4>
                             {data.activeGrants
                               .filter((g) => {
-  const grantTypePrefix = grant.grantType.split('(')[0].trim();
-  return g.programType === grant.programType && 
-         g.grantType === grantTypePrefix;
-})
-                                .map((subGrant) => (
+                                const grantTypePrefix = grant.grantType.split('(')[0].trim();
+                                return g.programType === grant.programType && 
+                                       g.grantType === grantTypePrefix;
+                              })
+                              .map((subGrant) => (
                                 <div key={subGrant.grantNumber} className="text-sm text-gray-600 py-2 border-b border-gray-200 last:border-0">
                                   <div className="font-medium">{subGrant.grantTitle}</div>
                                   <div className="text-xs text-gray-500">
