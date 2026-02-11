@@ -255,10 +255,9 @@ export function GrantsSection({ data }: GrantsSectionProps) {
 {data.activeGrants && data.activeGrants.length > 0 ? (
   data.activeGrants
   .filter((g) => {
-  const rowGrantPrefix = grant.grantType.split('(')[0].trim();
-  const itemGrantPrefix = g.grantType.split('(')[0].trim();
+  const rowPrefix = grant.grantType.split('(')[0].trim();
   return g.programType === grant.programType &&
-         itemGrantPrefix === rowGrantPrefix;
+         g.grantType === rowPrefix;
 })
   .map((subGrant) => (
       <div key={subGrant.grantNumber} className="text-sm text-gray-600 py-2 border-b border-gray-200 last:border-0">
