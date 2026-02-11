@@ -254,7 +254,6 @@ export function GrantsSection({ data }: GrantsSectionProps) {
 </h4>
 {data.activeGrants && data.activeGrants.length > 0 ? (
   data.activeGrants
-    .filter((g) => g.programType === grant.programType)
     .slice(0, 3)
     .map((subGrant) => (
       <div key={subGrant.grantNumber} className="text-sm text-gray-600 py-2 border-b border-gray-200 last:border-0">
