@@ -253,7 +253,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
   项目列表（类型：{grant.programType}，总项目数：{data.activeGrants?.length || 0}）
 </h4>
 {data.activeGrants && data.activeGrants.length > 0 ? (
-  {data.activeGrants
+  data.activeGrants
   .filter((g) => {
   return g.programType === grant.programType &&
          g.grantType === grant.grantType.split('(')[0].trim();
