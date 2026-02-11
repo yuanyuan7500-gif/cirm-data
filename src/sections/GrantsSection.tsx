@@ -246,34 +246,40 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                       </TableCell>
                     </TableRow>
                     {expandedRows.has(grant.id) && (
-                      <TableRow className="bg-gray-50/50">
-                        <TableCell colSpan={7} className="py-4">
-                          <div className="pl-8">
-                            <h4 className="font-medium text-gray-700 mb-2">
-  项目列表（类型：{grant.programType}，总项目数：{data.activeGrants?.length || 0}）
-</h4>
-{data.activeGrants && data.activeGrants.length > 0 ? (
-  data.activeGrants
-  .filter((g) => {
-  const rowPrefix = grant.grantType.split('(')[0].trim();
-  return g.programType === grant.programType &&
-         g.grantType === rowPrefix;
-})
-  .map((subGrant) => (
-      <div key={subGrant.grantNumber} className="text-sm text-gray-600 py-2 border-b border-gray-200 last:border-0">
-        <div className="font-medium">{subGrant.grantTitle}</div>
-        <div className="text-xs text-gray-500">
-          {subGrant.grantNumber} | {subGrant.principalInvestigator} | ${subGrant.awardValue?.toLocaleString()}
-        </div>
+  <TableRow className="bg-gray-50/50">
+    <TableCell colSpan={7} className="py-4">
+      <div className="pl-8">
+        {(() => {
+          const filteredProjects = data.activeGrants?.filter((g) => {
+            const rowPrefix = grant.grantType.split('(')[0].trim();
+            return g.programType === grant.programType &&
+                   g.grantType === rowPrefix;
+          }) || [];
+          
+          return (
+            <>
+              <h4 className="font-medium text-gray-700 mb-2">
+                项目列表（类型：{grant.programType}，总项目数：{filteredProjects.length}）
+              </h4>
+              {filteredProjects.length > 0 ? (
+                filteredProjects.map((subGrant) => (
+                  <div key={subGrant.grantNumber} className="text-sm text-gray-600 py-2 border-b border-gray-200 last:border-0">
+                    <div className="font-medium">{subGrant.grantTitle}</div>
+                    <div className="text-xs text-gray-500">
+                      {subGrant.grantNumber} | {subGrant.principalInvestigator} | ${subGrant.awardValue?.toLocaleString()}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="text-sm text-gray-500">暂无数据</div>
+              )}
+            </>
+          );
+        })()}
       </div>
-    ))
-) : (
-  <div className="text-sm text-gray-500">暂无数据</div>
-)}
-                          </div>
-                        </TableCell>
-                      </TableRow>
-                    )} 
+    </TableCell>
+  </TableRow>
+)} 
                   </>
                 ))}
               </TableBody>
