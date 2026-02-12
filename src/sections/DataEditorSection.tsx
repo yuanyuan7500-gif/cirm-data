@@ -146,6 +146,9 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
             icocApproval: row[7] ? String(row[7]) : null,
             awardStatus: String(row[8] || 'Active'),
             sortOrder: row[9] !== undefined ? Number(row[9]) : undefined,
+            isNew: row[10] !== undefined ? String(row[10]).toUpperCase() === 'TRUE' : false,
+            showValueChange: row[11] !== undefined ? String(row[11]).toUpperCase() === 'TRUE' : true,
+            showStatusChange: row[12] !== undefined ? String(row[12]).toUpperCase() === 'TRUE' : true,
           })).filter(ag => ag.grantNumber);
           parsedData.activeGrants = [...(parsedData.activeGrants || []), ...activeGrants];
         } else if (type === 'papers') {
@@ -216,6 +219,9 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
           icocApproval: row[7] ? String(row[7]) : null,
           awardStatus: String(row[8] || 'Active'),
           sortOrder: row[9] !== undefined ? Number(row[9]) : undefined,
+          isNew: row[10] !== undefined ? String(row[10]).toUpperCase() === 'TRUE' : false,
+          showValueChange: row[11] !== undefined ? String(row[11]).toUpperCase() === 'TRUE' : true,
+          showStatusChange: row[12] !== undefined ? String(row[12]).toUpperCase() === 'TRUE' : true,
         })).filter(ag => ag.grantNumber);
         setEditedData({ ...editedData, activeGrants });
       } else if (sheet.type === 'papers') {
@@ -275,6 +281,9 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
           icocApproval: row[7] ? String(row[7]) : null,
           awardStatus: String(row[8] || 'Active'),
           sortOrder: row[9] !== undefined ? Number(row[9]) : undefined,
+          isNew: row[10] !== undefined ? String(row[10]).toUpperCase() === 'TRUE' : false,
+          showValueChange: row[11] !== undefined ? String(row[11]).toUpperCase() === 'TRUE' : true,
+          showStatusChange: row[12] !== undefined ? String(row[12]).toUpperCase() === 'TRUE' : true,
         })).filter(ag => ag.grantNumber);
         setEditedData({ ...editedData, activeGrants });
       } else if (sheet.type === 'papers') {
@@ -360,7 +369,7 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
     XLSX.utils.book_append_sheet(wb, grantsWs, 'Grants');
 
     // Active Grants sheet (进行中项目)
-    const activeGrantsHeaders = ['Grant Number', 'Program Type', 'Grant Type', 'Grant Title', 'Disease Focus', 'Principal Investigator', 'Award Value', 'ICOC Approval', 'Award Status', 'Sort Order'];
+    const activeGrantsHeaders = ['Grant Number', 'Program Type', 'Grant Type', 'Grant Title', 'Disease Focus', 'Principal Investigator', 'Award Value', 'ICOC Approval', 'Award Status', 'Sort Order', 'Is New (TRUE/FALSE)', 'Show Value Change (TRUE/FALSE)', 'Show Status Change (TRUE/FALSE)'];
     const activeGrantsData = data.activeGrants
       .sort((a, b) => (a.sortOrder ?? Number.MAX_SAFE_INTEGER) - (b.sortOrder ?? Number.MAX_SAFE_INTEGER))
       .map(ag => [
@@ -373,7 +382,10 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
         ag.awardValue,
         ag.icocApproval || '',
         ag.awardStatus,
-        ag.sortOrder ?? ''
+        ag.sortOrder ?? '',
+        ag.isNew ? 'TRUE' : '',
+        ag.showValueChange !== false ? 'TRUE' : 'FALSE',
+        ag.showStatusChange !== false ? 'TRUE' : 'FALSE'
       ]);
     const activeGrantsWs = XLSX.utils.aoa_to_sheet([activeGrantsHeaders, ...activeGrantsData]);
     XLSX.utils.book_append_sheet(wb, activeGrantsWs, 'ActiveGrants');

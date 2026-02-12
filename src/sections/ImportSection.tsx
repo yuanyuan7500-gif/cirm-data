@@ -97,9 +97,16 @@ export function ImportSection({ onImport, onExport, changes }: ImportSectionProp
 
   // 下载进行中项目导入模板
   const downloadActiveGrantsTemplate = () => {
-    const template = `grantNumber,programType,grantType,grantTitle,diseaseFocus,principalInvestigator,awardValue,icocApproval,awardStatus,sortOrder
-DISC1-12345,Discovery,DISC 1,示例项目标题,示例疾病领域,负责人姓名 — 机构名称,1500000,2024-01-15,Active,1
-DISC1-12346,Discovery,DISC 1,示例项目标题2,示例疾病领域,负责人姓名2 — 机构名称2,2000000,2024-02-20,Active,2`;
+    const template = `grantNumber,programType,grantType,grantTitle,diseaseFocus,principalInvestigator,awardValue,icocApproval,awardStatus,sortOrder,isNew,showValueChange,showStatusChange
+DISC1-12345,Discovery,DISC 1,示例项目标题,示例疾病领域,负责人姓名 — 机构名称,1500000,2024-01-15,Active,1,TRUE,TRUE,FALSE
+DISC1-12346,Discovery,DISC 1,示例项目标题2,示例疾病领域,负责人姓名2 — 机构名称2,2000000,2024-02-20,Closed,2,FALSE,FALSE,TRUE
+,,,,,,,,,,,,,
+说明：,
+isNew,设置为 TRUE 会在项目左侧显示红色的 New 标签
+showValueChange,设置为 TRUE 时，金额变更会显示变更标识（默认 TRUE）
+showStatusChange,设置为 TRUE 时，状态从 Active 变为 Closed 会显示终止标识（默认 TRUE）
+awardValue,修改金额并设置 showValueChange=TRUE 时显示变更标识
+awardStatus,从 Active 改为 Closed 并设置 showStatusChange=TRUE 时显示终止标识`;
     
     const blob = new Blob([template], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
@@ -119,9 +126,16 @@ DISC1-12346,Discovery,DISC 1,示例项目标题2,示例疾病领域,负责人姓
       
       // 进行中项目模板
       const activeGrantsData = [
-        ['grantNumber', 'programType', 'grantType', 'grantTitle', 'diseaseFocus', 'principalInvestigator', 'awardValue', 'icocApproval', 'awardStatus', 'sortOrder'],
-        ['DISC1-12345', 'Discovery', 'DISC 1 (Inception – Discovery Stage Research Projects)', '示例项目标题', '示例疾病领域', '负责人姓名 — 机构名称', 1500000, '2024-01-15', 'Active', 1],
-        ['DISC1-12346', 'Discovery', 'DISC 1 (Inception – Discovery Stage Research Projects)', '示例项目标题2', '', '负责人姓名2 — 机构名称2', 2000000, '2024-02-20', 'Closed', 2],
+        ['grantNumber', 'programType', 'grantType', 'grantTitle', 'diseaseFocus', 'principalInvestigator', 'awardValue', 'icocApproval', 'awardStatus', 'sortOrder', 'isNew', 'showValueChange', 'showStatusChange'],
+        ['DISC1-12345', 'Discovery', 'DISC 1 (Inception – Discovery Stage Research Projects)', '示例项目标题', '示例疾病领域', '负责人姓名 — 机构名称', 1500000, '2024-01-15', 'Active', 1, 'TRUE', 'TRUE', 'FALSE'],
+        ['DISC1-12346', 'Discovery', 'DISC 1 (Inception – Discovery Stage Research Projects)', '示例项目标题2', '', '负责人姓名2 — 机构名称2', 2000000, '2024-02-20', 'Closed', 2, 'FALSE', 'FALSE', 'TRUE'],
+        ['', '', '', '', '', '', '', '', '', '', '', '', ''],
+        ['说明：', '', '', '', '', '', '', '', '', '', '', '', ''],
+        ['isNew', '设置为 TRUE 会在项目左侧显示红色的 New 标签', '', '', '', '', '', '', '', '', '', '', ''],
+        ['showValueChange', '设置为 TRUE 时，金额变更会显示变更标识（默认 TRUE）', '', '', '', '', '', '', '', '', '', '', ''],
+        ['showStatusChange', '设置为 TRUE 时，状态从 Active 变为 Closed 会显示终止标识（默认 TRUE）', '', '', '', '', '', '', '', '', '', '', ''],
+        ['awardValue', '修改金额并设置 showValueChange=TRUE 时显示变更标识', '', '', '', '', '', '', '', '', '', '', ''],
+        ['awardStatus', '从 Active 改为 Closed 并设置 showStatusChange=TRUE 时显示终止标识', '', '', '', '', '', '', '', '', '', '', ''],
       ];
       const ws1 = XLSX.utils.aoa_to_sheet(activeGrantsData);
       XLSX.utils.book_append_sheet(wb, ws1, '进行中项目');

@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Search, Filter, ChevronDown, ChevronUp} from 'lucide-react';
+import { Search, Filter, ChevronDown, ChevronUp, Sparkles, TrendingDown } from 'lucide-react';
 import type { CIRMData } from '@/types';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -94,6 +94,18 @@ export function GrantsSection({ data }: GrantsSectionProps) {
       return `$${(value / 1000).toFixed(0)}K`;
     }
     return `$${value}`;
+  };
+
+  // 计算资助类型下 isNew 项目的数量
+  const getNewProjectsCount = (grantType: string): number => {
+    const grantTypePrefix = grantType
+      .replace(/\s+/g, '')
+      .split('(')[0]
+      .toUpperCase();
+    
+    return data.activeGrants.filter(
+      (ag) => ag.grantNumber.toUpperCase().startsWith(grantTypePrefix + '-') && ag.isNew
+    ).length;
   };
 
   const formatDate = (dateStr: string) => {
@@ -214,9 +226,20 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                               New
                             </Badge>
                           )}
+                          {/* 资助类型文字放前面，保持左对齐 */}
                           <span className="text-sm text-gray-700">
                             {grant.grantType}
                           </span>
+                          {/* New 数量标签放后面，不影响左对齐 */}
+                          {(() => {
+                            const newCount = getNewProjectsCount(grant.grantType);
+                            return newCount > 0 ? (
+                              <Badge className="bg-[#FF6B6B] text-white text-xs flex items-center gap-1 flex-shrink-0">
+                                <span>New</span>
+                                <span className="bg-white/20 px-1 rounded">{newCount}</span>
+                              </Badge>
+                            ) : null;
+                          })()}
                         </div>
                       </TableCell>
                       <TableCell className="text-sm text-gray-600">
@@ -282,6 +305,12 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                           <div className="flex items-start justify-between gap-4">
                                             <div className="flex-1 min-w-0">
                                               <div className="flex items-center gap-2 mb-1">
+                                                {/* New 标签 */}
+                                                {project.isNew && (
+                                                  <Badge className="bg-[#FF6B6B] text-white text-xs hover:bg-[#FF6B6B]">
+                                                    New
+                                                  </Badge>
+                                                )}
                                                 <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded">
                                                   {project.grantNumber}
                                                 </span>
@@ -289,7 +318,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                   {project.grantTitle}
                                                 </span>
                                               </div>
-                                              <div className="text-xs text-gray-500 flex flex-wrap gap-x-4 gap-y-1">
+                                              <div className="text-xs text-gray-500 flex flex-wrap gap-x-4 gap-y-1 items-center">
                                                 <span>
                                                   <span className="text-gray-400">负责人：</span>
                                                   {project.principalInvestigator}
@@ -300,13 +329,20 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                     {project.diseaseFocus}
                                                   </span>
                                                 )}
-                                                <span>
+                                                <span className="flex items-center gap-1">
                                                   <span className="text-gray-400">金额：</span>
                                                   <span className="text-[#008080] font-medium">
                                                     {formatCurrency(project.awardValue)}
                                                   </span>
+                                                  {/* 金额变更标识 - 根据 showValueChange 控制显示 */}
+                                                  {project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null && (
+                                                    <span className="inline-flex items-center gap-1 text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded text-xs ml-1" title={`原金额: ${formatCurrency(project.previousAwardValue)}`}>
+                                                      <Sparkles className="w-3 h-3" />
+                                                      变更
+                                                    </span>
+                                                  )}
                                                 </span>
-                                                <span>
+                                                <span className="flex items-center gap-1">
                                                   <span className="text-gray-400">状态：</span>
                                                   <Badge
                                                     variant="outline"
@@ -318,6 +354,13 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                   >
                                                     {project.awardStatus === 'Closed' ? '已结束' : '进行中'}
                                                   </Badge>
+                                                  {/* 状态变更标识：进行中 -> 已结束 - 根据 showStatusChange 控制显示 */}
+                                                  {project.showStatusChange !== false && project.previousAwardStatus && project.previousAwardStatus !== 'Closed' && project.awardStatus === 'Closed' && (
+                                                    <span className="inline-flex items-center gap-1 text-red-600 bg-red-50 px-1.5 py-0.5 rounded text-xs ml-1" title={`原状态: ${project.previousAwardStatus}`}>
+                                                      <TrendingDown className="w-3 h-3" />
+                                                      已终止
+                                                    </span>
+                                                  )}
                                                 </span>
                                               </div>
                                             </div>
@@ -384,4 +427,3 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
-
