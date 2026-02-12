@@ -22,6 +22,7 @@ export interface ActiveGrant {
   awardValue: number;
   icocApproval?: string | null;
   awardStatus: string;
+  sortOrder?: number; // 用于控制显示顺序，数字越小越靠前
 }
 
 export interface Paper {
