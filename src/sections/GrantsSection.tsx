@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Search, Filter, ChevronDown, ChevronUp } from 'lucide-react';
+import { Search, Filter, ChevronDown, ChevronUp, ArrowUpDown, GripVertical } from 'lucide-react';
 import type { CIRMData } from '@/types';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -259,9 +259,14 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                 .split('(')[0] // 取括号前的部分
                                 .toUpperCase();
                               
-                              const projects = data.activeGrants.filter(
-                                (ag) => ag.grantNumber.toUpperCase().startsWith(grantTypePrefix + '-')
-                              );
+                              // 获取项目并按 sortOrder 排序（未设置的排在最后）
+                              const projects = data.activeGrants
+                                .filter((ag) => ag.grantNumber.toUpperCase().startsWith(grantTypePrefix + '-'))
+                                .sort((a, b) => {
+                                  const orderA = a.sortOrder ?? Number.MAX_SAFE_INTEGER;
+                                  const orderB = b.sortOrder ?? Number.MAX_SAFE_INTEGER;
+                                  return orderA - orderB;
+                                });
                               return (
                                 <div>
                                   <div className="text-sm font-medium text-gray-700 mb-3">

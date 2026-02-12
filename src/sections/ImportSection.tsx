@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
-import { Upload, FileSpreadsheet, Check, AlertCircle, Download, History } from 'lucide-react';
+import { Upload, FileSpreadsheet, Check, AlertCircle, Download, History, FilePlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -95,6 +95,49 @@ export function ImportSection({ onImport, onExport, changes }: ImportSectionProp
     }
   };
 
+  // 下载进行中项目导入模板
+  const downloadActiveGrantsTemplate = () => {
+    const template = `grantNumber,programType,grantType,grantTitle,diseaseFocus,principalInvestigator,awardValue,icocApproval,awardStatus,sortOrder
+DISC1-12345,Discovery,DISC 1,示例项目标题,示例疾病领域,负责人姓名 — 机构名称,1500000,2024-01-15,Active,1
+DISC1-12346,Discovery,DISC 1,示例项目标题2,示例疾病领域,负责人姓名2 — 机构名称2,2000000,2024-02-20,Active,2`;
+    
+    const blob = new Blob([template], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'active-grants-template.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  // 下载Excel模板（包含多个sheet）
+  const downloadExcelTemplate = () => {
+    import('xlsx').then(XLSX => {
+      const wb = XLSX.utils.book_new();
+      
+      // 进行中项目模板
+      const activeGrantsData = [
+        ['grantNumber', 'programType', 'grantType', 'grantTitle', 'diseaseFocus', 'principalInvestigator', 'awardValue', 'icocApproval', 'awardStatus', 'sortOrder'],
+        ['DISC1-12345', 'Discovery', 'DISC 1 (Inception – Discovery Stage Research Projects)', '示例项目标题', '示例疾病领域', '负责人姓名 — 机构名称', 1500000, '2024-01-15', 'Active', 1],
+        ['DISC1-12346', 'Discovery', 'DISC 1 (Inception – Discovery Stage Research Projects)', '示例项目标题2', '', '负责人姓名2 — 机构名称2', 2000000, '2024-02-20', 'Closed', 2],
+      ];
+      const ws1 = XLSX.utils.aoa_to_sheet(activeGrantsData);
+      XLSX.utils.book_append_sheet(wb, ws1, '进行中项目');
+      
+      // 资助类型模板
+      const grantsData = [
+        ['programType', 'grantType', 'icocApproval', 'totalAwards', 'awardValue', 'awardStatus', 'notes'],
+        ['Discovery', 'DISC 1 (Inception – Discovery Stage Research Projects)', '2017-11-30', 39, 8364091.97, 'Active', '备注说明'],
+      ];
+      const ws2 = XLSX.utils.aoa_to_sheet(grantsData);
+      XLSX.utils.book_append_sheet(wb, ws2, '资助类型');
+      
+      XLSX.writeFile(wb, 'cirm-import-template.xlsx');
+    });
+  };
+
   const formatDate = (dateStr: string) => {
     try {
       const date = new Date(dateStr);
@@ -174,6 +217,36 @@ export function ImportSection({ onImport, onExport, changes }: ImportSectionProp
                 <p className="text-sm text-gray-500">
                   支持 JSON、Excel (.xlsx) 和 CSV 格式
                 </p>
+              </div>
+
+              {/* 模板下载 */}
+              <div className="mt-6 bg-gray-50 rounded-xl p-4">
+                <p className="text-sm font-medium text-gray-700 mb-3">下载导入模板：</p>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={downloadExcelTemplate}
+                    className="text-[#008080] border-[#008080] hover:bg-[#008080]/5"
+                  >
+                    <FilePlus className="w-4 h-4 mr-2" />
+                    Excel 模板
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={downloadActiveGrantsTemplate}
+                    className="text-gray-600 border-gray-300 hover:bg-gray-50"
+                  >
+                    <FileSpreadsheet className="w-4 h-4 mr-2" />
+                    CSV 模板（进行中项目）
+                  </Button>
+                </div>
+                <div className="mt-3 text-xs text-gray-500 space-y-1">
+                  <p>• <strong>进行中项目</strong>：填写 grantNumber, grantTitle 等字段，sortOrder 控制显示顺序</p>
+                  <p>• <strong>资助类型</strong>：填写 programType, grantType 等汇总信息</p>
+                  <p>• 导入后会自动合并到现有数据，grantNumber 相同的项目会被更新</p>
+                </div>
               </div>
 
               {uploadStatus !== 'idle' && (

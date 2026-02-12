@@ -16,7 +16,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import * as XLSX from 'xlsx';
-import type { CIRMData, Grant, Paper } from '@/types';
+import type { CIRMData, Grant, Paper, ActiveGrant } from '@/types';
 
 interface DataEditorSectionProps {
   data: CIRMData | null;
@@ -27,7 +27,7 @@ interface PreviewData {
   sheetName: string;
   headers: string[];
   rows: any[][];
-  type: 'grants' | 'papers' | 'unknown';
+  type: 'grants' | 'papers' | 'activeGrants' | 'unknown';
 }
 
 export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps) {
@@ -68,9 +68,12 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
     }
   }, []);
 
-  const detectSheetType = (sheetName: string): 'grants' | 'papers' | 'unknown' => {
+  const detectSheetType = (sheetName: string): 'grants' | 'papers' | 'activeGrants' | 'unknown' => {
     const lowerName = sheetName.toLowerCase();
-    if (lowerName.includes('grant') || lowerName.includes('资助') || lowerName.includes('项目')) {
+    if (lowerName.includes('active') || lowerName.includes('进行中') || lowerName.includes('具体项目')) {
+      return 'activeGrants';
+    }
+    if (lowerName.includes('grant') && !lowerName.includes('active')) {
       return 'grants';
     }
     if (lowerName.includes('paper') || lowerName.includes('文献') || lowerName.includes('论文') || lowerName.includes('publication')) {
@@ -131,6 +134,20 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
             isNew: false,
           })).filter(g => g.grantType);
           parsedData.grants = [...(parsedData.grants || []), ...grants];
+        } else if (type === 'activeGrants') {
+          const activeGrants: ActiveGrant[] = rows.map((row) => ({
+            grantNumber: String(row[0] || ''),
+            programType: String(row[1] || ''),
+            grantType: String(row[2] || ''),
+            grantTitle: String(row[3] || ''),
+            diseaseFocus: row[4] ? String(row[4]) : null,
+            principalInvestigator: String(row[5] || ''),
+            awardValue: Number(row[6]) || 0,
+            icocApproval: row[7] ? String(row[7]) : null,
+            awardStatus: String(row[8] || 'Active'),
+            sortOrder: row[9] !== undefined ? Number(row[9]) : undefined,
+          })).filter(ag => ag.grantNumber);
+          parsedData.activeGrants = [...(parsedData.activeGrants || []), ...activeGrants];
         } else if (type === 'papers') {
           const papers: Paper[] = rows.map((row) => {
             const grantNumber = String(row[5] || '');
@@ -187,6 +204,20 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
           isNew: false,
         })).filter(g => g.grantType);
         setEditedData({ ...editedData, grants });
+      } else if (sheet.type === 'activeGrants') {
+        const activeGrants: ActiveGrant[] = sheet.rows.map((row) => ({
+          grantNumber: String(row[0] || ''),
+          programType: String(row[1] || ''),
+          grantType: String(row[2] || ''),
+          grantTitle: String(row[3] || ''),
+          diseaseFocus: row[4] ? String(row[4]) : null,
+          principalInvestigator: String(row[5] || ''),
+          awardValue: Number(row[6]) || 0,
+          icocApproval: row[7] ? String(row[7]) : null,
+          awardStatus: String(row[8] || 'Active'),
+          sortOrder: row[9] !== undefined ? Number(row[9]) : undefined,
+        })).filter(ag => ag.grantNumber);
+        setEditedData({ ...editedData, activeGrants });
       } else if (sheet.type === 'papers') {
         const papers: Paper[] = sheet.rows.map((row) => {
           const grantNumber = String(row[5] || '');
@@ -232,6 +263,20 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
           isNew: false,
         })).filter(g => g.grantType);
         setEditedData({ ...editedData, grants });
+      } else if (sheet.type === 'activeGrants') {
+        const activeGrants: ActiveGrant[] = sheet.rows.map((row) => ({
+          grantNumber: String(row[0] || ''),
+          programType: String(row[1] || ''),
+          grantType: String(row[2] || ''),
+          grantTitle: String(row[3] || ''),
+          diseaseFocus: row[4] ? String(row[4]) : null,
+          principalInvestigator: String(row[5] || ''),
+          awardValue: Number(row[6]) || 0,
+          icocApproval: row[7] ? String(row[7]) : null,
+          awardStatus: String(row[8] || 'Active'),
+          sortOrder: row[9] !== undefined ? Number(row[9]) : undefined,
+        })).filter(ag => ag.grantNumber);
+        setEditedData({ ...editedData, activeGrants });
       } else if (sheet.type === 'papers') {
         const papers: Paper[] = sheet.rows.map((row) => {
           const grantNumber = String(row[5] || '');
@@ -258,12 +303,22 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
   const handleApplyChanges = () => {
     if (!editedData || !data) return;
 
+    // Merge activeGrants: 新数据覆盖旧数据，保留未修改的项目
+    let mergedActiveGrants = data.activeGrants;
+    if (editedData.activeGrants && editedData.activeGrants.length > 0) {
+      const existingMap = new Map(data.activeGrants.map(ag => [ag.grantNumber, ag]));
+      editedData.activeGrants.forEach(ag => {
+        existingMap.set(ag.grantNumber, ag);
+      });
+      mergedActiveGrants = Array.from(existingMap.values());
+    }
+
     // Replace current data with edited data
     const newData: CIRMData = {
       ...data,
       grants: editedData.grants || data.grants,
       papers: editedData.papers || data.papers,
-      activeGrants: editedData.activeGrants || data.activeGrants,
+      activeGrants: mergedActiveGrants,
       summary: {
         ...data.summary,
         totalGrants: (editedData.grants || data.grants).length,
@@ -303,6 +358,25 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
     ]);
     const grantsWs = XLSX.utils.aoa_to_sheet([grantsHeaders, ...grantsData]);
     XLSX.utils.book_append_sheet(wb, grantsWs, 'Grants');
+
+    // Active Grants sheet (进行中项目)
+    const activeGrantsHeaders = ['Grant Number', 'Program Type', 'Grant Type', 'Grant Title', 'Disease Focus', 'Principal Investigator', 'Award Value', 'ICOC Approval', 'Award Status', 'Sort Order'];
+    const activeGrantsData = data.activeGrants
+      .sort((a, b) => (a.sortOrder ?? Number.MAX_SAFE_INTEGER) - (b.sortOrder ?? Number.MAX_SAFE_INTEGER))
+      .map(ag => [
+        ag.grantNumber,
+        ag.programType,
+        ag.grantType,
+        ag.grantTitle,
+        ag.diseaseFocus || '',
+        ag.principalInvestigator,
+        ag.awardValue,
+        ag.icocApproval || '',
+        ag.awardStatus,
+        ag.sortOrder ?? ''
+      ]);
+    const activeGrantsWs = XLSX.utils.aoa_to_sheet([activeGrantsHeaders, ...activeGrantsData]);
+    XLSX.utils.book_append_sheet(wb, activeGrantsWs, 'ActiveGrants');
 
     // Papers sheet
     const papersHeaders = ['Title', 'Research Topic', 'Authors', 'Publication', 'Published Online', 'Grant Number', 'Grant Type', 'Program Type', 'Grant Title', 'Award Status'];
@@ -449,8 +523,9 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
                       下载当前数据的 Excel 模板，在本地编辑后重新上传。
                     </p>
                     <div className="space-y-2 text-sm text-gray-500">
-                      <p>• 工作表名称包含 "Grants" 或 "资助" 将被识别为资助项目</p>
-                      <p>• 工作表名称包含 "Papers" 或 "文献" 将被识别为研究论文</p>
+                      <p>• 工作表 "Grants"：资助类型汇总数据</p>
+                      <p>• 工作表 "ActiveGrants"：具体项目数据（支持 sortOrder 排序）</p>
+                      <p>• 工作表 "Papers"：研究论文数据</p>
                       <p>• 修改后保存并上传即可同步更新</p>
                     </div>
                   </div>
@@ -476,10 +551,14 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
                     <Table2 className="w-5 h-5 text-[#008080]" />
                     当前数据概览
                   </h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
                     <div className="text-center p-4 bg-gray-50 rounded-xl">
                       <p className="text-2xl font-bold text-[#008080]">{data.summary.totalGrants}</p>
-                      <p className="text-sm text-gray-500">资助项目</p>
+                      <p className="text-sm text-gray-500">资助类型</p>
+                    </div>
+                    <div className="text-center p-4 bg-gray-50 rounded-xl">
+                      <p className="text-2xl font-bold text-[#008080]">{data.activeGrants.length}</p>
+                      <p className="text-sm text-gray-500">具体项目</p>
                     </div>
                     <div className="text-center p-4 bg-gray-50 rounded-xl">
                       <p className="text-2xl font-bold text-[#008080]">{data.summary.totalPapers}</p>
@@ -534,12 +613,14 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
                             className={
                               sheet.type === 'grants'
                                 ? 'bg-blue-100 text-blue-700'
+                                : sheet.type === 'activeGrants'
+                                ? 'bg-purple-100 text-purple-700'
                                 : sheet.type === 'papers'
                                 ? 'bg-green-100 text-green-700'
                                 : 'bg-gray-100 text-gray-700'
                             }
                           >
-                            {sheet.type === 'grants' ? '资助项目' : sheet.type === 'papers' ? '研究论文' : '未知类型'}
+                            {sheet.type === 'grants' ? '资助类型' : sheet.type === 'activeGrants' ? '进行中项目' : sheet.type === 'papers' ? '研究论文' : '未知类型'}
                           </Badge>
                           <span className="text-sm text-gray-500">{sheet.rows.length} 条记录</span>
                         </div>
@@ -628,8 +709,12 @@ export function DataEditorSection({ data, onUpdateData }: DataEditorSectionProps
             <div className="py-4">
               <div className="bg-gray-50 rounded-lg p-4 space-y-2">
                 <p className="text-sm">
-                  <span className="font-medium">资助项目:</span>{' '}
+                  <span className="font-medium">资助类型:</span>{' '}
                   {editedData?.grants?.length || 0} 条
+                </p>
+                <p className="text-sm">
+                  <span className="font-medium">具体项目:</span>{' '}
+                  {editedData?.activeGrants?.length || 0} 条
                 </p>
                 <p className="text-sm">
                   <span className="font-medium">研究论文:</span>{' '}
