@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import * as XLSX from 'xlsx';
-import type { CIRMData, DataChange, Grant, Paper } from '@/types';
+import type { CIRMData, DataChange, Grant, Paper, ActiveGrant } from '@/types';
 
 const STORAGE_KEY = 'cirm-data';
 const CHANGES_KEY = 'cirm-changes';
@@ -400,3 +400,4 @@ export function useCIRMData() {
     recordChange,
   };
 }
+
