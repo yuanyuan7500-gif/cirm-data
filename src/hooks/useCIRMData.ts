@@ -153,6 +153,26 @@ export function useCIRMData() {
           }));
         
         result.grants = [...(result.grants || []), ...grants];
+      } else if (lowerName.includes('active') || lowerName.includes('进行中') || lowerName.includes('项目')) {
+        // Parse active grants (projects) data
+        const rows = jsonData.slice(1);
+        
+        const activeGrants: ActiveGrant[] = rows
+          .filter(row => row[0] !== undefined && row[0] !== null)
+          .map((row) => ({
+            grantNumber: String(row[0] || ''),
+            programType: String(row[1] || ''),
+            grantType: String(row[2] || ''),
+            grantTitle: String(row[3] || ''),
+            diseaseFocus: row[4] ? String(row[4]) : null,
+            principalInvestigator: String(row[5] || ''),
+            awardValue: Number(row[6]) || 0,
+            icocApproval: row[7] ? String(row[7]) : null,
+            awardStatus: String(row[8] || 'Active'),
+            sortOrder: row[9] !== undefined ? Number(row[9]) : undefined,
+          }));
+        
+        result.activeGrants = [...(result.activeGrants || []), ...activeGrants];
       } else if (lowerName.includes('paper') || lowerName.includes('文献') || lowerName.includes('论文')) {
         // Parse papers data
         const rows = jsonData.slice(1);
@@ -239,11 +259,21 @@ export function useCIRMData() {
       
       // Merge with existing data
       if (data) {
+        // 处理 activeGrants：按 grantNumber 去重，新数据覆盖旧数据
+        let mergedActiveGrants = data.activeGrants;
+        if (imported.activeGrants && imported.activeGrants.length > 0) {
+          const existingMap = new Map(data.activeGrants.map(ag => [ag.grantNumber, ag]));
+          imported.activeGrants.forEach(ag => {
+            existingMap.set(ag.grantNumber, ag);
+          });
+          mergedActiveGrants = Array.from(existingMap.values());
+        }
+        
         const mergedData: CIRMData = {
           ...data,
           grants: imported.grants ? [...data.grants, ...imported.grants] : data.grants,
           papers: imported.papers ? [...data.papers, ...imported.papers] : data.papers,
-          activeGrants: imported.activeGrants ? [...data.activeGrants, ...imported.activeGrants] : data.activeGrants,
+          activeGrants: mergedActiveGrants,
           summary: {
             ...data.summary,
             totalGrants: data.summary.totalGrants + (imported.grants?.length || 0),
