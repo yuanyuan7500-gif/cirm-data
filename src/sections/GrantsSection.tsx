@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -247,40 +246,98 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                       </TableCell>
                     </TableRow>
                     {expandedRows.has(grant.id) && (
-  <TableRow className="bg-gray-50/50">
-    <TableCell colSpan={7} className="py-4">
-      <div className="pl-8">
-        {(() => {
-          const filteredProjects = data.activeGrants?.filter((g) => {
-            const rowPrefix = grant.grantType.split('(')[0].trim();
-            return g.programType === grant.programType &&
-                   g.grantType === rowPrefix;
-          }) || [];
-          
-          return (
-            <>
-              <h4 className="font-medium text-gray-700 mb-2">
-                项目列表（类型：{grant.programType}，总项目数：{filteredProjects.length}）
-              </h4>
-              {filteredProjects.length > 0 ? (
-                filteredProjects.map((subGrant) => (
-                  <div key={subGrant.grantNumber} className="text-sm text-gray-600 py-2 border-b border-gray-200 last:border-0">
-                    <div className="font-medium">{subGrant.grantTitle}</div>
-                    <div className="text-xs text-gray-500">
-                      {subGrant.grantNumber} | {subGrant.principalInvestigator} | ${subGrant.awardValue?.toLocaleString()}
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="text-sm text-gray-500">暂无数据</div>
-              )}
-            </>
-          );
-        })()}
-      </div>
-    </TableCell>
-  </TableRow>
-)} 
+                      <TableRow className="bg-gray-50/50">
+                        <TableCell colSpan={7} className="py-4">
+                          <div className="pl-8">
+                            {/* 查找该资助类型下的具体项目 */}
+                            {(() => {
+                              // 从 grantType 提取前缀用于匹配 grantNumber
+                              // 例如 "DISC 0 (Foundation ...)" -> "DISC0-"
+                              // 例如 "TRAN 1 (Therapeutic ...)" -> "TRAN1-"
+                              const grantTypePrefix = grant.grantType
+                                .replace(/\s+/g, '') // 移除空格
+                                .split('(')[0] // 取括号前的部分
+                                .toUpperCase();
+                              
+                              const projects = data.activeGrants.filter(
+                                (ag) => ag.grantNumber.toUpperCase().startsWith(grantTypePrefix + '-')
+                              );
+                              return (
+                                <div>
+                                  <div className="text-sm font-medium text-gray-700 mb-3">
+                                    项目列表（类型：{grant.programType}，总项目数：{projects.length}）
+                                  </div>
+                                  {projects.length > 0 ? (
+                                    <div className="space-y-2">
+                                      {projects.map((project) => (
+                                        <div
+                                          key={project.grantNumber}
+                                          className="bg-white rounded-lg p-3 border border-gray-100"
+                                        >
+                                          <div className="flex items-start justify-between gap-4">
+                                            <div className="flex-1 min-w-0">
+                                              <div className="flex items-center gap-2 mb-1">
+                                                <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded">
+                                                  {project.grantNumber}
+                                                </span>
+                                                <span className="text-sm font-medium text-gray-900 truncate">
+                                                  {project.grantTitle}
+                                                </span>
+                                              </div>
+                                              <div className="text-xs text-gray-500 flex flex-wrap gap-x-4 gap-y-1">
+                                                <span>
+                                                  <span className="text-gray-400">负责人：</span>
+                                                  {project.principalInvestigator}
+                                                </span>
+                                                {project.diseaseFocus && (
+                                                  <span>
+                                                    <span className="text-gray-400">疾病领域：</span>
+                                                    {project.diseaseFocus}
+                                                  </span>
+                                                )}
+                                                <span>
+                                                  <span className="text-gray-400">金额：</span>
+                                                  <span className="text-[#008080] font-medium">
+                                                    {formatCurrency(project.awardValue)}
+                                                  </span>
+                                                </span>
+                                                <span>
+                                                  <span className="text-gray-400">状态：</span>
+                                                  <Badge
+                                                    variant="outline"
+                                                    className={
+                                                      project.awardStatus === 'Closed'
+                                                        ? 'text-gray-500 border-gray-300 text-xs'
+                                                        : 'text-[#008080] border-[#008080] text-xs'
+                                                    }
+                                                  >
+                                                    {project.awardStatus === 'Closed' ? '已结束' : '进行中'}
+                                                  </Badge>
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  ) : (
+                                    <div className="text-sm text-gray-500 py-4 text-center bg-white rounded-lg border border-gray-100">
+                                      暂无数据
+                                    </div>
+                                  )}
+                                  {grant.notes && (
+                                    <div className="mt-4 text-sm text-gray-600 pt-3 border-t border-gray-200">
+                                      <span className="font-medium text-gray-700">备注：</span>
+                                      {grant.notes}
+                                    </div>
+                                  )}
+                                </div>
+                              );
+                            })()}
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    )}
                   </>
                 ))}
               </TableBody>
