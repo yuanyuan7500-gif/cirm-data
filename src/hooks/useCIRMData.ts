@@ -170,6 +170,9 @@ export function useCIRMData() {
             icocApproval: row[7] ? String(row[7]) : null,
             awardStatus: String(row[8] || 'Active'),
             sortOrder: row[9] !== undefined ? Number(row[9]) : undefined,
+            isNew: row[10] !== undefined ? String(row[10]).toUpperCase() === 'TRUE' : false,
+            showValueChange: row[11] !== undefined ? String(row[11]).toUpperCase() === 'TRUE' : true,
+            showStatusChange: row[12] !== undefined ? String(row[12]).toUpperCase() === 'TRUE' : true,
           }));
         
         result.activeGrants = [...(result.activeGrants || []), ...activeGrants];
@@ -259,11 +262,21 @@ export function useCIRMData() {
       
       // Merge with existing data
       if (data) {
-        // 处理 activeGrants：按 grantNumber 去重，新数据覆盖旧数据
+        // 处理 activeGrants：按 grantNumber 去重，新数据覆盖旧数据，检测变更
         let mergedActiveGrants = data.activeGrants;
         if (imported.activeGrants && imported.activeGrants.length > 0) {
           const existingMap = new Map(data.activeGrants.map(ag => [ag.grantNumber, ag]));
           imported.activeGrants.forEach(ag => {
+            const existing = existingMap.get(ag.grantNumber);
+            if (existing) {
+              // 检测变更并保留历史值
+              if (existing.awardValue !== ag.awardValue) {
+                ag.previousAwardValue = existing.awardValue;
+              }
+              if (existing.awardStatus !== ag.awardStatus) {
+                ag.previousAwardStatus = existing.awardStatus;
+              }
+            }
             existingMap.set(ag.grantNumber, ag);
           });
           mergedActiveGrants = Array.from(existingMap.values());
@@ -400,4 +413,3 @@ export function useCIRMData() {
     recordChange,
   };
 }
-
