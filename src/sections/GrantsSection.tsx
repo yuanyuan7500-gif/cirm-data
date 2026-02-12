@@ -173,9 +173,9 @@ export function GrantsSection({ data }: GrantsSectionProps) {
         </div>
 
         {/* Table */}
-        <div className="grants-table bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="grants-table bg-white rounded-2xl shadow-lg overflow-visible">
           <div className="overflow-x-auto">
-            <Table>
+            <Table className="w-full min-w-[900px]">
               <TableHeader>
                 <TableRow className="bg-gradient-to-r from-[#008080]/5 to-[#4ECDC4]/5">
                   <TableHead className="w-12"></TableHead>
@@ -270,8 +270,8 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                     </TableRow>
                     {expandedRows.has(grant.id) && (
                       <TableRow className="bg-gray-50/50">
-                        <TableCell colSpan={7} className="py-4">
-                          <div className="pl-8">
+                        <TableCell colSpan={7} className="py-4 px-4">
+                          <div className="pl-4 pr-2">
                             {/* 查找该资助类型下的具体项目 */}
                             {(() => {
                               // 从 grantType 提取前缀用于匹配 grantNumber
@@ -302,23 +302,24 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                           key={project.grantNumber}
                                           className="bg-white rounded-lg p-3 border border-gray-100"
                                         >
-                                          <div className="flex items-start justify-between gap-4">
-                                            <div className="flex-1 min-w-0">
-                                              <div className="flex items-center gap-2 mb-1">
-                                                {/* New 标签 */}
-                                                {project.isNew && (
-                                                  <Badge className="bg-[#FF6B6B] text-white text-xs hover:bg-[#FF6B6B]">
-                                                    New
-                                                  </Badge>
-                                                )}
-                                                <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded">
-                                                  {project.grantNumber}
-                                                </span>
-                                                <span className="text-sm font-medium text-gray-900 truncate">
-                                                  {project.grantTitle}
-                                                </span>
-                                              </div>
-                                              <div className="text-xs text-gray-500 flex flex-wrap gap-x-4 gap-y-1 items-center">
+                                          <div className="flex flex-col gap-2">
+                                            <div className="flex items-start gap-2">
+                                              {/* New 标签 */}
+                                              {project.isNew && (
+                                                <Badge className="bg-[#FF6B6B] text-white text-xs hover:bg-[#FF6B6B] flex-shrink-0 mt-0.5">
+                                                  New
+                                                </Badge>
+                                              )}
+                                                <div className="flex-1 min-w-0">
+                                                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                                                    <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded flex-shrink-0">
+                                                      {project.grantNumber}
+                                                    </span>
+                                                    <span className="text-sm font-medium text-gray-900 break-words leading-relaxed">
+                                                      {project.grantTitle}
+                                                    </span>
+                                                  </div>
+                                                  <div className="text-xs text-gray-500 flex flex-wrap gap-x-4 gap-y-1 items-center">
                                                 <span>
                                                   <span className="text-gray-400">负责人：</span>
                                                   {project.principalInvestigator}
@@ -362,6 +363,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                     </span>
                                                   )}
                                                 </span>
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
