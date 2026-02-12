@@ -29,6 +29,11 @@ interface GrantsSectionProps {
 
 export function GrantsSection({ data }: GrantsSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
+  console.log('=== GrantsSection 调试 ===');
+  console.log('data:', data);
+  console.log('data.activeGrants:', data?.activeGrants);
+  console.log('data.activeGrants.length:', data?.activeGrants?.length);
+  const [searchTerm, setSearchTerm] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [programFilter, setProgramFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
@@ -250,11 +255,23 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     <TableCell colSpan={7} className="py-4">
       <div className="pl-8">
         {(() => {
-          const filteredProjects = data.activeGrants?.filter((g) => {
-            const rowPrefix = grant.grantType.split('(')[0].trim();
-            return g.programType === grant.programType &&
-                   g.grantType === rowPrefix;
-          }) || [];
+    console.log('=== 展开行调试 ===');
+  console.log('grant:', grant);
+  console.log('grant.programType:', grant.programType);
+  console.log('grant.grantType:', grant.grantType);
+  console.log('data.activeGrants?.length:', data.activeGrants?.length);
+  
+  const filteredProjects = data.activeGrants?.filter((g) => {
+    const rowPrefix = grant.grantType.split('(')[0].trim();
+    console.log('对比:', g.programType, g.grantType, 'vs', grant.programType, rowPrefix);
+    return g.programType === grant.programType &&
+           g.grantType === rowPrefix;
+  }) || [];
+  
+  console.log('filteredProjects.length:', filteredProjects.length);
+  
+  return (
+          
           
           return (
             <>
