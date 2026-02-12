@@ -23,6 +23,11 @@ export interface ActiveGrant {
   icocApproval?: string | null;
   awardStatus: string;
   sortOrder?: number; // 用于控制显示顺序，数字越小越靠前
+  isNew?: boolean; // 是否显示 New 标签
+  previousAwardValue?: number | null; // 之前的金额（用于检测金额变更）
+  previousAwardStatus?: string | null; // 之前的状态（用于检测状态变更）
+  showValueChange?: boolean; // 是否显示金额变更标识（TRUE/FALSE）
+  showStatusChange?: boolean; // 是否显示状态变更标识（TRUE/FALSE）
 }
 
 export interface Paper {
