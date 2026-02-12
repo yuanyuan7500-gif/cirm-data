@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Search, Filter, ChevronDown, ChevronUp, ArrowUpDown, GripVertical } from 'lucide-react';
+import { Search, Filter, ChevronDown, ChevronUp} from 'lucide-react';
 import type { CIRMData } from '@/types';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -384,3 +384,4 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
+
