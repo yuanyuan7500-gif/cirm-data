@@ -5,6 +5,32 @@ import type { CIRMData, DataChange, Grant, Paper, ActiveGrant } from '@/types';
 const STORAGE_KEY = 'cirm-data';
 const CHANGES_KEY = 'cirm-changes';
 
+// 从项目标题生成CIRM官网链接
+function generateDetailUrl(grantTitle: string): string {
+  if (!grantTitle) return '';
+  
+  // 停用词列表（CIRM URL中通常省略的词）
+  // 注意：'and' 在实际URL中被保留，所以不移除
+  const stopWords = new Set([
+    'the', 'a', 'an', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by',
+    'from', 'as', 'is', 'was', 'are', 'were', 'be', 'been', 'being', 'have', 'has', 'had',
+    'do', 'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might', 'must',
+    'this', 'that', 'these', 'those', 'i', 'we', 'you', 'he', 'she', 'it', 'they',
+    'their', 'its', 'our', 'your', 'my', 'his', 'her'
+  ]);
+  
+  // 转换标题为URL友好的slug
+  const slug = grantTitle
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '') // 移除非字母数字字符（保留空格和连字符）
+    .trim()
+    .split(/\s+/) // 按空格分割
+    .filter(word => word && !stopWords.has(word)) // 移除停用词和空字符串
+    .join('-'); // 用连字符连接
+  
+  return slug ? `https://www.cirm.ca.gov/our-progress/awards/${slug}/` : '';
+}
+
 export function useCIRMData() {
   const [data, setData] = useState<CIRMData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -15,18 +41,40 @@ export function useCIRMData() {
   useEffect(() => {
     const loadData = async () => {
       try {
+        let jsonData: CIRMData | null = null;
+        
         // Try to load from localStorage first
         const stored = localStorage.getItem(STORAGE_KEY);
         if (stored) {
-          setData(JSON.parse(stored));
+          jsonData = JSON.parse(stored);
         } else {
           // Fetch from JSON file
           const response = await fetch('/data/cirm-data.json');
           if (!response.ok) throw new Error('Failed to load data');
-          const jsonData = await response.json();
-          setData(jsonData);
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(jsonData));
+          jsonData = await response.json();
         }
+        
+        // 为每个activeGrant自动生成detailUrl（如果没有的话）
+        if (jsonData && jsonData.activeGrants) {
+          let hasUpdates = false;
+          jsonData.activeGrants = jsonData.activeGrants.map((ag: ActiveGrant) => {
+            if (!ag.detailUrl && ag.grantTitle) {
+              hasUpdates = true;
+              return {
+                ...ag,
+                detailUrl: generateDetailUrl(ag.grantTitle)
+              };
+            }
+            return ag;
+          });
+          
+          // 如果有更新，保存到localStorage
+          if (hasUpdates) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(jsonData));
+          }
+        }
+        
+        setData(jsonData);
 
         // Load changes history
         const storedChanges = localStorage.getItem(CHANGES_KEY);
@@ -159,21 +207,27 @@ export function useCIRMData() {
         
         const activeGrants: ActiveGrant[] = rows
           .filter(row => row[0] !== undefined && row[0] !== null)
-          .map((row) => ({
-            grantNumber: String(row[0] || ''),
-            programType: String(row[1] || ''),
-            grantType: String(row[2] || ''),
-            grantTitle: String(row[3] || ''),
-            diseaseFocus: row[4] ? String(row[4]) : null,
-            principalInvestigator: String(row[5] || ''),
-            awardValue: Number(row[6]) || 0,
-            icocApproval: row[7] ? String(row[7]) : null,
-            awardStatus: String(row[8] || 'Active'),
-            sortOrder: row[9] !== undefined ? Number(row[9]) : undefined,
-            isNew: row[10] !== undefined ? String(row[10]).toUpperCase() === 'TRUE' : false,
-            showValueChange: row[11] !== undefined ? String(row[11]).toUpperCase() === 'TRUE' : true,
-            showStatusChange: row[12] !== undefined ? String(row[12]).toUpperCase() === 'TRUE' : true,
-          }));
+          .map((row) => {
+            const grantTitle = String(row[3] || '');
+            const providedUrl = row[13] ? String(row[13]) : null;
+            return {
+              grantNumber: String(row[0] || ''),
+              programType: String(row[1] || ''),
+              grantType: String(row[2] || ''),
+              grantTitle: grantTitle,
+              diseaseFocus: row[4] ? String(row[4]) : null,
+              principalInvestigator: String(row[5] || ''),
+              awardValue: Number(row[6]) || 0,
+              icocApproval: row[7] ? String(row[7]) : null,
+              awardStatus: String(row[8] || 'Active'),
+              sortOrder: row[9] !== undefined ? Number(row[9]) : undefined,
+              isNew: row[10] !== undefined ? String(row[10]).toUpperCase() === 'TRUE' : false,
+              showValueChange: row[11] !== undefined ? String(row[11]).toUpperCase() === 'TRUE' : true,
+              showStatusChange: row[12] !== undefined ? String(row[12]).toUpperCase() === 'TRUE' : true,
+              // 优先使用Excel中提供的URL，否则自动生成
+              detailUrl: providedUrl || generateDetailUrl(grantTitle),
+            };
+          });
         
         result.activeGrants = [...(result.activeGrants || []), ...activeGrants];
       } else if (lowerName.includes('paper') || lowerName.includes('文献') || lowerName.includes('论文')) {
