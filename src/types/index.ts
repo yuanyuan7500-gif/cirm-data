@@ -28,6 +28,7 @@ export interface ActiveGrant {
   previousAwardStatus?: string | null; // 之前的状态（用于检测状态变更）
   showValueChange?: boolean; // 是否显示金额变更标识（TRUE/FALSE）
   showStatusChange?: boolean; // 是否显示状态变更标识（TRUE/FALSE）
+  detailUrl?: string | null; // 官网项目详情页链接
 }
 
 export interface Paper {
