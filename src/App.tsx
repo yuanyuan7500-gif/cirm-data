@@ -5,8 +5,7 @@ import { StatsSection } from '@/sections/StatsSection';
 import { ChartsSection } from '@/sections/ChartsSection';
 import { GrantsSection } from '@/sections/GrantsSection';
 import { PapersSection } from '@/sections/PapersSection';
-import { ImportSection } from '@/sections/ImportSection';
-import { DataEditorSection } from '@/sections/DataEditorSection';
+import { DataManagementSection } from '@/sections/DataManagementSection';
 import { Dashboard } from '@/sections/Dashboard';
 import { Footer } from '@/sections/Footer';
 import { useCIRMData } from '@/hooks/useCIRMData';
@@ -17,7 +16,7 @@ import type { CIRMData } from '@/types';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
-  const { data, loading, error, changes, importData, exportData, updateData } = useCIRMData();
+  const { data, loading, error, changes, importData, exportData, updateData, rollbackChange } = useCIRMData();
 
   useEffect(() => {
     if (error) {
@@ -133,45 +132,36 @@ function App() {
         </>
       )}
 
-      {currentPage === 'import' && (
+      {currentPage === 'data-management' && (
         <>
           <div className="pt-20 pb-12 bg-gradient-to-br from-[#066] via-[#008080] to-[#004D4D]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                数据导入
+                数据管理
               </h1>
               <p className="text-white/80">
-                导入新的数据文件，或导出当前数据进行备份
+                导入、编辑、导出数据，管理数据变更
               </p>
             </div>
           </div>
-          <ImportSection
+          <DataManagementSection
+            data={data}
             onImport={handleImport}
             onExport={handleExport}
-            changes={changes}
-          />
-          <Footer />
-        </>
-      )}
-
-      {currentPage === 'editor' && (
-        <>
-          <div className="pt-20 pb-12 bg-gradient-to-br from-[#066] via-[#008080] to-[#004D4D]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                数据编辑器
-              </h1>
-              <p className="text-white/80">
-                上传修改后的 Excel 文件，预览并编辑数据，同步更新到网站
-              </p>
-            </div>
-          </div>
-          <DataEditorSection
-            data={data}
             onUpdateData={(newData: CIRMData) => {
               updateData(newData);
               toast.success('数据已成功更新！');
             }}
+            onRollback={(changeId: string) => {
+              const success = rollbackChange(changeId);
+              if (success) {
+                toast.success('变更已撤回', { description: '数据已恢复到变更前的状态' });
+              } else {
+                toast.error('撤回失败', { description: '无法撤回此变更或变更不存在' });
+              }
+              return success;
+            }}
+            changes={changes}
           />
           <Footer />
         </>
