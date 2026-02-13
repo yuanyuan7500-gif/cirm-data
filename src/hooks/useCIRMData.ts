@@ -54,16 +54,28 @@ export function useCIRMData() {
           jsonData = await response.json();
         }
         
-        // 为每个activeGrant自动生成detailUrl（如果没有的话）
+        // 为每个activeGrant修复默认值和生成detailUrl
         if (jsonData && jsonData.activeGrants) {
           let hasUpdates = false;
           jsonData.activeGrants = jsonData.activeGrants.map((ag: ActiveGrant) => {
+            const updates: Partial<ActiveGrant> = {};
+            
+            // 自动生成detailUrl
             if (!ag.detailUrl && ag.grantTitle) {
+              updates.detailUrl = generateDetailUrl(ag.grantTitle);
+            }
+            
+            // 修复showValueChange和showStatusChange默认值（undefined -> false）
+            if (ag.showValueChange === undefined) {
+              updates.showValueChange = false;
+            }
+            if (ag.showStatusChange === undefined) {
+              updates.showStatusChange = false;
+            }
+            
+            if (Object.keys(updates).length > 0) {
               hasUpdates = true;
-              return {
-                ...ag,
-                detailUrl: generateDetailUrl(ag.grantTitle)
-              };
+              return { ...ag, ...updates };
             }
             return ag;
           });
@@ -97,12 +109,13 @@ export function useCIRMData() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
   }, []);
 
-  // Record a change
-  const recordChange = useCallback((change: Omit<DataChange, 'id' | 'timestamp'>) => {
+  // Record a change with optional snapshot for rollback
+  const recordChange = useCallback((change: Omit<DataChange, 'id' | 'timestamp'>, snapshot?: DataChange['snapshot']) => {
     const newChange: DataChange = {
       ...change,
       id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       timestamp: new Date().toISOString(),
+      snapshot,
     };
     setChanges(prev => {
       const updated = [newChange, ...prev];
@@ -110,6 +123,36 @@ export function useCIRMData() {
       return updated;
     });
   }, []);
+
+  // Rollback a change by ID
+  const rollbackChange = useCallback((changeId: string): boolean => {
+    const change = changes.find(c => c.id === changeId);
+    if (!change || !change.snapshot) {
+      return false;
+    }
+
+    // Restore data from snapshot
+    const restoredData: CIRMData = {
+      ...data!,
+      grants: change.snapshot.grants || data!.grants,
+      activeGrants: change.snapshot.activeGrants || data!.activeGrants,
+      papers: change.snapshot.papers || data!.papers,
+      summary: change.snapshot.summary || data!.summary,
+    };
+
+    saveData(restoredData);
+    
+    // Mark this change as rolled back (remove snapshot to prevent double rollback)
+    setChanges(prev => {
+      const updated = prev.map(c => 
+        c.id === changeId ? { ...c, snapshot: undefined, type: 'delete' as const } : c
+      );
+      localStorage.setItem(CHANGES_KEY, JSON.stringify(updated));
+      return updated;
+    });
+
+    return true;
+  }, [changes, data, saveData]);
 
   // Add new grants
   const addGrants = useCallback((newGrants: Grant[]) => {
@@ -222,8 +265,8 @@ export function useCIRMData() {
               awardStatus: String(row[8] || 'Active'),
               sortOrder: row[9] !== undefined ? Number(row[9]) : undefined,
               isNew: row[10] !== undefined ? String(row[10]).toUpperCase() === 'TRUE' : false,
-              showValueChange: row[11] !== undefined ? String(row[11]).toUpperCase() === 'TRUE' : true,
-              showStatusChange: row[12] !== undefined ? String(row[12]).toUpperCase() === 'TRUE' : true,
+              showValueChange: row[11] !== undefined ? String(row[11]).toUpperCase() === 'TRUE' : false,
+              showStatusChange: row[12] !== undefined ? String(row[12]).toUpperCase() === 'TRUE' : false,
               // 优先使用Excel中提供的URL，否则自动生成
               detailUrl: providedUrl || generateDetailUrl(grantTitle),
             };
@@ -349,26 +392,50 @@ export function useCIRMData() {
             totalAmount: data.summary.totalAmount + (imported.grants?.reduce((sum, g) => sum + g.awardValue, 0) || 0),
           }
         };
+        // Save snapshot before merging for rollback
+        const snapshot = {
+          grants: data.grants,
+          activeGrants: data.activeGrants,
+          papers: data.papers,
+          summary: data.summary,
+        };
+        
         saveData(mergedData);
+        
+        // Record import as change with snapshot
+        recordChange({
+          type: 'update',
+          entityType: 'grant',
+          entityId: 'bulk-import',
+          changes: { 
+            imported: { 
+              old: null, 
+              new: { 
+                grants: imported.grants?.length || 0, 
+                papers: imported.papers?.length || 0 
+              } 
+            } 
+          }
+        }, snapshot);
       } else {
         saveData(imported as CIRMData);
-      }
-      
-      // Record import as change
-      recordChange({
-        type: 'update',
-        entityType: 'grant',
-        entityId: 'bulk-import',
-        changes: { 
-          imported: { 
-            old: null, 
-            new: { 
-              grants: imported.grants?.length || 0, 
-              papers: imported.papers?.length || 0 
+        
+        // Record import as change (no snapshot for initial import)
+        recordChange({
+          type: 'update',
+          entityType: 'grant',
+          entityId: 'bulk-import',
+          changes: { 
+            imported: { 
+              old: null, 
+              new: { 
+                grants: imported.grants?.length || 0, 
+                papers: imported.papers?.length || 0 
+              } 
             } 
-          } 
-        }
-      });
+          }
+        });
+      }
       
       return true;
     } catch (err) {
@@ -385,9 +452,17 @@ export function useCIRMData() {
 
   // Update data directly (for data editor)
   const updateData = useCallback((newData: CIRMData) => {
+    // Save snapshot before update for rollback
+    const snapshot = data ? {
+      grants: data.grants,
+      activeGrants: data.activeGrants,
+      papers: data.papers,
+      summary: data.summary,
+    } : undefined;
+    
     saveData(newData);
     
-    // Record update as change
+    // Record update as change with snapshot
     recordChange({
       type: 'update',
       entityType: 'grant',
@@ -404,7 +479,7 @@ export function useCIRMData() {
           } 
         } 
       }
-    });
+    }, snapshot);
   }, [data, saveData, recordChange]);
 
   // Get filtered grants
@@ -465,5 +540,6 @@ export function useCIRMData() {
     getFilteredGrants,
     getFilteredPapers,
     recordChange,
+    rollbackChange,
   };
 }
