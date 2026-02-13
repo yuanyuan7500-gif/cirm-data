@@ -24,8 +24,7 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
     { id: 'dashboard', label: '仪表盘' },
     { id: 'grants', label: '资助项目' },
     { id: 'papers', label: '研究论文' },
-    { id: 'editor', label: '数据编辑' },
-    { id: 'import', label: '数据导入' },
+    { id: 'data-management', label: '数据管理' },
   ];
 
   return (
@@ -84,7 +83,7 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
                   ? 'bg-[#008080] hover:bg-[#066] text-white'
                   : 'border-white/30 text-white hover:bg-white/10'
               }`}
-              onClick={() => onNavigate('import')}
+              onClick={() => onNavigate('data-management')}
             >
               导入数据
             </Button>
