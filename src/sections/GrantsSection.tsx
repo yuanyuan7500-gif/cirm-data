@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Search, Filter, ChevronDown, ChevronUp, Sparkles, TrendingDown } from 'lucide-react';
+import { Search, Filter, ChevronDown, ChevronUp, Sparkles, TrendingDown, ExternalLink } from 'lucide-react';
 import type { CIRMData } from '@/types';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -86,7 +86,13 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     setExpandedRows(newExpanded);
   };
 
+  // 显示完整金额（如 $126,176,201）
   const formatCurrency = (value: number) => {
+    return `$${value.toLocaleString('en-US')}`;
+  };
+
+  // 显示简写金额（如 $127.6M）- 用于底部统计
+  const formatCurrencyShort = (value: number) => {
     if (value >= 1000000) {
       return `$${(value / 1000000).toFixed(1)}M`;
     }
@@ -188,13 +194,13 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                   <TableHead className="font-semibold text-gray-700">
                     最新批准日期
                   </TableHead>
-                  <TableHead className="font-semibold text-gray-700 text-right">
+                  <TableHead className="font-semibold text-gray-700 text-center">
                     项目数
                   </TableHead>
-                  <TableHead className="font-semibold text-gray-700 text-right">
+                  <TableHead className="font-semibold text-gray-700 text-center">
                     资助金额
                   </TableHead>
-                  <TableHead className="font-semibold text-gray-700">
+                  <TableHead className="font-semibold text-gray-700 text-center">
                     状态
                   </TableHead>
                 </TableRow>
@@ -245,13 +251,13 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                       <TableCell className="text-sm text-gray-600">
                         {formatDate(grant.icocApproval)}
                       </TableCell>
-                      <TableCell className="text-right font-medium text-gray-900">
+                      <TableCell className="text-center font-medium text-gray-900">
                         {grant.totalAwards.toLocaleString()}
                       </TableCell>
-                      <TableCell className="text-right font-medium text-[#008080]">
+                      <TableCell className="font-medium text-[#008080]">
                         {formatCurrency(grant.awardValue)}
                       </TableCell>
-                      <TableCell>
+                      <TableCell className="text-center">
                         <Badge
                           variant={
                             grant.awardStatus === 'Closed'
@@ -315,9 +321,22 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                     <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded flex-shrink-0">
                                                       {project.grantNumber}
                                                     </span>
-                                                    <span className="text-sm font-medium text-gray-900 break-words leading-relaxed">
-                                                      {project.grantTitle}
-                                                    </span>
+                                                    {project.detailUrl ? (
+                                                      <a
+                                                        href={project.detailUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-sm font-medium text-gray-900 break-words leading-relaxed hover:text-[#008080] hover:underline flex items-center gap-1"
+                                                        onClick={(e) => e.stopPropagation()}
+                                                      >
+                                                        {project.grantTitle}
+                                                        <ExternalLink className="w-3 h-3 text-gray-400" />
+                                                      </a>
+                                                    ) : (
+                                                      <span className="text-sm font-medium text-gray-900 break-words leading-relaxed">
+                                                        {project.grantTitle}
+                                                      </span>
+                                                    )}
                                                   </div>
                                                   <div className="flex items-center justify-between text-xs">
                                                     {/* 左侧：负责人和疾病领域 */}
@@ -429,7 +448,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
           <span>
             总金额{' '}
             <strong className="text-[#008080]">
-              {formatCurrency(
+              {formatCurrencyShort(
                 filteredGrants.reduce((sum, g) => sum + g.awardValue, 0)
               )}
             </strong>
