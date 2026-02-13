@@ -186,7 +186,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                     资助类型
                   </TableHead>
                   <TableHead className="font-semibold text-gray-700">
-                    ICOC批准
+                    最新批准日期
                   </TableHead>
                   <TableHead className="font-semibold text-gray-700 text-right">
                     项目数
@@ -319,51 +319,61 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                       {project.grantTitle}
                                                     </span>
                                                   </div>
-                                                  <div className="text-xs text-gray-500 flex flex-wrap gap-x-4 gap-y-1 items-center">
-                                                <span>
-                                                  <span className="text-gray-400">负责人：</span>
-                                                  {project.principalInvestigator}
-                                                </span>
-                                                {project.diseaseFocus && (
-                                                  <span>
-                                                    <span className="text-gray-400">疾病领域：</span>
-                                                    {project.diseaseFocus}
-                                                  </span>
-                                                )}
-                                                <span className="flex items-center gap-1">
-                                                  <span className="text-gray-400">金额：</span>
-                                                  <span className="text-[#008080] font-medium">
-                                                    {formatCurrency(project.awardValue)}
-                                                  </span>
-                                                  {/* 金额变更标识 - 根据 showValueChange 控制显示 */}
-                                                  {project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null && (
-                                                    <span className="inline-flex items-center gap-1 text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded text-xs ml-1" title={`原金额: ${formatCurrency(project.previousAwardValue)}`}>
-                                                      <Sparkles className="w-3 h-3" />
-                                                      变更
-                                                    </span>
-                                                  )}
-                                                </span>
-                                                <span className="flex items-center gap-1">
-                                                  <span className="text-gray-400">状态：</span>
-                                                  <Badge
-                                                    variant="outline"
-                                                    className={
-                                                      project.awardStatus === 'Closed'
-                                                        ? 'text-gray-500 border-gray-300 text-xs'
-                                                        : 'text-[#008080] border-[#008080] text-xs'
-                                                    }
-                                                  >
-                                                    {project.awardStatus === 'Closed' ? '已结束' : '进行中'}
-                                                  </Badge>
-                                                  {/* 状态变更标识：进行中 -> 已结束 - 根据 showStatusChange 控制显示 */}
-                                                  {project.showStatusChange !== false && project.previousAwardStatus && project.previousAwardStatus !== 'Closed' && project.awardStatus === 'Closed' && (
-                                                    <span className="inline-flex items-center gap-1 text-red-600 bg-red-50 px-1.5 py-0.5 rounded text-xs ml-1" title={`原状态: ${project.previousAwardStatus}`}>
-                                                      <TrendingDown className="w-3 h-3" />
-                                                      已终止
-                                                    </span>
-                                                  )}
-                                                </span>
-                                                </div>
+                                                  <div className="flex items-center justify-between text-xs">
+                                                    {/* 左侧：负责人和疾病领域 */}
+                                                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-gray-500">
+                                                      <span>
+                                                        <span className="text-gray-400">负责人：</span>
+                                                        {project.principalInvestigator}
+                                                      </span>
+                                                      {project.diseaseFocus && (
+                                                        <span>
+                                                          <span className="text-gray-400">疾病领域：</span>
+                                                          {project.diseaseFocus}
+                                                        </span>
+                                                      )}
+                                                    </div>
+                                                    {/* 右侧：批准日期、金额、状态 */}
+                                                    <div className="flex items-center gap-4">
+                                                      {project.icocApproval && (
+                                                        <span className="text-gray-500 whitespace-nowrap">
+                                                          <span className="text-gray-400">批准：</span>
+                                                          {formatDate(project.icocApproval)}
+                                                        </span>
+                                                      )}
+                                                      <span className="flex items-center gap-1 whitespace-nowrap">
+                                                        <span className="text-gray-400">金额：</span>
+                                                        <span className="text-[#008080] font-medium">
+                                                          {formatCurrency(project.awardValue)}
+                                                        </span>
+                                                        {project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null && (
+                                                          <span className="inline-flex items-center gap-1 text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded text-xs ml-1" title={`原金额: ${formatCurrency(project.previousAwardValue)}`}>
+                                                            <Sparkles className="w-3 h-3" />
+                                                            变更
+                                                          </span>
+                                                        )}
+                                                      </span>
+                                                      <span className="flex items-center gap-1 whitespace-nowrap">
+                                                        <span className="text-gray-400">状态：</span>
+                                                        <Badge
+                                                          variant="outline"
+                                                          className={
+                                                            project.awardStatus === 'Closed'
+                                                              ? 'text-gray-500 border-gray-300 text-xs'
+                                                              : 'text-[#008080] border-[#008080] text-xs'
+                                                          }
+                                                        >
+                                                          {project.awardStatus === 'Closed' ? '已结束' : '进行中'}
+                                                        </Badge>
+                                                        {project.showStatusChange !== false && project.previousAwardStatus && project.previousAwardStatus !== 'Closed' && project.awardStatus === 'Closed' && (
+                                                          <span className="inline-flex items-center gap-1 text-red-600 bg-red-50 px-1.5 py-0.5 rounded text-xs ml-1" title={`原状态: ${project.previousAwardStatus}`}>
+                                                            <TrendingDown className="w-3 h-3" />
+                                                            已终止
+                                                          </span>
+                                                        )}
+                                                      </span>
+                                                    </div>
+                                                  </div>
                                               </div>
                                             </div>
                                           </div>
