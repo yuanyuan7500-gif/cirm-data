@@ -112,4 +112,11 @@ export interface DataChange {
   entityId: string;
   changes: Record<string, { old: any; new: any }>;
   timestamp: string;
+  // 回滚功能：保存变更前的完整数据快照
+  snapshot?: {
+    grants?: Grant[];
+    activeGrants?: ActiveGrant[];
+    papers?: Paper[];
+    summary?: DataSummary;
+  };
 }
