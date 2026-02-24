@@ -114,6 +114,37 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     ).length;
   };
 
+  // 计算资助类型下金额变动项目的数量
+  const getValueChangeProjectsCount = (grantType: string): number => {
+    const grantTypePrefix = grantType
+      .replace(/\s+/g, '')
+      .split('(')[0]
+      .toUpperCase();
+    
+    return data.activeGrants.filter(
+      (ag) => ag.grantNumber.toUpperCase().startsWith(grantTypePrefix + '-') && 
+              ag.showValueChange !== false && 
+              ag.previousAwardValue !== undefined && 
+              ag.previousAwardValue !== null
+    ).length;
+  };
+
+  // 计算资助类型下状态变动项目的数量
+  const getStatusChangeProjectsCount = (grantType: string): number => {
+    const grantTypePrefix = grantType
+      .replace(/\s+/g, '')
+      .split('(')[0]
+      .toUpperCase();
+    
+    return data.activeGrants.filter(
+      (ag) => ag.grantNumber.toUpperCase().startsWith(grantTypePrefix + '-') && 
+              ag.showStatusChange !== false && 
+              ag.previousAwardStatus && 
+              ag.previousAwardStatus !== 'Closed' && 
+              ag.awardStatus === 'Closed'
+    ).length;
+  };
+
   const formatDate = (dateStr: string) => {
     if (!dateStr || dateStr === 'NaT') return '-';
     try {
@@ -243,6 +274,26 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                               <Badge className="bg-[#FF6B6B] text-white text-xs flex items-center gap-1 flex-shrink-0">
                                 <span>New</span>
                                 <span className="bg-white/20 px-1 rounded">{newCount}</span>
+                              </Badge>
+                            ) : null;
+                          })()}
+                          {/* 金额变动数量标签 */}
+                          {(() => {
+                            const valueChangeCount = getValueChangeProjectsCount(grant.grantType);
+                            return valueChangeCount > 0 ? (
+                              <Badge className="bg-red-100 text-red-600 text-xs flex items-center gap-1 flex-shrink-0 border border-red-200">
+                                <span className="font-bold">$</span>
+                                <span className="bg-red-200/50 px-1 rounded">{valueChangeCount}</span>
+                              </Badge>
+                            ) : null;
+                          })()}
+                          {/* 状态变动数量标签 */}
+                          {(() => {
+                            const statusChangeCount = getStatusChangeProjectsCount(grant.grantType);
+                            return statusChangeCount > 0 ? (
+                              <Badge className="bg-red-100 text-red-600 text-xs flex items-center gap-1 flex-shrink-0 border border-red-200">
+                                <AlertCircle className="w-3 h-3" />
+                                <span className="bg-red-200/50 px-1 rounded">{statusChangeCount}</span>
                               </Badge>
                             ) : null;
                           })()}
