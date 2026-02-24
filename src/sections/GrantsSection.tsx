@@ -310,8 +310,8 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                         >
                                           {(() => {
                                             const isStatusChanged = project.showStatusChange !== false && project.previousAwardStatus && project.previousAwardStatus !== 'Closed' && project.awardStatus === 'Closed';
-                                            const hasValueChange = project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null;
-                                            const previousValue = hasValueChange ? project.previousAwardValue : null;
+                                            const previousValue = project.previousAwardValue;
+                                            const hasValueChange = project.showValueChange !== false && previousValue !== undefined && previousValue !== null;
                                             return (
                                               <div className="flex items-start gap-2">
                                                 {/* 左侧列：New标签 + 金额标识 + 中止标识 */}
@@ -326,10 +326,10 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                   )}
                                                   {/* 金额变动标识和中止标识横向排列 */}
                                                   <div className="flex items-center gap-1">
-                                                    {hasValueChange && previousValue !== null && (
+                                                    {hasValueChange && (
                                                       <span 
                                                         className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-100 text-red-600 text-xs font-bold" 
-                                                        title={`金额变更: ${formatCurrency(previousValue)} → ${formatCurrency(project.awardValue)}`}
+                                                        title={`金额变更: ${formatCurrency(previousValue as number)} → ${formatCurrency(project.awardValue)}`}
                                                       >
                                                         $
                                                       </span>
