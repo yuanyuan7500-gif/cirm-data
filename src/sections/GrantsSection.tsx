@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Search, Filter, ChevronDown, ChevronUp, Sparkles, TrendingDown, ExternalLink } from 'lucide-react';
+import { Search, Filter, ChevronDown, ChevronUp, TrendingUp, TrendingDown, AlertCircle, ExternalLink } from 'lucide-react';
 import type { CIRMData } from '@/types';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -308,14 +308,26 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                           key={project.grantNumber}
                                           className="bg-white rounded-lg p-3 border border-gray-100"
                                         >
-                                          <div className="flex flex-col gap-2">
-                                            <div className="flex items-start gap-2">
-                                              {/* New 标签 */}
-                                              {project.isNew && (
-                                                <Badge className="bg-[#FF6B6B] text-white text-xs hover:bg-[#FF6B6B] flex-shrink-0 mt-0.5">
-                                                  New
-                                                </Badge>
-                                              )}
+                                          {(() => {
+                                            const isStatusChanged = project.showStatusChange !== false && project.previousAwardStatus && project.previousAwardStatus !== 'Closed' && project.awardStatus === 'Closed';
+                                            return (
+                                              <div className="flex items-start gap-2">
+                                                {/* 左侧列：New标签 + 中止标识 */}
+                                                <div className="flex flex-col items-center gap-1 flex-shrink-0">
+                                                  {project.isNew ? (
+                                                    <Badge className="bg-[#FF6B6B] text-white text-xs hover:bg-[#FF6B6B] mt-0.5">
+                                                      New
+                                                    </Badge>
+                                                  ) : (
+                                                    // 没有New标签时也要占位，保持对齐
+                                                    <div className="h-5 mt-0.5" />
+                                                  )}
+                                                  {isStatusChanged && (
+                                                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-100 text-red-600" title={`原状态: ${project.previousAwardStatus}`}>
+                                                      <AlertCircle className="w-3.5 h-3.5" />
+                                                    </span>
+                                                  )}
+                                                </div>
                                                 <div className="flex-1 min-w-0">
                                                   <div className="flex items-center gap-2 mb-1 flex-wrap">
                                                     <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded flex-shrink-0">
@@ -352,50 +364,60 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                         </span>
                                                       )}
                                                     </div>
-                                                    {/* 右侧：批准日期、金额、状态 */}
-                                                    <div className="flex items-center gap-4">
-                                                      {project.icocApproval && (
-                                                        <span className="text-gray-500 whitespace-nowrap">
-                                                          <span className="text-gray-400">批准：</span>
-                                                          {formatDate(project.icocApproval)}
-                                                        </span>
-                                                      )}
-                                                      <span className="flex items-center gap-1 whitespace-nowrap">
-                                                        <span className="text-gray-400">金额：</span>
-                                                        <span className="text-[#008080] font-medium">
-                                                          {formatCurrency(project.awardValue)}
-                                                        </span>
-                                                        {project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null && (
-                                                          <span className="inline-flex items-center gap-1 text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded text-xs ml-1" title={`原金额: ${formatCurrency(project.previousAwardValue)}`}>
-                                                            <Sparkles className="w-3 h-3" />
-                                                            变更
+                                                        {/* 右侧：批准日期、金额、状态 */}
+                                                        <div className="flex items-center gap-4">
+                                                          {project.icocApproval && (
+                                                            <span className="text-gray-500 whitespace-nowrap">
+                                                              <span className="text-gray-400">批准：</span>
+                                                              {formatDate(project.icocApproval)}
+                                                            </span>
+                                                          )}
+                                                          <span className="flex items-center gap-1 whitespace-nowrap">
+                                                            <span className="text-gray-400">金额：</span>
+                                                            <span className="text-[#008080] font-medium">
+                                                              {formatCurrency(project.awardValue)}
+                                                            </span>
+                                                            {project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null && (
+                                                              (() => {
+                                                                const currentValue = project.awardValue;
+                                                                const previousValue = project.previousAwardValue;
+                                                                const isIncreased = currentValue > previousValue;
+                                                                return (
+                                                                  <span 
+                                                                    className={`inline-flex items-center px-1.5 py-0.5 rounded text-xs ml-1 ${isIncreased ? 'text-red-600 bg-red-50' : 'text-green-600 bg-green-50'}`} 
+                                                                    title={`原金额: ${formatCurrency(previousValue)}`}
+                                                                  >
+                                                                    {isIncreased ? (
+                                                                      <TrendingUp className="w-3 h-3" />
+                                                                    ) : (
+                                                                      <TrendingDown className="w-3 h-3" />
+                                                                    )}
+                                                                  </span>
+                                                                );
+                                                              })()
+                                                            )}
                                                           </span>
-                                                        )}
-                                                      </span>
-                                                      <span className="flex items-center gap-1 whitespace-nowrap">
-                                                        <span className="text-gray-400">状态：</span>
-                                                        <Badge
-                                                          variant="outline"
-                                                          className={
-                                                            project.awardStatus === 'Closed'
-                                                              ? 'text-gray-500 border-gray-300 text-xs'
-                                                              : 'text-[#008080] border-[#008080] text-xs'
-                                                          }
-                                                        >
-                                                          {project.awardStatus === 'Closed' ? '已结束' : '进行中'}
-                                                        </Badge>
-                                                        {project.showStatusChange !== false && project.previousAwardStatus && project.previousAwardStatus !== 'Closed' && project.awardStatus === 'Closed' && (
-                                                          <span className="inline-flex items-center gap-1 text-red-600 bg-red-50 px-1.5 py-0.5 rounded text-xs ml-1" title={`原状态: ${project.previousAwardStatus}`}>
-                                                            <TrendingDown className="w-3 h-3" />
-                                                            已终止
+                                                          <span className="flex items-center gap-1 whitespace-nowrap">
+                                                            <span className="text-gray-400">状态：</span>
+                                                            <Badge
+                                                              variant="outline"
+                                                              className={
+                                                                isStatusChanged
+                                                                  ? 'text-red-600 border-red-600 bg-red-50 text-xs'
+                                                                  : project.awardStatus === 'Closed'
+                                                                  ? 'text-gray-500 border-gray-300 text-xs'
+                                                                  : 'text-[#008080] border-[#008080] text-xs'
+                                                              }
+                                                            >
+                                                              {project.awardStatus === 'Closed' ? '已结束' : '进行中'}
+                                                            </Badge>
                                                           </span>
-                                                        )}
-                                                      </span>
+                                                        </div>
+                                                      </div>
                                                     </div>
                                                   </div>
-                                              </div>
-                                            </div>
-                                          </div>
+                                                );
+                                              })()}
                                         </div>
                                       ))}
                                     </div>
