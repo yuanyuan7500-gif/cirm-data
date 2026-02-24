@@ -310,9 +310,10 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                         >
                                           {(() => {
                                             const isStatusChanged = project.showStatusChange !== false && project.previousAwardStatus && project.previousAwardStatus !== 'Closed' && project.awardStatus === 'Closed';
+                                            const hasValueChange = project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null;
                                             return (
                                               <div className="flex items-start gap-2">
-                                                {/* 左侧列：New标签 + 中止标识 */}
+                                                {/* 左侧列：New标签 + 金额标识 + 中止标识 */}
                                                 <div className="flex flex-col items-center gap-1 flex-shrink-0">
                                                   {project.isNew ? (
                                                     <Badge className="bg-[#FF6B6B] text-white text-xs hover:bg-[#FF6B6B] mt-0.5">
@@ -322,11 +323,22 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                     // 没有New标签时也要占位，保持对齐
                                                     <div className="h-5 mt-0.5" />
                                                   )}
-                                                  {isStatusChanged && (
-                                                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-100 text-red-600" title={`原状态: ${project.previousAwardStatus}`}>
-                                                      <AlertCircle className="w-3.5 h-3.5" />
-                                                    </span>
-                                                  )}
+                                                  {/* 金额变动标识和中止标识横向排列 */}
+                                                  <div className="flex items-center gap-1">
+                                                    {hasValueChange && (
+                                                      <span 
+                                                        className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-100 text-red-600 text-xs font-bold" 
+                                                        title={`金额变更: ${formatCurrency(project.previousAwardValue)} → ${formatCurrency(project.awardValue)}`}
+                                                      >
+                                                        $
+                                                      </span>
+                                                    )}
+                                                    {isStatusChanged && (
+                                                      <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-100 text-red-600" title={`原状态: ${project.previousAwardStatus}`}>
+                                                        <AlertCircle className="w-3.5 h-3.5" />
+                                                      </span>
+                                                    )}
+                                                  </div>
                                                 </div>
                                                 <div className="flex-1 min-w-0">
                                                   <div className="flex items-center gap-2 mb-1 flex-wrap">
