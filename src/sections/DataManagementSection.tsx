@@ -195,6 +195,8 @@ export function DataManagementSection({ data, onImport, onExport, onUpdateData, 
             isNew: row[10] !== undefined ? String(row[10]).toUpperCase() === 'TRUE' : false,
             showValueChange: row[11] !== undefined ? String(row[11]).toUpperCase() === 'TRUE' : false,
             showStatusChange: row[12] !== undefined ? String(row[12]).toUpperCase() === 'TRUE' : false,
+            previousAwardValue: row[13] !== undefined && row[13] !== '' ? Number(row[13]) : null,
+            previousAwardStatus: row[14] !== undefined && row[14] !== '' ? String(row[14]) : null,
           })).filter(ag => ag.grantNumber);
           parsedData.activeGrants = [...(parsedData.activeGrants || []), ...activeGrants];
         } else if (type === 'papers') {
@@ -268,6 +270,8 @@ export function DataManagementSection({ data, onImport, onExport, onUpdateData, 
           isNew: row[10] !== undefined ? String(row[10]).toUpperCase() === 'TRUE' : false,
           showValueChange: row[11] !== undefined ? String(row[11]).toUpperCase() === 'TRUE' : false,
           showStatusChange: row[12] !== undefined ? String(row[12]).toUpperCase() === 'TRUE' : false,
+          previousAwardValue: row[13] !== undefined && row[13] !== '' ? Number(row[13]) : null,
+          previousAwardStatus: row[14] !== undefined && row[14] !== '' ? String(row[14]) : null,
         })).filter(ag => ag.grantNumber);
         setEditedData({ ...editedData, activeGrants });
       } else if (sheet.type === 'papers') {
@@ -330,6 +334,8 @@ export function DataManagementSection({ data, onImport, onExport, onUpdateData, 
           isNew: row[10] !== undefined ? String(row[10]).toUpperCase() === 'TRUE' : false,
           showValueChange: row[11] !== undefined ? String(row[11]).toUpperCase() === 'TRUE' : false,
           showStatusChange: row[12] !== undefined ? String(row[12]).toUpperCase() === 'TRUE' : false,
+          previousAwardValue: row[13] !== undefined && row[13] !== '' ? Number(row[13]) : null,
+          previousAwardStatus: row[14] !== undefined && row[14] !== '' ? String(row[14]) : null,
         })).filter(ag => ag.grantNumber);
         setEditedData({ ...editedData, activeGrants });
       } else if (sheet.type === 'papers') {
@@ -445,7 +451,7 @@ DISC1-12346,Discovery,DISC 1,示例项目标题2,示例疾病领域,负责人姓
     const grantsWs = XLSX.utils.aoa_to_sheet([grantsHeaders, ...grantsData]);
     XLSX.utils.book_append_sheet(wb, grantsWs, 'Grants');
 
-    const activeGrantsHeaders = ['Grant Number', 'Program Type', 'Grant Type', 'Grant Title', 'Disease Focus', 'Principal Investigator', 'Award Value', 'ICOC Approval', 'Award Status', 'Sort Order', 'Is New (TRUE/FALSE)', 'Show Value Change (TRUE/FALSE)', 'Show Status Change (TRUE/FALSE)'];
+    const activeGrantsHeaders = ['Grant Number', 'Program Type', 'Grant Type', 'Grant Title', 'Disease Focus', 'Principal Investigator', 'Award Value', 'ICOC Approval', 'Award Status', 'Sort Order', 'Is New (TRUE/FALSE)', 'Show Value Change (TRUE/FALSE)', 'Show Status Change (TRUE/FALSE)', 'Previous Award Value', 'Previous Award Status'];
     const activeGrantsData = data.activeGrants
       .sort((a, b) => (a.sortOrder ?? Number.MAX_SAFE_INTEGER) - (b.sortOrder ?? Number.MAX_SAFE_INTEGER))
       .map(ag => [
@@ -461,7 +467,9 @@ DISC1-12346,Discovery,DISC 1,示例项目标题2,示例疾病领域,负责人姓
         ag.sortOrder ?? '',
         ag.isNew ? 'TRUE' : '',
         ag.showValueChange ? 'TRUE' : 'FALSE',
-        ag.showStatusChange ? 'TRUE' : 'FALSE'
+        ag.showStatusChange ? 'TRUE' : 'FALSE',
+        ag.previousAwardValue ?? '',
+        ag.previousAwardStatus ?? ''
       ]);
     const activeGrantsWs = XLSX.utils.aoa_to_sheet([activeGrantsHeaders, ...activeGrantsData]);
     XLSX.utils.book_append_sheet(wb, activeGrantsWs, 'ActiveGrants');
