@@ -43,16 +43,10 @@ export function useCIRMData() {
       try {
         let jsonData: CIRMData | null = null;
         
-        // Try to load from localStorage first
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-          jsonData = JSON.parse(stored);
-        } else {
-          // Fetch from JSON file
-          const response = await fetch('/data/cirm-data.json');
-          if (!response.ok) throw new Error('Failed to load data');
-          jsonData = await response.json();
-        }
+        // Fetch from JSON file (always get latest data from server)
+        const response = await fetch('/data/cirm-data.json');
+        if (!response.ok) throw new Error('Failed to load data');
+        jsonData = await response.json();
         
         // 为每个activeGrant修复默认值和生成detailUrl
         if (jsonData && jsonData.activeGrants) {
