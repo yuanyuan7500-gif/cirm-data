@@ -83,9 +83,9 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
                   ? 'bg-[#008080] hover:bg-[#066] text-white'
                   : 'border-white/30 text-white hover:bg-white/10'
               }`}
-              onClick={() => onNavigate('data-management')}
+              onClick={() => window.location.href = '/logout'}
             >
-              导入数据
+              退出登陆
             </Button>
           </div>
 
@@ -129,3 +129,4 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
     </nav>
   );
 }
+
