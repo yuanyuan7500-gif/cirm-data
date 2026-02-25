@@ -44,7 +44,7 @@ export async function onRequest(context) {
   });
 }
 
-// 登录页面 HTML
+// 登录页面 HTML - 浅色背景蓝色主题
 function loginHTML(error = '') {
   return `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -55,8 +55,8 @@ function loginHTML(error = '') {
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f8fafc;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -67,23 +67,48 @@ function loginHTML(error = '') {
       background: white;
       padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       width: 100%;
       max-width: 400px;
+      border: 1px solid #e2e8f0;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .logo-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      margin-bottom: 16px;
     }
     h2 {
       text-align: center;
-      color: #333;
-      margin-bottom: 30px;
-      font-size: 24px;
+      color: #1e293b;
+      margin-bottom: 8px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+    .subtitle {
+      text-align: center;
+      color: #64748b;
+      font-size: 14px;
+      margin-bottom: 28px;
     }
     .error {
-      background: #fee;
-      color: #c33;
-      padding: 12px;
-      border-radius: 6px;
+      background: #fef2f2;
+      color: #dc2626;
+      padding: 12px 16px;
+      border-radius: 8px;
       margin-bottom: 20px;
       font-size: 14px;
+      border: 1px solid #fecaca;
       display: ${error ? 'block' : 'none'};
     }
     .form-group {
@@ -92,52 +117,65 @@ function loginHTML(error = '') {
     label {
       display: block;
       margin-bottom: 8px;
-      color: #555;
+      color: #374151;
       font-size: 14px;
       font-weight: 500;
     }
     input {
       width: 100%;
-      padding: 12px;
-      border: 2px solid #e0e0e0;
-      border-radius: 6px;
+      padding: 12px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
       font-size: 16px;
-      transition: border-color 0.3s;
+      transition: all 0.3s;
+      background: #fafafa;
     }
     input:focus {
       outline: none;
-      border-color: #667eea;
+      border-color: #3b82f6;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     }
     button {
       width: 100%;
       padding: 14px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: all 0.2s;
+      margin-top: 8px;
     }
     button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
     }
     button:active {
       transform: translateY(0);
     }
     .info {
       text-align: center;
-      margin-top: 20px;
-      color: #888;
+      margin-top: 24px;
+      color: #94a3b8;
       font-size: 12px;
+    }
+    .divider {
+      height: 1px;
+      background: #e2e8f0;
+      margin: 24px 0;
     }
   </style>
 </head>
 <body>
   <div class="login-box">
-    <h2>🔒 访问授权</h2>
+    <div class="logo">
+      <div class="logo-icon">🧬</div>
+      <h2>CIRM Data Portal</h2>
+      <div class="subtitle">加州再生医学研究所数据平台</div>
+    </div>
     <div class="error">${error}</div>
     <form method="POST" action="/">
       <div class="form-group">
@@ -150,7 +188,8 @@ function loginHTML(error = '') {
       </div>
       <button type="submit">登 录</button>
     </form>
-    <div class="info">CIRM Data Portal 内部系统</div>
+    <div class="divider"></div>
+    <div class="info">内部数据系统，仅限授权访问</div>
   </div>
 </body>
 </html>`;
