@@ -5,12 +5,26 @@ export async function onRequest(context) {
   const VALID_USERNAME = env.USERNAME || 'admin';
   const VALID_PASSWORD = env.PASSWORD || 'cirm2026';
   
-  // 获取 Cookie 中的登录状态
+  // 获取 Cookie
   const cookie = request.headers.get('Cookie') || '';
   const isLoggedIn = cookie.includes('auth=valid');
   
-  // 已登录，直接放行
-  if (isLoggedIn) {
+  // 获取请求 URL
+  const url = new URL(request.url);
+  
+  // 处理退出登录
+  if (url.pathname === '/logout') {
+    return new Response(null, {
+      status: 302,
+      headers: {
+        'Location': '/',
+        'Set-Cookie': 'auth=; Path=/; Max-Age=0; HttpOnly; SameSite=Strict'
+      }
+    });
+  }
+  
+  // 已登录，直接放行（访问的是正常页面）
+  if (isLoggedIn && url.pathname !== '/login') {
     return next();
   }
   
@@ -30,7 +44,7 @@ export async function onRequest(context) {
         }
       });
     } else {
-      // 登录失败，返回错误页面
+      // 登录失败
       return new Response(loginHTML('用户名或密码错误'), {
         headers: { 'Content-Type': 'text/html;charset=UTF-8' }
       });
@@ -43,7 +57,7 @@ export async function onRequest(context) {
   });
 }
 
-// 登录页面 HTML - 浅色背景蓝色主题
+// 登录页面 HTML
 function loginHTML(error = '') {
   return `<!DOCTYPE html>
 <html lang="zh-CN">
