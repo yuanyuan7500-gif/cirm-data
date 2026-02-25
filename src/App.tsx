@@ -69,26 +69,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* 退出按钮 */}
-    <a 
-      href="/logout"
-      style={{
-        position: 'fixed',
-        top: '20px',
-        right: '20px',
-        background: '#3b82f6',
-        color: 'white',
-        padding: '10px 20px',
-        borderRadius: '6px',
-        textDecoration: 'none',
-        fontSize: '14px',
-        fontWeight: 500,
-        zIndex: 1000,
-        boxShadow: '0 2px 8px rgba(59, 130, 246, 0.3)'
-      }}
-    >
-      退出登录
-    </a>
+     
       <Navigation onNavigate={handleNavigate} currentPage={currentPage} />
       <Toaster position="top-right" richColors />
 
@@ -191,4 +172,5 @@ function App() {
 }
 
 export default App;
+
 
