@@ -1,9 +1,9 @@
 export async function onRequest(context) {
-  const { request, next } = context;
+  const { request, next, env } = context;
   
-  // 设置用户名和密码
-  const VALID_USERNAME = 'admin';
-  const VALID_PASSWORD = 'cirm2026';
+  // 从环境变量读取用户名和密码
+  const VALID_USERNAME = env.USERNAME || 'admin';
+  const VALID_PASSWORD = env.PASSWORD || 'cirm2026';
   
   // 获取 Cookie 中的登录状态
   const cookie = request.headers.get('Cookie') || '';
@@ -27,7 +27,6 @@ export async function onRequest(context) {
         headers: {
           'Location': '/',
           'Set-Cookie': 'auth=valid; Path=/; Max-Age=86400; HttpOnly; SameSite=Strict'
-          // Max-Age=86400 表示 Cookie 有效期 24 小时
         }
       });
     } else {
@@ -174,7 +173,7 @@ function loginHTML(error = '') {
     <div class="logo">
       <div class="logo-icon">🧬</div>
       <h2>CIRM Data Portal</h2>
-      <div class="subtitle">加州再生医学研究所数据平台</div>
+      <div class="subtitle">CIRM数据平台</div>
     </div>
     <div class="error">${error}</div>
     <form method="POST" action="/">
