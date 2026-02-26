@@ -236,12 +236,12 @@ const formattedLatestDate = latestManualUpdateDate
   <div className="flex justify-center mt-1">  {/* 改为 mt-1 或 mt-2 */}
     <button
       onClick={() => setShowAllLatest(true)}
-      className="group relative px-4 py-2 text-[#0d9488] hover:text-[#0f766e] transition-colors text-2xl font-bold"
+      className="group relative px-4 py-1 text-[#0d9488] hover:text-[#0f766e] transition-colors text-2xl font-bold"
       title=""
     >
       <span className="tracking-widest">...</span>
       {/* Hover 时显示的文字 */}
-      <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+      <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-0.5 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
         查看更多
       </span>
     </button>
