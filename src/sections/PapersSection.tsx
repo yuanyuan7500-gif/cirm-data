@@ -233,7 +233,7 @@ const formattedLatestDate = latestManualUpdateDate
         
     {/* 查看更多按钮 */}
 {hasMoreLatest && !showAllLatest && (
-  <div className="flex justify-center mt-1">  {/* 改为 mt-1 或 mt-2 */}
+  <div className="flex justify-center mt-4">  {/* 改为 mt-4 */}
     <button
       onClick={() => setShowAllLatest(true)}
       className="group relative px-4 py-1 text-[#0d9488] hover:text-[#0f766e] transition-colors text-2xl font-bold"
