@@ -227,30 +227,24 @@ const formattedLatestDate = latestManualUpdateDate
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-
-        
-    {/* 查看更多按钮 */}
-{hasMoreLatest && !showAllLatest && (
-  <div className="flex justify-center" style={{ marginTop: '1rem' }}>  {/* 精确控制 */}
-    <button
-      onClick={() => setShowAllLatest(true)}
-      className="group relative px-4 py-1 text-[#0d9488] hover:text-[#0f766e] transition-colors text-2xl font-bold"
-      title=""
-    >
-      <span className="tracking-widest">...</span>
-      {/* Hover 时显示的文字 */}
-      <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-0.5 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-        查看更多
-      </span>
-    </button>
-  </div>
-)}
+            {/* 查看更多按钮 */}
+    {hasMoreLatest && !showAllLatest && (
+      <div className="flex items-center justify-center h-full min-h-[200px]">
+        <button
+          onClick={() => setShowAllLatest(true)}
+          className="group relative text-[#0d9488] hover:text-[#0f766e] transition-colors text-2xl font-bold"
+        >
+          <span className="tracking-widest">...</span>
+          <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            查看更多
+          </span>
+        </button>
+      </div>
+    )}
     
     {/* 收起按钮 */}
     {showAllLatest && hasMoreLatest && (
-      <div className="flex justify-center mt-6">
+      <div className="flex items-center justify-center h-full min-h-[200px]">
         <button
           onClick={() => setShowAllLatest(false)}
           className="px-6 py-2 border border-[#0d9488] text-[#0d9488] rounded-full hover:bg-[#0d9488] hover:text-white transition-colors text-sm"
@@ -259,6 +253,11 @@ const formattedLatestDate = latestManualUpdateDate
         </button>
       </div>
     )}
+          </div>
+        </div>
+
+        
+    
 
         {/* 可视化按钮 */}
         <div className="flex justify-center mb-8">
