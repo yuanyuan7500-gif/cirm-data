@@ -106,15 +106,16 @@ export function PapersSection({ data }: PapersSectionProps) {
     return true;
   });
 
-  // 获取最新更新的论文（按publishedOnline排序）
-  const latestPapers = [...data.papers]
-    .filter((p) => p.publishedOnline)
-    .sort((a, b) => {
-      const dateA = new Date(a.publishedOnline || '');
-      const dateB = new Date(b.publishedOnline || '');
-      return dateB.getTime() - dateA.getTime();
-    })
-    .slice(0, 6);
+  // 获取最新更新的论文（按manualUpdateDate排序，如果没有则使用publishedOnline）
+const latestPapers = [...data.papers]
+  .filter((p) => p.publishedOnline)
+  .sort((a, b) => {
+    // 优先使用 manualUpdateDate，如果没有则使用 publishedOnline
+    const dateA = new Date(a.manualUpdateDate || a.publishedOnline || '');
+    const dateB = new Date(b.manualUpdateDate || b.publishedOnline || '');
+    return dateB.getTime() - dateA.getTime();
+  })
+  .slice(0, 6);
 
   const formatDate = (dateStr?: string | null) => {
     if (!dateStr) return '-';
