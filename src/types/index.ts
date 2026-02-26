@@ -37,6 +37,7 @@ export interface Paper {
   authors: string;
   publication: string;
   publishedOnline?: string | null;
+  manualUpdateDate?: string | null;  // ← 添加这一行
   grantNumber: string;
   grantNumbers: string[];
   grantType: string;
@@ -120,3 +121,4 @@ export interface DataChange {
     summary?: DataSummary;
   };
 }
+
