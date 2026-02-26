@@ -488,7 +488,7 @@ DISC1-12346,Discovery,DISC 1,示例项目标题2,示例疾病领域,负责人姓
       p.grantType,
       p.programType,
       p.grantTitle,
-      p.awardStatus
+      p.awardStatus,
       p.manualUpdateDate || '',  // ← 添加这一行
     ]);
     const papersWs = XLSX.utils.aoa_to_sheet([papersHeaders, ...papersData]);
@@ -941,4 +941,5 @@ DISC1-12346,Discovery,DISC 1,示例项目标题2,示例疾病领域,负责人姓
     </section>
   );
 }
+
 
