@@ -130,7 +130,19 @@ const latestPapers = [...data.papers]
       return dateStr;
     }
   };
+// 计算 Manual Update Date 的最新日期
+const latestManualUpdateDate = data.papers
+  .filter(p => p.manualUpdateDate)
+  .map(p => new Date(p.manualUpdateDate))
+  .sort((a, b) => b.getTime() - a.getTime())[0];
 
+const formattedLatestDate = latestManualUpdateDate 
+  ? latestManualUpdateDate.toLocaleDateString('zh-CN', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    })
+  : data.updateDate || '暂无更新';
   return (
     <section ref={sectionRef} className="py-20 sm:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,7 +154,7 @@ const latestPapers = [...data.papers]
           <div className="flex items-center justify-center gap-2 mb-4">
             <Badge className="bg-[#008080] text-white">
               <Calendar className="w-3 h-3 mr-1" />
-              数据更新日期: {data.updateDate}
+              数据更新日期: {formattedLatestDate}
             </Badge>
           </div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
