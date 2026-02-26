@@ -106,16 +106,48 @@ export function PapersSection({ data }: PapersSectionProps) {
     return true;
   });
 
-  // 获取最新更新的论文（按manualUpdateDate排序，如果没有则使用publishedOnline）
-const latestPapers = [...data.papers]
-  .filter((p) => p.publishedOnline)
-  .sort((a, b) => {
-    // 优先使用 manualUpdateDate，如果没有则使用 publishedOnline
-    const dateA = new Date(a.manualUpdateDate || a.publishedOnline || '');
-    const dateB = new Date(b.manualUpdateDate || b.publishedOnline || '');
-    return dateB.getTime() - dateA.getTime();
-  })
-  .slice(0, 6);
+// 获取最新手动更新日期的论文（先按manualUpdateDate筛选，再按publishedOnline排序）
+const [showAllLatest, setShowAllLatest] = useState(false);
+
+// 辅助函数：解析Excel日期或字符串日期
+const parseDate = (dateValue: string | number | null | undefined): Date | null => {
+  if (!dateValue) return null;
+  
+  // 如果是数字（Excel日期格式）
+  if (typeof dateValue === 'number' || (!isNaN(Number(dateValue)) && String(dateValue).match(/^\d+$/))) {
+    const excelEpoch = new Date(1899, 11, 30);
+    const days = Number(dateValue);
+    return new Date(excelEpoch.getTime() + days * 24 * 60 * 60 * 1000);
+  }
+  
+  // 如果是字符串日期
+  const date = new Date(dateValue);
+  return isNaN(date.getTime()) ? null : date;
+};
+
+// 获取最新手动更新日期
+const latestManualDate = data.papers
+  .map(p => parseDate(p.manualUpdateDate))
+  .filter((date): date is Date => date !== null)
+  .sort((a, b) => b.getTime() - a.getTime())[0];
+
+// 获取该日期的所有论文，按publishedOnline排序
+const latestPapersAll = latestManualDate
+  ? data.papers
+      .filter(p => {
+        const pDate = parseDate(p.manualUpdateDate);
+        return pDate && pDate.getTime() === latestManualDate.getTime();
+      })
+      .filter(p => p.publishedOnline)
+      .sort((a, b) => {
+        const dateA = new Date(a.publishedOnline || '');
+        const dateB = new Date(b.publishedOnline || '');
+        return dateB.getTime() - dateA.getTime();
+      })
+  : [];
+
+const latestPapers = showAllLatest ? latestPapersAll : latestPapersAll.slice(0, 6);
+const hasMoreLatest = latestPapersAll.length > 6;
 
   const formatDate = (dateStr?: string | null) => {
     if (!dateStr) return '-';
@@ -170,7 +202,7 @@ const formattedLatestDate = latestManualUpdateDate
               最新发表论文
             </h3>
             <span className="text-sm text-gray-500">
-              最近更新的 {latestPapers.length} 篇论文
+              最近更新的 {latestPapersAll.length} 篇论文
             </span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -197,6 +229,33 @@ const formattedLatestDate = latestManualUpdateDate
             ))}
           </div>
         </div>
+
+        
+    {/* 查看更多按钮 */}
+    {hasMoreLatest && !showAllLatest && (
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={() => setShowAllLatest(true)}
+          className="px-6 py-2 bg-[#0d9488] text-white rounded-full hover:bg-[#0f766e] transition-colors flex items-center gap-2"
+          title="查看更多"
+        >
+          <span>...</span>
+          <span className="text-sm">查看更多</span>
+        </button>
+      </div>
+    )}
+    
+    {/* 收起按钮 */}
+    {showAllLatest && hasMoreLatest && (
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={() => setShowAllLatest(false)}
+          className="px-6 py-2 border border-[#0d9488] text-[#0d9488] rounded-full hover:bg-[#0d9488] hover:text-white transition-colors text-sm"
+        >
+          收起
+        </button>
+      </div>
+    )}
 
         {/* 可视化按钮 */}
         <div className="flex justify-center mb-8">
