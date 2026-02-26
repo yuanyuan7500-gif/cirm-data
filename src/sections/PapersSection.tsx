@@ -232,18 +232,21 @@ const formattedLatestDate = latestManualUpdateDate
 
         
     {/* 查看更多按钮 */}
-    {hasMoreLatest && !showAllLatest && (
-      <div className="flex justify-center mt-6">
-        <button
-          onClick={() => setShowAllLatest(true)}
-          className="px-6 py-2 bg-[#0d9488] text-white rounded-full hover:bg-[#0f766e] transition-colors flex items-center gap-2"
-          title="查看更多"
-        >
-          <span>...</span>
-          <span className="text-sm">查看更多</span>
-        </button>
-      </div>
-    )}
+{hasMoreLatest && !showAllLatest && (
+  <div className="flex justify-center mt-6">
+    <button
+      onClick={() => setShowAllLatest(true)}
+      className="group relative px-4 py-2 text-[#0d9488] hover:text-[#0f766e] transition-colors text-2xl font-bold"
+      title=""
+    >
+      <span className="tracking-widest">...</span>
+      {/* Hover 时显示的文字 */}
+      <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+        查看更多
+      </span>
+    </button>
+  </div>
+)}
     
     {/* 收起按钮 */}
     {showAllLatest && hasMoreLatest && (
