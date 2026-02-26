@@ -209,6 +209,7 @@ export function DataManagementSection({ data, onImport, onExport, onUpdateData, 
               authors: String(row[2] || ''),
               publication: String(row[3] || ''),
               publishedOnline: row[4] ? String(row[4]) : null,
+              manualUpdateDate: row[10] ? String(row[10]) : null,  // ← 添加这一行
               grantNumber: grantNumber,
               grantNumbers: grantNumbers,
               grantType: String(row[6] || ''),
@@ -284,6 +285,7 @@ export function DataManagementSection({ data, onImport, onExport, onUpdateData, 
             authors: String(row[2] || ''),
             publication: String(row[3] || ''),
             publishedOnline: row[4] ? String(row[4]) : null,
+            manualUpdateDate: row[10] ? String(row[10]) : null,  // ← 添加
             grantNumber: grantNumber,
             grantNumbers: grantNumbers,
             grantType: String(row[6] || ''),
@@ -348,6 +350,7 @@ export function DataManagementSection({ data, onImport, onExport, onUpdateData, 
             authors: String(row[2] || ''),
             publication: String(row[3] || ''),
             publishedOnline: row[4] ? String(row[4]) : null,
+            manualUpdateDate: row[10] ? String(row[10]) : null,  // ← 添加
             grantNumber: grantNumber,
             grantNumbers: grantNumbers,
             grantType: String(row[6] || ''),
@@ -474,7 +477,7 @@ DISC1-12346,Discovery,DISC 1,示例项目标题2,示例疾病领域,负责人姓
     const activeGrantsWs = XLSX.utils.aoa_to_sheet([activeGrantsHeaders, ...activeGrantsData]);
     XLSX.utils.book_append_sheet(wb, activeGrantsWs, 'ActiveGrants');
 
-    const papersHeaders = ['Title', 'Research Topic', 'Authors', 'Publication', 'Published Online', 'Grant Number', 'Grant Type', 'Program Type', 'Grant Title', 'Award Status'];
+    const papersHeaders = ['Title', 'Research Topic', 'Authors', 'Publication', 'Published Online', 'Grant Number', 'Grant Type', 'Program Type', 'Grant Title', 'Award Status', 'Manual Update Date'];
     const papersData = data.papers.map(p => [
       p.title,
       p.researchTopic,
@@ -486,6 +489,7 @@ DISC1-12346,Discovery,DISC 1,示例项目标题2,示例疾病领域,负责人姓
       p.programType,
       p.grantTitle,
       p.awardStatus
+      p.manualUpdateDate || '',  // ← 添加这一行
     ]);
     const papersWs = XLSX.utils.aoa_to_sheet([papersHeaders, ...papersData]);
     XLSX.utils.book_append_sheet(wb, papersWs, 'Papers');
@@ -937,3 +941,4 @@ DISC1-12346,Discovery,DISC 1,示例项目标题2,示例疾病领域,负责人姓
     </section>
   );
 }
+
