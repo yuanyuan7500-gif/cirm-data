@@ -132,8 +132,8 @@ const latestPapers = [...data.papers]
   };
 // 计算 Manual Update Date 的最新日期
 const latestManualUpdateDate = data.papers
-  .filter(p => p.manualUpdateDate)
-  .map(p => new Date(p.manualUpdateDate))
+  .map(p => p.manualUpdateDate ? new Date(p.manualUpdateDate) : null)
+  .filter((date): date is Date => date !== null && !isNaN(date.getTime()))
   .sort((a, b) => b.getTime() - a.getTime())[0];
 
 const formattedLatestDate = latestManualUpdateDate 
