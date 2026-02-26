@@ -228,31 +228,31 @@ const formattedLatestDate = latestManualUpdateDate
               </Card>
             ))}
             {/* 查看更多按钮 */}
-    {hasMoreLatest && !showAllLatest && (
-      <div className="flex items-center justify-center h-full min-h-[200px]">
-        <button
-          onClick={() => setShowAllLatest(true)}
-          className="group relative text-[#0d9488] hover:text-[#0f766e] transition-colors text-2xl font-bold"
-        >
-          <span className="tracking-widest">...</span>
-          <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-            查看更多
-          </span>
-        </button>
-      </div>
-    )}
-    
-    {/* 收起按钮 */}
-    {showAllLatest && hasMoreLatest && (
-      <div className="flex items-center justify-center h-full min-h-[200px]">
-        <button
-          onClick={() => setShowAllLatest(false)}
-          className="px-6 py-2 border border-[#0d9488] text-[#0d9488] rounded-full hover:bg-[#0d9488] hover:text-white transition-colors text-sm"
-        >
-          收起
-        </button>
-      </div>
-    )}
+{hasMoreLatest && !showAllLatest && (
+  <div className="col-span-1 md:col-span-2 lg:col-span-3 flex items-center justify-center py-4">
+    <button
+      onClick={() => setShowAllLatest(true)}
+      className="group relative text-[#0d9488] hover:text-[#0f766e] transition-colors text-2xl font-bold"
+    >
+      <span className="tracking-widest">...</span>
+      <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+        查看更多
+      </span>
+    </button>
+  </div>
+)}
+
+{/* 收起按钮 */}
+{showAllLatest && hasMoreLatest && (
+  <div className="col-span-1 md:col-span-2 lg:col-span-3 flex items-center justify-center py-4">
+    <button
+      onClick={() => setShowAllLatest(false)}
+      className="px-6 py-2 border border-[#0d9488] text-[#0d9488] rounded-full hover:bg-[#0d9488] hover:text-white transition-colors text-sm"
+    >
+      收起
+    </button>
+  </div>
+)}
           </div>
         </div>
 
