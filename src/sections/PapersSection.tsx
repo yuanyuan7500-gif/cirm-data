@@ -35,6 +35,15 @@ export function PapersSection({ data }: PapersSectionProps) {
   const [programFilter, setProgramFilter] = useState('all');
   const [updateDateFilter, setUpdateDateFilter] = useState('all');
   const [showVisualization, setShowVisualization] = useState(false);
+  
+  // 新增：分页状态
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 18; // 每页显示18篇
+  
+  // 当筛选条件变化时，重置到第一页
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, yearFilter, programFilter, updateDateFilter]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -57,7 +66,7 @@ export function PapersSection({ data }: PapersSectionProps) {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [currentPage]); // 添加 currentPage 依赖，切换页面时重新触发动画
 
   // 获取唯一的年份列表
   const years = Array.from(
@@ -105,6 +114,22 @@ export function PapersSection({ data }: PapersSectionProps) {
     }
     return true;
   });
+
+  // 新增：分页计算
+  const totalPages = Math.ceil(filteredPapers.length / pageSize);
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  const currentPapers = filteredPapers.slice(startIndex, endIndex);
+  
+  // 页码变化处理
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // 滚动到论文网格顶部
+    const gridElement = document.querySelector('.papers-grid');
+    if (gridElement) {
+      gridElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
 // 获取最新手动更新日期的论文（先按manualUpdateDate筛选，再按publishedOnline排序）
 const [showAllLatest, setShowAllLatest] = useState(false);
@@ -213,7 +238,7 @@ const formattedLatestDate = latestManualUpdateDate
 >
   {/* 外部链接按钮 - 右上角 */}
   <a
-    href={`https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(paper.title)}`}
+    href={`https://pubmed.ncbi.nlm.nih.gov/?term= ${encodeURIComponent(paper.title)}`}
     target="_blank"
     rel="noopener noreferrer"
     className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#0d9488] text-white rounded-full p-2 hover:bg-[#0f766e] z-10"
@@ -420,7 +445,7 @@ const formattedLatestDate = latestManualUpdateDate
 
         {/* 论文网格 */}
         <div className="papers-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPapers.slice(0, 18).map((paper, index) => (
+          {currentPapers.map((paper, index) => (
             <Card
               key={index}
               className="paper-card group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-gray-100 overflow-hidden"
@@ -504,7 +529,7 @@ const formattedLatestDate = latestManualUpdateDate
                 {/* 悬停操作 */}
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
                   <a
-                    href={`https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(
+                    href={`https://pubmed.ncbi.nlm.nih.gov/?term= ${encodeURIComponent(
                       paper.title
                     )}`}
                     target="_blank"
@@ -520,18 +545,80 @@ const formattedLatestDate = latestManualUpdateDate
           ))}
         </div>
 
-        {/* 加载更多 / 摘要 */}
-        <div className="mt-8 text-center">
-          <p className="text-sm text-gray-500">
-            显示{' '}
-            <strong className="text-gray-900">
-              {Math.min(filteredPapers.length, 18)}
-            </strong>{' '}
-            条，共{' '}
-            <strong className="text-gray-900">{filteredPapers.length}</strong>{' '}
-            篇论文
-          </p>
-        </div>
+        {/* 分页组件 */}
+        {totalPages > 1 && (
+          <div className="mt-8 flex flex-col items-center gap-4">
+            {/* 分页按钮 */}
+            <div className="flex items-center gap-2">
+              {/* 上一页 */}
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${
+                  currentPage === 1
+                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed border-gray-200'
+                    : 'bg-white text-[#0d9488] border-[#0d9488] hover:bg-[#0d9488] hover:text-white'
+                }`}
+              >
+                上一页
+              </button>
+
+              {/* 页码 */}
+              <div className="flex gap-1">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`w-10 h-10 rounded-lg border text-sm font-medium transition-colors ${
+                      currentPage === page
+                        ? 'bg-[#0d9488] text-white border-[#0d9488]'
+                        : 'bg-white text-gray-600 border-gray-300 hover:border-[#0d9488] hover:text-[#0d9488]'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </div>
+
+              {/* 下一页 */}
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${
+                  currentPage === totalPages
+                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed border-gray-200'
+                    : 'bg-white text-[#0d9488] border-[#0d9488] hover:bg-[#0d9488] hover:text-white'
+                }`}
+              >
+                下一页
+              </button>
+            </div>
+
+            {/* 统计信息 */}
+            <p className="text-sm text-gray-500">
+              显示{' '}
+              <strong className="text-gray-900">
+                {startIndex + 1} - {Math.min(endIndex, filteredPapers.length)}
+              </strong>{' '}
+              条，共{' '}
+              <strong className="text-gray-900">{filteredPapers.length}</strong>{' '}
+              篇论文
+            </p>
+          </div>
+        )}
+
+        {/* 只有一页时的统计信息 */}
+        {totalPages <= 1 && (
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-500">
+              显示{' '}
+              <strong className="text-gray-900">{filteredPapers.length}</strong>{' '}
+              条，共{' '}
+              <strong className="text-gray-900">{filteredPapers.length}</strong>{' '}
+              篇论文
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );
