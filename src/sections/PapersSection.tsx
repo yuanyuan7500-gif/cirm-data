@@ -545,7 +545,7 @@ const formattedLatestDate = latestManualUpdateDate
           ))}
         </div>
 
-        {/* 分页组件 */}
+                {/* 分页组件 */}
         {totalPages > 1 && (
           <div className="mt-8 flex flex-col items-center gap-4">
             {/* 分页按钮 */}
@@ -563,21 +563,68 @@ const formattedLatestDate = latestManualUpdateDate
                 上一页
               </button>
 
-              {/* 页码 */}
+              {/* 页码 - 简化显示 */}
               <div className="flex gap-1">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                {/* 第一页 */}
+                <button
+                  onClick={() => handlePageChange(1)}
+                  className={`w-10 h-10 rounded-lg border text-sm font-medium transition-colors ${
+                    currentPage === 1
+                      ? 'bg-[#0d9488] text-white border-[#0d9488]'
+                      : 'bg-white text-gray-600 border-gray-300 hover:border-[#0d9488] hover:text-[#0d9488]'
+                  }`}
+                >
+                  1
+                </button>
+
+                {/* 左侧省略号 */}
+                {currentPage > 4 && (
+                  <span className="w-10 h-10 flex items-center justify-center text-gray-400">
+                    ...
+                  </span>
+                )}
+
+                {/* 中间页码 */}
+                {Array.from({ length: totalPages }, (_, i) => i + 1)
+                  .filter((page) => {
+                    // 显示当前页附近的页码（前后各2页），但要排除第一页和最后一页
+                    if (page === 1 || page === totalPages) return false;
+                    return page >= currentPage - 2 && page <= currentPage + 2;
+                  })
+                  .map((page) => (
+                    <button
+                      key={page}
+                      onClick={() => handlePageChange(page)}
+                      className={`w-10 h-10 rounded-lg border text-sm font-medium transition-colors ${
+                        currentPage === page
+                          ? 'bg-[#0d9488] text-white border-[#0d9488]'
+                          : 'bg-white text-gray-600 border-gray-300 hover:border-[#0d9488] hover:text-[#0d9488]'
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  ))}
+
+                {/* 右侧省略号 */}
+                {currentPage < totalPages - 3 && (
+                  <span className="w-10 h-10 flex items-center justify-center text-gray-400">
+                    ...
+                  </span>
+                )}
+
+                {/* 最后一页（如果不止一页） */}
+                {totalPages > 1 && (
                   <button
-                    key={page}
-                    onClick={() => handlePageChange(page)}
+                    onClick={() => handlePageChange(totalPages)}
                     className={`w-10 h-10 rounded-lg border text-sm font-medium transition-colors ${
-                      currentPage === page
+                      currentPage === totalPages
                         ? 'bg-[#0d9488] text-white border-[#0d9488]'
                         : 'bg-white text-gray-600 border-gray-300 hover:border-[#0d9488] hover:text-[#0d9488]'
                     }`}
                   >
-                    {page}
+                    {totalPages}
                   </button>
-                ))}
+                )}
               </div>
 
               {/* 下一页 */}
