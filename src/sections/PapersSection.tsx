@@ -194,6 +194,23 @@ const hasMoreLatest = latestPapersAll.length > 6;
     return grantNumberStr.split(/[\/;]/).map(s => s.trim()).filter(Boolean);
   };
 
+  // 辅助函数：拆分多个状态（新增）
+  const parseAwardStatuses = (statusStr: string): string[] => {
+    if (!statusStr) return [];
+    return statusStr.split(/[\/;]/).map(s => s.trim()).filter(Boolean);
+  };
+
+  // 辅助函数：将项目编号和状态配对（新增）
+  const getGrantNumberStatusPairs = (paper: any): { grantNumber: string; status: string }[] => {
+    const grantNumbers = parseGrantNumbers(paper.grantNumber);
+    const statuses = parseAwardStatuses(paper.awardStatus);
+    
+    return grantNumbers.map((grantNum, index) => ({
+      grantNumber: grantNum,
+      status: statuses[index] || statuses[0] || 'Unknown',
+    }));
+  };
+
   // 辅助函数：根据项目编号前缀判断 Program Type
   const getProgramTypeByGrantNumber = (grantNumber: string): string => {
     const prefix = grantNumber.split('-')[0]?.toUpperCase() || '';
@@ -289,9 +306,9 @@ const formattedLatestDate = latestManualUpdateDate
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             
-                                    {latestPapers.map((paper, index) => {
-              // 拆分项目编号
-              const grantNumbers = parseGrantNumbers(paper.grantNumber);
+                                                {latestPapers.map((paper, index) => {
+              // 获取项目编号和状态的配对
+              const grantStatusPairs = getGrantNumberStatusPairs(paper);
               
               return (
                 <Card
@@ -330,29 +347,36 @@ const formattedLatestDate = latestManualUpdateDate
                       </div>
                     </div>
                     
-                    {/* 多个项目编号（只显示编号，不显示Program Type） */}
+                    {/* 项目编号和对应的状态标签（一一对应） */}
                     <div className="flex flex-wrap gap-2 mb-3">
-                      {grantNumbers.map((grantNum, idx) => (
-                        <span key={idx} className="text-xs text-gray-400">
-                          {grantNum}
-                        </span>
+                      {grantStatusPairs.map((pair, idx) => (
+                        <div key={idx} className="flex items-center gap-1">
+                          <span className="text-xs text-gray-400">{pair.grantNumber}</span>
+                          <Badge
+                            className={`text-xs ${
+                              pair.status === 'Closed'
+                                ? 'bg-gray-100 text-gray-600'
+                                : 'bg-[#0d9488]/10 text-[#0d9488]'
+                            }`}
+                          >
+                            {pair.status === 'Closed' ? '已结束' : '进行中'}
+                          </Badge>
+                        </div>
                       ))}
-                      {grantNumbers.length === 0 && (
-                        <span className="text-xs text-gray-400">未指明</span>
+                      {grantStatusPairs.length === 0 && (
+                        <div className="flex items-center gap-1">
+                          <span className="text-xs text-gray-400">未指明</span>
+                          <Badge
+                            className={`text-xs ${
+                              paper.awardStatus === 'Closed'
+                                ? 'bg-gray-100 text-gray-600'
+                                : 'bg-[#0d9488]/10 text-[#0d9488]'
+                            }`}
+                          >
+                            {paper.awardStatus === 'Closed' ? '已结束' : '进行中'}
+                          </Badge>
+                        </div>
                       )}
-                    </div>
-                    
-                    {/* 状态标签 */}
-                    <div className="mb-3">
-                      <Badge
-                        className={`text-xs ${
-                          paper.awardStatus === 'Closed'
-                            ? 'bg-gray-100 text-gray-600'
-                            : 'bg-[#0d9488]/10 text-[#0d9488]'
-                        }`}
-                      >
-                        {paper.awardStatus === 'Closed' ? '已结束' : '进行中'}
-                      </Badge>
                     </div>
                     
                     {/* 分隔线和内容概要 */}
@@ -519,11 +543,11 @@ const formattedLatestDate = latestManualUpdateDate
 
         {/* 论文网格 */}
         <div className="papers-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {currentPapers.map((paper, index) => {
-            // 拆分项目编号
-            const grantNumbers = parseGrantNumbers(paper.grantNumber);
+                              {currentPapers.map((paper, index) => {
+            // 获取项目编号和状态的配对
+            const grantStatusPairs = getGrantNumberStatusPairs(paper);
             // 获取所有不同的 Program Types
-            const programTypes = Array.from(new Set(grantNumbers.map(g => getProgramTypeByGrantNumber(g))));
+            const programTypes = Array.from(new Set(grantStatusPairs.map(pair => getProgramTypeByGrantNumber(pair.grantNumber))));
             
             return (
               <Card
@@ -559,14 +583,15 @@ const formattedLatestDate = latestManualUpdateDate
                     )}
                   </div>
 
-                  {/* 多个项目编号 */}
+                  {/* 多个项目编号和对应状态 */}
                   <div className="flex flex-wrap gap-2 mb-3">
-                    {grantNumbers.map((grantNum, idx) => (
-                      <Badge key={idx} variant="outline" className="text-xs">
-                        {grantNum}
+                    {grantStatusPairs.map((pair, idx) => (
+                      <Badge key={idx} variant="outline" className="text-xs flex items-center gap-1">
+                        {pair.grantNumber}
+                        <span className={`w-2 h-2 rounded-full ${pair.status === 'Closed' ? 'bg-gray-400' : 'bg-[#0d9488]'}`}></span>
                       </Badge>
                     ))}
-                    {grantNumbers.length === 0 && (
+                    {grantStatusPairs.length === 0 && (
                       <Badge variant="outline" className="text-xs">
                         {paper.grantNumber || '未指明'}
                       </Badge>
@@ -607,17 +632,26 @@ const formattedLatestDate = latestManualUpdateDate
                     <p className="text-sm text-gray-700 line-clamp-1">
                       {paper.grantTitle || paper.grantType}
                     </p>
+                    {/* 使用第一个状态作为整体状态，或显示多个状态 */}
                     <div className="flex items-center justify-between mt-2">
-                      <Badge
-                        variant={paper.awardStatus === 'Closed' ? 'secondary' : 'default'}
-                        className={
-                          paper.awardStatus === 'Closed'
-                            ? 'bg-gray-100 text-gray-600 text-xs'
-                            : 'bg-[#008080]/10 text-[#008080] text-xs'
-                        }
-                      >
-                        {paper.awardStatus === 'Closed' ? '已结束' : '进行中'}
-                      </Badge>
+                      <div className="flex gap-1">
+                        {grantStatusPairs.slice(0, 2).map((pair, idx) => (
+                          <Badge
+                            key={idx}
+                            variant={pair.status === 'Closed' ? 'secondary' : 'default'}
+                            className={
+                              pair.status === 'Closed'
+                                ? 'bg-gray-100 text-gray-600 text-xs'
+                                : 'bg-[#008080]/10 text-[#008080] text-xs'
+                            }
+                          >
+                            {pair.status === 'Closed' ? '已结束' : '进行中'}
+                          </Badge>
+                        ))}
+                        {grantStatusPairs.length > 2 && (
+                          <span className="text-xs text-gray-400">+{grantStatusPairs.length - 2}</span>
+                        )}
+                      </div>
                     </div>
                   </div>
 
