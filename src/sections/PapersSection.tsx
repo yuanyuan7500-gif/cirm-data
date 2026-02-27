@@ -556,47 +556,7 @@ const formattedLatestDate = latestManualUpdateDate
                 style={{ perspective: '1000px' }}
               >
                 <CardContent className="p-6">
-                  {/* 项目类型标签 - 显示所有不同的 Program Type */}
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {programTypes.map((progType, idx) => (
-                      <Badge
-                        key={idx}
-                        className="text-xs"
-                        style={{
-                          backgroundColor: getProgramTypeColor(progType),
-                          color: progType === 'Clinical' ? '#333' : 'white',
-                        }}
-                      >
-                        {progType}
-                      </Badge>
-                    ))}
-                    {programTypes.length === 0 && paper.programType && (
-                      <Badge
-                        className="text-xs"
-                        style={{
-                          backgroundColor: getProgramTypeColor(paper.programType),
-                          color: paper.programType === 'Clinical' ? '#333' : 'white',
-                        }}
-                      >
-                        {paper.programType}
-                      </Badge>
-                    )}
-                  </div>
-
-                  {/* 多个项目编号和对应状态 */}
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {grantStatusPairs.map((pair, idx) => (
-                      <Badge key={idx} variant="outline" className="text-xs flex items-center gap-1">
-                        {pair.grantNumber}
-                        <span className={`w-2 h-2 rounded-full ${pair.status === 'Closed' ? 'bg-gray-400' : 'bg-[#0d9488]'}`}></span>
-                      </Badge>
-                    ))}
-                    {grantStatusPairs.length === 0 && (
-                      <Badge variant="outline" className="text-xs">
-                        {paper.grantNumber || '未指明'}
-                      </Badge>
-                    )}
-                  </div>
+                 
 
                   {/* 标题 */}
                   <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#008080] transition-colors">
@@ -626,34 +586,63 @@ const formattedLatestDate = latestManualUpdateDate
                     </span>
                   </div>
 
-                  {/* 资助信息 */}
-                  <div className="pt-4 border-t border-gray-100">
-                    <p className="text-xs text-gray-500 mb-1">资助项目</p>
-                    <p className="text-sm text-gray-700 line-clamp-1">
-                      {paper.grantTitle || paper.grantType}
-                    </p>
-                    {/* 使用第一个状态作为整体状态，或显示多个状态 */}
-                    <div className="flex items-center justify-between mt-2">
-                      <div className="flex gap-1">
-                        {grantStatusPairs.slice(0, 2).map((pair, idx) => (
+                                  {/* 资助项目 - 显示每个项目编号及其Program Type和状态 */}
+                <div className="pt-4 border-t border-gray-100">
+                  <p className="text-xs text-gray-500 mb-2">资助项目</p>
+                  
+                  {/* 每个项目编号一行：Program Type + 编号 + 状态 */}
+                  <div className="flex flex-col gap-2">
+                    {grantStatusPairs.map((pair, idx) => {
+                      const progType = getProgramTypeByGrantNumber(pair.grantNumber);
+                      const color = getProgramTypeColor(progType);
+                      
+                      return (
+                        <div key={idx} className="flex items-center gap-2 flex-wrap">
+                          {/* Program Type 标签 */}
                           <Badge
-                            key={idx}
-                            variant={pair.status === 'Closed' ? 'secondary' : 'default'}
-                            className={
+                            className="text-[10px] px-1.5 py-0.5"
+                            style={{
+                              backgroundColor: color,
+                              color: progType === 'Clinical' ? '#333' : 'white',
+                            }}
+                          >
+                            {progType}
+                          </Badge>
+                          
+                          {/* 项目编号 */}
+                          <span className="text-xs text-gray-600">{pair.grantNumber}</span>
+                          
+                          {/* 状态标签 */}
+                          <Badge
+                            className={`text-xs ${
                               pair.status === 'Closed'
-                                ? 'bg-gray-100 text-gray-600 text-xs'
-                                : 'bg-[#008080]/10 text-[#008080] text-xs'
-                            }
+                                ? 'bg-gray-100 text-gray-600'
+                                : 'bg-[#008080]/10 text-[#008080]'
+                            }`}
                           >
                             {pair.status}
                           </Badge>
-                        ))}
-                        {grantStatusPairs.length > 2 && (
-                          <span className="text-xs text-gray-400">+{grantStatusPairs.length - 2}</span>
-                        )}
+                        </div>
+                      );
+                    })}
+                    
+                    {/* 没有项目编号时的备用显示 */}
+                    {grantStatusPairs.length === 0 && (
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-gray-600">未指明</span>
+                        <Badge
+                          className={`text-xs ${
+                            paper.awardStatus === 'Closed'
+                              ? 'bg-gray-100 text-gray-600'
+                              : 'bg-[#008080]/10 text-[#008080]'
+                          }`}
+                        >
+                          {paper.awardStatus || 'Unknown'}
+                        </Badge>
                       </div>
-                    </div>
+                    )}
                   </div>
+                </div>
 
                   {/* 悬停操作 */}
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
