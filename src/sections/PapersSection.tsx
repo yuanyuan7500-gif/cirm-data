@@ -216,7 +216,7 @@ const formattedLatestDate = latestManualUpdateDate
     href={`https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(paper.title)}`}
     target="_blank"
     rel="noopener noreferrer"
-    className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#0d9488] text-white rounded-full p-2 hover:bg-[#0f766e]"
+    className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#0d9488] text-white rounded-full p-2 hover:bg-[#0f766e] z-10"
     onClick={(e) => e.stopPropagation()}
   >
     <ExternalLink className="w-4 h-4" />
@@ -244,7 +244,7 @@ const formattedLatestDate = latestManualUpdateDate
     </div>
     
     {/* 项目编号和状态标签 */}
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 mb-3">
       <span className="text-xs text-gray-400">{paper.grantNumber}</span>
       <Badge
         className={`text-xs ${
@@ -255,6 +255,17 @@ const formattedLatestDate = latestManualUpdateDate
       >
         {paper.awardStatus === 'Closed' ? '已结束' : '进行中'}
       </Badge>
+    </div>
+    
+    {/* 分隔线和内容概要 */}
+    <div className="border-t border-gray-200 pt-3">
+      <p className="text-xs text-gray-500 mb-1">内容概要：</p>
+      <p 
+        className="text-xs text-gray-700 line-clamp-1 group-hover:line-clamp-none transition-all duration-300"
+        title={paper.researchTopic}
+      >
+        {paper.researchTopic || '暂无研究主题'}
+      </p>
     </div>
   </CardContent>
 </Card>
