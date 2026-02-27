@@ -231,18 +231,18 @@ const formattedLatestDate = latestManualUpdateDate
       {paper.title}
     </p>
     
-    {/* 期刊 - 带图书图标 */}
-    <div className="flex items-center gap-2 text-xs text-gray-500 mb-1">
-      <BookOpen className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
-      <span>{paper.publication}</span>
-    </div>
-    
-    {/* 日期 - 带日历图标 */}
-    <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
-      <Calendar className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
-      <Badge variant="outline" className="text-[#0d9488]">
-        {formatDate(paper.publishedOnline)}
-      </Badge>
+    {/* 期刊和日期在同一行 */}
+    <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
+      <div className="flex items-center gap-1.5">
+        <BookOpen className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
+        <span>{paper.publication}</span>
+      </div>
+      <div className="flex items-center gap-1.5">
+        <Calendar className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
+        <Badge variant="outline" className="text-[#0d9488]">
+          {formatDate(paper.publishedOnline)}
+        </Badge>
+      </div>
     </div>
     
     <p className="text-xs text-gray-400">
