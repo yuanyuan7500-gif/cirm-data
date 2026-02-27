@@ -207,85 +207,23 @@ const formattedLatestDate = latestManualUpdateDate
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {latestPapers.map((paper, index) => (
-              <Card
+             <Card
   key={index}
-  className="paper-card group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-gray-100 overflow-hidden border-l-4 border-l-[#0d9488]"
-  style={{ perspective: '1000px' }}
+  className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-[#0d9488]"
 >
-  <CardContent className="p-6">
-    {/* 项目类型标签 */}
-    <div className="flex items-center gap-2 mb-3">
-      <Badge
-        className="text-xs"
-        style={{
-          backgroundColor:
-            paper.programType === 'Discovery'
-              ? '#0d9488'
-              : paper.programType === 'Education'
-              ? '#066'
-              : paper.programType === 'Clinical'
-              ? '#A8DADC'
-              : paper.programType === 'Preclinical/Translational'
-              ? '#FF6B6B'
-              : '#4ECDC4',
-          color:
-            paper.programType === 'Clinical' ? '#333' : 'white',
-        }}
-      >
-        {paper.programType}
-      </Badge>
-      <Badge variant="outline" className="text-xs">
-        {paper.grantNumber}
-      </Badge>
-    </div>
-
-    {/* 标题 */}
-    <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#0d9488] transition-colors">
+  <CardContent className="p-4">
+    <p className="text-sm font-medium text-gray-900 line-clamp-2 mb-2">
       {paper.title}
-    </h3>
-
-    {/* 作者 */}
-    <div className="flex items-start gap-2 mb-3">
-      <User className="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" />
-      <p className="text-sm text-gray-600 line-clamp-1">
-        {paper.authors.split(';').slice(0, 3).join('; ')}
-        {paper.authors.split(';').length > 3 && ' et al.'}
-      </p>
-    </div>
-
-    {/* 期刊 */}
-    <div className="flex items-center gap-2 mb-3">
-      <BookOpen className="w-4 h-4 text-gray-400 flex-shrink-0" />
-      <span className="text-sm text-gray-600">{paper.publication}</span>
-    </div>
-
-    {/* 日期 */}
-    <div className="flex items-center gap-2 mb-4">
-      <Calendar className="w-4 h-4 text-gray-400 flex-shrink-0" />
-      <span className="text-sm text-gray-500">
+    </p>
+    <div className="flex items-center justify-between text-xs text-gray-500">
+      <span>{paper.publication}</span>
+      <Badge variant="outline" className="text-[#0d9488]">
         {formatDate(paper.publishedOnline)}
-      </span>
+      </Badge>
     </div>
-
-    {/* 资助信息 */}
-    <div className="pt-4 border-t border-gray-100">
-      <p className="text-xs text-gray-500 mb-1">资助项目</p>
-      <p className="text-sm text-gray-700 line-clamp-1">
-        {paper.grantTitle || paper.grantType}
-      </p>
-      <div className="flex items-center justify-between mt-2">
-        <Badge
-          variant={paper.awardStatus === 'Closed' ? 'secondary' : 'default'}
-          className={
-            paper.awardStatus === 'Closed'
-              ? 'bg-gray-100 text-gray-600 text-xs'
-              : 'bg-[#0d9488]/10 text-[#0d9488] text-xs'
-          }
-        >
-          {paper.awardStatus === 'Closed' ? '已结束' : '进行中'}
-        </Badge>
-      </div>
-    </div>
+    <p className="text-xs text-gray-400 mt-2">
+      {paper.grantNumber}
+    </p>
   </CardContent>
 </Card>
             ))}
