@@ -187,6 +187,63 @@ const hasMoreLatest = latestPapersAll.length > 6;
       return dateStr;
     }
   };
+  // 辅助函数：拆分多个项目编号
+  const parseGrantNumbers = (grantNumberStr: string): string[] => {
+    if (!grantNumberStr) return [];
+    // 按斜杠或分号拆分，并清理空白
+    return grantNumberStr.split(/[\/;]/).map(s => s.trim()).filter(Boolean);
+  };
+
+  // 辅助函数：根据项目编号前缀判断 Program Type
+  const getProgramTypeByGrantNumber = (grantNumber: string): string => {
+    const prefix = grantNumber.split('-')[0]?.toUpperCase() || '';
+    
+    // 根据前缀映射到 Program Type
+    const prefixMap: Record<string, string> = {
+      'DISC': 'Discovery',
+      'DISC1': 'Discovery',
+      'DISC2': 'Discovery',
+      'DISC3': 'Discovery',
+      'TRAN': 'Preclinical/Translational',
+      'TRAN1': 'Preclinical/Translational',
+      'TRAN2': 'Preclinical/Translational',
+      'CLIN': 'Clinical',
+      'CLIN1': 'Clinical',
+      'CLIN2': 'Clinical',
+      'EDUC': 'Education',
+      'EDUC1': 'Education',
+      'EDUC2': 'Education',
+      'EDUC3': 'Education',
+      'EDUC4': 'Education',
+      'LSP': 'Preclinical/Translational',
+      'LSP1': 'Preclinical/Translational',
+      'LSP2': 'Preclinical/Translational',
+      'IT': 'Infrastructure',
+      'IT1': 'Infrastructure',
+      'FA': 'Infrastructure',
+      'FA1': 'Infrastructure',
+      'RB': 'Other',
+      'TG': 'Other',
+      'INFRA': 'Infrastructure',
+      'RS': 'Research',
+    };
+    
+    return prefixMap[prefix] || 'Other';
+  };
+
+  // 辅助函数：获取 Program Type 对应的颜色
+  const getProgramTypeColor = (programType: string): string => {
+    const colorMap: Record<string, string> = {
+      'Discovery': '#008080',
+      'Education': '#066',
+      'Clinical': '#A8DADC',
+      'Preclinical/Translational': '#FF6B6B',
+      'Infrastructure': '#4ECDC4',
+      'Other': '#95A5A6',
+      'Research': '#9B59B6',
+    };
+    return colorMap[programType] || '#4ECDC4';
+  };
 // 计算 Manual Update Date 的最新日期
 const latestManualUpdateDate = data.papers
   .map(p => p.manualUpdateDate ? new Date(p.manualUpdateDate) : null)
@@ -231,71 +288,102 @@ const formattedLatestDate = latestManualUpdateDate
             </span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {latestPapers.map((paper, index) => (
-             <Card
-  key={index}
-  className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-[#0d9488] relative"
->
-  {/* 外部链接按钮 - 右上角 */}
-  <a
-    href={`https://pubmed.ncbi.nlm.nih.gov/?term= ${encodeURIComponent(paper.title)}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#0d9488] text-white rounded-full p-2 hover:bg-[#0f766e] z-10"
-    onClick={(e) => e.stopPropagation()}
-  >
-    <ExternalLink className="w-4 h-4" />
-  </a>
-  
-  <CardContent className="p-4">
-    {/* 标题 - hover 显示完整 */}
-    <p 
-      className="text-sm font-medium text-gray-900 line-clamp-2 mb-2 group-hover:text-[#0d9488] group-hover:line-clamp-none transition-colors cursor-pointer"
-      title={paper.title}
-    >
-      {paper.title}
-    </p>
-    
-    {/* 期刊和日期在同一行 */}
-    <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
-      <div className="flex items-center gap-1.5">
-        <BookOpen className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
-        <span>{paper.publication}</span>
-      </div>
-      <div className="flex items-center gap-1.5">
-        <Calendar className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
-        <span className="text-[#0d9488]">{formatDate(paper.publishedOnline)}</span>
-      </div>
-    </div>
-    
-    {/* 项目编号和状态标签 */}
-    <div className="flex items-center gap-2 mb-3">
-      <span className="text-xs text-gray-400">{paper.grantNumber}</span>
-      <Badge
-        className={`text-xs ${
-          paper.awardStatus === 'Closed'
-            ? 'bg-gray-100 text-gray-600'
-            : 'bg-[#0d9488]/10 text-[#0d9488]'
-        }`}
-      >
-        {paper.awardStatus === 'Closed' ? '已结束' : '进行中'}
-      </Badge>
-    </div>
-    
-    {/* 分隔线和内容概要 */}
-<div className="border-t border-gray-100 pt-3">
-  <div className="group/abstract cursor-pointer">
-    <p className="text-xs text-gray-500 mb-1 group-hover/abstract:text-[#0d9488] transition-colors">内容概要：</p>
-    <p
-      className="text-xs text-gray-500 line-clamp-1 group-hover/abstract:line-clamp-none group-hover/abstract:text-gray-700 transition-all duration-300"
-    >
-      {paper.researchTopic || '暂无研究主题'}
-    </p>
-  </div>
-</div>
-  </CardContent>
-</Card>
-            ))}
+            
+                        {latestPapers.map((paper, index) => {
+              // 拆分项目编号
+              const grantNumbers = parseGrantNumbers(paper.grantNumber);
+              
+              return (
+                <Card
+                  key={index}
+                  className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-[#0d9488] relative"
+                >
+                  {/* 外部链接按钮 - 右上角 */}
+                  <a
+                    href={`https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(paper.title)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#0d9488] text-white rounded-full p-2 hover:bg-[#0f766e] z-10"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                  
+                  <CardContent className="p-4">
+                    {/* 标题 - hover 显示完整 */}
+                    <p 
+                      className="text-sm font-medium text-gray-900 line-clamp-2 mb-2 group-hover:text-[#0d9488] group-hover:line-clamp-none transition-colors cursor-pointer"
+                      title={paper.title}
+                    >
+                      {paper.title}
+                    </p>
+                    
+                    {/* 期刊和日期在同一行 */}
+                    <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
+                      <div className="flex items-center gap-1.5">
+                        <BookOpen className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
+                        <span>{paper.publication}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
+                        <span className="text-[#0d9488]">{formatDate(paper.publishedOnline)}</span>
+                      </div>
+                    </div>
+                    
+                    {/* 多个项目编号和对应的 Program Type */}
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {grantNumbers.map((grantNum, idx) => {
+                        const programType = getProgramTypeByGrantNumber(grantNum);
+                        const color = getProgramTypeColor(programType);
+                        
+                        return (
+                          <div key={idx} className="flex items-center gap-1">
+                            <Badge
+                              className="text-[10px] px-1.5 py-0.5"
+                              style={{
+                                backgroundColor: color,
+                                color: programType === 'Clinical' ? '#333' : 'white',
+                              }}
+                            >
+                              {programType}
+                            </Badge>
+                            <span className="text-xs text-gray-400">{grantNum}</span>
+                          </div>
+                        );
+                      })}
+                      {grantNumbers.length === 0 && (
+                        <span className="text-xs text-gray-400">未指明</span>
+                      )}
+                    </div>
+                    
+                    {/* 状态标签 */}
+                    <div className="mb-3">
+                      <Badge
+                        className={`text-xs ${
+                          paper.awardStatus === 'Closed'
+                            ? 'bg-gray-100 text-gray-600'
+                            : 'bg-[#0d9488]/10 text-[#0d9488]'
+                        }`}
+                      >
+                        {paper.awardStatus === 'Closed' ? '已结束' : '进行中'}
+                      </Badge>
+                    </div>
+                    
+                    {/* 分隔线和内容概要 */}
+                    <div className="border-t border-gray-100 pt-3">
+                      <div className="group/abstract cursor-pointer">
+                        <p className="text-xs text-gray-500 mb-1 group-hover/abstract:text-[#0d9488] transition-colors">内容概要：</p>
+                        <p
+                          className="text-xs text-gray-500 line-clamp-1 group-hover/abstract:line-clamp-none group-hover/abstract:text-gray-700 transition-all duration-300"
+                        >
+                          {paper.researchTopic || '暂无研究主题'}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
             {/* 查看更多按钮 */}
 {hasMoreLatest && !showAllLatest && (
   <div className="col-span-1 md:col-span-2 lg:col-span-3 flex items-center justify-center py-4">
@@ -445,104 +533,124 @@ const formattedLatestDate = latestManualUpdateDate
 
         {/* 论文网格 */}
         <div className="papers-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {currentPapers.map((paper, index) => (
-            <Card
-              key={index}
-              className="paper-card group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-gray-100 overflow-hidden"
-              style={{ perspective: '1000px' }}
-            >
-              <CardContent className="p-6">
-                {/* 项目类型标签 */}
-                <div className="flex items-center gap-2 mb-3">
-                  <Badge
-                    className="text-xs"
-                    style={{
-                      backgroundColor:
-                        paper.programType === 'Discovery'
-                          ? '#008080'
-                          : paper.programType === 'Education'
-                          ? '#066'
-                          : paper.programType === 'Clinical'
-                          ? '#A8DADC'
-                          : paper.programType === 'Preclinical/Translational'
-                          ? '#FF6B6B'
-                          : '#4ECDC4',
-                      color:
-                        paper.programType === 'Clinical' ? '#333' : 'white',
-                    }}
-                  >
-                    {paper.programType}
-                  </Badge>
-                  <Badge variant="outline" className="text-xs">
-                    {paper.grantNumber}
-                  </Badge>
-                </div>
-
-                {/* 标题 */}
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#008080] transition-colors">
-                  {paper.title}
-                </h3>
-
-                {/* 作者 */}
-                <div className="flex items-start gap-2 mb-3">
-                  <User className="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" />
-                  <p className="text-sm text-gray-600 line-clamp-1">
-                    {paper.authors.split(';').slice(0, 3).join('; ')}
-                    {paper.authors.split(';').length > 3 && ' et al.'}
-                  </p>
-                </div>
-
-                {/* 期刊 */}
-                <div className="flex items-center gap-2 mb-3">
-                  <BookOpen className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">{paper.publication}</span>
-                </div>
-
-                {/* 日期 */}
-                <div className="flex items-center gap-2 mb-4">
-                  <Calendar className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                  <span className="text-sm text-gray-500">
-                    {formatDate(paper.publishedOnline)}
-                  </span>
-                </div>
-
-                {/* 资助信息 */}
-                <div className="pt-4 border-t border-gray-100">
-                  <p className="text-xs text-gray-500 mb-1">资助项目</p>
-                  <p className="text-sm text-gray-700 line-clamp-1">
-                    {paper.grantTitle || paper.grantType}
-                  </p>
-                  <div className="flex items-center justify-between mt-2">
-                    <Badge
-                      variant={paper.awardStatus === 'Closed' ? 'secondary' : 'default'}
-                      className={
-                        paper.awardStatus === 'Closed'
-                          ? 'bg-gray-100 text-gray-600 text-xs'
-                          : 'bg-[#008080]/10 text-[#008080] text-xs'
-                      }
-                    >
-                      {paper.awardStatus === 'Closed' ? '已结束' : '进行中'}
-                    </Badge>
+                    {currentPapers.map((paper, index) => {
+            // 拆分项目编号
+            const grantNumbers = parseGrantNumbers(paper.grantNumber);
+            // 获取所有不同的 Program Types
+            const programTypes = Array.from(new Set(grantNumbers.map(g => getProgramTypeByGrantNumber(g))));
+            
+            return (
+              <Card
+                key={index}
+                className="paper-card group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-gray-100 overflow-hidden"
+                style={{ perspective: '1000px' }}
+              >
+                <CardContent className="p-6">
+                  {/* 项目类型标签 - 显示所有不同的 Program Type */}
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {programTypes.map((progType, idx) => (
+                      <Badge
+                        key={idx}
+                        className="text-xs"
+                        style={{
+                          backgroundColor: getProgramTypeColor(progType),
+                          color: progType === 'Clinical' ? '#333' : 'white',
+                        }}
+                      >
+                        {progType}
+                      </Badge>
+                    ))}
+                    {programTypes.length === 0 && paper.programType && (
+                      <Badge
+                        className="text-xs"
+                        style={{
+                          backgroundColor: getProgramTypeColor(paper.programType),
+                          color: paper.programType === 'Clinical' ? '#333' : 'white',
+                        }}
+                      >
+                        {paper.programType}
+                      </Badge>
+                    )}
                   </div>
-                </div>
 
-                {/* 悬停操作 */}
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <a
-                    href={`https://pubmed.ncbi.nlm.nih.gov/?term= ${encodeURIComponent(
-                      paper.title
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 rounded-full bg-[#008080] text-white flex items-center justify-center hover:bg-[#066] transition-colors"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  {/* 多个项目编号 */}
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {grantNumbers.map((grantNum, idx) => (
+                      <Badge key={idx} variant="outline" className="text-xs">
+                        {grantNum}
+                      </Badge>
+                    ))}
+                    {grantNumbers.length === 0 && (
+                      <Badge variant="outline" className="text-xs">
+                        {paper.grantNumber || '未指明'}
+                      </Badge>
+                    )}
+                  </div>
+
+                  {/* 标题 */}
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#008080] transition-colors">
+                    {paper.title}
+                  </h3>
+
+                  {/* 作者 */}
+                  <div className="flex items-start gap-2 mb-3">
+                    <User className="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" />
+                    <p className="text-sm text-gray-600 line-clamp-1">
+                      {paper.authors.split(';').slice(0, 3).join('; ')}
+                      {paper.authors.split(';').length > 3 && ' et al.'}
+                    </p>
+                  </div>
+
+                  {/* 期刊 */}
+                  <div className="flex items-center gap-2 mb-3">
+                    <BookOpen className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">{paper.publication}</span>
+                  </div>
+
+                  {/* 日期 */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <Calendar className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                    <span className="text-sm text-gray-500">
+                      {formatDate(paper.publishedOnline)}
+                    </span>
+                  </div>
+
+                  {/* 资助信息 */}
+                  <div className="pt-4 border-t border-gray-100">
+                    <p className="text-xs text-gray-500 mb-1">资助项目</p>
+                    <p className="text-sm text-gray-700 line-clamp-1">
+                      {paper.grantTitle || paper.grantType}
+                    </p>
+                    <div className="flex items-center justify-between mt-2">
+                      <Badge
+                        variant={paper.awardStatus === 'Closed' ? 'secondary' : 'default'}
+                        className={
+                          paper.awardStatus === 'Closed'
+                            ? 'bg-gray-100 text-gray-600 text-xs'
+                            : 'bg-[#008080]/10 text-[#008080] text-xs'
+                        }
+                      >
+                        {paper.awardStatus === 'Closed' ? '已结束' : '进行中'}
+                      </Badge>
+                    </div>
+                  </div>
+
+                  {/* 悬停操作 */}
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <a
+                      href={`https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(paper.title)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-full bg-[#008080] text-white flex items-center justify-center hover:bg-[#066] transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
                 {/* 分页组件 */}
