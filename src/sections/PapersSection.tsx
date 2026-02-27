@@ -223,6 +223,22 @@ const formattedLatestDate = latestManualUpdateDate
   </a>
   
   <CardContent className="p-4">
+    {/* 左上角：项目编号和状态标签 */}
+    <div className="flex items-center gap-2 mb-2">
+      <Badge variant="outline" className="text-xs text-gray-600">
+        {paper.grantNumber}
+      </Badge>
+      <Badge
+        className={`text-xs ${
+          paper.awardStatus === 'Closed'
+            ? 'bg-gray-100 text-gray-600'
+            : 'bg-[#0d9488]/10 text-[#0d9488]'
+        }`}
+      >
+        {paper.awardStatus === 'Closed' ? '已结束' : '进行中'}
+      </Badge>
+    </div>
+    
     {/* 标题 - hover 显示完整 */}
     <p 
       className="text-sm font-medium text-gray-900 line-clamp-2 mb-2 group-hover:text-[#0d9488] group-hover:line-clamp-none transition-colors cursor-pointer"
@@ -232,22 +248,16 @@ const formattedLatestDate = latestManualUpdateDate
     </p>
     
     {/* 期刊和日期在同一行 */}
-    <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
+    <div className="flex items-center justify-between text-xs text-gray-500">
       <div className="flex items-center gap-1.5">
         <BookOpen className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
         <span>{paper.publication}</span>
       </div>
       <div className="flex items-center gap-1.5">
         <Calendar className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
-        <Badge variant="outline" className="text-[#0d9488]">
-          {formatDate(paper.publishedOnline)}
-        </Badge>
+        <span className="text-[#0d9488]">{formatDate(paper.publishedOnline)}</span>
       </div>
     </div>
-    
-    <p className="text-xs text-gray-400">
-      {paper.grantNumber}
-    </p>
   </CardContent>
 </Card>
             ))}
