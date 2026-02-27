@@ -289,7 +289,7 @@ const formattedLatestDate = latestManualUpdateDate
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             
-                        {latestPapers.map((paper, index) => {
+                                    {latestPapers.map((paper, index) => {
               // 拆分项目编号
               const grantNumbers = parseGrantNumbers(paper.grantNumber);
               
@@ -330,27 +330,13 @@ const formattedLatestDate = latestManualUpdateDate
                       </div>
                     </div>
                     
-                    {/* 多个项目编号和对应的 Program Type */}
+                    {/* 多个项目编号（只显示编号，不显示Program Type） */}
                     <div className="flex flex-wrap gap-2 mb-3">
-                      {grantNumbers.map((grantNum, idx) => {
-                        const programType = getProgramTypeByGrantNumber(grantNum);
-                        const color = getProgramTypeColor(programType);
-                        
-                        return (
-                          <div key={idx} className="flex items-center gap-1">
-                            <Badge
-                              className="text-[10px] px-1.5 py-0.5"
-                              style={{
-                                backgroundColor: color,
-                                color: programType === 'Clinical' ? '#333' : 'white',
-                              }}
-                            >
-                              {programType}
-                            </Badge>
-                            <span className="text-xs text-gray-400">{grantNum}</span>
-                          </div>
-                        );
-                      })}
+                      {grantNumbers.map((grantNum, idx) => (
+                        <span key={idx} className="text-xs text-gray-400">
+                          {grantNum}
+                        </span>
+                      ))}
                       {grantNumbers.length === 0 && (
                         <span className="text-xs text-gray-400">未指明</span>
                       )}
