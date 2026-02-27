@@ -546,8 +546,7 @@ const formattedLatestDate = latestManualUpdateDate
                               {currentPapers.map((paper, index) => {
             // 获取项目编号和状态的配对
             const grantStatusPairs = getGrantNumberStatusPairs(paper);
-            // 获取所有不同的 Program Types
-            const programTypes = Array.from(new Set(grantStatusPairs.map(pair => getProgramTypeByGrantNumber(pair.grantNumber))));
+            
             
             return (
               <Card
