@@ -209,12 +209,28 @@ const formattedLatestDate = latestManualUpdateDate
             {latestPapers.map((paper, index) => (
              <Card
   key={index}
-  className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-[#0d9488]"
+  className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-[#0d9488] relative"
 >
+  {/* 外部链接按钮 - 右上角 */}
+  <a
+    href={`https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(paper.title)}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#0d9488] text-white rounded-full p-2 hover:bg-[#0f766e]"
+    onClick={(e) => e.stopPropagation()}
+  >
+    <ExternalLink className="w-4 h-4" />
+  </a>
+  
   <CardContent className="p-4">
-    <p className="text-sm font-medium text-gray-900 line-clamp-2 mb-2">
+    {/* 标题 - hover 显示完整 */}
+    <p 
+      className="text-sm font-medium text-gray-900 line-clamp-2 mb-2 group-hover:text-[#0d9488] group-hover:line-clamp-none transition-colors cursor-pointer"
+      title={paper.title}
+    >
       {paper.title}
     </p>
+    
     <div className="flex items-center justify-between text-xs text-gray-500">
       <span>{paper.publication}</span>
       <Badge variant="outline" className="text-[#0d9488]">
