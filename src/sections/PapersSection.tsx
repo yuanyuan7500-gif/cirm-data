@@ -359,7 +359,7 @@ const formattedLatestDate = latestManualUpdateDate
                                 : 'bg-[#0d9488]/10 text-[#0d9488]'
                             }`}
                           >
-                            {pair.status === 'Closed' ? '已结束' : '进行中'}
+                            {pair.status}
                           </Badge>
                         </div>
                       ))}
@@ -373,7 +373,7 @@ const formattedLatestDate = latestManualUpdateDate
                                 : 'bg-[#0d9488]/10 text-[#0d9488]'
                             }`}
                           >
-                            {paper.awardStatus === 'Closed' ? '已结束' : '进行中'}
+                            {paper.awardStatus || 'Unknown'}
                           </Badge>
                         </div>
                       )}
@@ -645,7 +645,7 @@ const formattedLatestDate = latestManualUpdateDate
                                 : 'bg-[#008080]/10 text-[#008080] text-xs'
                             }
                           >
-                            {pair.status === 'Closed' ? '已结束' : '进行中'}
+                            {pair.status}
                           </Badge>
                         ))}
                         {grantStatusPairs.length > 2 && (
