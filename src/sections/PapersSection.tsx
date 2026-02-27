@@ -258,15 +258,17 @@ const formattedLatestDate = latestManualUpdateDate
     </div>
     
     {/* 分隔线和内容概要 */}
-    <div className="border-t border-gray-200 pt-3">
-      <p className="text-xs text-gray-500 mb-1">内容概要：</p>
-      <p 
-        className="text-xs text-gray-700 line-clamp-1 group-hover:line-clamp-none transition-all duration-300"
-        title={paper.researchTopic}
-      >
-        {paper.researchTopic || '暂无研究主题'}
-      </p>
-    </div>
+<div className="border-t border-gray-100 pt-3">
+  <div className="group/abstract cursor-pointer">
+    <p className="text-xs text-gray-500 mb-1 group-hover/abstract:text-[#0d9488] transition-colors">内容概要：</p>
+    <p
+      className="text-xs text-gray-700 line-clamp-1 group-hover/abstract:line-clamp-none transition-all duration-300"
+      title={paper.researchTopic}
+    >
+      {paper.researchTopic || '暂无研究主题'}
+    </p>
+  </div>
+</div>
   </CardContent>
 </Card>
             ))}
