@@ -262,8 +262,7 @@ const formattedLatestDate = latestManualUpdateDate
   <div className="group/abstract cursor-pointer">
     <p className="text-xs text-gray-500 mb-1 group-hover/abstract:text-[#0d9488] transition-colors">内容概要：</p>
     <p
-      className="text-xs text-gray-700 line-clamp-1 group-hover/abstract:line-clamp-none transition-all duration-300"
-      title={paper.researchTopic}
+      className="text-xs text-gray-500 line-clamp-1 group-hover/abstract:line-clamp-none group-hover/abstract:text-gray-700 transition-all duration-300"
     >
       {paper.researchTopic || '暂无研究主题'}
     </p>
