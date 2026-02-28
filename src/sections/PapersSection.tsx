@@ -416,7 +416,7 @@ const formattedLatestDate = latestManualUpdateDate
     查看PDF
   </button>
 </div>
-</CardContent>
+
                   </CardContent>
                 </Card>
               );
