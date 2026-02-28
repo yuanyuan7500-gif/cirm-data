@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Loader2, ExternalLink, Download, AlertCircle } from 'lucide-react';
-import { PDFSource, pdfResolver } from '@/lib/pdf-resolver';
+import { pdfResolver } from '@/lib/pdf-resolver';
+import type { PDFSource } from '@/lib/pdf-resolver';
 
 interface PDFViewerProps {
   title: string;
@@ -13,7 +14,7 @@ interface PDFViewerProps {
 
 export function PDFViewer({ title, open, onOpenChange }: PDFViewerProps) {
   const [source, setSource] = useState<PDFSource | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
