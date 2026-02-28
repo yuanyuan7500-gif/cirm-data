@@ -255,7 +255,7 @@ const hasMoreLatest = latestPapersAll.length > 6;
 'RT3': 'Discovery',
 'INFR': 'Infrastructure',
 'LA1': 'Discovery',
-'DR2A': 'Clinical',
+
     };
     
     return prefixMap[prefix] || 'Other';
