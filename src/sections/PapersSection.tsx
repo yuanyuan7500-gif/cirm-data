@@ -24,6 +24,7 @@ import { PDFViewer } from '@/components/pdf-viewer';
 import { pdfResolver } from '@/lib/pdf-resolver';
 import { GrantPaperVisualization } from '@/components/visualizations/GrantPaperVisualization';
 import type { CIRMData } from '@/types';
+import type { Paper } from '@/types';  // 添加这一行
 
 gsap.registerPlugin(ScrollTrigger);
 
