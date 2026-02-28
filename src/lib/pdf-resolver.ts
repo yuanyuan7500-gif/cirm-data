@@ -52,7 +52,7 @@ export class PDFResolver {
     const cacheKey = cleanTitle.toLowerCase();
 
     if (this.cache.has(cacheKey)) {
-      return this.cache.get(cacheKey);
+      return this.cache.get(cacheKey) || null;  // 确保返回 null 而不是 undefined
     }
 
     try {
