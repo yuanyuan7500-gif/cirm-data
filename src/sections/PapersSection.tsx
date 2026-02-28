@@ -23,7 +23,7 @@ import { Search, Calendar, User, BookOpen, ExternalLink, BarChart3, Info, FileTe
 
 import { GrantPaperVisualization } from '@/components/visualizations/GrantPaperVisualization';
 import type { CIRMData } from '@/types';
-import type { Paper } from '@/types';  // 添加这一行
+
 
 gsap.registerPlugin(ScrollTrigger);
 
