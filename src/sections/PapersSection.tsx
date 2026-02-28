@@ -20,8 +20,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Search, Calendar, User, BookOpen, ExternalLink, BarChart3, Info, FileText } from 'lucide-react';
-import { PDFViewer } from '@/components/pdf-viewer';
-import { pdfResolver } from '@/lib/pdf-resolver';
+
 import { GrantPaperVisualization } from '@/components/visualizations/GrantPaperVisualization';
 import type { CIRMData } from '@/types';
 import type { Paper } from '@/types';  // 添加这一行
@@ -72,14 +71,7 @@ export function PapersSection({ data }: PapersSectionProps) {
     return () => ctx.revert();
   }, [currentPage]); // 添加 currentPage 依赖，切换页面时重新触发动画
   // 新增：PDF查看器状态
-const [selectedPaper, setSelectedPaper] = useState<Paper | null>(null);
-const [pdfOpen, setPdfOpen] = useState(false);
 
-// 新增：预解析可视区域内的文献
-useEffect(() => {
-  const titles = currentPapers.slice(0, 6).map(p => p.title);
-  pdfResolver.prefetch(titles);
-}, [currentPage]);
 
   // 获取唯一的年份列表
   const years = Array.from(
@@ -407,15 +399,17 @@ const formattedLatestDate = latestManualUpdateDate
                     {/* 添加PDF按钮 - 在CardContent底部 */}
 <div className="mt-3 pt-3 border-t border-gray-100 flex gap-2">
   <button
-    onClick={() => {
-      setSelectedPaper(paper);
-      setPdfOpen(true);
-    }}
-    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[#0d9488] bg-[#0d9488]/10 rounded-md hover:bg-[#0d9488]/20 transition-colors"
-  >
-    <FileText className="w-3.5 h-3.5" />
-    查看PDF
-  </button>
+  onClick={() => {
+    window.open(
+      `https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(paper.title)}`,
+      '_blank'
+    );
+  }}
+  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[#0d9488] bg-[#0d9488]/10 rounded-md hover:bg-[#0d9488]/20 transition-colors"
+>
+  <FileText className="w-3.5 h-3.5" />
+  查看PDF
+</button>
 </div>
 
                   </CardContent>
@@ -686,15 +680,17 @@ const formattedLatestDate = latestManualUpdateDate
                   {/* 添加PDF按钮 */}
 <div className="mt-3 pt-3 border-t border-gray-100">
   <button
-    onClick={() => {
-      setSelectedPaper(paper);
-      setPdfOpen(true);
-    }}
-    className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#008080] rounded-lg hover:bg-[#066] transition-colors"
-  >
-    <FileText className="w-4 h-4" />
-    查看PDF
-  </button>
+  onClick={() => {
+    window.open(
+      `https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(paper.title)}`,
+      '_blank'
+    );
+  }}
+  className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#008080] rounded-lg hover:bg-[#066] transition-colors"
+>
+  <FileText className="w-4 h-4" />
+  查看PDF
+</button>
 </div>
                 </CardContent>
               </Card>
@@ -824,11 +820,7 @@ const formattedLatestDate = latestManualUpdateDate
           </div>
         )}
       </div>
-      <PDFViewer
-  title={selectedPaper?.title || ''}
-  open={pdfOpen}
-  onOpenChange={setPdfOpen}
-/>
+      
     </section>
   );
 }
