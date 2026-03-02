@@ -8,6 +8,7 @@ import {
   FileText,
   TrendingUp,
   Calendar,
+  User,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import type { CIRMData } from '@/types';
@@ -234,17 +235,18 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-gray-900 line-clamp-2">
-                        {grant.projectTitle || grant.grantType}
+                        {grant['Grant Title'] || grant.grantType}
                       </p>
-                      <p className="text-xs text-gray-500">
-                        {grant.programType} • {grant.institution || '未知机构'}
+                      <p className="text-xs text-gray-500 flex items-center gap-1">
+                        <User className="w-3 h-3" />
+                        {grant['Principal Investigator'] || '未知研究员'}
                       </p>
                     </div>
                     <div className="text-right flex-shrink-0">
                       <p className="text-sm font-medium text-[#008080]">
                         {formatCurrency(grant.awardValue)}
                       </p>
-                      <p className="text-xs text-gray-400 flex items-center gap-1">
+                      <p className="text-xs text-gray-400 flex items-center gap-1 justify-end">
                         <Calendar className="w-3 h-3" />
                         {formatDate(grant.icocApproval)}
                       </p>
