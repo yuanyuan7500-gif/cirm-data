@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Briefcase, DollarSign, Activity, FileText } from 'lucide-react';
-import type { DataSummary } from '@/types';
+import type { CIRMData } from '@/types';
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface StatsSectionProps {
-  summary: DataSummary;
+  data: CIRMData;
 }
 
 interface StatCardProps {
@@ -111,7 +111,7 @@ function StatCard({ icon, value, suffix = '', prefix = '', label, delay }: StatC
   );
 }
 
-export function StatsSection({ summary }: StatsSectionProps) {
+export function StatsSection({ data }: StatsSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
@@ -136,16 +136,24 @@ export function StatsSection({ summary }: StatsSectionProps) {
     return () => ctx.revert();
   }, []);
 
+  // 计算统计值（与仪表盘保持一致）
+  const totalProjects = data.grants.reduce((sum, g) => sum + (g.totalAwards || 0), 0);
+  const activeProjects = data.activeGrants.filter(g => 
+    g.awardStatus === 'Pre-Active' || g.awardStatus === 'Active'
+  ).length;
+  const totalAmount = data.summary.totalAmount;
+  const totalPapers = data.summary.totalPapers;
+
   const stats = [
     {
       icon: <Briefcase className="w-6 h-6 text-white" />,
-      value: summary.totalGrants,
+      value: totalProjects,
       label: '资助项目总数',
       delay: 0,
     },
     {
       icon: <DollarSign className="w-6 h-6 text-white" />,
-      value: summary.totalAmount,
+      value: totalAmount,
       prefix: '$',
       suffix: '+',
       label: '资助总金额',
@@ -153,13 +161,13 @@ export function StatsSection({ summary }: StatsSectionProps) {
     },
     {
       icon: <Activity className="w-6 h-6 text-white" />,
-      value: summary.activeProjects,
+      value: activeProjects,
       label: '进行中项目',
       delay: 0.2,
     },
     {
       icon: <FileText className="w-6 h-6 text-white" />,
-      value: summary.totalPapers,
+      value: totalPapers,
       label: '研究论文',
       delay: 0.3,
     },
