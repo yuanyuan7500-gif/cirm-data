@@ -76,7 +76,7 @@ function App() {
       {currentPage === 'home' && (
         <>
           <Hero onExplore={handleExplore} />
-          <StatsSection summary={data.summary} />
+          <StatsSection data={data} />
           <ChartsSection data={data} />
           <Footer />
         </>
@@ -172,5 +172,6 @@ function App() {
 }
 
 export default App;
+
 
 
