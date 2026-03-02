@@ -81,10 +81,14 @@ export function PapersSection({ data }: PapersSectionProps) {
     )
   ).slice(0, 10);
 
-  // 获取唯一的项目类型（用于筛选器）
-  const programTypes = Array.from(
-    new Set(data.papers.map((p) => p.programType).filter(Boolean))
-  ).sort();
+  // 获取唯一的项目类型（拆分多值，如 "Discovery/Education"）
+const programTypes = Array.from(
+  new Set(
+    data.papers
+      .flatMap((p) => p.programType?.split('/').map(t => t.trim()) || [])
+      .filter(Boolean)
+  )
+).sort();
 
   // 分析更新日期（基于publishedOnline）
   const updateDates = Array.from(
