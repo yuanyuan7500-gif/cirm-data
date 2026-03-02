@@ -120,9 +120,15 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
     .sort((a, b) => new Date(b.publishedOnline!).getTime() - new Date(a.publishedOnline!).getTime())
     .slice(0, 5);
 
-  // 从 grants 数据实时计算项目类型分布
+  // 从 grants 数据实时计算项目类型分布，合并 Preclinical 和 Translational
   const programStatsFromGrants = data.grants.reduce((acc, grant) => {
-    const type = grant.programType;
+    let type = grant.programType;
+    
+    // 合并 Preclinical 和 Translational 为 Preclinical/Translational
+    if (type === 'Preclinical' || type === 'Translational') {
+      type = 'Preclinical/Translational';
+    }
+    
     if (!acc[type]) {
       acc[type] = { projects: 0, amount: 0 };
     }
@@ -131,9 +137,18 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
     return acc;
   }, {} as Record<string, { projects: number; amount: number }>);
 
-  // 转换为数组并排序（按项目数量降序）
-  const sortedProgramStats = Object.entries(programStatsFromGrants)
-    .sort((a, b) => b[1].projects - a[1].projects);
+  // 定义显示顺序
+  const typeOrder = ['Discovery', 'Preclinical/Translational', 'Clinical', 'Education', 'Infrastructure'];
+
+  // 按指定顺序排序，未定义的类型放在最后
+  const sortedProgramStats = Object.entries(programStatsFromGrants).sort((a, b) => {
+    const indexA = typeOrder.indexOf(a[0]);
+    const indexB = typeOrder.indexOf(b[0]);
+    if (indexA === -1 && indexB === -1) return a[0].localeCompare(b[0]);
+    if (indexA === -1) return 1;
+    if (indexB === -1) return -1;
+    return indexA - indexB;
+  });
 
   // 计算统计值
   const totalProjects = data.grants.reduce((sum, g) => sum + (g.totalAwards || 0), 0);
@@ -317,13 +332,13 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
           </Card>
         </div>
 
-        {/* Program Distribution - 从 grants 数据实时计算 */}
+        {/* Program Distribution - 从 grants 数据实时计算，合并 Preclinical/Translational */}
         <Card className="dashboard-card mt-8">
           <CardContent className="p-6">
             <h3 className="text-lg font-bold text-gray-900 mb-6">
               项目类型分布
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               {sortedProgramStats.map(([type, stat]) => (
                 <div
                   key={type}
