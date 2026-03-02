@@ -120,6 +120,21 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
     .sort((a, b) => new Date(b.publishedOnline!).getTime() - new Date(a.publishedOnline!).getTime())
     .slice(0, 5);
 
+  // 从 grants 数据实时计算项目类型分布
+  const programStatsFromGrants = data.grants.reduce((acc, grant) => {
+    const type = grant.programType;
+    if (!acc[type]) {
+      acc[type] = { projects: 0, amount: 0 };
+    }
+    acc[type].projects += grant.totalAwards || 0;
+    acc[type].amount += grant.awardValue || 0;
+    return acc;
+  }, {} as Record<string, { projects: number; amount: number }>);
+
+  // 转换为数组并排序（按项目数量降序）
+  const sortedProgramStats = Object.entries(programStatsFromGrants)
+    .sort((a, b) => b[1].projects - a[1].projects);
+
   // 计算统计值
   const totalProjects = data.grants.reduce((sum, g) => sum + (g.totalAwards || 0), 0);
   const activeProjects = data.grants
@@ -226,34 +241,34 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
               </div>
               <div className="space-y-4">
                 {recentGrants.map((grant, index) => (
-  <div
-    key={index}
-    className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors"
-  >
-    <div className="w-10 h-10 rounded-lg bg-[#008080]/10 flex items-center justify-center flex-shrink-0">
-      <Briefcase className="w-5 h-5 text-[#008080]" />
-    </div>
-    <div className="flex-1 min-w-0">
-      <p className="text-sm font-medium text-gray-900 line-clamp-2">
-        <span className="text-[#008080] font-semibold mr-2">{grant.grantNumber}</span>
-        {grant.grantTitle}
-      </p>
-      <p className="text-xs text-gray-500 flex items-center gap-1">
-        <User className="w-3 h-3" />
-        {grant.principalInvestigator}
-      </p>
-    </div>
-    <div className="text-right flex-shrink-0">
-      <p className="text-sm font-medium text-[#008080]">
-        {formatCurrency(grant.awardValue)}
-      </p>
-      <p className="text-xs text-gray-400 flex items-center gap-1 justify-end">
-        <Calendar className="w-3 h-3" />
-        {formatDate(grant.icocApproval)}
-      </p>
-    </div>
-  </div>
-))}
+                  <div
+                    key={index}
+                    className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-[#008080]/10 flex items-center justify-center flex-shrink-0">
+                      <Briefcase className="w-5 h-5 text-[#008080]" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-gray-900 line-clamp-2">
+                        <span className="text-[#008080] font-semibold mr-2">{grant.grantNumber}</span>
+                        {grant.grantTitle}
+                      </p>
+                      <p className="text-xs text-gray-500 flex items-center gap-1">
+                        <User className="w-3 h-3" />
+                        {grant.principalInvestigator}
+                      </p>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <p className="text-sm font-medium text-[#008080]">
+                        {formatCurrency(grant.awardValue)}
+                      </p>
+                      <p className="text-xs text-gray-400 flex items-center gap-1 justify-end">
+                        <Calendar className="w-3 h-3" />
+                        {formatDate(grant.icocApproval)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -302,14 +317,14 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
           </Card>
         </div>
 
-        {/* Program Distribution */}
+        {/* Program Distribution - 从 grants 数据实时计算 */}
         <Card className="dashboard-card mt-8">
           <CardContent className="p-6">
             <h3 className="text-lg font-bold text-gray-900 mb-6">
               项目类型分布
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
-              {Object.entries(data.programStats).map(([type, stat]) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {sortedProgramStats.map(([type, stat]) => (
                 <div
                   key={type}
                   className="text-center p-4 rounded-xl bg-gray-50 hover:bg-[#008080]/5 transition-colors cursor-pointer"
