@@ -45,13 +45,8 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
   }, []);
 
   const formatCurrency = (value: number) => {
-    if (value >= 1000000000) {
-      return `$${(value / 1000000000).toFixed(1)}B`;
-    }
-    if (value >= 1000000) {
-      return `$${(value / 1000000).toFixed(0)}M`;
-    }
-    return `$${value}`;
+    // 显示完整数字，带千分位分隔符
+    return `$${value.toLocaleString()}`;
   };
 
   // Calculate recent activity
@@ -65,24 +60,36 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
     .sort((a, b) => new Date(b.publishedOnline!).getTime() - new Date(a.publishedOnline!).getTime())
     .slice(0, 5);
 
+  // 计算统计值
+  // 1. 资助项目总数 = 所有 grant 的 totalAwards 总和
+  const totalProjects = data.grants.reduce((sum, g) => sum + (g.totalAwards || 0), 0);
+  
+  // 2. 进行中项目 = Active 状态的 totalAwards 总和
+  const activeProjects = data.grants
+    .filter(g => g.awardStatus === 'Active')
+    .reduce((sum, g) => sum + (g.totalAwards || 0), 0);
+  
+  // 3. 资助总金额（直接使用 summary 里的值，但显示完整数字）
+  const totalAmount = data.summary.totalAmount;
+
   const stats = [
     {
       icon: <Briefcase className="w-6 h-6 text-white" />,
-      value: data.summary.totalGrants,
+      value: totalProjects,
       label: '资助项目总数',
       color: 'from-[#008080] to-[#066]',
       onClick: () => onNavigate('grants'),
     },
     {
       icon: <DollarSign className="w-6 h-6 text-white" />,
-      value: formatCurrency(data.summary.totalAmount),
+      value: formatCurrency(totalAmount),
       label: '资助总金额',
       color: 'from-[#4ECDC4] to-[#008080]',
       onClick: () => onNavigate('grants'),
     },
     {
       icon: <Activity className="w-6 h-6 text-white" />,
-      value: data.summary.activeProjects,
+      value: activeProjects,
       label: '进行中项目',
       color: 'from-[#FF6B6B] to-[#FF8E8E]',
       onClick: () => onNavigate('grants'),
