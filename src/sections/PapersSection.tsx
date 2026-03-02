@@ -451,7 +451,7 @@ const formattedLatestDate = latestManualUpdateDate
                   资助编号与文献量可视化分析
                 </DialogTitle>
               </DialogHeader>
-              <GrantPaperVisualization visualization={data.visualization} />
+              <GrantPaperVisualization papers={data.papers} />
             </DialogContent>
           </Dialog>
         </div>
