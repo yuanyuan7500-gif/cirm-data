@@ -81,7 +81,7 @@ export function PapersSection({ data }: PapersSectionProps) {
     )
   ).slice(0, 10);
 
-  // 获取唯一的项目类型
+  // 获取唯一的项目类型（用于筛选器）
   const programTypes = Array.from(
     new Set(data.papers.map((p) => p.programType).filter(Boolean))
   ).sort();
@@ -213,49 +213,41 @@ const hasMoreLatest = latestPapersAll.length > 6;
     }));
   };
 
-  // 辅助函数：根据项目编号前缀判断 Program Type
-  const getProgramTypeByGrantNumber = (grantNumber: string): string => {
+  // 辅助函数：获取 Program Type
+  // 优先使用原始数据（支持多值斜杠分隔），无效时才用 prefixMap 兜底
+  const getProgramType = (paper: any, grantNumber: string): string => {
+    // 1. 优先使用原始数据（如果有效且不是 Other）
+    if (paper.programType && paper.programType !== 'Other') {
+      // 拆分原始数据的 programType（支持斜杠分隔的多值）
+      const originalTypes = paper.programType.split('/').map((t: string) => t.trim());
+      
+      // 找到当前 grantNumber 对应的索引
+      const grantNumbers = paper.grantNumber.split(/[\/;]/).map((s: string) => s.trim());
+      const index = grantNumbers.findIndex((gn: string) => gn === grantNumber);
+      
+      // 返回对应位置的 Program Type，如果没有则返回第一个
+      return originalTypes[index] || originalTypes[0] || 'Other';
+    }
+    
+    // 2. 原始数据无效，从 grantNumber 解析
     const prefix = grantNumber.split('-')[0]?.toUpperCase() || '';
     
-    // 根据前缀映射到 Program Type
     const prefixMap: Record<string, string> = {
-      'DISC': 'Discovery',
-      'DISC1': 'Discovery',
-      'DISC2': 'Discovery',
-      'DISC3': 'Discovery',
-      'TRAN': 'Translational',
-      'TRAN1': 'Translational',
-      'TRAN2': 'Translational',
-      'CLIN': 'Clinical',
-      'CLIN1': 'Clinical',
-      'CLIN2': 'Clinical',
-      'EDUC': 'Education',
-      'EDUC1': 'Education',
-      'EDUC2': 'Education',
-      'EDUC3': 'Education',
-      'EDUC4': 'Education',
-      'LSP': 'Clinical',
-      'LSP1': 'Clinical',
-      'LSP2': 'Clinical',
-      'IT': 'Infrastructure',
-      'IT1': 'Infrastructure',
-      'FA': 'Infrastructure',
-      'FA1': 'Infrastructure',
-      'RB': 'Discovery',
-      'TG': 'Education',
-      'INFRA': 'Infrastructure',
-      'RS': 'Discovery',
-      'CL1': 'Infrastructure',
-'RT2': 'Discovery',
-'DR3': 'Clinical',
-'DR2A': 'Clinical',
-'DR1': 'Discovery',
-'GC1R': 'Infrastructure',
-'TC1': 'Education',
-'RT3': 'Discovery',
-'INFR': 'Infrastructure',
-'LA1': 'Discovery',
-
+      'DISC': 'Discovery', 'DISC1': 'Discovery', 'DISC2': 'Discovery', 'DISC3': 'Discovery',
+      'TRAN': 'Translational', 'TRAN1': 'Translational', 'TRAN2': 'Translational',
+      'CLIN': 'Clinical', 'CLIN1': 'Clinical', 'CLIN2': 'Clinical',
+      'EDUC': 'Education', 'EDUC1': 'Education', 'EDUC2': 'Education', 
+      'EDUC3': 'Education', 'EDUC4': 'Education',
+      'LSP': 'Translational', 'LSP1': 'Translational', 'LSP2': 'Translational',
+      'IT': 'Infrastructure', 'IT1': 'Infrastructure',
+      'FA': 'Infrastructure', 'FA1': 'Infrastructure',
+      'INFRA': 'Infrastructure', 'INFR': 'Infrastructure',
+      'CL1': 'Infrastructure', 'GC1R': 'Infrastructure',
+      'RS': 'Research',
+      'RT2': 'Discovery', 'DR1': 'Discovery', 'RS1': 'Discovery',
+      'RB5': 'Discovery', 'RB2': 'Discovery', 'RB4': 'Discovery', 'LA1': 'Discovery',
+      'RT3': 'Discovery', 'DR3': 'Clinical', 'DR2A': 'Clinical', 'TC1': 'Education',
+      'RB': 'Other', 'TG': 'Other',
     };
     
     return prefixMap[prefix] || 'Other';
@@ -268,7 +260,7 @@ const hasMoreLatest = latestPapersAll.length > 6;
       'Education': '#066',
       'Clinical': '#A8DADC',
       'Preclinical/Translational': '#FF6B6B',
-      'Translational': '#FF6B6B',  // ← 添加这一行
+      'Translational': '#FF6B6B',
       'Infrastructure': '#4ECDC4',
       'Other': '#95A5A6',
       'Research': '#9B59B6',
@@ -331,7 +323,7 @@ const formattedLatestDate = latestManualUpdateDate
                 >
                   {/* 外部链接按钮 - 右上角 */}
                   <a
-                    href={`https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(paper.title)}`}
+                    href={`https://pubmed.ncbi.nlm.nih.gov/?term= ${encodeURIComponent(paper.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#0d9488] text-white rounded-full p-2 hover:bg-[#0f766e] z-10"
@@ -606,7 +598,8 @@ const formattedLatestDate = latestManualUpdateDate
                   {/* 每个项目编号一行：Program Type + 编号 + 状态 */}
                   <div className="flex flex-col gap-2">
                     {grantStatusPairs.map((pair, idx) => {
-                      const progType = getProgramTypeByGrantNumber(pair.grantNumber);
+                      // 使用新的 getProgramType 函数
+                      const progType = getProgramType(paper, pair.grantNumber);
                       const color = getProgramTypeColor(progType);
                       
                       return (
@@ -660,7 +653,7 @@ const formattedLatestDate = latestManualUpdateDate
                   {/* 悬停操作 */}
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
                     <a
-                      href={`https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(paper.title)}`}
+                      href={`https://pubmed.ncbi.nlm.nih.gov/?term= ${encodeURIComponent(paper.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-8 h-8 rounded-full bg-[#008080] text-white flex items-center justify-center hover:bg-[#066] transition-colors"
