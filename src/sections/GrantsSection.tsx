@@ -202,8 +202,8 @@ export function GrantsSection({ data }: GrantsSectionProps) {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">所有状态</SelectItem>
-                <SelectItem value="Active">进行中</SelectItem>
-                <SelectItem value="Closed">已结束</SelectItem>
+                <SelectItem value="Active">Active</SelectItem>
+                <SelectItem value="Closed">Closed</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -321,7 +321,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                               : 'bg-[#008080] text-white'
                           }
                         >
-                          {grant.awardStatus === 'Closed' ? '已结束' : '进行中'}
+                          {grant.awardStatus}
                         </Badge>
                       </TableCell>
                     </TableRow>
@@ -465,15 +465,14 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                             <span className="text-gray-400">状态：</span>
                                                             <Badge
                                                               variant="outline"
-                                                              className={
-                                                                isStatusChanged
+                                                              className={isStatusChanged
                                                                   ? 'text-red-600 border-red-600 bg-red-50 text-xs'
                                                                   : project.awardStatus === 'Closed'
                                                                   ? 'text-gray-500 border-gray-300 text-xs'
                                                                   : 'text-[#008080] border-[#008080] text-xs'
                                                               }
                                                             >
-                                                              {project.awardStatus === 'Closed' ? '已结束' : '进行中'}
+                                                              {project.awardStatus}
                                                             </Badge>
                                                           </span>
                                                         </div>
