@@ -67,7 +67,7 @@ const getProgramTypeByGrantNumber = (grantNumber: string): string => {
 export function GrantPaperVisualization({ papers }: GrantPaperVisualizationProps) {
   const [selectedProgram, setSelectedProgram] = useState<string>('all');
 
-  // 实时计算数据
+    // 实时计算数据
   const { programStats, topGrants, cooccurrence, scatterData } = useMemo(() => {
     // 统计各类型
     const stats: Record<string, { grants: Set<string>; papers: number }> = {};
@@ -81,8 +81,20 @@ export function GrantPaperVisualization({ papers }: GrantPaperVisualizationProps
     papers.forEach(paper => {
       const grantNumbers = paper.grantNumber.split(/[\/;]/).map(s => s.trim()).filter(Boolean);
       
-      // 获取该论文的 programTypes
-      const programTypes = grantNumbers.map(gn => getProgramTypeByGrantNumber(gn));
+      // 优先使用原始数据的 programType
+      let programTypes: string[];
+      if (paper.programType && paper.programType !== 'Other') {
+        // 使用原始数据（拆分多值）
+        programTypes = paper.programType.split('/').map(t => t.trim());
+      } else {
+        // 原始数据无效，用 grantNumber 解析
+        programTypes = grantNumbers.map(gn => getProgramTypeByGrantNumber(gn));
+      }
+      
+      // 确保数量和 grantNumbers 一致（如果原始数据数量不匹配，用解析的补齐）
+      while (programTypes.length < grantNumbers.length) {
+        programTypes.push(getProgramTypeByGrantNumber(grantNumbers[programTypes.length]));
+      }
       
       // 统计
       programTypes.forEach((pt, idx) => {
@@ -91,9 +103,9 @@ export function GrantPaperVisualization({ papers }: GrantPaperVisualizationProps
         stats[pt].papers++;
       });
       
-      // Top资助编号
-      grantNumbers.forEach(gn => {
-        const pt = getProgramTypeByGrantNumber(gn);
+      // Top资助编号（使用解析的 programType，确保每个编号都有类型）
+      grantNumbers.forEach((gn, idx) => {
+        const pt = programTypes[idx] || getProgramTypeByGrantNumber(gn);
         if (!grantPaperCount[gn]) {
           grantPaperCount[gn] = { count: 0, programType: pt };
         }
@@ -110,6 +122,8 @@ export function GrantPaperVisualization({ papers }: GrantPaperVisualizationProps
         }
       }
     });
+    
+    // ... 后续代码不变
     
     // 准备柱状图数据
     const programStatsData = Object.entries(stats).map(([program, data]) => ({
