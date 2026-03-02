@@ -99,7 +99,7 @@
     },
     {
       "id": 9,
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantType": "TRAN 1 (Therapeutic Translational Research Projects)",
       "icocApproval": "2025-01-30",
       "totalAwards": 93,
@@ -110,7 +110,7 @@
     },
     {
       "id": 10,
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantType": "TRAN 2 (Diagnostic Translational Research Projects)",
       "icocApproval": "2024-05-30",
       "totalAwards": 3,
@@ -121,7 +121,7 @@
     },
     {
       "id": 11,
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantType": "TRAN 3 (Medical Device Translational Research Projects)",
       "icocApproval": "2022-04-19",
       "totalAwards": 1,
@@ -132,7 +132,7 @@
     },
     {
       "id": 12,
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantType": "TRAN 4 (Tool Translational Research Projects)",
       "icocApproval": "2025-01-30",
       "totalAwards": 8,
@@ -143,7 +143,7 @@
     },
     {
       "id": 13,
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantType": "TRAN 1 COVID19 (Therapeutic Translational Research Projects)",
       "icocApproval": "2020-06-12",
       "totalAwards": 1,
@@ -4713,7 +4713,7 @@
       "grantType": "",
       "grantTitle": "Modeling the genetic basis of psychopathology in schizophrenia and autism",
       "diseaseFocus": null,
-      "principalInvestigator": "Sebat, Jonathan — \r\r\nUniversity of California, San Diego",
+      "principalInvestigator": "Sebat, Jonathan — \r\r\r\nUniversity of California, San Diego",
       "awardValue": 12703708,
       "icocApproval": "2024-08-30",
       "awardStatus": "Active",
@@ -5000,7 +5000,7 @@
       "grantNumber": "TRAN1-16924",
       "programType": "",
       "grantType": "",
-      "grantTitle": "A novel non-genotoxic antibody conditioning therapeutic\r\r\nto expand access to and safety of HSCT and CD34+ gene therapies",
+      "grantTitle": "A novel non-genotoxic antibody conditioning therapeutic\r\r\r\nto expand access to and safety of HSCT and CD34+ gene therapies",
       "diseaseFocus": null,
       "principalInvestigator": "Chhabra, Akanksha — Maro Bio",
       "awardValue": 4043427,
@@ -10862,7 +10862,7 @@
         "CL1-00520"
       ],
       "grantType": "Shared Labs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "The University of California: Irvine Regional Human Embryonic Stem Cell Shared Research Laboratory and Stem Cell Techniques Course",
       "awardStatus": "Closed"
     },
@@ -10908,7 +10908,7 @@
         "TRAN1-11532"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "PRPE-SF, polarized hESC-derived RPE Soluble Factors, as a Therapy for Early Stage Dry Age-related Macular Degeneration",
       "awardStatus": "Closed"
     },
@@ -10924,7 +10924,7 @@
         "TRAN3-13332"
       ],
       "grantType": "Medical Device Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Living Synthetic Vascular Grafts with Renewable Endothelium",
       "awardStatus": "Active"
     },
@@ -11034,7 +11034,7 @@
         "CL1-00502"
       ],
       "grantType": "Shared Labs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Shared Research Laboratory Grants",
       "awardStatus": "Closed"
     },
@@ -11050,7 +11050,7 @@
         "RT2-01942"
       ],
       "grantType": "Tools and Technologies II",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Robust generation of induced pluripotent stem cells by a potent set of engineered factors",
       "awardStatus": "Closed"
     },
@@ -11114,7 +11114,7 @@
         "DR1-01444"
       ],
       "grantType": "Disease Team Research I",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Stem cell based treatment strategy for Age-related Macular Degeneration (AMD)",
       "awardStatus": "Closed"
     },
@@ -11176,7 +11176,7 @@
         "RT2-01942"
       ],
       "grantType": "Tools and Technologies II",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Robust generation of induced pluripotent stem cells by a potent set of engineered factors",
       "awardStatus": "Closed"
     },
@@ -11208,7 +11208,7 @@
         "CLIN1-10084"
       ],
       "grantType": "Late Stage Preclinical Projects",
-      "programType": "Preclinical",
+      "programType": "Clinical",
       "grantTitle": "Genome Editing of Autologous Hematopoietic Stem Cells to Treat Sickle Cell Disease",
       "awardStatus": "Closed"
     },
@@ -11268,7 +11268,7 @@
         "TRAN1-14003"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Specific Targeting Hypoxia Metastatic Breast Tumor with Allogeneic Off-the-Shelf Anti-EGFR CAR NK Cells Expressing an ODD domain of HIF-1α",
       "awardStatus": "Active"
     },
@@ -11316,7 +11316,7 @@
         "CL1-00520"
       ],
       "grantType": "Shared Labs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "The University of California: Irvine Regional Human Embryonic Stem Cell Shared Research Laboratory and Stem Cell Techniques Course",
       "awardStatus": "Closed"
     },
@@ -11578,7 +11578,7 @@
         "RB5-07012"
       ],
       "grantType": "Basic Biology V",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Systems-level discovery of the regulatory mechanisms directing differentiation of hESC",
       "awardStatus": "Closed"
     },
@@ -11610,7 +11610,7 @@
         "TR2-01768"
       ],
       "grantType": "Early Translational II",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Regeneration of Functional Human Corneal Epithelial Progenitor Cells",
       "awardStatus": "Closed"
     },
@@ -11674,7 +11674,7 @@
         "TR2-01768"
       ],
       "grantType": "Early Translational II",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Regeneration of Functional Human Corneal Epithelial Progenitor Cells",
       "awardStatus": "Closed"
     },
@@ -11691,7 +11691,7 @@
         "CLIN1-08235"
       ],
       "grantType": "Late Stage Preclinical Projects",
-      "programType": "Preclinical",
+      "programType": "Clinical",
       "grantTitle": "IND-enabling study of subretinal delivery of human neural progenitor cells for the treatment of retinitis pigmentosa",
       "awardStatus": "Closed"
     },
@@ -11707,7 +11707,7 @@
         "RS1-00289"
       ],
       "grantType": "SEED Grant",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Stem Cell Survival and Differentiation Through Chemical Genetics",
       "awardStatus": "Closed"
     },
@@ -11740,7 +11740,7 @@
         "CLIN1-08235"
       ],
       "grantType": "Late Stage Preclinical Projects",
-      "programType": "Preclinical",
+      "programType": "Clinical",
       "grantTitle": "IND-enabling study of subretinal delivery of human neural progenitor cells for the treatment of retinitis pigmentosa",
       "awardStatus": "Closed"
     },
@@ -11866,7 +11866,7 @@
         "GC1R-06673"
       ],
       "grantType": "Genomics Centers of Excellence Awards (R)",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Center of Excellence for Stem Cell Genomics – Salk",
       "awardStatus": "Closed"
     },
@@ -12054,7 +12054,7 @@
         "CLIN1-11591"
       ],
       "grantType": "Late Stage Preclinical Projects",
-      "programType": "Preclinical",
+      "programType": "Clinical",
       "grantTitle": "IND-enabling activities for a Phase 1 Study of Autologous CD4LVFOXP3 T Cells in Subjects with IPEX Syndrome",
       "awardStatus": "Closed"
     },
@@ -12086,7 +12086,7 @@
         "RT2-01942"
       ],
       "grantType": "Tools and Technologies II",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Robust generation of induced pluripotent stem cells by a potent set of engineered factors",
       "awardStatus": "Closed"
     },
@@ -12102,7 +12102,7 @@
         "RT2-01942"
       ],
       "grantType": "Tools and Technologies II",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Robust generation of induced pluripotent stem cells by a potent set of engineered factors",
       "awardStatus": "Closed"
     },
@@ -12192,7 +12192,7 @@
         "TRAN1-12987"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "CD72 nanoCARs for the treatment of refractory pediatric B-cell acute lymphoblastic leukemia",
       "awardStatus": "Active"
     },
@@ -12208,7 +12208,7 @@
         "GC1R-06673"
       ],
       "grantType": "Genomics Centers of Excellence Awards (R)",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Center of Excellence for Stem Cell Genomics – Stanford",
       "awardStatus": "Closed"
     },
@@ -12394,7 +12394,7 @@
         "CL1-00506"
       ],
       "grantType": "Shared Labs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "UCSC Shared Stem Cell Facility",
       "awardStatus": "Closed"
     },
@@ -12536,7 +12536,7 @@
         "CL1-00520"
       ],
       "grantType": "Shared Labs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "The University of California: Irvine Regional Human Embryonic Stem Cell Shared Research Laboratory and Stem Cell Techniques Course",
       "awardStatus": "Closed"
     },
@@ -12552,7 +12552,7 @@
         "DR3-07438"
       ],
       "grantType": "Disease Team Therapy Development III",
-      "programType": "Other",
+      "programType": "Clinical",
       "grantTitle": "Phase 1 Safety Assessment of CPCB-RPE1, hESC-derived RPE Cell Coated Parylene Membrane Implants, in Patients with Advanced Dry Age Related Macular Degeneration",
       "awardStatus": "Closed"
     },
@@ -12616,7 +12616,7 @@
         "TRAN1-11555"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "BCMA/CS1 Bispecific CAR-T Cell Therapy to Prevent Antigen Escape in Multiple Myeloma",
       "awardStatus": "Active"
     },
@@ -12842,7 +12842,7 @@
       "grantNumber": "未指明 (Bridges Award)",
       "grantNumbers": [],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Education",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -12858,7 +12858,7 @@
         "CLIN1-14070"
       ],
       "grantType": "Late Stage Preclinical Projects",
-      "programType": "Preclinical",
+      "programType": "Clinical",
       "grantTitle": "Development of OSSM-007, cryopreserved interferon-gamma primed allogeneic MSCs, for treatment of steroid refractory acute graft versus host disease",
       "awardStatus": "Active"
     },
@@ -12890,7 +12890,7 @@
         "TRAN1-12258"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "CAR-Tnm cell therapy for melanoma targeting TYRP-1",
       "awardStatus": "Active"
     },
@@ -13060,7 +13060,7 @@
         "TC1-05946"
       ],
       "grantType": "Creativity Awards",
-      "programType": "Other",
+      "programType": "Education",
       "grantTitle": "CHORI/UC Berkeley Summer Stem Cell Research Internship Program for High School Students",
       "awardStatus": "Closed"
     },
@@ -13076,7 +13076,7 @@
         "GC1R-06673"
       ],
       "grantType": "Genomics Centers of Excellence Awards (R)",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Center of Excellence for Stem Cell Genomics – Salk",
       "awardStatus": "Closed"
     },
@@ -13092,7 +13092,7 @@
         "GC1R-06673"
       ],
       "grantType": "Genomics Centers of Excellence Awards (R)",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Center of Excellence for Stem Cell Genomics – Stanford",
       "awardStatus": "Closed"
     },
@@ -13108,7 +13108,7 @@
         "TRAN1-10995"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Morphological and functional integration of stem cell derived retina organoid sheets into degenerating retina models",
       "awardStatus": "Closed"
     },
@@ -13200,7 +13200,7 @@
         "CL1-00506"
       ],
       "grantType": "Shared Labs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "UCSC Shared Stem Cell Facility",
       "awardStatus": "Closed"
     },
@@ -13360,7 +13360,7 @@
         "GC1R-06673"
       ],
       "grantType": "Genomics Centers of Excellence Awards (R)",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Center of Excellence for Stem Cell Genomics – Salk",
       "awardStatus": "Closed"
     },
@@ -13406,7 +13406,7 @@
         "TRAN1-11532"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "PRPE-SF, polarized hESC-derived RPE Soluble Factors, as a Therapy for Early Stage Dry Age-related Macular Degeneration",
       "awardStatus": "Closed"
     },
@@ -13484,7 +13484,7 @@
         "RT3-07683"
       ],
       "grantType": "Tools and Technologies III",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Identification and isolation of transplantable human hematopoietic stem cells from pluripotent cell lines; two steps from primitive hematopoiesis to transplantable definitive cells, and non-toxic conditioning of hosts for hematopoeitic stem cell transp…",
       "awardStatus": "Closed"
     },
@@ -13516,7 +13516,7 @@
         "RT2-01942"
       ],
       "grantType": "Tools and Technologies II",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Robust generation of induced pluripotent stem cells by a potent set of engineered factors",
       "awardStatus": "Closed"
     },
@@ -13655,10 +13655,12 @@
       "publication": "Experimental Neurology",
       "publishedOnline": "2024-04-15",
       "manualUpdateDate": "2024-04-30",
-      "grantNumber": "TRAN-11579 (2019)",
-      "grantNumbers": [],
+      "grantNumber": "TRAN1-11579 (2019)",
+      "grantNumbers": [
+        "TRAN1-11579"
+      ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Human Embryonic Stem Cell-Derived Neural Stem Cells for Severe Spinal Cord Injury (SCI)",
       "awardStatus": "Closed"
     },
@@ -13690,7 +13692,7 @@
         "RB2-01629"
       ],
       "grantType": "Basic Biology II",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "TCF-3: A Wnt Pathway Effector and Nanog Regulator in Pluripotent Stem Cell Self-Renewal",
       "awardStatus": "Closed"
     },
@@ -13764,7 +13766,7 @@
         "TRAN1-14716"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Targeting multiple myeloma with BCMA-CAR NK cells expressing a GPRC5D-NKG2D bispecific antibody",
       "awardStatus": "Active"
     },
@@ -13874,7 +13876,7 @@
         "GC1R-06673"
       ],
       "grantType": "Genomics Centers of Excellence Awards (R)",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Center of Excellence for Stem Cell Genomics – Salk",
       "awardStatus": "Closed"
     },
@@ -14018,7 +14020,7 @@
         "IT1-"
       ],
       "grantType": "Tissue Collection for Disease Modeling",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Induced pluripotent stem cells from children with autism spectrum disorders",
       "awardStatus": "Closed"
     },
@@ -14066,7 +14068,7 @@
         "TR2-01768"
       ],
       "grantType": "Early Translational II",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Regeneration of Functional Human Corneal Epithelial Progenitor Cells",
       "awardStatus": "Closed"
     },
@@ -14082,7 +14084,7 @@
         "TR2-01794"
       ],
       "grantType": "Early Translational II",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Human retinal progenitor cells as candidate therapy for retinitis pigmentosa",
       "awardStatus": "Closed"
     },
@@ -14098,7 +14100,7 @@
         "DR1-01444"
       ],
       "grantType": "Disease Team Research I",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Stem cell based treatment strategy for Age-related Macular Degeneration (AMD)",
       "awardStatus": "Closed"
     },
@@ -14114,7 +14116,7 @@
         "GC1R-06673"
       ],
       "grantType": "Genomics Centers of Excellence Awards (R)",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Center of Excellence for Stem Cell Genomics – Salk",
       "awardStatus": "Closed"
     },
@@ -14176,7 +14178,7 @@
         "TRAN1-10958"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Autologous iPSC-derived smooth muscle cell therapy for treatment of urinary incontinence",
       "awardStatus": "Active"
     },
@@ -14208,7 +14210,7 @@
         "TRAN2-10990"
       ],
       "grantType": "Diagnostic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Development of a Noninvasive Prenatal Test for Beta-Hemoglobinopathies for Earlier Stem Cell Therapeutic Interventions",
       "awardStatus": ""
     },
@@ -14256,7 +14258,7 @@
         "RB5-07012"
       ],
       "grantType": "Basic Biology V",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Systems-level discovery of the regulatory mechanisms directing differentiation of hESC",
       "awardStatus": "Closed"
     },
@@ -14272,7 +14274,7 @@
         "INFR6"
       ],
       "grantType": "Shared Labs Grant – Enhancing/Expanding SRLs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "A Center for Stem Cell Disease Modeling and Therapeutics",
       "awardStatus": "Active"
     },
@@ -14320,7 +14322,7 @@
         "TR2-01768"
       ],
       "grantType": "Early Translational II",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Regeneration of Functional Human Corneal Epithelial Progenitor Cells",
       "awardStatus": "Closed"
     },
@@ -14336,7 +14338,7 @@
         "INFR4"
       ],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -14366,7 +14368,7 @@
       "grantNumber": "未指明 (Educ4)",
       "grantNumbers": [],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Education",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -14430,7 +14432,7 @@
         "GC1R-06673"
       ],
       "grantType": "Genomics Centers of Excellence Awards (R)",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Center of Excellence for Stem Cell Genomics – Salk",
       "awardStatus": "Closed"
     },
@@ -14538,7 +14540,7 @@
         "RT2-01942"
       ],
       "grantType": "Tools and Technologies II",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Robust generation of induced pluripotent stem cells by a potent set of engineered factors",
       "awardStatus": "Closed"
     },
@@ -14650,7 +14652,7 @@
         "TRAN1-14716"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Targeting multiple myeloma with BCMA-CAR NK cells expressing a GPRC5D-NKG2D bispecific antibody",
       "awardStatus": "Active"
     },
@@ -14666,7 +14668,7 @@
         "DR1-01444"
       ],
       "grantType": "Disease Team Research I",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Stem cell based treatment strategy for Age-related Macular Degeneration (AMD)",
       "awardStatus": "Closed"
     },
@@ -14758,7 +14760,7 @@
         "TR2-01768"
       ],
       "grantType": "Early Translational II",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Regeneration of Functional Human Corneal Epithelial Progenitor Cells",
       "awardStatus": "Closed"
     },
@@ -14868,7 +14870,7 @@
         "RT3-07763"
       ],
       "grantType": "Tools and Technologies III",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "A suite of engineered human pluripotent stem cell lines to facilitate the generation of hematopoietic stem cells",
       "awardStatus": "Closed"
     },
@@ -14916,7 +14918,7 @@
         "CL1-00506"
       ],
       "grantType": "Shared Labs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "UCSC Shared Stem Cell Facility",
       "awardStatus": "Closed"
     },
@@ -14927,7 +14929,7 @@
       "publication": "bioRxiv",
       "publishedOnline": "2024-09-09",
       "manualUpdateDate": "2024-09-18",
-      "grantNumber": "未指明 (postdoctoral \r\r\nfellowship)",
+      "grantNumber": "未指明 (postdoctoral \r\r\r\nfellowship)",
       "grantNumbers": [],
       "grantType": "",
       "programType": "Other",
@@ -14946,7 +14948,7 @@
         "RB4-06276"
       ],
       "grantType": "Basic Biology IV",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Studying Arrhythmogenic Right Ventricular Dysplasia with patient-specific iPS cells",
       "awardStatus": "Closed"
     },
@@ -15005,7 +15007,7 @@
       "publication": "Advances in Cancer Immunotherapy",
       "publishedOnline": "2024-09-18",
       "manualUpdateDate": "2024-10-09",
-      "grantNumber": "未指明 (CIRM-BSCRC \r\r\nPostdoctoral Fellowship)",
+      "grantNumber": "未指明 (CIRM-BSCRC \r\r\r\nPostdoctoral Fellowship)",
       "grantNumbers": [],
       "grantType": "",
       "programType": "Other",
@@ -15083,7 +15085,7 @@
       "publication": "Nature Nanotechnology",
       "publishedOnline": "2024-09-23",
       "manualUpdateDate": "2024-10-09",
-      "grantNumber": "未指明 (CIRM-BSCRC \r\r\nPostdoctoral Fellowship)",
+      "grantNumber": "未指明 (CIRM-BSCRC \r\r\r\nPostdoctoral Fellowship)",
       "grantNumbers": [],
       "grantType": "",
       "programType": "Other",
@@ -15304,7 +15306,7 @@
       "grantNumber": "未指明 (training grant)",
       "grantNumbers": [],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Education",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -15430,7 +15432,7 @@
       "grantNumber": "未指明 (Bridges Program)",
       "grantNumbers": [],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Education",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -15462,7 +15464,7 @@
         "TRAN1-12893"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Targeting stromal progenitors to prevent the development of heart failure",
       "awardStatus": "Active"
     },
@@ -15510,7 +15512,7 @@
         "TRAN3-13332"
       ],
       "grantType": "Medical Device Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Living Synthetic Vascular Grafts with Renewable Endothelium",
       "awardStatus": "Active"
     },
@@ -15526,7 +15528,7 @@
         "LA1-06917"
       ],
       "grantType": "Research Leadership",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Generation of functional cells and organs from iPSCs",
       "awardStatus": "Closed"
     },
@@ -15556,7 +15558,7 @@
       "grantNumber": "未指明 (Bridges Award)",
       "grantNumbers": [],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Education",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -15588,7 +15590,7 @@
         "TRAN1-14625"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Hematopoietic Stem/Progenitor Cell-Based Chimeric Antigen Receptor Gene Therapy for HIV Infection",
       "awardStatus": "Active"
     },
@@ -15620,7 +15622,7 @@
         "TR3-05476"
       ],
       "grantType": "Early Translational III",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Immune-Matched Neural Stem Cell Transplantation for Pediatric Neurodegenerative Disease",
       "awardStatus": "Closed"
     },
@@ -15666,7 +15668,7 @@
       "grantNumber": "未指明 (DISC 2 award)",
       "grantNumbers": [],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -15776,7 +15778,7 @@
         "TRAN4-14124"
       ],
       "grantType": "Tool Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Cell Villages and Clinical Trial in a Dish with Pooled iPSC-CMs for Drug Discovery",
       "awardStatus": "Active"
     },
@@ -15790,7 +15792,7 @@
       "grantNumber": "未指明 (CIRM BRIDGES program)",
       "grantNumbers": [],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Education",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -15944,7 +15946,7 @@
         "TRAN1-12907"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "IND-enabling Studies of Wearable Evolve-FSTL1 for Cardiac Regeneration after MI",
       "awardStatus": "Active"
     },
@@ -16006,7 +16008,7 @@
         "GC1R-06673"
       ],
       "grantType": "Genomics Centers of Excellence Awards (R)",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Center of Excellence for Stem Cell Genomics – Salk",
       "awardStatus": "Closed"
     },
@@ -16222,7 +16224,7 @@
         "TRAN1-12258"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "CAR-Tnm cell therapy for melanoma targeting TYRP-1",
       "awardStatus": "Active"
     },
@@ -16249,7 +16251,7 @@
       "publication": "Cancer Cell",
       "publishedOnline": "2024-12-12",
       "manualUpdateDate": "2024-12-17",
-      "grantNumber": "未指明(CIRM-BSCRC\r\r\npostdoctoral fellowship、CIRM-BSCRC\r\r\npredoctoral fellowship)",
+      "grantNumber": "未指明(CIRM-BSCRC\r\r\r\npostdoctoral fellowship、CIRM-BSCRC\r\r\r\npredoctoral fellowship)",
       "grantNumbers": [],
       "grantType": "",
       "programType": "Other",
@@ -16442,7 +16444,7 @@
         "IT1-06611"
       ],
       "grantType": "Tissue Collection for Disease Modeling",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "CIRM Tissue Collection for Neurodevelopmental Disabilities",
       "awardStatus": "Closed"
     },
@@ -16458,7 +16460,7 @@
         "RB4-06102"
       ],
       "grantType": "Basic Biology IV",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Role of mechanical signaling in stem cell self-renewal and differentiation",
       "awardStatus": "Closed"
     },
@@ -16490,12 +16492,12 @@
         "INFR6"
       ],
       "grantType": "Shared Labs Grant – Enhancing/Expanding SRLs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "A Center for Stem Cell Disease Modeling and Therapeutics",
       "awardStatus": "Active"
     },
     {
-      "title": "A mutant ASXL1-BAP1-EHMT complex contributes to heterochromatin dysfunction in clonal hematopoiesis and chronic monomyelocytic leukemia\r\r\n(注：该文为135号预印版文章的正式发表版)",
+      "title": "A mutant ASXL1-BAP1-EHMT complex contributes to heterochromatin dysfunction in clonal hematopoiesis and chronic monomyelocytic leukemia\r\r\r\n(注：该文为135号预印版文章的正式发表版)",
       "researchTopic": "通过构建ASXL1突变的小鼠模型，揭示了ASXL1基因突变如何导致克隆性造血(CH)和慢性单核细胞白血病(CMML)中的异染色质功能障碍。研究发现ASXL1突变蛋白与常染色质组蛋白赖氨酸甲基转移酶1/2( EHMT1/EHMT2)复合物相互作用，降低了H3K9me2/3和H2AK119Ub的水平，造成年龄依赖性的异染色质功能障碍，增加了异染色质中转座元件(TEs)和卫星重复序列表达，激活了炎症途径；研究指出针对异染色质相关蛋白和TE的治疗策略 可能会减缓 CH、CMML 和其他髓系恶性肿瘤的进展",
       "authors": "Dong, Zhen; Sepulveda, Hugo; Arteaga-Vazquez, Leo J; Blouin, Chad; Fernandez, Jenna; Binder, Moritz; Chou, Wen-Chien; Tien, Hwei-Fang; Patnaik, Mrinal M; Faulkner, Geoffrey J;",
       "publication": "Proceedings of the National Academy of Sciences",
@@ -16690,7 +16692,7 @@
         "TR2-01768"
       ],
       "grantType": "Early Translational II",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Regeneration of Functional Human Corneal Epithelial Progenitor Cells",
       "awardStatus": "Closed"
     },
@@ -16706,7 +16708,7 @@
         "TRAN1-14716"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Targeting multiple myeloma with BCMA-CAR NK cells expressing a GPRC5D-NKG2D bispecific antibody",
       "awardStatus": "Active"
     },
@@ -16818,7 +16820,7 @@
         "RT3-07798"
       ],
       "grantType": "Tools and Technologies III",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Macaca mulatta as advanced model for predictive preclinical testing of engineered cardiac autografts and allografts",
       "awardStatus": "Closed"
     },
@@ -16864,7 +16866,7 @@
         "CLIN1-14874"
       ],
       "grantType": "Late Stage Preclinical Projects",
-      "programType": "Preclinical",
+      "programType": "Clinical",
       "grantTitle": "Extracellular Vesicles for Ventricular Tachycardia",
       "awardStatus": "Active"
     },
@@ -16953,7 +16955,7 @@
       "publication": "Cell Discovery",
       "publishedOnline": "2025-02-11",
       "manualUpdateDate": "2025-02-25",
-      "grantNumber": "未指明(the\r\r\nCIRM UCLA Eli and Edythe Broad Center of\r\r\nRegenerative Medicine and Stem Cell Research Training Program)",
+      "grantNumber": "未指明(the\r\r\r\nCIRM UCLA Eli and Edythe Broad Center of\r\r\r\nRegenerative Medicine and Stem Cell Research Training Program)",
       "grantNumbers": [],
       "grantType": "",
       "programType": "Other",
@@ -17050,7 +17052,7 @@
         "LA1"
       ],
       "grantType": "Research Leadership",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Development of Cellular Therapies for Retinal Disease",
       "awardStatus": "Closed"
     },
@@ -17096,7 +17098,7 @@
         "GC1R-06673"
       ],
       "grantType": "Genomics Centers of Excellence Awards (R)",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Center of Excellence for Stem Cell Genomics – Salk",
       "awardStatus": "Closed"
     },
@@ -17224,7 +17226,7 @@
         "INFR6"
       ],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -17320,7 +17322,7 @@
         "TRAN1-14625"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Hematopoietic Stem/Progenitor Cell-Based Chimeric Antigen Receptor Gene Therapy for HIV Infection",
       "awardStatus": "Active"
     },
@@ -17442,7 +17444,7 @@
         "EDUC4"
       ],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Education",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -17474,7 +17476,7 @@
         "TR1-01249"
       ],
       "grantType": "Early Translational I",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Enhancing healing via Wnt-protein mediated activation of endogenous stem cells",
       "awardStatus": "Closed"
     },
@@ -17584,7 +17586,7 @@
         "INFR5-14667"
       ],
       "grantType": "Manufacturing Network Grant",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Advancing Cell Therapy Manufacturing Through Collaboration",
       "awardStatus": "Active"
     },
@@ -17664,7 +17666,7 @@
         "TRAN1-10995"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Morphological and functional integration of stem cell derived retina organoid sheets into degenerating retina models",
       "awardStatus": "Closed"
     },
@@ -17696,7 +17698,7 @@
         "TRAN1-12893"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Targeting stromal progenitors to prevent the development of heart failure",
       "awardStatus": "Active"
     },
@@ -17838,7 +17840,7 @@
         "TRAN1-14716"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Targeting multiple myeloma with BCMA-CAR NK cells expressing a GPRC5D-NKG2D bispecific antibody",
       "awardStatus": "Active"
     },
@@ -17902,7 +17904,7 @@
         "TRAN1-14716"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Targeting multiple myeloma with BCMA-CAR NK cells expressing a GPRC5D-NKG2D bispecific antibody",
       "awardStatus": "Active"
     },
@@ -18036,7 +18038,7 @@
         "DR3-06924"
       ],
       "grantType": "Disease Team Therapy Development III",
-      "programType": "Other",
+      "programType": "Clinical",
       "grantTitle": "Therapeutic Eradication of Cancer Stem Cells with UC-961 (Cirmtuzumab)",
       "awardStatus": "Closed"
     },
@@ -18047,10 +18049,10 @@
       "publication": "Current Stem Cell Reports",
       "publishedOnline": "2025-04-28",
       "manualUpdateDate": "2025-05-07",
-      "grantNumber": "未指明(CIRM Infrastructure\r\r\nAward)",
+      "grantNumber": "未指明(CIRM Infrastructure\r\r\r\nAward)",
       "grantNumbers": [],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -18153,7 +18155,7 @@
       "publication": "Experimental Hematology & Oncology",
       "publishedOnline": "2025-05-02",
       "manualUpdateDate": "2025-05-07",
-      "grantNumber": "未指明(CIRM-BSCRC\r\r\nPostdoctoral Fellowship)",
+      "grantNumber": "未指明(CIRM-BSCRC\r\r\r\nPostdoctoral Fellowship)",
       "grantNumbers": [],
       "grantType": "",
       "programType": "Other",
@@ -18172,7 +18174,7 @@
         "PC1-08128"
       ],
       "grantType": "Preclinical Development Awards",
-      "programType": "Preclinical",
+      "programType": "Clinical",
       "grantTitle": "Embryonic Stem Cell-Derived Chondroprogenitor Cells to Repair Osteochondral Defects",
       "awardStatus": "Closed"
     },
@@ -18204,7 +18206,7 @@
         "CLIN1-14874"
       ],
       "grantType": "Late Stage Preclinical Projects",
-      "programType": "Preclinical",
+      "programType": "Clinical",
       "grantTitle": "Extracellular Vesicles for Ventricular Tachycardia",
       "awardStatus": "Active"
     },
@@ -18562,7 +18564,7 @@
         "RC1-00151"
       ],
       "grantType": "Comprehensive Grant",
-      "programType": "Other",
+      "programType": "Discovery",
       "grantTitle": "Engineering a Cardiovascular Tissue Graft from Human Embryonic Stem Cells",
       "awardStatus": "closed"
     },
@@ -18658,7 +18660,7 @@
         "CLIN1-14874"
       ],
       "grantType": "Late Stage Preclinical Projects",
-      "programType": "Preclinical",
+      "programType": "Clinical",
       "grantTitle": "Extracellular Vesicles for Ventricular Tachycardia",
       "awardStatus": "Active"
     },
@@ -18688,7 +18690,7 @@
       "grantNumber": "未指明 (Bridges award)",
       "grantNumbers": [],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Education",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -18750,7 +18752,7 @@
         "INFR6"
       ],
       "grantType": "Shared Labs Grant – Enhancing/Expanding SRLs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Shared Resources Laboratories to Enhance In Vitro Stem Cell Modeling and Training",
       "awardStatus": "Active"
     },
@@ -18798,7 +18800,7 @@
         "TRAN1-10958"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Autologous iPSC-derived smooth muscle cell therapy for treatment of urinary incontinence",
       "awardStatus": "Active"
     },
@@ -18894,7 +18896,7 @@
         "TR2-01768"
       ],
       "grantType": "Early Translational II",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Regeneration of Functional Human Corneal Epithelial Progenitor Cells",
       "awardStatus": "Closed"
     },
@@ -18910,7 +18912,7 @@
         "EDUC1-16714"
       ],
       "grantType": "Conference II",
-      "programType": "Other",
+      "programType": "Education",
       "grantTitle": "2025 BMES-CMBE Annual Meeting: Cell Engineering for Mechanomedicine and Rejuvenation",
       "awardStatus": "Closed"
     },
@@ -18926,7 +18928,7 @@
         "TRAN1-13983"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "CRISPR/Cas9-mediated gene editing of Hematopoietic stem and progenitor cells for Friedreich’s ataxia",
       "awardStatus": "Active"
     },
@@ -18974,7 +18976,7 @@
         "INFR6"
       ],
       "grantType": "Shared Labs Grant – Enhancing/Expanding SRLs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Shared Resources Laboratories to Enhance In Vitro Stem Cell Modeling and Training",
       "awardStatus": "Active"
     },
@@ -19054,7 +19056,7 @@
         "INFR6"
       ],
       "grantType": "Shared Labs Grant – Enhancing/Expanding SRLs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "A Center for Stem Cell Disease Modeling and Therapeutics",
       "awardStatus": "Active"
     },
@@ -19246,7 +19248,7 @@
         "CLIN1-14874"
       ],
       "grantType": "Late Stage Preclinical Projects",
-      "programType": "Preclinical",
+      "programType": "Clinical",
       "grantTitle": "Extracellular Vesicles for Ventricular Tachycardia",
       "awardStatus": "Closed"
     },
@@ -19324,7 +19326,7 @@
       "grantNumber": "未指明 (Infrastructure Award)",
       "grantNumbers": [],
       "grantType": "",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "",
       "awardStatus": ""
     },
@@ -19354,7 +19356,7 @@
         "TRAN3-13332"
       ],
       "grantType": "Medical Device Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Living Synthetic Vascular Grafts with Renewable Endothelium",
       "awardStatus": "Active"
     },
@@ -19514,7 +19516,7 @@
         "INFR6"
       ],
       "grantType": "Shared Labs Grant – Enhancing/Expanding SRLs",
-      "programType": "Other",
+      "programType": "Infrastructure",
       "grantTitle": "Shared Resources Laboratories to Enhance In Vitro Stem Cell Modeling and Training",
       "awardStatus": "Active"
     },
@@ -19603,7 +19605,7 @@
       "publication": "Cell reports",
       "publishedOnline": "2025-08-26",
       "manualUpdateDate": "2026-01-13",
-      "grantNumber": "未指明(Broad\r\r\nStem Cell Research Training Program)",
+      "grantNumber": "未指明(Broad\r\r\r\nStem Cell Research Training Program)",
       "grantNumbers": [],
       "grantType": "",
       "programType": "Other",
@@ -19682,7 +19684,7 @@
         "TRAN1-16026"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Toward a Cure for Gaucher Disease Type 1: Autologous Transplantation of Genome Edited Hematopoietic Stem Cells",
       "awardStatus": "Active"
     },
@@ -19698,7 +19700,7 @@
         "TRAN1-14716"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Targeting multiple myeloma with BCMA-CAR NK cells expressing a GPRC5D-NKG2D bispecific antibody",
       "awardStatus": "Active"
     },
@@ -19824,7 +19826,7 @@
         "DR2A-05739"
       ],
       "grantType": "Disease Team Therapy Development – Research",
-      "programType": "Other",
+      "programType": "Clinical",
       "grantTitle": "Retinal progenitor cells for treatment of retinitis pigmentosa",
       "awardStatus": "Closed"
     },
@@ -20001,7 +20003,7 @@
       "awardStatus": "Active"
     },
     {
-      "title": "Human stem cell-derived GABAergic interneuron development reveals early emergence of subtype diversity and gradual electrochemical maturation\r\r\n(注：该文为345号预印版文章的正式发表版)",
+      "title": "Human stem cell-derived GABAergic interneuron development reveals early emergence of subtype diversity and gradual electrochemical maturation\r\r\r\n(注：该文为345号预印版文章的正式发表版)",
       "researchTopic": "研究采用单核RNA测序，分析了移植到健康和癫痫小鼠体内的异种移植人源多能干细胞来源的MGE型GABA能中间神经元(hMGE-pINs)在宿主小鼠整个生命周期内的发育情况，包括长期发育轨迹、亚型多样性、电生理成熟过程及其在癫痫模型中的功能整合。研究证实hMGE-pINs可稳定分化为功能性PVALB与SST亚型神经元，并在癫痫模型中实现功能性整合与疾病响应，为开发用于耐药性癫痫的细胞疗法提供了范式",
       "authors": "Bershteyn, Marina; Zhou, Hongjun; Fuentealba, Luis; Chen, Chun; Subramanyam, Geetha; Cherkowsky, Daniel; Sevilla, Eric Steven; Hampel, Philip; Salvatierra, Juan; Sezan, Meliz;",
       "publication": "Neuron",
@@ -20076,7 +20078,7 @@
         "TRAN1-14716"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Targeting multiple myeloma with BCMA-CAR NK cells expressing a GPRC5D-NKG2D bispecific antibody",
       "awardStatus": "Active"
     },
@@ -20108,7 +20110,7 @@
         "TRAN1-14625"
       ],
       "grantType": "Therapeutic Translational Research Projects",
-      "programType": "Preclinical/Translational",
+      "programType": "Translational",
       "grantTitle": "Hematopoietic Stem/Progenitor Cell-Based Chimeric Antigen Receptor Gene Therapy for HIV Infection",
       "awardStatus": "Active"
     }
