@@ -226,33 +226,34 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
               </div>
               <div className="space-y-4">
                 {recentGrants.map((grant, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-[#008080]/10 flex items-center justify-center flex-shrink-0">
-                      <Briefcase className="w-5 h-5 text-[#008080]" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900 line-clamp-2">
-                        {grant.grantTitle}
-                      </p>
-                      <p className="text-xs text-gray-500 flex items-center gap-1">
-                        <User className="w-3 h-3" />
-                        {grant.principalInvestigator}
-                      </p>
-                    </div>
-                    <div className="text-right flex-shrink-0">
-                      <p className="text-sm font-medium text-[#008080]">
-                        {formatCurrency(grant.awardValue)}
-                      </p>
-                      <p className="text-xs text-gray-400 flex items-center gap-1 justify-end">
-                        <Calendar className="w-3 h-3" />
-                        {formatDate(grant.icocApproval)}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+  <div
+    key={index}
+    className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+  >
+    <div className="w-10 h-10 rounded-lg bg-[#008080]/10 flex items-center justify-center flex-shrink-0">
+      <Briefcase className="w-5 h-5 text-[#008080]" />
+    </div>
+    <div className="flex-1 min-w-0">
+      <p className="text-sm font-medium text-gray-900 line-clamp-2">
+        <span className="text-[#008080] font-semibold mr-2">{grant.grantNumber}</span>
+        {grant.grantTitle}
+      </p>
+      <p className="text-xs text-gray-500 flex items-center gap-1">
+        <User className="w-3 h-3" />
+        {grant.principalInvestigator}
+      </p>
+    </div>
+    <div className="text-right flex-shrink-0">
+      <p className="text-sm font-medium text-[#008080]">
+        {formatCurrency(grant.awardValue)}
+      </p>
+      <p className="text-xs text-gray-400 flex items-center gap-1 justify-end">
+        <Calendar className="w-3 h-3" />
+        {formatDate(grant.icocApproval)}
+      </p>
+    </div>
+  </div>
+))}
               </div>
             </CardContent>
           </Card>
