@@ -116,11 +116,6 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
     .reduce((sum, g) => sum + (g.totalAwards || 0), 0);
   const totalAmount = data.summary.totalAmount;
 
-  // 判断是否为金额类型的值
-  const isCurrencyValue = (label: string): boolean => {
-    return label === '资助总金额';
-  };
-
   const stats = [
     {
       icon: <Briefcase className="w-6 h-6 text-white" />,
