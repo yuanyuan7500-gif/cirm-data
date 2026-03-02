@@ -94,7 +94,7 @@ const programTypes = Array.from(
   const updateDates = Array.from(
     new Set(
       data.papers
-        .map((p) => p.publishedOnline)
+        .map((p) => p.manualUpdateDate)
         .filter(Boolean)
         .sort()
         .reverse()
@@ -108,7 +108,7 @@ const programTypes = Array.from(
       if (paperYear !== yearFilter) return false;
     }
     if (programFilter !== 'all' && paper.programType !== programFilter) return false;
-    if (updateDateFilter !== 'all' && paper.publishedOnline !== updateDateFilter) return false;
+    if (updateDateFilter !== 'all' && paper.manualUpdateDate !== updateDateFilter) return false;
     if (searchTerm) {
       const search = searchTerm.toLowerCase();
       return (
@@ -493,7 +493,7 @@ const formattedLatestDate = latestManualUpdateDate
                 <SelectValue placeholder="项目类型" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">所有类型</SelectItem>
+                <SelectItem value="all">所有资助类型</SelectItem>
                 {programTypes.map((type) => (
                   <SelectItem key={type} value={type}>
                     {type}
@@ -509,7 +509,7 @@ const formattedLatestDate = latestManualUpdateDate
                 <SelectValue placeholder="更新日期" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">所有日期</SelectItem>
+                <SelectItem value="all">所有更新日期</SelectItem>
                 {updateDates.map((date) => (
                   <SelectItem key={date} value={date || 'all'}>
                     {formatDate(date)}
