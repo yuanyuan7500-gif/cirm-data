@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -17,6 +17,55 @@ gsap.registerPlugin(ScrollTrigger);
 interface DashboardProps {
   data: CIRMData;
   onNavigate: (page: string) => void;
+}
+
+// 金额缩写组件，支持悬停显示完整金额
+function AbbreviatedCurrency({ 
+  value, 
+  className = "" 
+}: { 
+  value: number; 
+  className?: string;
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  // 缩写金额（B/M/K）
+  const formatAbbreviated = (val: number): string => {
+    if (val >= 1e9) {
+      return `$${(val / 1e9).toFixed(2)}B`;
+    } else if (val >= 1e6) {
+      return `$${(val / 1e6).toFixed(2)}M`;
+    } else if (val >= 1e3) {
+      return `$${(val / 1e3).toFixed(2)}K`;
+    }
+    return `$${val.toLocaleString()}`;
+  };
+
+  // 完整金额（带千分位）
+  const formatFull = (val: number): string => {
+    return `$${val.toLocaleString()}`;
+  };
+
+  return (
+    <span 
+      className={`relative inline-block cursor-help ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <span className="transition-opacity duration-200">
+        {formatAbbreviated(value)}
+      </span>
+      
+      {/* 悬停提示框 */}
+      {isHovered && (
+        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap z-50 shadow-lg animate-in fade-in duration-200">
+          {formatFull(value)}
+          {/* 小三角箭头 */}
+          <span className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></span>
+        </span>
+      )}
+    </span>
+  );
 }
 
 export function Dashboard({ data, onNavigate }: DashboardProps) {
@@ -45,7 +94,7 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
   }, []);
 
   const formatCurrency = (value: number) => {
-    // 显示完整数字，带千分位分隔符
+    // 用于非缩写场景（如列表中的金额）
     return `$${value.toLocaleString()}`;
   };
 
@@ -61,16 +110,16 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
     .slice(0, 5);
 
   // 计算统计值
-  // 1. 资助项目总数 = 所有 grant 的 totalAwards 总和
   const totalProjects = data.grants.reduce((sum, g) => sum + (g.totalAwards || 0), 0);
-  
-  // 2. 进行中项目 = Active 状态的 totalAwards 总和
   const activeProjects = data.grants
     .filter(g => g.awardStatus === 'Active')
     .reduce((sum, g) => sum + (g.totalAwards || 0), 0);
-  
-  // 3. 资助总金额（直接使用 summary 里的值，但显示完整数字）
   const totalAmount = data.summary.totalAmount;
+
+  // 判断是否为金额类型的值
+  const isCurrencyValue = (label: string): boolean => {
+    return label === '资助总金额';
+  };
 
   const stats = [
     {
@@ -79,13 +128,15 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
       label: '资助项目总数',
       color: 'from-[#008080] to-[#066]',
       onClick: () => onNavigate('grants'),
+      isCurrency: false,
     },
     {
       icon: <DollarSign className="w-6 h-6 text-white" />,
-      value: formatCurrency(totalAmount),
+      value: totalAmount,
       label: '资助总金额',
       color: 'from-[#4ECDC4] to-[#008080]',
       onClick: () => onNavigate('grants'),
+      isCurrency: true,
     },
     {
       icon: <Activity className="w-6 h-6 text-white" />,
@@ -93,6 +144,7 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
       label: '进行中项目',
       color: 'from-[#FF6B6B] to-[#FF8E8E]',
       onClick: () => onNavigate('grants'),
+      isCurrency: false,
     },
     {
       icon: <FileText className="w-6 h-6 text-white" />,
@@ -100,6 +152,7 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
       label: '研究论文',
       color: 'from-[#A8DADC] to-[#4ECDC4]',
       onClick: () => onNavigate('papers'),
+      isCurrency: false,
     },
   ];
 
@@ -126,7 +179,7 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
           {stats.map((stat, index) => (
             <Card
               key={index}
-              className="dashboard-card cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden group"
+              className="dashboard-card cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-visible group"
               onClick={stat.onClick}
             >
               <CardContent className="p-6">
@@ -136,9 +189,11 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
                   {stat.icon}
                 </div>
                 <p className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1">
-                  {typeof stat.value === 'number'
-                    ? stat.value.toLocaleString()
-                    : stat.value}
+                  {stat.isCurrency ? (
+                    <AbbreviatedCurrency value={stat.value as number} />
+                  ) : (
+                    (stat.value as number).toLocaleString()
+                  )}
                 </p>
                 <p className="text-sm text-gray-500">{stat.label}</p>
               </CardContent>
@@ -256,7 +311,7 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
                   </p>
                   <p className="text-xs text-gray-600 mt-1">{type}</p>
                   <p className="text-xs text-gray-400">
-                    {formatCurrency(stat.amount)}
+                    <AbbreviatedCurrency value={stat.amount} />
                   </p>
                 </div>
               ))}
