@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import {
   BarChart,
   Bar,
@@ -15,72 +15,158 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import type { VisualizationData } from '@/types';
+import type { Paper } from '@/types';
 
 interface GrantPaperVisualizationProps {
-  visualization: VisualizationData;
+  papers: Paper[];
 }
 
 const PROGRAM_COLORS: Record<string, string> = {
   Discovery: '#008080',
-  Preclinical: '#4ECDC4',
-  'Preclinical/Translational': '#FF6B6B',
   Clinical: '#A8DADC',
   Education: '#066',
-  Infrastructure: '#004D4D',
+  Infrastructure: '#4ECDC4',
+  Translational: '#FF6B6B',
   Other: '#999',
+  Research: '#9B59B6',
 };
 
-export function GrantPaperVisualization({ visualization }: GrantPaperVisualizationProps) {
-  const [selectedProgram, setSelectedProgram] = useState<string>('all');
-
-  // 准备柱状图数据
-  const barData = Object.entries(visualization.programGrantPapers).map(
-    ([program, grants]) => ({
-      program,
-      grantCount: grants.length,
-      totalPapers: grants.reduce((sum, g) => sum + g.paperCount, 0),
-      avgPapers: grants.length > 0
-        ? Math.round(grants.reduce((sum, g) => sum + g.paperCount, 0) / grants.length)
-        : 0,
-    })
-  );
-
-  // 准备散点图数据（资助编号 vs 文献量）
-  const scatterData: Array<{
-    grantNumber: string;
-    paperCount: number;
-    programType: string;
-    index: number;
-  }> = [];
-  
-  Object.entries(visualization.programGrantPapers).forEach(([program, grants]) => {
-    if (selectedProgram === 'all' || selectedProgram === program) {
-      grants.forEach((grant) => {
-        scatterData.push({
-          grantNumber: grant.grantNumber,
-          paperCount: grant.paperCount,
-          programType: program,
-          index: scatterData.length,
-        });
-      });
+// 辅助函数：拆分多值 programType
+const getAllProgramTypes = (papers: Paper[]): string[] => {
+  const types = new Set<string>();
+  papers.forEach(p => {
+    if (p.programType) {
+      p.programType.split('/').forEach(t => types.add(t.trim()));
     }
   });
+  return Array.from(types).sort();
+};
 
-  // 准备Top资助编号数据
-  const topGrantsData = visualization.topGrantsByPaperCount
-    .filter(g => selectedProgram === 'all' || g.programType === selectedProgram)
-    .slice(0, 20);
+// 辅助函数：根据 grantNumber 前缀获取 programType（简化版）
+const getProgramTypeByGrantNumber = (grantNumber: string): string => {
+  const prefix = grantNumber.split('-')[0]?.toUpperCase() || '';
+  const prefixMap: Record<string, string> = {
+    'DISC': 'Discovery', 'DISC1': 'Discovery', 'DISC2': 'Discovery', 'DISC3': 'Discovery',
+    'TRAN': 'Translational', 'TRAN1': 'Translational', 'TRAN2': 'Translational',
+    'CLIN': 'Clinical', 'CLIN1': 'Clinical', 'CLIN2': 'Clinical',
+    'EDUC': 'Education', 'EDUC1': 'Education', 'EDUC2': 'Education', 
+    'EDUC3': 'Education', 'EDUC4': 'Education',
+    'IT': 'Infrastructure', 'IT1': 'Infrastructure',
+    'FA': 'Infrastructure', 'FA1': 'Infrastructure',
+    'INFRA': 'Infrastructure', 'INFR': 'Infrastructure',
+    'CL1': 'Infrastructure', 'GC1R': 'Infrastructure',
+    'RS': 'Research',
+    'RT2': 'Discovery', 'DR1': 'Discovery', 'RS1': 'Discovery',
+    'RB5': 'Discovery', 'RB2': 'Discovery', 'RB4': 'Discovery', 'LA1': 'Discovery',
+    'RT3': 'Discovery', 'DR3': 'Clinical', 'DR2A': 'Clinical', 'TC1': 'Education',
+    'RB': 'Other', 'TG': 'Other',
+  };
+  return prefixMap[prefix] || 'Other';
+};
 
-  // 准备共现网络数据
-  const cooccurrenceData = visualization.grantCooccurrence.map(c => ({
-    ...c,
-    combined: `${c.grant1} + ${c.grant2}`,
-  }));
+export function GrantPaperVisualization({ papers }: GrantPaperVisualizationProps) {
+  const [selectedProgram, setSelectedProgram] = useState<string>('all');
 
-  const programTypes = Object.keys(visualization.programGrantPapers).filter(
-    pt => visualization.programGrantPapers[pt]?.length > 0
-  );
+  // 实时计算数据
+  const { programStats, topGrants, cooccurrence, scatterData } = useMemo(() => {
+    // 统计各类型
+    const stats: Record<string, { grants: Set<string>; papers: number }> = {};
+    
+    // Top资助编号
+    const grantPaperCount: Record<string, { count: number; programType: string }> = {};
+    
+    // 共现分析
+    const cooccur: Record<string, number> = {};
+    
+    papers.forEach(paper => {
+      const grantNumbers = paper.grantNumber.split(/[\/;]/).map(s => s.trim()).filter(Boolean);
+      
+      // 获取该论文的 programTypes
+      const programTypes = grantNumbers.map(gn => getProgramTypeByGrantNumber(gn));
+      
+      // 统计
+      programTypes.forEach((pt, idx) => {
+        if (!stats[pt]) stats[pt] = { grants: new Set(), papers: 0 };
+        stats[pt].grants.add(grantNumbers[idx]);
+        stats[pt].papers++;
+      });
+      
+      // Top资助编号
+      grantNumbers.forEach(gn => {
+        const pt = getProgramTypeByGrantNumber(gn);
+        if (!grantPaperCount[gn]) {
+          grantPaperCount[gn] = { count: 0, programType: pt };
+        }
+        grantPaperCount[gn].count++;
+      });
+      
+      // 共现分析
+      if (grantNumbers.length > 1) {
+        for (let i = 0; i < grantNumbers.length; i++) {
+          for (let j = i + 1; j < grantNumbers.length; j++) {
+            const key = [grantNumbers[i], grantNumbers[j]].sort().join(' + ');
+            cooccur[key] = (cooccur[key] || 0) + 1;
+          }
+        }
+      }
+    });
+    
+    // 准备柱状图数据
+    const programStatsData = Object.entries(stats).map(([program, data]) => ({
+      program,
+      grantCount: data.grants.size,
+      totalPapers: data.papers,
+    }));
+    
+    // Top 20
+    const topGrantsData = Object.entries(grantPaperCount)
+      .map(([grantNumber, data]) => ({
+        grantNumber,
+        paperCount: data.count,
+        programType: data.programType,
+      }))
+      .sort((a, b) => b.paperCount - a.paperCount)
+      .slice(0, 20);
+    
+    // 共现数据
+    const cooccurData = Object.entries(cooccur)
+      .map(([combined, count]) => ({
+        grant1: combined.split(' + ')[0],
+        grant2: combined.split(' + ')[1],
+        combined,
+        count,
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 20);
+    
+    // 散点图数据
+    const scatter: Array<{
+      grantNumber: string;
+      paperCount: number;
+      programType: string;
+      index: number;
+    }> = [];
+    
+    Object.entries(grantPaperCount).forEach(([grantNumber, data], idx) => {
+      if (selectedProgram === 'all' || selectedProgram === data.programType) {
+        scatter.push({
+          grantNumber,
+          paperCount: data.count,
+          programType: data.programType,
+          index: idx,
+        });
+      }
+    });
+    
+    return {
+      programStats: programStatsData,
+      topGrants: topGrantsData,
+      cooccurrence: cooccurData,
+      scatterData: scatter,
+    };
+  }, [papers, selectedProgram]);
+
+  const programTypes = getAllProgramTypes(papers);
 
   return (
     <div className="space-y-8">
@@ -134,14 +220,14 @@ export function GrantPaperVisualization({ visualization }: GrantPaperVisualizati
                 </h3>
                 <div className="h-80">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={barData} layout="vertical">
+                    <BarChart data={programStats} layout="vertical">
                       <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                       <XAxis type="number" tick={{ fill: '#6b7280', fontSize: 12 }} />
                       <YAxis
                         type="category"
                         dataKey="program"
                         tick={{ fill: '#6b7280', fontSize: 11 }}
-                        width={140}
+                        width={100}
                       />
                       <Tooltip
                         formatter={(value: number) => [`${value} 个`, '资助编号数']}
@@ -152,7 +238,7 @@ export function GrantPaperVisualization({ visualization }: GrantPaperVisualizati
                         }}
                       />
                       <Bar dataKey="grantCount" radius={[0, 4, 4, 0]}>
-                        {barData.map((entry, index) => (
+                        {programStats.map((entry, index) => (
                           <Cell
                             key={`cell-${index}`}
                             fill={PROGRAM_COLORS[entry.program] || '#999'}
@@ -172,14 +258,14 @@ export function GrantPaperVisualization({ visualization }: GrantPaperVisualizati
                 </h3>
                 <div className="h-80">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={barData} layout="vertical">
+                    <BarChart data={programStats} layout="vertical">
                       <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                       <XAxis type="number" tick={{ fill: '#6b7280', fontSize: 12 }} />
                       <YAxis
                         type="category"
                         dataKey="program"
                         tick={{ fill: '#6b7280', fontSize: 11 }}
-                        width={140}
+                        width={100}
                       />
                       <Tooltip
                         formatter={(value: number) => [`${value} 篇`, '文献数']}
@@ -190,7 +276,7 @@ export function GrantPaperVisualization({ visualization }: GrantPaperVisualizati
                         }}
                       />
                       <Bar dataKey="totalPapers" radius={[0, 4, 4, 0]}>
-                        {barData.map((entry, index) => (
+                        {programStats.map((entry, index) => (
                           <Cell
                             key={`cell-${index}`}
                             fill={PROGRAM_COLORS[entry.program] || '#999'}
@@ -206,7 +292,7 @@ export function GrantPaperVisualization({ visualization }: GrantPaperVisualizati
 
           {/* 统计卡片 */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mt-6">
-            {barData.map(item => (
+            {programStats.map(item => (
               <Card key={item.program} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-4 text-center">
                   <div
@@ -236,7 +322,7 @@ export function GrantPaperVisualization({ visualization }: GrantPaperVisualizati
               <div className="h-96">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart
-                    data={topGrantsData}
+                    data={topGrants}
                     layout="vertical"
                     margin={{ left: 80 }}
                   >
@@ -261,7 +347,7 @@ export function GrantPaperVisualization({ visualization }: GrantPaperVisualizati
                       }}
                     />
                     <Bar dataKey="paperCount" radius={[0, 4, 4, 0]}>
-                      {topGrantsData.map((entry, index) => (
+                      {topGrants.map((entry, index) => (
                         <Cell
                           key={`cell-${index}`}
                           fill={PROGRAM_COLORS[entry.programType] || '#999'}
@@ -347,10 +433,10 @@ export function GrantPaperVisualization({ visualization }: GrantPaperVisualizati
               <p className="text-sm text-gray-500 mb-4">
                 展示同一篇论文中同时出现的资助编号组合
               </p>
-              {cooccurrenceData.length > 0 ? (
+              {cooccurrence.length > 0 ? (
                 <div className="h-80">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={cooccurrenceData} layout="vertical">
+                    <BarChart data={cooccurrence} layout="vertical">
                       <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                       <XAxis type="number" tick={{ fill: '#6b7280', fontSize: 12 }} />
                       <YAxis
