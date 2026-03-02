@@ -94,14 +94,24 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
   }, []);
 
   const formatCurrency = (value: number) => {
-    // 用于非缩写场景（如列表中的金额）
     return `$${value.toLocaleString()}`;
   };
 
-  // Calculate recent activity
+  // 格式化日期显示
+  const formatDate = (dateStr: string | null | undefined): string => {
+    if (!dateStr || dateStr === 'NaT') return '';
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('zh-CN', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    });
+  };
+
+  // 获取最新批准的具体资助项目（按批准日期排序）
   const recentGrants = data.grants
     .filter((g) => g.icocApproval && g.icocApproval !== 'NaT')
-    .sort((a, b) => new Date(b.icocApproval).getTime() - new Date(a.icocApproval).getTime())
+    .sort((a, b) => new Date(b.icocApproval!).getTime() - new Date(a.icocApproval!).getTime())
     .slice(0, 5);
 
   const recentPapers = data.papers
@@ -198,13 +208,13 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
 
         {/* Recent Activity */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Recent Grants */}
+          {/* Recent Grants - 显示最新批准的具体项目 */}
           <Card className="dashboard-card">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
                   <TrendingUp className="w-5 h-5 text-[#008080]" />
-                  最新资助项目
+                  最新批准项目
                 </h3>
                 <button
                   onClick={() => onNavigate('grants')}
@@ -223,19 +233,20 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
                       <Briefcase className="w-5 h-5 text-[#008080]" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900 truncate">
-                        {grant.grantType}
+                      <p className="text-sm font-medium text-gray-900 line-clamp-2">
+                        {grant.projectTitle || grant.grantType}
                       </p>
                       <p className="text-xs text-gray-500">
-                        {grant.programType} • {grant.totalAwards} 个项目
+                        {grant.programType} • {grant.institution || '未知机构'}
                       </p>
                     </div>
-                    <div className="text-right">
+                    <div className="text-right flex-shrink-0">
                       <p className="text-sm font-medium text-[#008080]">
                         {formatCurrency(grant.awardValue)}
                       </p>
-                      <p className="text-xs text-gray-400">
-                        {grant.icocApproval?.split('-')[0]}
+                      <p className="text-xs text-gray-400 flex items-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        {formatDate(grant.icocApproval)}
                       </p>
                     </div>
                   </div>
