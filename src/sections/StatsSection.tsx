@@ -66,7 +66,11 @@ function StatCard({ icon, value, suffix = '', prefix = '', label, delay }: StatC
     return () => ctx.revert();
   }, [value, delay]);
 
-  const formatNumber = (num: number) => {
+  const formatNumber = (num: number, currentLabel?: string) => {
+    // 项目总数显示完整数字
+    if (currentLabel === '资助项目总数') {
+      return num.toLocaleString();
+    }
     if (num >= 1000000000) {
       return (num / 1000000000).toFixed(1) + 'B';
     }
@@ -100,7 +104,7 @@ function StatCard({ icon, value, suffix = '', prefix = '', label, delay }: StatC
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 group-hover:text-[#008080] transition-colors"
             title=""
           >
-            {formatNumber(displayValue)}
+            {formatNumber(displayValue, label)}
           </span>
           <span className="text-xl sm:text-2xl font-bold text-gray-400">{suffix}</span>
         </div>
