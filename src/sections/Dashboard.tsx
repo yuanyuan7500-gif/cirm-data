@@ -109,8 +109,8 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
     });
   };
 
-  // 获取最新批准的具体资助项目（按批准日期排序）
-  const recentGrants = data.grants
+  // 使用 activeGrants 替代 grants 显示最新批准的具体项目
+  const recentGrants = data.activeGrants
     .filter((g) => g.icocApproval && g.icocApproval !== 'NaT')
     .sort((a, b) => new Date(b.icocApproval!).getTime() - new Date(a.icocApproval!).getTime())
     .slice(0, 5);
@@ -235,11 +235,11 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-gray-900 line-clamp-2">
-                        {grant['Grant Title'] || grant.grantType}
+                        {grant.grantTitle}
                       </p>
                       <p className="text-xs text-gray-500 flex items-center gap-1">
                         <User className="w-3 h-3" />
-                        {grant['Principal Investigator'] || '未知研究员'}
+                        {grant.principalInvestigator}
                       </p>
                     </div>
                     <div className="text-right flex-shrink-0">
