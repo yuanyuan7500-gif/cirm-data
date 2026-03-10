@@ -56,10 +56,64 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     return () => ctx.revert();
   }, []);
 
+  // 数据检查
+  if (!data || !data.grants) {
+    return <div className="py-20 text-center text-gray-500">加载中...</div>;
+  }
+
   // Get unique program types
   const programTypes = Array.from(
     new Set(data.grants.map((g) => g.programType))
   ).filter(Boolean);
+
+  // 计算资助类型下 isNew 项目的数量
+  const getNewProjectsCount = (grantType: string): number => {
+    if (!grantType || !data.activeGrants) return 0;
+    
+    const grantTypePrefix = grantType
+      .replace(/\s+/g, '')
+      .split('(')[0]
+      .toUpperCase();
+    
+    return data.activeGrants.filter(
+      (ag) => ag?.grantNumber?.toUpperCase().startsWith(grantTypePrefix + '-') && ag.isNew
+    ).length;
+  };
+
+  // 计算资助类型下金额变动项目的数量
+  const getValueChangeProjectsCount = (grantType: string): number => {
+    if (!grantType || !data.activeGrants) return 0;
+    
+    const grantTypePrefix = grantType
+      .replace(/\s+/g, '')
+      .split('(')[0]
+      .toUpperCase();
+    
+    return data.activeGrants.filter(
+      (ag) => ag?.grantNumber?.toUpperCase().startsWith(grantTypePrefix + '-') && 
+              ag.showValueChange !== false && 
+              ag.previousAwardValue !== undefined && 
+              ag.previousAwardValue !== null
+    ).length;
+  };
+
+  // 计算资助类型下状态变动项目的数量
+  const getStatusChangeProjectsCount = (grantType: string): number => {
+    if (!grantType || !data.activeGrants) return 0;
+    
+    const grantTypePrefix = grantType
+      .replace(/\s+/g, '')
+      .split('(')[0]
+      .toUpperCase();
+    
+    return data.activeGrants.filter(
+      (ag) => ag?.grantNumber?.toUpperCase().startsWith(grantTypePrefix + '-') && 
+              ag.showStatusChange !== false && 
+              ag.previousAwardStatus && 
+              ag.previousAwardStatus !== 'Closed' && 
+              ag.awardStatus === 'Closed'
+    ).length;
+  };
 
   // Filter grants
   const filteredGrants = data.grants.filter((grant) => {
@@ -115,49 +169,6 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     return `$${value}`;
   };
 
-  // 计算资助类型下 isNew 项目的数量
-  const getNewProjectsCount = (grantType: string): number => {
-    const grantTypePrefix = grantType
-      .replace(/\s+/g, '')
-      .split('(')[0]
-      .toUpperCase();
-    
-    return data.activeGrants.filter(
-      (ag) => ag.grantNumber.toUpperCase().startsWith(grantTypePrefix + '-') && ag.isNew
-    ).length;
-  };
-
-  // 计算资助类型下金额变动项目的数量
-  const getValueChangeProjectsCount = (grantType: string): number => {
-    const grantTypePrefix = grantType
-      .replace(/\s+/g, '')
-      .split('(')[0]
-      .toUpperCase();
-    
-    return data.activeGrants.filter(
-      (ag) => ag.grantNumber.toUpperCase().startsWith(grantTypePrefix + '-') && 
-              ag.showValueChange !== false && 
-              ag.previousAwardValue !== undefined && 
-              ag.previousAwardValue !== null
-    ).length;
-  };
-
-  // 计算资助类型下状态变动项目的数量
-  const getStatusChangeProjectsCount = (grantType: string): number => {
-    const grantTypePrefix = grantType
-      .replace(/\s+/g, '')
-      .split('(')[0]
-      .toUpperCase();
-    
-    return data.activeGrants.filter(
-      (ag) => ag.grantNumber.toUpperCase().startsWith(grantTypePrefix + '-') && 
-              ag.showStatusChange !== false && 
-              ag.previousAwardStatus && 
-              ag.previousAwardStatus !== 'Closed' && 
-              ag.awardStatus === 'Closed'
-    ).length;
-  };
-
   const formatDate = (dateStr: string) => {
     if (!dateStr || dateStr === 'NaT') return '-';
     
@@ -206,18 +217,16 @@ export function GrantsSection({ data }: GrantsSectionProps) {
             {/* 新增：仅查看新增及变更项目按钮 */}
             <button
               onClick={() => setShowChangesOnly(!showChangesOnly)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 border ${
                 showChangesOnly
-                  ? 'bg-[#FF6B6B] text-white'
-                  : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50'
+                  ? 'bg-red-500 text-white border-red-500'
+                  : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
               }`}
             >
               <AlertCircle className="w-4 h-4" />
               仅查看新增及变更项目
               {showChangesOnly && (
-                <span className="bg-white/20 px-1.5 py-0.5 rounded text-xs">
-                  开启
-                </span>
+                <span className="ml-1 text-xs opacity-80">(开启)</span>
               )}
             </button>
             
@@ -253,7 +262,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
           <div className="overflow-x-auto">
             <Table className="w-full min-w-[900px]">
               <TableHeader>
-                <TableRow className="bg-gradient-to-r from-[#008080]/5 to-[#4ECDC4]/5">
+                <TableRow className="bg-gradient-to-r from-teal-500/5 to-teal-400/5">
                   <TableHead className="w-12"></TableHead>
                   <TableHead className="font-semibold text-gray-700">
                     项目类型
@@ -298,41 +307,37 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                       <TableCell>
                         <div className="flex items-center gap-2">
                           {grant.isNew && (
-                            <Badge className="bg-[#FF6B6B] text-white text-xs">
+                            <Badge className="bg-red-400 text-white text-xs">
                               New
                             </Badge>
                           )}
-                          {/* 资助类型文字放前面，保持左对齐 */}
                           <span className="text-sm text-gray-700">
                             {grant.grantType}
                           </span>
-                          {/* New 数量标签放后面，不影响左对齐 */}
                           {(() => {
                             const newCount = getNewProjectsCount(grant.grantType);
                             return newCount > 0 ? (
-                              <Badge className="bg-[#FF6B6B] text-white text-xs flex items-center gap-1 flex-shrink-0">
+                              <Badge className="bg-red-400 text-white text-xs flex items-center gap-1 flex-shrink-0">
                                 <span>New</span>
-                                <span className="bg-white/20 px-1 rounded">{newCount}</span>
+                                <span className="bg-white bg-opacity-20 px-1 rounded">{newCount}</span>
                               </Badge>
                             ) : null;
                           })()}
-                          {/* 金额变动数量标签 */}
                           {(() => {
                             const valueChangeCount = getValueChangeProjectsCount(grant.grantType);
                             return valueChangeCount > 0 ? (
                               <Badge className="bg-red-100 text-red-600 text-xs flex items-center gap-1 flex-shrink-0 border border-red-200">
                                 <span className="font-bold">$</span>
-                                <span className="bg-red-200/50 px-1 rounded">{valueChangeCount}</span>
+                                <span className="bg-red-200 bg-opacity-50 px-1 rounded">{valueChangeCount}</span>
                               </Badge>
                             ) : null;
                           })()}
-                          {/* 状态变动数量标签 */}
                           {(() => {
                             const statusChangeCount = getStatusChangeProjectsCount(grant.grantType);
                             return statusChangeCount > 0 ? (
                               <Badge className="bg-red-100 text-red-600 text-xs flex items-center gap-1 flex-shrink-0 border border-red-200">
                                 <AlertCircle className="w-3 h-3" />
-                                <span className="bg-red-200/50 px-1 rounded">{statusChangeCount}</span>
+                                <span className="bg-red-200 bg-opacity-50 px-1 rounded">{statusChangeCount}</span>
                               </Badge>
                             ) : null;
                           })()}
@@ -344,7 +349,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                       <TableCell className="text-center font-medium text-gray-900">
                         {grant.totalAwards.toLocaleString()}
                       </TableCell>
-                      <TableCell className="font-medium text-[#008080]">
+                      <TableCell className="font-medium text-teal-600">
                         {formatCurrency(grant.awardValue)}
                       </TableCell>
                       <TableCell className="text-center">
@@ -357,7 +362,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                           className={
                             grant.awardStatus === 'Closed'
                               ? 'bg-gray-100 text-gray-600'
-                              : 'bg-[#008080] text-white'
+                              : 'bg-teal-600 text-white'
                           }
                         >
                           {grant.awardStatus}
@@ -368,24 +373,19 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                       <TableRow className="bg-gray-50/50">
                         <TableCell colSpan={7} className="py-4 px-4">
                           <div className="pl-4 pr-2">
-                            {/* 查找该资助类型下的具体项目 */}
                             {(() => {
-                              // 从 grantType 提取前缀用于匹配 grantNumber
-                              // 例如 "DISC 0 (Foundation ...)" -> "DISC0-"
-                              // 例如 "TRAN 1 (Therapeutic ...)" -> "TRAN1-"
                               const grantTypePrefix = grant.grantType
-                                .replace(/\s+/g, '') // 移除空格
-                                .split('(')[0] // 取括号前的部分
+                                .replace(/\s+/g, '')
+                                .split('(')[0]
                                 .toUpperCase();
                               
-                              // 获取项目并按 sortOrder 排序（未设置的排在最后）
                               const projects = data.activeGrants
-                                .filter((ag) => ag.grantNumber.toUpperCase().startsWith(grantTypePrefix + '-'))
+                                ?.filter((ag) => ag?.grantNumber?.toUpperCase().startsWith(grantTypePrefix + '-'))
                                 .sort((a, b) => {
                                   const orderA = a.sortOrder ?? Number.MAX_SAFE_INTEGER;
                                   const orderB = b.sortOrder ?? Number.MAX_SAFE_INTEGER;
                                   return orderA - orderB;
-                                });
+                                }) || [];
                               return (
                                 <div>
                                   <div className="text-sm font-medium text-gray-700 mb-3">
@@ -404,17 +404,14 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                             const hasValueChange = project.showValueChange !== false && previousValue !== undefined && previousValue !== null;
                                             return (
                                               <div className="flex items-start gap-2">
-                                                {/* 左侧列：New标签 + 金额标识 + 中止标识 */}
                                                 <div className="flex flex-col items-center gap-1 flex-shrink-0">
                                                   {project.isNew ? (
-                                                    <Badge className="bg-[#FF6B6B] text-white text-xs hover:bg-[#FF6B6B] mt-0.5">
+                                                    <Badge className="bg-red-400 text-white text-xs mt-0.5">
                                                       New
                                                     </Badge>
                                                   ) : (
-                                                    // 没有New标签时也要占位，保持对齐
                                                     <div className="h-5 mt-0.5" />
                                                   )}
-                                                  {/* 金额变动标识和中止标识横向排列 */}
                                                   <div className="flex items-center gap-1">
                                                     {hasValueChange && (
                                                       <span 
@@ -433,7 +430,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                 </div>
                                                 <div className="flex-1 min-w-0">
                                                   <div className="flex items-center gap-2 mb-1 flex-wrap">
-                                                    <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded flex-shrink-0">
+                                                    <span className="text-xs font-medium text-teal-600 bg-teal-50 px-2 py-0.5 rounded flex-shrink-0">
                                                       {project.grantNumber}
                                                     </span>
                                                     {project.detailUrl ? (
@@ -441,7 +438,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                         href={project.detailUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="text-sm font-medium text-gray-900 truncate leading-relaxed hover:text-[#008080] hover:underline flex items-center gap-1 flex-1 min-w-0"
+                                                        className="text-sm font-medium text-gray-900 truncate leading-relaxed hover:text-teal-600 hover:underline flex items-center gap-1 flex-1 min-w-0"
                                                         style={{ maxWidth: 'min(calc(100vw - 180px), 900px)' }}
                                                         title={project.grantTitle}
                                                         onClick={(e) => e.stopPropagation()}
@@ -460,7 +457,6 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                     )}
                                                   </div>
                                                   <div className="flex items-center justify-between text-xs">
-                                                    {/* 左侧：负责人和疾病领域 */}
                                                     <div className="flex flex-wrap gap-x-4 gap-y-1 text-gray-500">
                                                       <span>
                                                         <span className="text-gray-400">负责人：</span>
@@ -475,7 +471,6 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                         </span>
                                                       )}
                                                     </div>
-                                                        {/* 右侧：批准日期、金额、状态 */}
                                                         <div className="flex items-center gap-4">
                                                           {project.icocApproval && (
                                                             <span className="text-gray-500 whitespace-nowrap">
@@ -485,7 +480,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                           )}
                                                           <span className="flex items-center gap-1 whitespace-nowrap">
                                                             <span className="text-gray-400">金额：</span>
-                                                            <span className="text-[#008080] font-medium">
+                                                            <span className="text-teal-600 font-medium">
                                                               {formatCurrency(project.awardValue)}
                                                             </span>
                                                             {project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null && (
@@ -516,7 +511,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                                   ? 'text-red-600 border-red-600 bg-red-50 text-xs'
                                                                   : project.awardStatus === 'Closed'
                                                                   ? 'text-gray-500 border-gray-300 text-xs'
-                                                                  : 'text-[#008080] border-[#008080] text-xs'
+                                                                  : 'text-teal-600 border-teal-600 text-xs'
                                                               }
                                                             >
                                                               {project.awardStatus}
@@ -579,7 +574,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
           <span>|</span>
           <span>
             总金额{' '}
-            <strong className="text-[#008080]">
+            <strong className="text-teal-600">
               {formatCurrencyShort(
                 filteredGrants.reduce((sum, g) => sum + g.awardValue, 0)
               )}
