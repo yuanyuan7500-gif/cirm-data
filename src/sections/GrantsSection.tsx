@@ -328,7 +328,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                     {expandedRows.has(grant.id) && (
                       <TableRow className="bg-gray-50/50">
                         <TableCell colSpan={7} className="py-4 px-4">
-  <div className="pl-4 pr-2 max-w-full overflow-x-hidden">
+                          <div className="pl-4 pr-2 max-w-full overflow-x-hidden">
                             {/* 查找该资助类型下的具体项目 */}
                             {(() => {
                               // 从 grantType 提取前缀用于匹配 grantNumber
@@ -393,101 +393,102 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                   </div>
                                                 </div>
                                                 <div className="flex-1 min-w-0">
+                                                  {/* 项目标题 - 过长换行 */}
                                                   <div className="flex items-start gap-2 mb-2">
-  <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded flex-shrink-0 mt-0.5">
-    {project.grantNumber}
-  </span>
-  <div className="flex-1 min-w-0">
-    {project.detailUrl ? (
-      <a
-        href={project.detailUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-sm font-medium text-gray-900 hover:text-[#008080] hover:underline inline break-all leading-relaxed"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {project.grantTitle}
-      </a>
-    ) : (
-      <span className="text-sm font-medium text-gray-900 break-all leading-relaxed">
-        {project.grantTitle}
-      </span>
-    )}
-    <ExternalLink className="w-3 h-3 text-gray-400 inline-block ml-1 align-middle flex-shrink-0" />
-  </div>
-</div>
-                                                  <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500 mb-2">
-  <span className="break-all">
-    <span className="text-gray-400">负责人：</span>
-    {project.principalInvestigator}
-  </span>
-  {project.diseaseFocus && (
-    <span className="relative group cursor-help">
-      <span className="text-gray-400">疾病领域：</span>
-      <span className="truncate max-w-[200px] inline-block align-bottom" title={project.diseaseFocus}>
-        {project.diseaseFocus}
-      </span>
-      {/* 悬停提示框 */}
-      <span className="absolute bottom-full left-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg whitespace-normal max-w-xs z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-lg">
-        {project.diseaseFocus}
-        <span className="absolute top-full left-4 border-4 border-transparent border-t-gray-900"></span>
-      </span>
-    </span>
-  )}
-</div>
-                                                        {/* 右侧：批准日期、金额、状态 */}
-                                                        <div className="flex items-center gap-4">
-                                                          {project.icocApproval && (
-                                                            <span className="text-gray-500 whitespace-nowrap">
-                                                              <span className="text-gray-400">批准：</span>
-                                                              {formatDate(project.icocApproval)}
-                                                            </span>
-                                                          )}
-                                                          <span className="flex items-center gap-1 whitespace-nowrap">
-                                                            <span className="text-gray-400">金额：</span>
-                                                            <span className="text-[#008080] font-medium">
-                                                              {formatCurrency(project.awardValue)}
-                                                            </span>
-                                                            {project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null && (
-                                                              (() => {
-                                                                const currentValue = project.awardValue;
-                                                                const previousValue = project.previousAwardValue;
-                                                                const isIncreased = currentValue > previousValue;
-                                                                return (
-                                                                  <span 
-                                                                    className={`inline-flex items-center px-1.5 py-0.5 rounded text-xs ml-1 ${isIncreased ? 'text-red-600 bg-red-50' : 'text-green-600 bg-green-50'}`} 
-                                                                    title={`原金额: ${formatCurrency(previousValue)}`}
-                                                                  >
-                                                                    {isIncreased ? (
-                                                                      <TrendingUp className="w-3 h-3" />
-                                                                    ) : (
-                                                                      <TrendingDown className="w-3 h-3" />
-                                                                    )}
-                                                                  </span>
-                                                                );
-                                                              })()
-                                                            )}
-                                                          </span>
-                                                          <span className="flex items-center gap-1 whitespace-nowrap">
-                                                            <span className="text-gray-400">状态：</span>
-                                                            <Badge
-                                                              variant="outline"
-                                                              className={isStatusChanged
-                                                                  ? 'text-red-600 border-red-600 bg-red-50 text-xs'
-                                                                  : project.awardStatus === 'Closed'
-                                                                  ? 'text-gray-500 border-gray-300 text-xs'
-                                                                  : 'text-[#008080] border-[#008080] text-xs'
-                                                              }
-                                                            >
-                                                              {project.awardStatus}
-                                                            </Badge>
-                                                          </span>
-                                                        </div>
-                                                      </div>
+                                                    <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded flex-shrink-0 mt-0.5">
+                                                      {project.grantNumber}
+                                                    </span>
+                                                    <div className="flex-1 min-w-0">
+                                                      {project.detailUrl ? (
+                                                        <a
+                                                          href={project.detailUrl}
+                                                          target="_blank"
+                                                          rel="noopener noreferrer"
+                                                          className="text-sm font-medium text-gray-900 hover:text-[#008080] hover:underline inline break-all leading-relaxed"
+                                                          onClick={(e) => e.stopPropagation()}
+                                                        >
+                                                          {project.grantTitle}
+                                                        </a>
+                                                      ) : (
+                                                        <span className="text-sm font-medium text-gray-900 break-all leading-relaxed">
+                                                          {project.grantTitle}
+                                                        </span>
+                                                      )}
+                                                      <ExternalLink className="w-3 h-3 text-gray-400 inline-block ml-1 align-middle flex-shrink-0" />
                                                     </div>
                                                   </div>
-                                                );
-                                              })()}
+                                                  {/* 负责人和疾病领域 - 疾病领域过长省略号 */}
+                                                  <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500 mb-2">
+                                                    <span className="break-all">
+                                                      <span className="text-gray-400">负责人：</span>
+                                                      {project.principalInvestigator}
+                                                    </span>
+                                                    {project.diseaseFocus && (
+                                                      <span className="relative group cursor-help">
+                                                        <span className="text-gray-400">疾病领域：</span>
+                                                        <span className="truncate max-w-[200px] inline-block align-bottom" title={project.diseaseFocus}>
+                                                          {project.diseaseFocus}
+                                                        </span>
+                                                        {/* 悬停提示框 */}
+                                                        <span className="absolute bottom-full left-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg whitespace-normal max-w-xs z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-lg">
+                                                          {project.diseaseFocus}
+                                                          <span className="absolute top-full left-4 border-4 border-transparent border-t-gray-900"></span>
+                                                        </span>
+                                                      </span>
+                                                    )}
+                                                  </div>
+                                                  {/* 批准日期、金额、状态 */}
+                                                  <div className="flex items-center gap-4 text-xs">
+                                                    {project.icocApproval && (
+                                                      <span className="text-gray-500 whitespace-nowrap">
+                                                        <span className="text-gray-400">批准：</span>
+                                                        {formatDate(project.icocApproval)}
+                                                      </span>
+                                                    )}
+                                                    <span className="flex items-center gap-1 whitespace-nowrap">
+                                                      <span className="text-gray-400">金额：</span>
+                                                      <span className="text-[#008080] font-medium">
+                                                        {formatCurrency(project.awardValue)}
+                                                      </span>
+                                                      {project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null && (
+                                                        (() => {
+                                                          const currentValue = project.awardValue;
+                                                          const previousValue = project.previousAwardValue;
+                                                          const isIncreased = currentValue > previousValue;
+                                                          return (
+                                                            <span 
+                                                              className={`inline-flex items-center px-1.5 py-0.5 rounded text-xs ml-1 ${isIncreased ? 'text-red-600 bg-red-50' : 'text-green-600 bg-green-50'}`} 
+                                                              title={`原金额: ${formatCurrency(previousValue)}`}
+                                                            >
+                                                              {isIncreased ? (
+                                                                <TrendingUp className="w-3 h-3" />
+                                                              ) : (
+                                                                <TrendingDown className="w-3 h-3" />
+                                                              )}
+                                                            </span>
+                                                          );
+                                                        })()
+                                                      )}
+                                                    </span>
+                                                    <span className="flex items-center gap-1 whitespace-nowrap">
+                                                      <span className="text-gray-400">状态：</span>
+                                                      <Badge
+                                                        variant="outline"
+                                                        className={isStatusChanged
+                                                            ? 'text-red-600 border-red-600 bg-red-50 text-xs'
+                                                            : project.awardStatus === 'Closed'
+                                                            ? 'text-gray-500 border-gray-300 text-xs'
+                                                            : 'text-[#008080] border-[#008080] text-xs'
+                                                        }
+                                                      >
+                                                        {project.awardStatus}
+                                                      </Badge>
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            );
+                                          })()}
                                         </div>
                                       ))}
                                     </div>
@@ -550,5 +551,3 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
-
-
