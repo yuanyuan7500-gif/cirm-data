@@ -328,7 +328,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                     {expandedRows.has(grant.id) && (
                       <TableRow className="bg-gray-50/50">
                         <TableCell colSpan={7} className="py-4 px-4">
-                          <div className="pl-4 pr-2">
+  <div className="pl-4 pr-2 max-w-full overflow-x-hidden">
                             {/* 查找该资助类型下的具体项目 */}
                             {(() => {
                               // 从 grantType 提取前缀用于匹配 grantNumber
@@ -393,27 +393,29 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                   </div>
                                                 </div>
                                                 <div className="flex-1 min-w-0">
-                                                  <div className="flex items-center gap-2 mb-1 flex-wrap">
-                                                    <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded flex-shrink-0">
-                                                      {project.grantNumber}
-                                                    </span>
-                                                    {project.detailUrl ? (
-                                                      <a
-                                                        href={project.detailUrl}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="text-sm font-medium text-gray-900 break-words leading-relaxed hover:text-[#008080] hover:underline flex items-center gap-1"
-                                                        onClick={(e) => e.stopPropagation()}
-                                                      >
-                                                        {project.grantTitle}
-                                                        <ExternalLink className="w-3 h-3 text-gray-400" />
-                                                      </a>
-                                                    ) : (
-                                                      <span className="text-sm font-medium text-gray-900 break-words leading-relaxed">
-                                                        {project.grantTitle}
-                                                      </span>
-                                                    )}
-                                                  </div>
+                                                  <div className="flex items-start gap-2 mb-1 flex-wrap">
+  <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded flex-shrink-0 mt-0.5">
+    {project.grantNumber}
+  </span>
+  <div className="flex-1 min-w-0">
+    {project.detailUrl ? (
+      <a
+        href={project.detailUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-sm font-medium text-gray-900 break-all leading-relaxed hover:text-[#008080] hover:underline inline-flex items-center gap-1"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {project.grantTitle}
+        <ExternalLink className="w-3 h-3 text-gray-400 flex-shrink-0" />
+      </a>
+    ) : (
+      <span className="text-sm font-medium text-gray-900 break-all leading-relaxed">
+        {project.grantTitle}
+      </span>
+    )}
+  </div>
+</div>
                                                   <div className="flex items-center justify-between text-xs">
                                                     {/* 左侧：负责人和疾病领域 */}
                                                     <div className="flex flex-wrap gap-x-4 gap-y-1 text-gray-500">
@@ -543,3 +545,4 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
+
