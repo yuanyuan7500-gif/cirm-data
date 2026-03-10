@@ -402,7 +402,8 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                         href={project.detailUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="text-sm font-medium text-gray-900 truncate max-w-[800px] leading-relaxed hover:text-[#008080] hover:underline flex items-center gap-1"
+                                                        className="text-sm font-medium text-gray-900 truncate leading-relaxed hover:text-[#008080] hover:underline flex items-center gap-1 flex-1 min-w-0"
+                                                        style={{ maxWidth: 'clamp(300px, 35vw, 700px)' }}
                                                         title={project.grantTitle}
                                                         onClick={(e) => e.stopPropagation()}
                                                       >
@@ -411,7 +412,8 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                       </a>
                                                     ) : (
                                                       <span 
-                                                        className="text-sm font-medium text-gray-900 truncate max-w-[800px] leading-relaxed"
+                                                        className="text-sm font-medium text-gray-900 truncate leading-relaxed flex-1 min-w-0"
+                                                        style={{ maxWidth: 'clamp(300px, 35vw, 700px)' }}
                                                         title={project.grantTitle}
                                                       >
                                                         {project.grantTitle}
@@ -547,4 +549,5 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
+
 
