@@ -393,7 +393,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                   </div>
                                                 </div>
                                                 <div className="flex-1 min-w-0">
-                                                  <div className="flex items-start gap-2 mb-1 flex-wrap">
+                                                  <div className="flex items-start gap-2 mb-2">
   <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded flex-shrink-0 mt-0.5">
     {project.grantNumber}
   </span>
@@ -403,33 +403,38 @@ export function GrantsSection({ data }: GrantsSectionProps) {
         href={project.detailUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm font-medium text-gray-900 break-all leading-relaxed hover:text-[#008080] hover:underline inline-flex items-center gap-1"
+        className="text-sm font-medium text-gray-900 hover:text-[#008080] hover:underline inline break-all leading-relaxed"
         onClick={(e) => e.stopPropagation()}
       >
         {project.grantTitle}
-        <ExternalLink className="w-3 h-3 text-gray-400 flex-shrink-0" />
       </a>
     ) : (
       <span className="text-sm font-medium text-gray-900 break-all leading-relaxed">
         {project.grantTitle}
       </span>
     )}
+    <ExternalLink className="w-3 h-3 text-gray-400 inline-block ml-1 align-middle flex-shrink-0" />
   </div>
 </div>
-                                                  <div className="flex items-center justify-between text-xs">
-                                                    {/* 左侧：负责人和疾病领域 */}
-                                                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-gray-500">
-                                                      <span>
-                                                        <span className="text-gray-400">负责人：</span>
-                                                        {project.principalInvestigator}
-                                                      </span>
-                                                      {project.diseaseFocus && (
-                                                        <span>
-                                                          <span className="text-gray-400">疾病领域：</span>
-                                                          {project.diseaseFocus}
-                                                        </span>
-                                                      )}
-                                                    </div>
+                                                  <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500 mb-2">
+  <span className="break-all">
+    <span className="text-gray-400">负责人：</span>
+    {project.principalInvestigator}
+  </span>
+  {project.diseaseFocus && (
+    <span className="relative group cursor-help">
+      <span className="text-gray-400">疾病领域：</span>
+      <span className="truncate max-w-[200px] inline-block align-bottom" title={project.diseaseFocus}>
+        {project.diseaseFocus}
+      </span>
+      {/* 悬停提示框 */}
+      <span className="absolute bottom-full left-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg whitespace-normal max-w-xs z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-lg">
+        {project.diseaseFocus}
+        <span className="absolute top-full left-4 border-4 border-transparent border-t-gray-900"></span>
+      </span>
+    </span>
+  )}
+</div>
                                                         {/* 右侧：批准日期、金额、状态 */}
                                                         <div className="flex items-center gap-4">
                                                           {project.icocApproval && (
@@ -545,4 +550,5 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
+
 
