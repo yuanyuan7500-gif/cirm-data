@@ -32,6 +32,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [programFilter, setProgramFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [showChangesOnly, setShowChangesOnly] = useState(false);
   const [expandedRows, setExpandedRows] = useState<Set<number>>(new Set());
 
   useEffect(() => {
@@ -66,6 +67,18 @@ export function GrantsSection({ data }: GrantsSectionProps) {
       return false;
     if (statusFilter !== 'all' && grant.awardStatus !== statusFilter)
       return false;
+    
+    // 新增：仅查看新增及变更项目
+    if (showChangesOnly) {
+      const hasNew = getNewProjectsCount(grant.grantType) > 0;
+      const hasValueChange = getValueChangeProjectsCount(grant.grantType) > 0;
+      const hasStatusChange = getStatusChangeProjectsCount(grant.grantType) > 0;
+      
+      if (!hasNew && !hasValueChange && !hasStatusChange) {
+        return false;
+      }
+    }
+    
     if (searchTerm) {
       const search = searchTerm.toLowerCase();
       return (
@@ -146,25 +159,25 @@ export function GrantsSection({ data }: GrantsSectionProps) {
   };
 
   const formatDate = (dateStr: string) => {
-  if (!dateStr || dateStr === 'NaT') return '-';
-  
-  // 如果只有年份（4位数字），直接返回年份
-  if (/^\d{4}$/.test(dateStr.trim())) {
-    return dateStr.trim();
-  }
-  
-  try {
-    const date = new Date(dateStr);
-    if (isNaN(date.getTime())) return dateStr;
+    if (!dateStr || dateStr === 'NaT') return '-';
     
-    return date.toLocaleDateString('zh-CN', {
-      year: 'numeric',
-      month: 'short',
-    });
-  } catch {
-    return dateStr;
-  }
-};
+    // 如果只有年份（4位数字），直接返回年份
+    if (/^\d{4}$/.test(dateStr.trim())) {
+      return dateStr.trim();
+    }
+    
+    try {
+      const date = new Date(dateStr);
+      if (isNaN(date.getTime())) return dateStr;
+      
+      return date.toLocaleDateString('zh-CN', {
+        year: 'numeric',
+        month: 'short',
+      });
+    } catch {
+      return dateStr;
+    }
+  };
 
   return (
     <section ref={sectionRef} className="py-20 sm:py-32 bg-gray-50/50">
@@ -189,7 +202,25 @@ export function GrantsSection({ data }: GrantsSectionProps) {
               className="pl-10 bg-white"
             />
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
+            {/* 新增：仅查看新增及变更项目按钮 */}
+            <button
+              onClick={() => setShowChangesOnly(!showChangesOnly)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
+                showChangesOnly
+                  ? 'bg-[#FF6B6B] text-white'
+                  : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50'
+              }`}
+            >
+              <AlertCircle className="w-4 h-4" />
+              仅查看新增及变更项目
+              {showChangesOnly && (
+                <span className="bg-white/20 px-1.5 py-0.5 rounded text-xs">
+                  开启
+                </span>
+              )}
+            </button>
+            
             <Select value={programFilter} onValueChange={setProgramFilter}>
               <SelectTrigger className="w-[180px] bg-white">
                 <Filter className="w-4 h-4 mr-2" />
@@ -559,8 +590,3 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
-
-
-
-
-
