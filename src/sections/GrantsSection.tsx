@@ -379,13 +379,36 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                 .split('(')[0]
                                 .toUpperCase();
                               
+                              // 获取项目并按 sortOrder 排序（未设置的排在最后）
                               const projects = data.activeGrants
-                                ?.filter((ag) => ag?.grantNumber?.toUpperCase().startsWith(grantTypePrefix + '-'))
+                                ?.filter((ag) => {
+                                  // 基础过滤：匹配资助类型前缀
+                                  const matchesPrefix = ag?.grantNumber?.toUpperCase().startsWith(grantTypePrefix + '-');
+                                  if (!matchesPrefix) return false;
+                                  
+                                  // 如果开启了"仅查看新增及变更项目"，进一步过滤具体项目
+                                  if (showChangesOnly) {
+                                    const isNew = ag.isNew;
+                                    const hasValueChange = ag.showValueChange !== false && 
+                                                          ag.previousAwardValue !== undefined && 
+                                                          ag.previousAwardValue !== null;
+                                    const hasStatusChange = ag.showStatusChange !== false && 
+                                                           ag.previousAwardStatus && 
+                                                           ag.previousAwardStatus !== 'Closed' && 
+                                                           ag.awardStatus === 'Closed';
+                                    
+                                    // 只保留有变更的项目
+                                    return isNew || hasValueChange || hasStatusChange;
+                                  }
+                                  
+                                  return true;
+                                })
                                 .sort((a, b) => {
                                   const orderA = a.sortOrder ?? Number.MAX_SAFE_INTEGER;
                                   const orderB = b.sortOrder ?? Number.MAX_SAFE_INTEGER;
                                   return orderA - orderB;
                                 }) || [];
+                              
                               return (
                                 <div>
                                   <div className="text-sm font-medium text-gray-700 mb-3">
