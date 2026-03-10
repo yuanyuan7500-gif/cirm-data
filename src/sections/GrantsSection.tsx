@@ -402,7 +402,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                         href={project.detailUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="text-sm font-medium text-gray-900 truncate max-w-[500px] leading-relaxed hover:text-[#008080] hover:underline flex items-center gap-1"
+                                                        className="text-sm font-medium text-gray-900 truncate max-w-[800px] leading-relaxed hover:text-[#008080] hover:underline flex items-center gap-1"
                                                         title={project.grantTitle}
                                                         onClick={(e) => e.stopPropagation()}
                                                       >
@@ -411,7 +411,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                       </a>
                                                     ) : (
                                                       <span 
-                                                        className="text-sm font-medium text-gray-900 truncate max-w-[500px] leading-relaxed"
+                                                        className="text-sm font-medium text-gray-900 truncate max-w-[800px] leading-relaxed"
                                                         title={project.grantTitle}
                                                       >
                                                         {project.grantTitle}
@@ -547,3 +547,4 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
+
