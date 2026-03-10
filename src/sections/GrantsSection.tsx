@@ -428,9 +428,11 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                         {project.principalInvestigator}
                                                       </span>
                                                       {project.diseaseFocus && (
-                                                        <span>
-                                                          <span className="text-gray-400">疾病领域：</span>
+                                                        <span className="flex items-center gap-1 min-w-0 max-w-[min(calc(100vw-600px),400px)]">
+                                                          <span className="text-gray-400 flex-shrink-0">疾病领域：</span>
+                                                          <span className="truncate" title={project.diseaseFocus}>
                                                           {project.diseaseFocus}
+                                                          </span>
                                                         </span>
                                                       )}
                                                     </div>
@@ -549,6 +551,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
+
 
 
 
