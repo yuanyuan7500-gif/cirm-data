@@ -146,17 +146,25 @@ export function GrantsSection({ data }: GrantsSectionProps) {
   };
 
   const formatDate = (dateStr: string) => {
-    if (!dateStr || dateStr === 'NaT') return '-';
-    try {
-      const date = new Date(dateStr);
-      return date.toLocaleDateString('zh-CN', {
-        year: 'numeric',
-        month: 'short',
-      });
-    } catch {
-      return dateStr;
-    }
-  };
+  if (!dateStr || dateStr === 'NaT') return '-';
+  
+  // 如果只有年份（4位数字），直接返回年份
+  if (/^\d{4}$/.test(dateStr.trim())) {
+    return dateStr.trim();
+  }
+  
+  try {
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return dateStr;
+    
+    return date.toLocaleDateString('zh-CN', {
+      year: 'numeric',
+      month: 'short',
+    });
+  } catch {
+    return dateStr;
+  }
+};
 
   return (
     <section ref={sectionRef} className="py-20 sm:py-32 bg-gray-50/50">
@@ -551,6 +559,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
+
 
 
 
