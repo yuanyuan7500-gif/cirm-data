@@ -328,7 +328,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                     {expandedRows.has(grant.id) && (
                       <TableRow className="bg-gray-50/50">
                         <TableCell colSpan={7} className="py-4 px-4">
-                          <div className="w-full overflow-hidden">
+                          <div className="pl-4 pr-2">
                             {/* 查找该资助类型下的具体项目 */}
                             {(() => {
                               // 从 grantType 提取前缀用于匹配 grantNumber
@@ -348,32 +348,32 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                   return orderA - orderB;
                                 });
                               return (
-                                <div className="w-full">
+                                <div>
                                   <div className="text-sm font-medium text-gray-700 mb-3">
                                     项目列表（类型：{grant.programType}，总项目数：{projects.length}）
                                   </div>
                                   {projects.length > 0 ? (
-                                    <div className="space-y-2 w-full">
+                                    <div className="space-y-2">
                                       {projects.map((project) => (
                                         <div
                                           key={project.grantNumber}
-                                          className="bg-white rounded-lg p-3 border border-gray-100 w-full"
+                                          className="bg-white rounded-lg p-3 border border-gray-100"
                                         >
                                           {(() => {
                                             const isStatusChanged = project.showStatusChange !== false && project.previousAwardStatus && project.previousAwardStatus !== 'Closed' && project.awardStatus === 'Closed';
                                             const previousValue = project.previousAwardValue;
                                             const hasValueChange = project.showValueChange !== false && previousValue !== undefined && previousValue !== null;
                                             return (
-                                              <div className="flex items-start gap-2 w-full">
+                                              <div className="flex items-start gap-2">
                                                 {/* 左侧列：New标签 + 金额标识 + 中止标识 */}
-                                                <div className="flex flex-col items-center gap-1 flex-shrink-0 w-8">
+                                                <div className="flex flex-col items-center gap-1 flex-shrink-0">
                                                   {project.isNew ? (
-                                                    <Badge className="bg-[#FF6B6B] text-white text-xs hover:bg-[#FF6B6B] mt-0.5 px-1">
+                                                    <Badge className="bg-[#FF6B6B] text-white text-xs hover:bg-[#FF6B6B] mt-0.5">
                                                       New
                                                     </Badge>
                                                   ) : (
                                                     // 没有New标签时也要占位，保持对齐
-                                                    <div className="h-5 mt-0.5 w-full" />
+                                                    <div className="h-5 mt-0.5" />
                                                   )}
                                                   {/* 金额变动标识和中止标识横向排列 */}
                                                   <div className="flex items-center gap-1">
@@ -392,10 +392,8 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                     )}
                                                   </div>
                                                 </div>
-                                                {/* 右侧内容区 */}
-                                                <div className="flex-1 min-w-0 w-full">
-                                                  {/* 第一行：项目编号和标题 */}
-                                                  <div className="flex items-start gap-2 mb-2">
+                                                <div className="flex-1 min-w-0">
+                                                  <div className="flex items-center gap-2 mb-1 flex-wrap">
                                                     <span className="text-xs font-medium text-[#008080] bg-[#008080]/10 px-2 py-0.5 rounded flex-shrink-0">
                                                       {project.grantNumber}
                                                     </span>
@@ -404,81 +402,85 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                         href={project.detailUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="text-sm font-medium text-gray-900 leading-relaxed hover:text-[#008080] hover:underline flex items-center gap-1 break-words"
+                                                        className="text-sm font-medium text-gray-900 break-words leading-relaxed hover:text-[#008080] hover:underline flex items-center gap-1"
                                                         onClick={(e) => e.stopPropagation()}
                                                       >
-                                                        <span className="break-all">{project.grantTitle}</span>
-                                                        <ExternalLink className="w-3 h-3 text-gray-400 flex-shrink-0" />
+                                                        {project.grantTitle}
+                                                        <ExternalLink className="w-3 h-3 text-gray-400" />
                                                       </a>
                                                     ) : (
-                                                      <span className="text-sm font-medium text-gray-900 leading-relaxed break-all">
+                                                      <span className="text-sm font-medium text-gray-900 break-words leading-relaxed">
                                                         {project.grantTitle}
                                                       </span>
                                                     )}
                                                   </div>
-                                                  {/* 第二行：负责人和疾病领域 */}
-                                                  <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500 mb-2">
-                                                    <span className="break-all">
-                                                      <span className="text-gray-400">负责人：</span>
-                                                      {project.principalInvestigator}
-                                                    </span>
-                                                    {project.diseaseFocus && (
-                                                      <span className="break-all">
-                                                        <span className="text-gray-400">疾病领域：</span>
-                                                        {project.diseaseFocus}
+                                                  <div className="flex items-center justify-between text-xs">
+                                                    {/* 左侧：负责人和疾病领域 */}
+                                                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-gray-500">
+                                                      <span>
+                                                        <span className="text-gray-400">负责人：</span>
+                                                        {project.principalInvestigator}
                                                       </span>
-                                                    )}
-                                                  </div>
-                                                  {/* 第三行：批准日期、金额、状态 - 使用 grid 布局固定列宽 */}
-                                                  <div className="grid grid-cols-3 gap-4 text-xs">
-                                                    <div className="text-gray-500 truncate">
-                                                      <span className="text-gray-400">批准：</span>
-                                                      {project.icocApproval ? formatDate(project.icocApproval) : '-'}
-                                                    </div>
-                                                    <div className="flex items-center gap-1 text-gray-500 truncate">
-                                                      <span className="text-gray-400">金额：</span>
-                                                      <span className="text-[#008080] font-medium">
-                                                        {formatCurrency(project.awardValue)}
-                                                      </span>
-                                                      {project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null && (
-                                                        (() => {
-                                                          const currentValue = project.awardValue;
-                                                          const previousValue = project.previousAwardValue;
-                                                          const isIncreased = currentValue > previousValue;
-                                                          return (
-                                                            <span 
-                                                              className={`inline-flex items-center px-1 rounded text-xs ml-1 flex-shrink-0 ${isIncreased ? 'text-red-600 bg-red-50' : 'text-green-600 bg-green-50'}`} 
-                                                              title={`原金额: ${formatCurrency(previousValue)}`}
-                                                            >
-                                                              {isIncreased ? (
-                                                                <TrendingUp className="w-3 h-3" />
-                                                              ) : (
-                                                                <TrendingDown className="w-3 h-3" />
-                                                              )}
-                                                            </span>
-                                                          );
-                                                        })()
+                                                      {project.diseaseFocus && (
+                                                        <span>
+                                                          <span className="text-gray-400">疾病领域：</span>
+                                                          {project.diseaseFocus}
+                                                        </span>
                                                       )}
                                                     </div>
-                                                    <div className="flex items-center gap-1 text-gray-500 truncate">
-                                                      <span className="text-gray-400">状态：</span>
-                                                      <Badge
-                                                        variant="outline"
-                                                        className={isStatusChanged
-                                                            ? 'text-red-600 border-red-600 bg-red-50 text-xs'
-                                                            : project.awardStatus === 'Closed'
-                                                            ? 'text-gray-500 border-gray-300 text-xs'
-                                                            : 'text-[#008080] border-[#008080] text-xs'
-                                                        }
-                                                      >
-                                                        {project.awardStatus}
-                                                      </Badge>
+                                                        {/* 右侧：批准日期、金额、状态 */}
+                                                        <div className="flex items-center gap-4">
+                                                          {project.icocApproval && (
+                                                            <span className="text-gray-500 whitespace-nowrap">
+                                                              <span className="text-gray-400">批准：</span>
+                                                              {formatDate(project.icocApproval)}
+                                                            </span>
+                                                          )}
+                                                          <span className="flex items-center gap-1 whitespace-nowrap">
+                                                            <span className="text-gray-400">金额：</span>
+                                                            <span className="text-[#008080] font-medium">
+                                                              {formatCurrency(project.awardValue)}
+                                                            </span>
+                                                            {project.showValueChange !== false && project.previousAwardValue !== undefined && project.previousAwardValue !== null && (
+                                                              (() => {
+                                                                const currentValue = project.awardValue;
+                                                                const previousValue = project.previousAwardValue;
+                                                                const isIncreased = currentValue > previousValue;
+                                                                return (
+                                                                  <span 
+                                                                    className={`inline-flex items-center px-1.5 py-0.5 rounded text-xs ml-1 ${isIncreased ? 'text-red-600 bg-red-50' : 'text-green-600 bg-green-50'}`} 
+                                                                    title={`原金额: ${formatCurrency(previousValue)}`}
+                                                                  >
+                                                                    {isIncreased ? (
+                                                                      <TrendingUp className="w-3 h-3" />
+                                                                    ) : (
+                                                                      <TrendingDown className="w-3 h-3" />
+                                                                    )}
+                                                                  </span>
+                                                                );
+                                                              })()
+                                                            )}
+                                                          </span>
+                                                          <span className="flex items-center gap-1 whitespace-nowrap">
+                                                            <span className="text-gray-400">状态：</span>
+                                                            <Badge
+                                                              variant="outline"
+                                                              className={isStatusChanged
+                                                                  ? 'text-red-600 border-red-600 bg-red-50 text-xs'
+                                                                  : project.awardStatus === 'Closed'
+                                                                  ? 'text-gray-500 border-gray-300 text-xs'
+                                                                  : 'text-[#008080] border-[#008080] text-xs'
+                                                              }
+                                                            >
+                                                              {project.awardStatus}
+                                                            </Badge>
+                                                          </span>
+                                                        </div>
+                                                      </div>
                                                     </div>
                                                   </div>
-                                                </div>
-                                              </div>
-                                            );
-                                          })()}
+                                                );
+                                              })()}
                                         </div>
                                       ))}
                                     </div>
