@@ -402,14 +402,18 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                                         href={project.detailUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="text-sm font-medium text-gray-900 break-words leading-relaxed hover:text-[#008080] hover:underline flex items-center gap-1"
+                                                        className="text-sm font-medium text-gray-900 truncate max-w-[500px] leading-relaxed hover:text-[#008080] hover:underline flex items-center gap-1"
+                                                        title={project.grantTitle}
                                                         onClick={(e) => e.stopPropagation()}
                                                       >
                                                         {project.grantTitle}
-                                                        <ExternalLink className="w-3 h-3 text-gray-400" />
+                                                        <ExternalLink className="w-3 h-3 text-gray-400 flex-shrink-0" />
                                                       </a>
                                                     ) : (
-                                                      <span className="text-sm font-medium text-gray-900 break-words leading-relaxed">
+                                                      <span 
+                                                        className="text-sm font-medium text-gray-900 truncate max-w-[500px] leading-relaxed"
+                                                        title={project.grantTitle}
+                                                      >
                                                         {project.grantTitle}
                                                       </span>
                                                     )}
