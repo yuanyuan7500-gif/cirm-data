@@ -118,28 +118,11 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
   });
 
   const totalProjects = data.grants.reduce((sum, g) => sum + (g.totalAwards || 0), 0);
-
-  // ===== 调试计算 =====
-  const rawActive = data.activeGrants.filter(g => 
-    g.awardStatus === 'Pre-Active' || g.awardStatus === 'Active'
-  );
-  const uniqueActive = [...new Map(
-    rawActive.map(g => [g.grantNumber, g])
-  ).values()];
-  const activeProjects = uniqueActive.length;
   
-  // 找出重复的项目
-  const seen = new Set<string>();
-  const duplicates: typeof rawActive = [];
-  rawActive.forEach(g => {
-    if (seen.has(g.grantNumber)) {
-      duplicates.push(g);
-    } else {
-      seen.add(g.grantNumber);
-    }
-  });
-  // ===== 调试计算结束 =====
-
+  const activeProjects = data.activeGrants.filter(g => 
+    g.awardStatus === 'Pre-Active' || g.awardStatus === 'Active'
+  ).length;
+  
   const totalAmount = data.summary.totalAmount;
 
   const stats = [
@@ -179,40 +162,6 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
 
   return (
     <section ref={sectionRef} className="py-20 sm:py-32 bg-gray-50/50">
-      {/* 调试面板 */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <div className="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-4">
-          <h3 className="font-bold text-yellow-800 mb-2">🔍 调试信息</h3>
-          <div className="grid grid-cols-3 gap-4 text-sm">
-            <div>
-              <p className="text-gray-600">原始 Active+Pre-Active:</p>
-              <p className="text-2xl font-bold text-red-600">{rawActive.length}</p>
-            </div>
-            <div>
-              <p className="text-gray-600">去重后数量:</p>
-              <p className="text-2xl font-bold text-green-600">{uniqueActive.length}</p>
-            </div>
-            <div>
-              <p className="text-gray-600">重复项目数:</p>
-              <p className="text-2xl font-bold text-orange-600">{duplicates.length}</p>
-            </div>
-          </div>
-          {duplicates.length > 0 && (
-            <div className="mt-4">
-              <p className="text-red-600 font-medium">重复的项目:</p>
-              <ul className="list-disc list-inside text-sm text-gray-700 mt-1 max-h-32 overflow-y-auto">
-                {duplicates.map(g => (
-                  <li key={g.grantNumber}>{g.grantNumber} - {g.grantTitle}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-          <p className="text-xs text-gray-500 mt-2">
-            当前显示: {activeProjects} | 原始数据: {rawActive.length} | 差异: {rawActive.length - activeProjects}
-          </p>
-        </div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">数据仪表盘</h2>
