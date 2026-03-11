@@ -119,8 +119,23 @@ export function GrantsSection({ data }: GrantsSectionProps) {
   const filteredGrants = data.grants.filter((grant) => {
     if (programFilter !== 'all' && grant.programType !== programFilter)
       return false;
-    if (statusFilter !== 'all' && grant.awardStatus !== statusFilter)
-      return false;
+    
+    // 修改：基于具体项目的状态进行筛选
+    if (statusFilter !== 'all') {
+      const grantTypePrefix = grant.grantType
+        .replace(/\s+/g, '')
+        .split('(')[0]
+        .toUpperCase();
+      
+      // 检查该资助类型下是否有指定状态的具体项目
+      const hasMatchingStatus = data.activeGrants.some(ag => {
+        const matchesPrefix = ag?.grantNumber?.toUpperCase().startsWith(grantTypePrefix + '-');
+        const matchesStatus = ag.awardStatus === statusFilter;
+        return matchesPrefix && matchesStatus;
+      });
+      
+      if (!hasMatchingStatus) return false;
+    }
     
     // 新增：仅查看新增及变更项目
     if (showChangesOnly) {
@@ -223,10 +238,10 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                   : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
               }`}
             >
-              <AlertCircle className="w-4 h-4" />
+              <AlertCircle className={`w-4 h-4 ${showChangesOnly ? 'text-red-500' : ''}`} />
               仅查看新增及变更项目
               {showChangesOnly && (
-                <span className="ml-1 text-xs opacity-80">(开启)</span>
+                <span className="ml-1 text-xs text-red-500">(开启)</span>
               )}
             </button>
             
@@ -251,6 +266,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
               <SelectContent>
                 <SelectItem value="all">所有状态</SelectItem>
                 <SelectItem value="Active">Active</SelectItem>
+                <SelectItem value="Pre-Active">Pre-Active</SelectItem>
                 <SelectItem value="Closed">Closed</SelectItem>
               </SelectContent>
             </Select>
@@ -608,4 +624,3 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
-
