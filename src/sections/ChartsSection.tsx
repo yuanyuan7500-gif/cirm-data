@@ -71,27 +71,29 @@ export function ChartsSection({ data }: ChartsSectionProps) {
   }, []);
 
   // Prepare pie chart data
- // 原始数据转换
-const rawPieData = Object.entries(data.programStats).map(([name, stat]) => ({
-  name,
-  value: stat.projects,
-  amount: stat.amount,
-}));
+  // 原始数据转换
+  const rawPieData = Object.entries(data.programStats).map(([name, stat]) => ({
+    name,
+    value: stat.projects,
+    amount: stat.amount,
+  }));
 
-// 合并 Preclinical 相关类型
-const preclinicalTypes = ['Preclinical', 'Preclinical/Translational', 'Translational'];
-const preclinicalData = rawPieData.filter(item => preclinicalTypes.includes(item.name));
-const otherData = rawPieData.filter(item => !preclinicalTypes.includes(item.name));
+  // 合并 Preclinical 相关类型
+  const preclinicalTypes = ['Preclinical', 'Preclinical/Translational', 'Translational'];
+  const preclinicalData = rawPieData.filter(item => preclinicalTypes.includes(item.name));
+  const otherData = rawPieData.filter(item => !preclinicalTypes.includes(item.name));
 
-// 计算合并后的值
-const mergedPreclinical = {
-  name: 'Preclinical/Translational',
-  value: preclinicalData.reduce((sum, item) => sum + item.value, 0),
-  amount: preclinicalData.reduce((sum, item) => sum + item.amount, 0),
-};
+  // 计算合并后的值
+  const mergedPreclinical = {
+    name: 'Preclinical/Translational',
+    value: preclinicalData.reduce((sum, item) => sum + item.value, 0),
+    amount: preclinicalData.reduce((sum, item) => sum + item.amount, 0),
+  };
 
-// 最终的 pieData
-const pieData = [mergedPreclinical, ...otherData];  // Prepare yearly trend data
+  // 最终的 pieData
+  const pieData = [mergedPreclinical, ...otherData];
+
+  // Prepare yearly trend data
   const yearlyData = Object.entries(data.yearlyStats)
     .filter(([year]) => parseInt(year) >= 2007 && parseInt(year) <= 2025)
     .sort(([a], [b]) => parseInt(a) - parseInt(b))
@@ -101,19 +103,19 @@ const pieData = [mergedPreclinical, ...otherData];  // Prepare yearly trend data
       count: stat.count,
     }));
 
+  // 修复后的 CustomTooltip
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
+      const data = payload[0].payload;
       return (
         <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-100">
-          <p className="font-semibold text-gray-900">{label || payload[0].name}</p>
+          <p className="font-semibold text-gray-900">{label}</p>
           <p className="text-[#008080]">
-            项目数: {payload[0].value?.toLocaleString()}
+            项目数: {data.count?.toLocaleString()}
           </p>
-          {payload[0].payload.amount && (
-            <p className="text-[#4ECDC4]">
-              金额: ${(payload[0].payload.amount / 1000000).toFixed(1)}M
-            </p>
-          )}
+          <p className="text-[#4ECDC4]">
+            金额: ${data.amount?.toFixed(1)}M
+          </p>
         </div>
       );
     }
