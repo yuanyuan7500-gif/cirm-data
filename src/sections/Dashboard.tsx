@@ -152,12 +152,53 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
 
   // 计算统计值
   const totalProjects = data.grants.reduce((sum, g) => sum + (g.totalAwards || 0), 0);
-  const activeProjects = [...new Map(
-    data.activeGrants
-      .filter(g => g.awardStatus === 'Pre-Active' || g.awardStatus === 'Active')
-      .map(g => [g.grantNumber, g])
-  ).values()].length;
-  const totalAmount = data.summary.totalAmount;
+
+// ===== 调试代码开始 =====
+console.log('=== 调试信息 ===');
+
+// 1. 查看所有状态分布
+const statusCounts = data.activeGrants.reduce((acc, g) => {
+  const status = g.awardStatus || 'undefined/null';
+  acc[status] = (acc[status] || 0) + 1;
+  return acc;
+}, {} as Record<string, number>);
+console.log('状态分布:', statusCounts);
+
+// 2. 查看 Active + Pre-Active 的原始数量
+const rawActive = data.activeGrants.filter(g => 
+  g.awardStatus === 'Pre-Active' || g.awardStatus === 'Active'
+);
+console.log('Active+Pre-Active 原始数量:', rawActive.length);
+
+// 3. 检查是否有重复 grantNumber
+const grantNumbers = rawActive.map(g => g.grantNumber);
+const duplicates = grantNumbers.filter((item, index) => grantNumbers.indexOf(item) !== index);
+console.log('重复的 grantNumber 数量:', duplicates.length);
+console.log('重复的 grantNumber:', [...new Set(duplicates)]);
+
+// 4. 去重后统计
+const uniqueActive = [...new Map(
+  rawActive.map(g => [g.grantNumber, g])
+).values()];
+console.log('去重后数量:', uniqueActive.length);
+
+// 5. 对比原始数据和去重后的差异
+if (rawActive.length !== uniqueActive.length) {
+  console.log('发现重复数据！');
+  // 找出重复的是哪些
+  const seen = new Set();
+  const dups = rawActive.filter(g => {
+    if (seen.has(g.grantNumber)) return true;
+    seen.add(g.grantNumber);
+    return false;
+  });
+  console.log('重复的项目:', dups.map(g => ({ grantNumber: g.grantNumber, title: g.grantTitle })));
+}
+// ===== 调试代码结束 =====
+
+const activeProjects = uniqueActive.length;
+
+const totalAmount = data.summary.totalAmount;
 
   const stats = [
     {
