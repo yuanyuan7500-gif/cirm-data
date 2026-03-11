@@ -152,9 +152,11 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
 
   // 计算统计值
   const totalProjects = data.grants.reduce((sum, g) => sum + (g.totalAwards || 0), 0);
-  const activeProjects = data.activeGrants.filter(g => 
-  g.awardStatus === 'Pre-Active' || g.awardStatus === 'Active'
-).length;
+  const activeProjects = [...new Map(
+    data.activeGrants
+      .filter(g => g.awardStatus === 'Pre-Active' || g.awardStatus === 'Active')
+      .map(g => [g.grantNumber, g])
+  ).values()].length;
   const totalAmount = data.summary.totalAmount;
 
   const stats = [
