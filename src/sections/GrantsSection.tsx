@@ -219,7 +219,7 @@ export function GrantsSection({ data }: GrantsSectionProps) {
               onClick={() => setShowChangesOnly(!showChangesOnly)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 border ${
                 showChangesOnly
-                  ? 'bg-red-500 text-white border-red-500'
+                  ? 'bg-white text-red-500 border-red-500 hover:bg-red-50'
                   : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
               }`}
             >
@@ -608,3 +608,4 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
+
