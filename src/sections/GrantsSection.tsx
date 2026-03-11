@@ -401,6 +401,10 @@ export function GrantsSection({ data }: GrantsSectionProps) {
                                   // 基础过滤：匹配资助类型前缀
                                   const matchesPrefix = ag?.grantNumber?.toUpperCase().startsWith(grantTypePrefix + '-');
                                   if (!matchesPrefix) return false;
+                                  // 如果开启了状态筛选，只显示对应状态的项目
+                                  if (statusFilter !== 'all' && ag.awardStatus !== statusFilter) {
+                                    return false;
+                                   }
                                   
                                   // 如果开启了"仅查看新增及变更项目"，进一步过滤具体项目
                                   if (showChangesOnly) {
@@ -624,3 +628,4 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
+
