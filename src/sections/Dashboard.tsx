@@ -30,22 +30,14 @@ function AbbreviatedCurrency({
 }) {
   const [isHovered, setIsHovered] = useState(false);
   
-  // 缩写金额（B/M/K）
   const formatAbbreviated = (val: number): string => {
-    if (val >= 1e9) {
-      return `$${(val / 1e9).toFixed(2)}B`;
-    } else if (val >= 1e6) {
-      return `$${(val / 1e6).toFixed(2)}M`;
-    } else if (val >= 1e3) {
-      return `$${(val / 1e3).toFixed(2)}K`;
-    }
+    if (val >= 1e9) return `$${(val / 1e9).toFixed(2)}B`;
+    if (val >= 1e6) return `$${(val / 1e6).toFixed(2)}M`;
+    if (val >= 1e3) return `$${(val / 1e3).toFixed(2)}K`;
     return `$${val.toLocaleString()}`;
   };
 
-  // 完整金额（带千分位）
-  const formatFull = (val: number): string => {
-    return `$${val.toLocaleString()}`;
-  };
+  const formatFull = (val: number): string => `$${val.toLocaleString()}`;
 
   return (
     <span 
@@ -53,15 +45,10 @@ function AbbreviatedCurrency({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <span className="transition-opacity duration-200">
-        {formatAbbreviated(value)}
-      </span>
-      
-      {/* 悬停提示框 */}
+      <span className="transition-opacity duration-200">{formatAbbreviated(value)}</span>
       {isHovered && (
-        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap z-50 shadow-lg animate-in fade-in duration-200">
+        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap z-50 shadow-lg">
           {formatFull(value)}
-          {/* 小三角箭头 */}
           <span className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></span>
         </span>
       )}
@@ -90,26 +77,17 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
         }
       );
     });
-
     return () => ctx.revert();
   }, []);
 
-  const formatCurrency = (value: number) => {
-    return `$${value.toLocaleString()}`;
-  };
+  const formatCurrency = (value: number) => `$${value.toLocaleString()}`;
 
-  // 格式化日期显示
   const formatDate = (dateStr: string | null | undefined): string => {
     if (!dateStr || dateStr === 'NaT') return '';
     const date = new Date(dateStr);
-    return date.toLocaleDateString('zh-CN', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    });
+    return date.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
   };
 
-  // 使用 activeGrants 替代 grants 显示最新批准的具体项目
   const recentGrants = data.activeGrants
     .filter((g) => g.icocApproval && g.icocApproval !== 'NaT')
     .sort((a, b) => new Date(b.icocApproval!).getTime() - new Date(a.icocApproval!).getTime())
@@ -120,27 +98,16 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
     .sort((a, b) => new Date(b.publishedOnline!).getTime() - new Date(a.publishedOnline!).getTime())
     .slice(0, 5);
 
-  // 从 grants 数据实时计算项目类型分布，合并 Preclinical 和 Translational
   const programStatsFromGrants = data.grants.reduce((acc, grant) => {
     let type = grant.programType;
-    
-    // 合并 Preclinical 和 Translational 为 Preclinical/Translational
-    if (type === 'Preclinical' || type === 'Translational') {
-      type = 'Preclinical/Translational';
-    }
-    
-    if (!acc[type]) {
-      acc[type] = { projects: 0, amount: 0 };
-    }
+    if (type === 'Preclinical' || type === 'Translational') type = 'Preclinical/Translational';
+    if (!acc[type]) acc[type] = { projects: 0, amount: 0 };
     acc[type].projects += grant.totalAwards || 0;
     acc[type].amount += grant.awardValue || 0;
     return acc;
   }, {} as Record<string, { projects: number; amount: number }>);
 
-  // 定义显示顺序
   const typeOrder = ['Discovery', 'Preclinical/Translational', 'Clinical', 'Education', 'Infrastructure'];
-
-  // 按指定顺序排序，未定义的类型放在最后
   const sortedProgramStats = Object.entries(programStatsFromGrants).sort((a, b) => {
     const indexA = typeOrder.indexOf(a[0]);
     const indexB = typeOrder.indexOf(b[0]);
@@ -150,55 +117,30 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
     return indexA - indexB;
   });
 
-  // 计算统计值
   const totalProjects = data.grants.reduce((sum, g) => sum + (g.totalAwards || 0), 0);
 
-// ===== 调试代码开始 =====
-console.log('=== 调试信息 ===');
-
-// 1. 查看所有状态分布
-const statusCounts = data.activeGrants.reduce((acc, g) => {
-  const status = g.awardStatus || 'undefined/null';
-  acc[status] = (acc[status] || 0) + 1;
-  return acc;
-}, {} as Record<string, number>);
-console.log('状态分布:', statusCounts);
-
-// 2. 查看 Active + Pre-Active 的原始数量
-const rawActive = data.activeGrants.filter(g => 
-  g.awardStatus === 'Pre-Active' || g.awardStatus === 'Active'
-);
-console.log('Active+Pre-Active 原始数量:', rawActive.length);
-
-// 3. 检查是否有重复 grantNumber
-const grantNumbers = rawActive.map(g => g.grantNumber);
-const duplicates = grantNumbers.filter((item, index) => grantNumbers.indexOf(item) !== index);
-console.log('重复的 grantNumber 数量:', duplicates.length);
-console.log('重复的 grantNumber:', [...new Set(duplicates)]);
-
-// 4. 去重后统计
-const uniqueActive = [...new Map(
-  rawActive.map(g => [g.grantNumber, g])
-).values()];
-console.log('去重后数量:', uniqueActive.length);
-
-// 5. 对比原始数据和去重后的差异
-if (rawActive.length !== uniqueActive.length) {
-  console.log('发现重复数据！');
-  // 找出重复的是哪些
-  const seen = new Set();
-  const dups = rawActive.filter(g => {
-    if (seen.has(g.grantNumber)) return true;
-    seen.add(g.grantNumber);
-    return false;
+  // ===== 调试计算 =====
+  const rawActive = data.activeGrants.filter(g => 
+    g.awardStatus === 'Pre-Active' || g.awardStatus === 'Active'
+  );
+  const uniqueActive = [...new Map(
+    rawActive.map(g => [g.grantNumber, g])
+  ).values()];
+  const activeProjects = uniqueActive.length;
+  
+  // 找出重复的项目
+  const seen = new Set<string>();
+  const duplicates: typeof rawActive = [];
+  rawActive.forEach(g => {
+    if (seen.has(g.grantNumber)) {
+      duplicates.push(g);
+    } else {
+      seen.add(g.grantNumber);
+    }
   });
-  console.log('重复的项目:', dups.map(g => ({ grantNumber: g.grantNumber, title: g.grantTitle })));
-}
-// ===== 调试代码结束 =====
+  // ===== 调试计算结束 =====
 
-const activeProjects = uniqueActive.length;
-
-const totalAmount = data.summary.totalAmount;
+  const totalAmount = data.summary.totalAmount;
 
   const stats = [
     {
@@ -237,11 +179,43 @@ const totalAmount = data.summary.totalAmount;
 
   return (
     <section ref={sectionRef} className="py-20 sm:py-32 bg-gray-50/50">
+      {/* 调试面板 */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+        <div className="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-4">
+          <h3 className="font-bold text-yellow-800 mb-2">🔍 调试信息</h3>
+          <div className="grid grid-cols-3 gap-4 text-sm">
+            <div>
+              <p className="text-gray-600">原始 Active+Pre-Active:</p>
+              <p className="text-2xl font-bold text-red-600">{rawActive.length}</p>
+            </div>
+            <div>
+              <p className="text-gray-600">去重后数量:</p>
+              <p className="text-2xl font-bold text-green-600">{uniqueActive.length}</p>
+            </div>
+            <div>
+              <p className="text-gray-600">重复项目数:</p>
+              <p className="text-2xl font-bold text-orange-600">{duplicates.length}</p>
+            </div>
+          </div>
+          {duplicates.length > 0 && (
+            <div className="mt-4">
+              <p className="text-red-600 font-medium">重复的项目:</p>
+              <ul className="list-disc list-inside text-sm text-gray-700 mt-1 max-h-32 overflow-y-auto">
+                {duplicates.map(g => (
+                  <li key={g.grantNumber}>{g.grantNumber} - {g.grantTitle}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <p className="text-xs text-gray-500 mt-2">
+            当前显示: {activeProjects} | 原始数据: {rawActive.length} | 差异: {rawActive.length - activeProjects}
+          </p>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            数据仪表盘
-          </h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">数据仪表盘</h2>
           <div className="flex items-center justify-center gap-2 mb-4">
             <span className="px-3 py-1 bg-[#008080]/10 text-[#008080] rounded-full text-sm font-medium">
               <Calendar className="w-3 h-3 inline mr-1" />
@@ -262,17 +236,11 @@ const totalAmount = data.summary.totalAmount;
               onClick={stat.onClick}
             >
               <CardContent className="p-6">
-                <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-                >
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                   {stat.icon}
                 </div>
                 <p className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1">
-                  {stat.isCurrency ? (
-                    <AbbreviatedCurrency value={stat.value as number} />
-                  ) : (
-                    (stat.value as number).toLocaleString()
-                  )}
+                  {stat.isCurrency ? <AbbreviatedCurrency value={stat.value as number} /> : (stat.value as number).toLocaleString()}
                 </p>
                 <p className="text-sm text-gray-500">{stat.label}</p>
               </CardContent>
@@ -282,7 +250,6 @@ const totalAmount = data.summary.totalAmount;
 
         {/* Recent Activity */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Recent Grants - 显示最新批准的具体项目 */}
           <Card className="dashboard-card">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-6">
@@ -290,19 +257,13 @@ const totalAmount = data.summary.totalAmount;
                   <TrendingUp className="w-5 h-5 text-[#008080]" />
                   最新批准项目
                 </h3>
-                <button
-                  onClick={() => onNavigate('grants')}
-                  className="text-sm text-[#008080] hover:underline"
-                >
+                <button onClick={() => onNavigate('grants')} className="text-sm text-[#008080] hover:underline">
                   查看全部
                 </button>
               </div>
               <div className="space-y-4">
                 {recentGrants.map((grant, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                  >
+                  <div key={index} className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
                     <div className="w-10 h-10 rounded-lg bg-[#008080]/10 flex items-center justify-center flex-shrink-0">
                       <Briefcase className="w-5 h-5 text-[#008080]" />
                     </div>
@@ -317,9 +278,7 @@ const totalAmount = data.summary.totalAmount;
                       </p>
                     </div>
                     <div className="text-right flex-shrink-0">
-                      <p className="text-sm font-medium text-[#008080]">
-                        {formatCurrency(grant.awardValue)}
-                      </p>
+                      <p className="text-sm font-medium text-[#008080]">{formatCurrency(grant.awardValue)}</p>
                       <p className="text-xs text-gray-400 flex items-center gap-1 justify-end">
                         <Calendar className="w-3 h-3" />
                         {formatDate(grant.icocApproval)}
@@ -331,7 +290,6 @@ const totalAmount = data.summary.totalAmount;
             </CardContent>
           </Card>
 
-          {/* Recent Papers */}
           <Card className="dashboard-card">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-6">
@@ -339,34 +297,22 @@ const totalAmount = data.summary.totalAmount;
                   <Calendar className="w-5 h-5 text-[#4ECDC4]" />
                   最新发表论文
                 </h3>
-                <button
-                  onClick={() => onNavigate('papers')}
-                  className="text-sm text-[#008080] hover:underline"
-                >
+                <button onClick={() => onNavigate('papers')} className="text-sm text-[#008080] hover:underline">
                   查看全部
                 </button>
               </div>
               <div className="space-y-4">
                 {recentPapers.map((paper, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                  >
+                  <div key={index} className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
                     <div className="w-10 h-10 rounded-lg bg-[#4ECDC4]/10 flex items-center justify-center flex-shrink-0">
                       <FileText className="w-5 h-5 text-[#4ECDC4]" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900 line-clamp-2">
-                        {paper.title}
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        {paper.publication}
-                      </p>
+                      <p className="text-sm font-medium text-gray-900 line-clamp-2">{paper.title}</p>
+                      <p className="text-xs text-gray-500">{paper.publication}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-gray-400">
-                        {paper.publishedOnline}
-                      </p>
+                      <p className="text-xs text-gray-400">{paper.publishedOnline}</p>
                     </div>
                   </div>
                 ))}
@@ -375,12 +321,10 @@ const totalAmount = data.summary.totalAmount;
           </Card>
         </div>
 
-        {/* Program Distribution - 从 grants 数据实时计算，合并 Preclinical/Translational */}
+        {/* Program Distribution */}
         <Card className="dashboard-card mt-8">
           <CardContent className="p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-6">
-              项目类型分布
-            </h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">项目类型分布</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               {sortedProgramStats.map(([type, stat]) => (
                 <div
@@ -388,13 +332,9 @@ const totalAmount = data.summary.totalAmount;
                   className="text-center p-4 rounded-xl bg-gray-50 hover:bg-[#008080]/5 transition-colors cursor-pointer"
                   onClick={() => onNavigate('grants')}
                 >
-                  <p className="text-2xl font-bold text-[#008080]">
-                    {stat.projects}
-                  </p>
+                  <p className="text-2xl font-bold text-[#008080]">{stat.projects}</p>
                   <p className="text-xs text-gray-600 mt-1">{type}</p>
-                  <p className="text-xs text-gray-400">
-                    <AbbreviatedCurrency value={stat.amount} />
-                  </p>
+                  <p className="text-xs text-gray-400"><AbbreviatedCurrency value={stat.amount} /></p>
                 </div>
               ))}
             </div>
