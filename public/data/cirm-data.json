@@ -2412,24 +2412,7 @@
       "previousAwardValue": null,
       "previousAwardStatus": null
     },
-    {
-      "grantNumber": "DISC2-14190-B*",
-      "programType": "",
-      "grantType": "",
-      "grantTitle": "Reprogramming Somatic Cells into iPSCs Engineered with an Anti-PSCA CAR to Develop Allogeneic Off-the-Shelf Cell Therapy to Treat Pancreatic Cancer",
-      "diseaseFocus": "Cancer, Prostate Cancer, Solid Tumors",
-      "principalInvestigator": "City of Hope, Beckman Research Institute",
-      "awardValue": 1509000,
-      "icocApproval": "2023-01-26",
-      "awardStatus": "Active",
-      "sortOrder": 0,
-      "isNew": false,
-      "showValueChange": false,
-      "showStatusChange": false,
-      "previousAwardValue": null,
-      "previousAwardStatus": null,
-      "detailUrl": "https://www.cirm.ca.gov/our-progress/awards/reprogramming-somatic-cells-into-ipscs-engineered-anti-psca-car-develop-allogeneic-off-the-shelf-cell-therapy-treat-pancreatic-cancer/"
-    },
+    
     {
       "grantNumber": "DISC2-14187",
       "programType": "",
