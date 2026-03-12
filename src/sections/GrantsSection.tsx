@@ -212,22 +212,24 @@ export function GrantsSection({ data }: GrantsSectionProps) {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             资助项目数据
           </h2>
-          {/* 添加到这里 */}
-  <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 text-teal-700 rounded-full text-sm font-medium mb-4">
-    <svg 
-      className="w-4 h-4" 
-      fill="none" 
-      stroke="currentColor" 
-      viewBox="0 0 24 24"
-    >
-      <path 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
-        strokeWidth={2} 
-        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
-      />
-    </svg>
-    论文数据更新: {data.updateDate}
+          {/* 添加到这里 - 保持原样式 */}
+  <div className="flex items-center justify-center gap-2 mb-4">
+    <span className="px-3 py-1 bg-[#008080]/10 text-[#008080] rounded-full text-sm font-medium">
+      <svg 
+        className="w-3 h-3 inline mr-1" 
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth={2} 
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
+        />
+      </svg>
+      论文数据更新: {data.updateDate}
+    </span>
   </div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             探索CIRM所有的资助项目，按类型、状态筛选查看
@@ -645,5 +647,6 @@ export function GrantsSection({ data }: GrantsSectionProps) {
     </section>
   );
 }
+
 
 
