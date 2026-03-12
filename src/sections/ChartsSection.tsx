@@ -93,15 +93,57 @@ export function ChartsSection({ data }: ChartsSectionProps) {
   // 最终的 pieData
   const pieData = [mergedPreclinical, ...otherData];
 
-  // Prepare yearly trend data
-  const yearlyData = Object.entries(data.yearlyStats)
-    .filter(([year]) => parseInt(year) >= 2007 && parseInt(year) <= 2025)
+  // 修改：从 activeGrants 计算每年的统计数据（替代原来的 yearlyStats）
+const yearlyData = (() => {
+  const stats: Record<string, { amount: number; count: number; projects: string[] }> = {};
+  
+  console.log('=== 调试：activeGrants 数据统计 ===');
+  console.log('总项目数:', data.activeGrants.length);
+  
+  data.activeGrants.forEach((grant, index) => {
+    if (!grant.icocApproval || grant.icocApproval === 'NaT') {
+      console.log(`项目 ${index} 无批准日期:`, grant.grantNumber);
+      return;
+    }
+    
+    const date = new Date(grant.icocApproval);
+    const year = date.getFullYear().toString();
+    
+    // 检查日期解析是否异常
+    if (isNaN(date.getTime())) {
+      console.log('日期解析失败:', grant.grantNumber, grant.icocApproval);
+      return;
+    }
+    
+    if (parseInt(year) < 2007 || parseInt(year) > 2025) return;
+    
+    if (!stats[year]) {
+      stats[year] = { amount: 0, count: 0, projects: [] };
+    }
+    stats[year].amount += grant.awardValue || 0;
+    stats[year].count += 1;
+    stats[year].projects.push(grant.grantNumber);
+  });
+  
+  console.log('各年份统计:', Object.entries(stats).map(([y, s]) => ({ year: y, count: s.count, amount: Math.round(s.amount) })));
+  console.log('2025年详细:', stats['2025']);
+  
+  // 填充缺失年份为 0
+  for (let y = 2007; y <= 2025; y++) {
+    const year = y.toString();
+    if (!stats[year]) {
+      stats[year] = { amount: 0, count: 0, projects: [] };
+    }
+  }
+  
+  return Object.entries(stats)
     .sort(([a], [b]) => parseInt(a) - parseInt(b))
     .map(([year, stat]) => ({
       year,
-      amount: stat.amount / 1000000, // Convert to millions
+      amount: stat.amount / 1000000,
       count: stat.count,
     }));
+})();
 
   // 修复后的 CustomTooltip
   const CustomTooltip = ({ active, payload, label }: any) => {
