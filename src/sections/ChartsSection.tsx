@@ -144,22 +144,46 @@ export function ChartsSection({ data }: ChartsSectionProps) {
   const PieTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
-      const percentage = ((data.value / totalProjects) * 100).toFixed(1);
-      const avgAmount = data.amount / data.value;
+      const projectPercentage = ((data.value / totalProjects) * 100).toFixed(1);
+      const amountPercentage = ((data.amount / totalAmount) * 100).toFixed(1);
+      
       return (
-        <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-100">
-          <p className="font-bold text-gray-900 text-lg mb-2">{data.name}</p>
-          <div className="space-y-1 text-sm">
-            <p className="text-[#008080]">
-              <span className="font-medium">项目数:</span> {data.value?.toLocaleString()} 
-              <span className="text-gray-500"> ({percentage}%)</span>
-            </p>
-            <p className="text-[#4ECDC4]">
-              <span className="font-medium">资助金额:</span> ${(data.amount / 1000000).toFixed(1)}M
-            </p>
-            <p className="text-gray-500">
-              <span className="font-medium">平均金额:</span> ${(avgAmount / 1000000).toFixed(2)}M/项目
-            </p>
+        <div className="bg-white p-4 rounded-lg shadow-xl border border-gray-100 min-w-[220px]">
+          <p className="font-bold text-gray-900 text-lg mb-3">{data.name}</p>
+          <div className="space-y-3 text-sm">
+            {/* 项目数 */}
+            <div>
+              <div className="flex justify-between mb-1">
+                <span className="text-gray-600">项目数</span>
+                <span className="font-medium text-gray-900">
+                  {data.value?.toLocaleString()} 
+                  <span className="text-gray-500 ml-1">({projectPercentage}%)</span>
+                </span>
+              </div>
+              <div className="w-full bg-gray-100 rounded-full h-2">
+                <div 
+                  className="bg-[#008080] h-2 rounded-full transition-all duration-300" 
+                  style={{ width: `${projectPercentage}%` }}
+                />
+              </div>
+            </div>
+            
+            {/* 资助金额 - 带可视化进度条 */}
+            <div>
+              <div className="flex justify-between mb-1">
+                <span className="text-gray-600">资助金额</span>
+                <span className="font-medium text-[#008080]">
+                  ${(data.amount / 1000000).toFixed(1)}M
+                  <span className="text-gray-500 ml-1">({amountPercentage}%)</span>
+                </span>
+              </div>
+              <div className="w-full bg-gray-100 rounded-full h-2">
+                <div 
+                  className="bg-[#4ECDC4] h-2 rounded-full transition-all duration-300" 
+                  style={{ width: `${amountPercentage}%` }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       );
@@ -211,13 +235,13 @@ export function ChartsSection({ data }: ChartsSectionProps) {
             </p>
             <div className="h-80 sm:h-96 relative">
               <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
+                <PieChart margin={{ top: 20, right: 120, bottom: 20, left: 20 }}>
                   <Pie
                     data={pieData}
-                    cx="50%"
+                    cx="35%"
                     cy="50%"
-                    innerRadius={80}
-                    outerRadius={120}
+                    innerRadius={70}
+                    outerRadius={110}
                     paddingAngle={2}
                     dataKey="value"
                     animationBegin={0}
@@ -230,18 +254,31 @@ export function ChartsSection({ data }: ChartsSectionProps) {
                       />
                     ))}
                   </Pie>
-                  <Tooltip content={<PieTooltip />} />
+                  <Tooltip 
+                    content={<PieTooltip />} 
+                    position={{ x: 10, y: 0 }}
+                    cursor={{ fill: 'transparent' }}
+                  />
                   <Legend
-                    verticalAlign="bottom"
-                    height={36}
-                    formatter={(value) => (
-                      <span className="text-sm text-gray-600">{value}</span>
-                    )}
-                    wrapperStyle={{ paddingTop: '10px' }}
+                    verticalAlign="middle"
+                    align="right"
+                    layout="vertical"
+                    iconType="circle"
+                    formatter={(value, entry: any) => {
+                      const color = entry.color;
+                      return (
+                        <span className="text-sm text-gray-700 ml-1">{value}</span>
+                      );
+                    }}
+                    wrapperStyle={{ 
+                      paddingLeft: '10px',
+                      fontSize: '13px',
+                      lineHeight: '24px'
+                    }}
                   />
                 </PieChart>
               </ResponsiveContainer>
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ left: '-15%' }}>
                 <div className="text-center">
                   <p className="text-3xl font-bold text-gray-900">
                     {totalProjects.toLocaleString()}
