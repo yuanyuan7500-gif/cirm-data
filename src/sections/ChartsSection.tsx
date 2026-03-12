@@ -144,21 +144,20 @@ export function ChartsSection({ data }: ChartsSectionProps) {
   const PieTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
-      const percentage = ((data.value / totalProjects) * 100).toFixed(1);
-      const avgAmount = data.amount / data.value;
+      const projectPercentage = ((data.value / totalProjects) * 100).toFixed(1);
+      const amountPercentage = ((data.amount / totalAmount) * 100).toFixed(1);
+      
       return (
-        <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-100">
+        <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-100 min-w-[200px]">
           <p className="font-bold text-gray-900 text-lg mb-2">{data.name}</p>
-          <div className="space-y-1 text-sm">
+          <div className="space-y-2 text-sm">
             <p className="text-[#008080]">
               <span className="font-medium">项目数:</span> {data.value?.toLocaleString()} 
-              <span className="text-gray-500"> ({percentage}%)</span>
+              <span className="text-gray-500"> ({projectPercentage}%)</span>
             </p>
             <p className="text-[#4ECDC4]">
               <span className="font-medium">资助金额:</span> ${(data.amount / 1000000).toFixed(1)}M
-            </p>
-            <p className="text-gray-500">
-              <span className="font-medium">平均金额:</span> ${(avgAmount / 1000000).toFixed(2)}M/项目
+              <span className="text-gray-500"> ({amountPercentage}%)</span>
             </p>
           </div>
         </div>
