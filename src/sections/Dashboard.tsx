@@ -165,12 +165,7 @@ export function Dashboard({ data, onNavigate }: DashboardProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">数据仪表盘</h2>
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="px-3 py-1 bg-[#008080]/10 text-[#008080] rounded-full text-sm font-medium">
-              <Calendar className="w-3 h-3 inline mr-1" />
-              论文数据更新: {data.updateDate}
-            </span>
-          </div>
+          
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             快速查看CIRM资助项目的核心指标和最新动态
           </p>
