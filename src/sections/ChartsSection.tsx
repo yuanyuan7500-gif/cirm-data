@@ -13,8 +13,6 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  BarChart,
-  Bar,
 } from 'recharts';
 import type { CIRMData } from '@/types';
 
@@ -33,7 +31,6 @@ export function ChartsSection({ data }: ChartsSectionProps) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Pie chart animation
       gsap.fromTo(
         pieRef.current,
         { opacity: 0, x: -50 },
@@ -49,7 +46,6 @@ export function ChartsSection({ data }: ChartsSectionProps) {
         }
       );
 
-      // Line chart animation
       gsap.fromTo(
         lineRef.current,
         { opacity: 0, x: 50 },
@@ -70,83 +66,94 @@ export function ChartsSection({ data }: ChartsSectionProps) {
     return () => ctx.revert();
   }, []);
 
-  // Prepare pie chart data
-  // 原始数据转换
+  // 饼图数据 - 使用 data.programStats
   const rawPieData = Object.entries(data.programStats).map(([name, stat]) => ({
     name,
     value: stat.projects,
     amount: stat.amount,
   }));
 
-  // 合并 Preclinical 相关类型
   const preclinicalTypes = ['Preclinical', 'Preclinical/Translational', 'Translational'];
   const preclinicalData = rawPieData.filter(item => preclinicalTypes.includes(item.name));
   const otherData = rawPieData.filter(item => !preclinicalTypes.includes(item.name));
 
-  // 计算合并后的值
   const mergedPreclinical = {
     name: 'Preclinical/Translational',
     value: preclinicalData.reduce((sum, item) => sum + item.value, 0),
     amount: preclinicalData.reduce((sum, item) => sum + item.amount, 0),
   };
 
-  // 最终的 pieData
   const pieData = [mergedPreclinical, ...otherData];
 
-  // 修改：从 activeGrants 计算每年的统计数据（替代原来的 yearlyStats）
-const yearlyData = (() => {
-  const stats: Record<string, { amount: number; count: number; projects: string[] }> = {};
-  
-  console.log('=== 调试：activeGrants 数据统计 ===');
-  console.log('总项目数:', data.activeGrants.length);
-  
-  data.activeGrants.forEach((grant, index) => {
-    if (!grant.icocApproval || grant.icocApproval === 'NaT') {
-      console.log(`项目 ${index} 无批准日期:`, grant.grantNumber);
-      return;
-    }
-    
-    const date = new Date(grant.icocApproval);
-    const year = date.getFullYear().toString();
-    
-    // 检查日期解析是否异常
-    if (isNaN(date.getTime())) {
-      console.log('日期解析失败:', grant.grantNumber, grant.icocApproval);
-      return;
-    }
-    
-    if (parseInt(year) < 2007 || parseInt(year) > 2025) return;
-    
-    if (!stats[year]) {
-      stats[year] = { amount: 0, count: 0, projects: [] };
-    }
-    stats[year].amount += grant.awardValue || 0;
-    stats[year].count += 1;
-    stats[year].projects.push(grant.grantNumber);
-  });
-  
-  console.log('各年份统计:', Object.entries(stats).map(([y, s]) => ({ year: y, count: s.count, amount: Math.round(s.amount) })));
-  console.log('2025年详细:', stats['2025']);
-  
-  // 填充缺失年份为 0
-  for (let y = 2007; y <= 2025; y++) {
-    const year = y.toString();
-    if (!stats[year]) {
-      stats[year] = { amount: 0, count: 0, projects: [] };
-    }
-  }
-  
-  return Object.entries(stats)
-    .sort(([a], [b]) => parseInt(a) - parseInt(b))
-    .map(([year, stat]) => ({
-      year,
-      amount: stat.amount / 1000000,
-      count: stat.count,
-    }));
-})();
+  // 计算总计
+  const totalProjects = pieData.reduce((sum, item) => sum + item.value, 0);
+  const totalAmount = pieData.reduce((sum, item) => sum + item.amount, 0);
 
-  // 修复后的 CustomTooltip
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  // 折线图数据 - 使用 data.activeGrants
+  const yearlyData = (() => {
+    const stats: Record<string, { amount: number; count: number }> = {};
+    
+    data.activeGrants.forEach((grant) => {
+      if (!grant.icocApproval || grant.icocApproval === 'NaT') return;
+      
+      const date = new Date(grant.icocApproval);
+      const year = date.getFullYear().toString();
+      
+      if (isNaN(date.getTime())) return;
+      if (parseInt(year) < 2007 || parseInt(year) > 2025) return;
+      
+      if (!stats[year]) {
+        stats[year] = { amount: 0, count: 0 };
+      }
+      stats[year].amount += grant.awardValue || 0;
+      stats[year].count += 1;
+    });
+    
+    for (let y = 2007; y <= 2025; y++) {
+      const year = y.toString();
+      if (!stats[year]) {
+        stats[year] = { amount: 0, count: 0 };
+      }
+    }
+    
+    return Object.entries(stats)
+      .sort(([a], [b]) => parseInt(a) - parseInt(b))
+      .map(([year, stat]) => ({
+        year,
+        amount: stat.amount / 1000000,
+        count: stat.count,
+      }));
+  })();
+
+  // 增强版饼图 Tooltip
+  const PieTooltip = ({ active, payload }: any) => {
+    if (active && payload && payload.length) {
+      const data = payload[0].payload;
+      const percentage = ((data.value / totalProjects) * 100).toFixed(1);
+      const avgAmount = data.amount / data.value;
+      return (
+        <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-100">
+          <p className="font-bold text-gray-900 text-lg mb-2">{data.name}</p>
+          <div className="space-y-1 text-sm">
+            <p className="text-[#008080]">
+              <span className="font-medium">项目数:</span> {data.value?.toLocaleString()} 
+              <span className="text-gray-500"> ({percentage}%)</span>
+            </p>
+            <p className="text-[#4ECDC4]">
+              <span className="font-medium">资助金额:</span> ${(data.amount / 1000000).toFixed(1)}M
+            </p>
+            <p className="text-gray-500">
+              <span className="font-medium">平均金额:</span> ${(avgAmount / 1000000).toFixed(2)}M/项目
+            </p>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  // 折线图 Tooltip
+  const LineTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
@@ -177,7 +184,7 @@ const yearlyData = (() => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Pie Chart */}
+          {/* 增强版环形图 - 同时显示数量和金额 */}
           <div
             ref={pieRef}
             className="bg-gray-50 rounded-2xl p-6 sm:p-8 shadow-lg"
@@ -186,18 +193,18 @@ const yearlyData = (() => {
               项目类型分布
             </h3>
             <p className="text-sm text-gray-500 mb-6">
-              按项目类型查看项目数量分布
+              按项目类型查看项目数量及金额分布
             </p>
-            <div className="h-80 sm:h-96">
+            <div className="h-80 sm:h-96 relative">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={pieData}
                     cx="50%"
                     cy="50%"
-                    innerRadius={60}
-                    outerRadius={100}
-                    paddingAngle={5}
+                    innerRadius={80}
+                    outerRadius={120}
+                    paddingAngle={2}
                     dataKey="value"
                     animationBegin={0}
                     animationDuration={1500}
@@ -209,21 +216,34 @@ const yearlyData = (() => {
                       />
                     ))}
                   </Pie>
-                  <Tooltip content={<CustomTooltip />} />
+                  <Tooltip content={<PieTooltip />} />
                   <Legend
                     verticalAlign="bottom"
                     height={36}
                     formatter={(value) => (
-                      <span className="text-sm text-gray-600" title="">{value}</span>
+                      <span className="text-sm text-gray-600">{value}</span>
                     )}
                     wrapperStyle={{ paddingTop: '10px' }}
                   />
                 </PieChart>
               </ResponsiveContainer>
+              {/* 中心显示总计 */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-gray-900">
+                    {totalProjects.toLocaleString()}
+                  </p>
+                  <p className="text-xs text-gray-500">总项目数</p>
+                  <p className="text-lg font-semibold text-[#008080] mt-1">
+                    ${(totalAmount / 1000000).toFixed(1)}M
+                  </p>
+                  <p className="text-xs text-gray-400">总金额</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Line Chart */}
+          {/* 折线图 - 资助金额趋势 */}
           <div
             ref={lineRef}
             className="bg-gray-50 rounded-2xl p-6 sm:p-8 shadow-lg"
@@ -248,7 +268,7 @@ const yearlyData = (() => {
                     axisLine={{ stroke: '#e5e7eb' }}
                     tickFormatter={(value) => `$${value}M`}
                   />
-                  <Tooltip content={<CustomTooltip />} />
+                  <Tooltip content={<LineTooltip />} />
                   <Line
                     type="monotone"
                     dataKey="amount"
@@ -261,48 +281,6 @@ const yearlyData = (() => {
                 </LineChart>
               </ResponsiveContainer>
             </div>
-          </div>
-        </div>
-
-        {/* Bar Chart - Program Stats */}
-        <div className="mt-8 lg:mt-12 bg-gray-50 rounded-2xl p-6 sm:p-8 shadow-lg">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-            各类型项目资助金额
-          </h3>
-          <p className="text-sm text-gray-500 mb-6">
-            按项目类型统计的资助总金额（百万美元）
-          </p>
-          <div className="h-80 sm:h-96">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={pieData} layout="vertical">
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                <XAxis
-                  type="number"
-                  tick={{ fill: '#6b7280', fontSize: 12 }}
-                  axisLine={{ stroke: '#e5e7eb' }}
-                  tickFormatter={(value) => `$${(value / 1000000).toFixed(0)}M`}
-                />
-                <YAxis
-                  type="category"
-                  dataKey="name"
-                  tick={{ fill: '#6b7280', fontSize: 10 }}
-                  axisLine={{ stroke: '#e5e7eb' }}
-                  width={110}
-                  interval={0}
-                />
-                <Tooltip
-                  formatter={(value: number) =>
-                    `$${(value / 1000000).toFixed(1)}M`
-                  }
-                />
-                <Bar
-                  dataKey="amount"
-                  fill="#008080"
-                  radius={[0, 4, 4, 0]}
-                  animationDuration={1500}
-                />
-              </BarChart>
-            </ResponsiveContainer>
           </div>
         </div>
       </div>
