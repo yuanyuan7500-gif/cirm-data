@@ -264,12 +264,9 @@ export function ChartsSection({ data }: ChartsSectionProps) {
                     align="right"
                     layout="vertical"
                     iconType="circle"
-                    formatter={(value, entry: any) => {
-                      const color = entry.color;
-                      return (
-                        <span className="text-sm text-gray-700 ml-1">{value}</span>
-                      );
-                    }}
+                    formatter={(value) => (
+                      <span className="text-sm text-gray-700 ml-1">{value}</span>
+                    )}
                     wrapperStyle={{ 
                       paddingLeft: '10px',
                       fontSize: '13px',
