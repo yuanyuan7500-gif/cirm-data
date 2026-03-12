@@ -295,7 +295,7 @@ const formattedLatestDate = latestManualUpdateDate
           <div className="flex items-center justify-center gap-2 mb-4">
             <Badge className="bg-[#008080] text-white">
               <Calendar className="w-3 h-3 mr-1" />
-              数据更新日期: {formattedLatestDate}
+              论文数据更新: {formattedLatestDate}
             </Badge>
           </div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
