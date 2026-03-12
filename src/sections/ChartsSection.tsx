@@ -30,11 +30,6 @@ export function ChartsSection({ data }: ChartsSectionProps) {
   const lineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 添加检查：确保数据和 DOM 元素都存在
-    if (!pieRef.current || !lineRef.current || !data?.programStats || !data?.activeGrants) {
-      return;
-    }
-
     const ctx = gsap.context(() => {
       gsap.fromTo(
         pieRef.current,
@@ -69,32 +64,48 @@ export function ChartsSection({ data }: ChartsSectionProps) {
     });
 
     return () => ctx.revert();
-  }, [data]); // 添加 data 作为依赖
+  }, []);
 
-  // 饼图数据 - 使用 data.programStats
-  const rawPieData = Object.entries(data.programStats).map(([name, stat]) => ({
-    name,
-    value: stat.projects,
-    amount: stat.amount,
-  }));
+  // 饼图数据 - 从 data.grants 计算（资助类型级别）
+  const pieData = (() => {
+    const stats: Record<string, { projects: number; amount: number }> = {};
+    
+    data.grants.forEach((grant) => {
+      let type = grant.programType;
+      
+      // 合并 Preclinical 相关类型
+      if (type === 'Preclinical' || type === 'Translational') {
+        type = 'Preclinical/Translational';
+      }
+      
+      if (!stats[type]) {
+        stats[type] = { projects: 0, amount: 0 };
+      }
+      stats[type].projects += grant.totalAwards || 0;
+      stats[type].amount += grant.awardValue || 0;
+    });
+    
+    const typeOrder = ['Discovery', 'Preclinical/Translational', 'Clinical', 'Education', 'Infrastructure'];
+    return Object.entries(stats)
+      .sort((a, b) => {
+        const indexA = typeOrder.indexOf(a[0]);
+        const indexB = typeOrder.indexOf(b[0]);
+        if (indexA === -1 && indexB === -1) return a[0].localeCompare(b[0]);
+        if (indexA === -1) return 1;
+        if (indexB === -1) return -1;
+        return indexA - indexB;
+      })
+      .map(([name, stat]) => ({
+        name,
+        value: stat.projects,
+        amount: stat.amount,
+      }));
+  })();
 
-  const preclinicalTypes = ['Preclinical', 'Preclinical/Translational', 'Translational'];
-  const preclinicalData = rawPieData.filter(item => preclinicalTypes.includes(item.name));
-  const otherData = rawPieData.filter(item => !preclinicalTypes.includes(item.name));
-
-  const mergedPreclinical = {
-    name: 'Preclinical/Translational',
-    value: preclinicalData.reduce((sum, item) => sum + item.value, 0),
-    amount: preclinicalData.reduce((sum, item) => sum + item.amount, 0),
-  };
-
-  const pieData = [mergedPreclinical, ...otherData];
-
-  // 计算总计
   const totalProjects = pieData.reduce((sum, item) => sum + item.value, 0);
   const totalAmount = pieData.reduce((sum, item) => sum + item.amount, 0);
 
-  // 折线图数据 - 使用 data.activeGrants
+  // 折线图数据 - 从 data.activeGrants 计算（具体项目级别）
   const yearlyData = (() => {
     const stats: Record<string, { amount: number; count: number }> = {};
     
@@ -130,7 +141,6 @@ export function ChartsSection({ data }: ChartsSectionProps) {
       }));
   })();
 
-  // 增强版饼图 Tooltip
   const PieTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
@@ -157,7 +167,6 @@ export function ChartsSection({ data }: ChartsSectionProps) {
     return null;
   };
 
-  // 折线图 Tooltip
   const LineTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
@@ -189,7 +198,7 @@ export function ChartsSection({ data }: ChartsSectionProps) {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* 增强版环形图 - 同时显示数量和金额 */}
+          {/* 项目类型分布 - 从 data.grants */}
           <div
             ref={pieRef}
             className="bg-gray-50 rounded-2xl p-6 sm:p-8 shadow-lg"
@@ -232,7 +241,6 @@ export function ChartsSection({ data }: ChartsSectionProps) {
                   />
                 </PieChart>
               </ResponsiveContainer>
-              {/* 中心显示总计 */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-center">
                   <p className="text-3xl font-bold text-gray-900">
@@ -248,7 +256,7 @@ export function ChartsSection({ data }: ChartsSectionProps) {
             </div>
           </div>
 
-          {/* 折线图 - 资助金额趋势 */}
+          {/* 资助金额趋势 - 从 data.activeGrants */}
           <div
             ref={lineRef}
             className="bg-gray-50 rounded-2xl p-6 sm:p-8 shadow-lg"
