@@ -30,6 +30,11 @@ export function ChartsSection({ data }: ChartsSectionProps) {
   const lineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // 添加检查：确保数据和 DOM 元素都存在
+    if (!pieRef.current || !lineRef.current || !data?.programStats || !data?.activeGrants) {
+      return;
+    }
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         pieRef.current,
@@ -64,7 +69,7 @@ export function ChartsSection({ data }: ChartsSectionProps) {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [data]); // 添加 data 作为依赖
 
   // 饼图数据 - 使用 data.programStats
   const rawPieData = Object.entries(data.programStats).map(([name, stat]) => ({
