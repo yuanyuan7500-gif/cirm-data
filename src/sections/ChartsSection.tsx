@@ -148,7 +148,7 @@ export function ChartsSection({ data }: ChartsSectionProps) {
       const amountPercentage = ((data.amount / totalAmount) * 100).toFixed(1);
       
       return (
-        <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-100 min-w-[200px]">
+        <div className="bg-white p-4 rounded-lg shadow-xl border border-gray-100 min-w-[200px] relative z-50">
           <p className="font-bold text-gray-900 text-lg mb-2">{data.name}</p>
           <div className="space-y-2 text-sm">
             <p className="text-[#008080]">
@@ -229,7 +229,10 @@ export function ChartsSection({ data }: ChartsSectionProps) {
                       />
                     ))}
                   </Pie>
-                  <Tooltip content={<PieTooltip />} />
+                  <Tooltip 
+                    content={<PieTooltip />} 
+                    wrapperStyle={{ zIndex: 1000, outline: 'none' }}
+                  />
                   <Legend
                     verticalAlign="bottom"
                     height={36}
@@ -240,7 +243,7 @@ export function ChartsSection({ data }: ChartsSectionProps) {
                   />
                 </PieChart>
               </ResponsiveContainer>
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
                 <div className="text-center">
                   <p className="text-3xl font-bold text-gray-900">
                     {totalProjects.toLocaleString()}
