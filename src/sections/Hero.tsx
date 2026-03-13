@@ -75,8 +75,8 @@ export function Hero({ onExplore }: HeroProps) {
           ref={subtitleRef}
           className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          通过开创性的干细胞研究，革新医疗健康。探索我们的资助项目，
-          发现再生医学的未来。追踪数据变更，掌握研究动态。
+          通过开创性的干细胞研究，革新医疗健康。探索CIRM资助项目，
+          发现再生医学未来趋势。追踪数据变更，掌握研究动态。
         </p>
 
         {/* CTA */}
