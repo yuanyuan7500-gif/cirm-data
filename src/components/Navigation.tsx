@@ -48,7 +48,7 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
             <span className={`font-semibold text-lg transition-colors ${
               isScrolled ? 'text-gray-900' : 'text-white'
             }`}>
-              CIRM
+              CIRM DATA
             </span>
           </div>
 
@@ -129,4 +129,5 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
     </nav>
   );
 }
+
 
