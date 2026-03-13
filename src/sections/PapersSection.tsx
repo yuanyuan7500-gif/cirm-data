@@ -18,7 +18,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { Search, Calendar, User, BookOpen, ExternalLink, BarChart3, Info } from 'lucide-react';
+import { Search, Calendar, User, BookOpen, ExternalLink, BarChart3, Info, ChevronDown } from 'lucide-react';
 import { GrantPaperVisualization } from '@/components/visualizations/GrantPaperVisualization';
 import type { CIRMData } from '@/types';
 
@@ -36,11 +36,13 @@ export function PapersSection({ data }: PapersSectionProps) {
   const [updateDateFilter, setUpdateDateFilter] = useState('all');
   const [showVisualization, setShowVisualization] = useState(false);
   
-  // 新增：分页状态
+  // 分页状态
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 18; // 每页显示18篇
+  const pageSize = 18;
   
-  // 新增：展开状态管理
+  // 最新发表论文展开状态
+  const [expandedLatestPapers, setExpandedLatestPapers] = useState<Set<number>>(new Set());
+  // 论文网格展开状态
   const [expandedPapers, setExpandedPapers] = useState<Set<number>>(new Set());
   
   // 当筛选条件变化时，重置到第一页
@@ -69,7 +71,7 @@ export function PapersSection({ data }: PapersSectionProps) {
     });
 
     return () => ctx.revert();
-  }, [currentPage]); // 添加 currentPage 依赖，切换页面时重新触发动画
+  }, [currentPage]);
 
   // 获取唯一的年份列表
   const years = Array.from(
@@ -82,7 +84,7 @@ export function PapersSection({ data }: PapersSectionProps) {
     )
   ).slice(0, 10);
 
-  // 获取唯一的项目类型（拆分多值，如 "Discovery/Education"）
+  // 获取唯一的项目类型
   const programTypes = Array.from(
     new Set(
       data.papers
@@ -91,7 +93,7 @@ export function PapersSection({ data }: PapersSectionProps) {
     )
   ).sort();
 
-  // 分析更新日期（基于publishedOnline）
+  // 分析更新日期
   const updateDates = Array.from(
     new Set(
       data.papers
@@ -131,14 +133,24 @@ export function PapersSection({ data }: PapersSectionProps) {
   // 页码变化处理
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    // 滚动到论文网格顶部
     const gridElement = document.querySelector('.papers-grid');
     if (gridElement) {
       gridElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
-  // 展开/收起切换
+  // 最新发表论文展开/收起切换
+  const toggleLatestPaperExpand = (index: number) => {
+    const newExpanded = new Set(expandedLatestPapers);
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index);
+    } else {
+      newExpanded.add(index);
+    }
+    setExpandedLatestPapers(newExpanded);
+  };
+
+  // 论文网格展开/收起切换
   const togglePaperExpand = (index: number) => {
     const newExpanded = new Set(expandedPapers);
     if (newExpanded.has(index)) {
@@ -149,21 +161,19 @@ export function PapersSection({ data }: PapersSectionProps) {
     setExpandedPapers(newExpanded);
   };
 
-  // 获取最新手动更新日期的论文（先按manualUpdateDate筛选，再按publishedOnline排序）
+  // 获取最新手动更新日期的论文
   const [showAllLatest, setShowAllLatest] = useState(false);
 
   // 辅助函数：解析Excel日期或字符串日期
   const parseDate = (dateValue: string | number | null | undefined): Date | null => {
     if (!dateValue) return null;
     
-    // 如果是数字（Excel日期格式）
     if (typeof dateValue === 'number' || (!isNaN(Number(dateValue)) && String(dateValue).match(/^\d+$/))) {
       const excelEpoch = new Date(1899, 11, 30);
       const days = Number(dateValue);
       return new Date(excelEpoch.getTime() + days * 24 * 60 * 60 * 1000);
     }
     
-    // 如果是字符串日期
     const date = new Date(dateValue);
     return isNaN(date.getTime()) ? null : date;
   };
@@ -174,7 +184,7 @@ export function PapersSection({ data }: PapersSectionProps) {
     .filter((date): date is Date => date !== null)
     .sort((a, b) => b.getTime() - a.getTime())[0];
 
-  // 获取该日期的所有论文，按publishedOnline排序
+  // 获取该日期的所有论文
   const latestPapersAll = latestManualDate
     ? data.papers
         .filter(p => {
@@ -209,17 +219,16 @@ export function PapersSection({ data }: PapersSectionProps) {
   // 辅助函数：拆分多个项目编号
   const parseGrantNumbers = (grantNumberStr: string): string[] => {
     if (!grantNumberStr) return [];
-    // 按斜杠或分号拆分，并清理空白
     return grantNumberStr.split(/[\/;]/).map(s => s.trim()).filter(Boolean);
   };
 
-  // 辅助函数：拆分多个状态（新增）
+  // 辅助函数：拆分多个状态
   const parseAwardStatuses = (statusStr: string): string[] => {
     if (!statusStr) return [];
     return statusStr.split(/[\/;]/).map(s => s.trim()).filter(Boolean);
   };
 
-  // 辅助函数：将项目编号和状态配对（新增）
+  // 辅助函数：将项目编号和状态配对
   const getGrantNumberStatusPairs = (paper: any): { grantNumber: string; status: string }[] => {
     const grantNumbers = parseGrantNumbers(paper.grantNumber);
     const statuses = parseAwardStatuses(paper.awardStatus);
@@ -231,22 +240,14 @@ export function PapersSection({ data }: PapersSectionProps) {
   };
 
   // 辅助函数：获取 Program Type
-  // 优先使用原始数据（支持多值斜杠分隔），无效时才用 prefixMap 兜底
   const getProgramType = (paper: any, grantNumber: string): string => {
-    // 1. 优先使用原始数据（如果有效且不是 Other）
     if (paper.programType && paper.programType !== 'Other') {
-      // 拆分原始数据的 programType（支持斜杠分隔的多值）
       const originalTypes = paper.programType.split('/').map((t: string) => t.trim());
-      
-      // 找到当前 grantNumber 对应的索引
       const grantNumbers = paper.grantNumber.split(/[\/;]/).map((s: string) => s.trim());
       const index = grantNumbers.findIndex((gn: string) => gn === grantNumber);
-      
-      // 返回对应位置的 Program Type，如果没有则返回第一个
       return originalTypes[index] || originalTypes[0] || 'Other';
     }
     
-    // 2. 原始数据无效，从 grantNumber 解析
     const prefix = grantNumber.split('-')[0]?.toUpperCase() || '';
     
     const prefixMap: Record<string, string> = {
@@ -333,6 +334,11 @@ export function PapersSection({ data }: PapersSectionProps) {
             {latestPapers.map((paper, index) => {
               // 获取项目编号和状态的配对
               const grantStatusPairs = getGrantNumberStatusPairs(paper);
+              const isExpanded = expandedLatestPapers.has(index);
+              const hasMultipleGrants = grantStatusPairs.length > 1;
+              
+              // 要显示的项目：如果展开显示全部，否则只显示第一个
+              const displayPairs = isExpanded ? grantStatusPairs : grantStatusPairs.slice(0, 1);
               
               return (
                 <Card
@@ -371,9 +377,9 @@ export function PapersSection({ data }: PapersSectionProps) {
                       </div>
                     </div>
                     
-                    {/* 项目编号和对应的状态标签（一一对应） */}
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {grantStatusPairs.map((pair, idx) => (
+                    {/* 项目编号和对应的状态标签 - 带展开功能 */}
+                    <div className="flex flex-col gap-2 mb-3">
+                      {displayPairs.map((pair, idx) => (
                         <div key={idx} className="flex items-center gap-1">
                           <span className="text-xs text-gray-400">{pair.grantNumber}</span>
                           <Badge
@@ -385,6 +391,21 @@ export function PapersSection({ data }: PapersSectionProps) {
                           >
                             {pair.status}
                           </Badge>
+                          {/* 只在第一个项目后显示展开按钮 */}
+                          {idx === 0 && hasMultipleGrants && (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleLatestPaperExpand(index);
+                              }}
+                              className="ml-1 p-0.5 text-gray-400 hover:text-[#0d9488] transition-colors"
+                              title={isExpanded ? '收起' : '展开更多'}
+                            >
+                              <ChevronDown 
+                                className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+                              />
+                            </button>
+                          )}
                         </div>
                       ))}
                       {grantStatusPairs.length === 0 && (
@@ -760,7 +781,6 @@ export function PapersSection({ data }: PapersSectionProps) {
                 {/* 中间页码 */}
                 {Array.from({ length: totalPages }, (_, i) => i + 1)
                   .filter((page) => {
-                    // 显示当前页附近的页码（前后各2页），但要排除第一页和最后一页
                     if (page === 1 || page === totalPages) return false;
                     return page >= currentPage - 2 && page <= currentPage + 2;
                   })
@@ -785,7 +805,7 @@ export function PapersSection({ data }: PapersSectionProps) {
                   </span>
                 )}
 
-                {/* 最后一页（如果不止一页） */}
+                {/* 最后一页 */}
                 {totalPages > 1 && (
                   <button
                     onClick={() => handlePageChange(totalPages)}
