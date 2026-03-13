@@ -630,113 +630,102 @@ export function PapersSection({ data }: PapersSectionProps) {
                   </div>
 
                   {/* 资助项目 - 只显示第一个，点击展开显示其余 */}
-                  <div className="pt-4 border-t border-gray-100">
-                    <div className="flex items-center justify-between mb-2">
-                      <p className="text-xs text-gray-500">资助项目</p>
-                      {hasMultipleGrants && (
-                        <span className="text-xs text-gray-400">
-                          共 {grantStatusPairs.length} 个
-                        </span>
-                      )}
-                    </div>
-                    
-                    {/* 每个项目编号一行：Program Type + 编号 + 状态 */}
-                    <div className="flex flex-col gap-2">
-                      {displayPairs.map((pair, idx) => {
-                        const progType = getProgramType(paper, pair.grantNumber);
-                        const color = getProgramTypeColor(progType);
-                        
-                        return (
-                          <div key={idx} className="flex items-center gap-2 flex-wrap">
-                            {/* Program Type 标签 */}
-                            <Badge
-                              className="text-[10px] px-1.5 py-0.5"
-                              style={{
-                                backgroundColor: color,
-                                color: progType === 'Clinical' ? '#333' : 'white',
-                              }}
-                            >
-                              {progType}
-                            </Badge>
-                            
-                            {/* 项目编号 */}
-                            <span className="text-xs text-gray-600">{pair.grantNumber}</span>
-                            
-                            {/* 状态标签 */}
-                            <Badge
-                              className={`text-xs ${
-                                pair.status === 'Closed'
-                                  ? 'bg-gray-100 text-gray-600'
-                                  : 'bg-[#008080]/10 text-[#008080]'
-                              }`}
-                            >
-                              {pair.status}
-                            </Badge>
-                          </div>
-                        );
-                      })}
-                      
-                      {/* 没有项目编号时的备用显示 */}
-                      {grantStatusPairs.length === 0 && (
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs text-gray-600">未指明</span>
-                          <Badge
-                            className={`text-xs ${
-                              paper.awardStatus === 'Closed'
-                                ? 'bg-gray-100 text-gray-600'
-                                : 'bg-[#008080]/10 text-[#008080]'
-                            }`}
-                          >
-                            {paper.awardStatus || 'Unknown'}
-                          </Badge>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* 展开/收起按钮 */}
-                    {hasMultipleGrants && (
-                      <button
-                        onClick={() => togglePaperExpand(index)}
-                        className="mt-3 flex items-center justify-center w-full py-2 text-gray-400 hover:text-[#008080] transition-colors group/btn"
-                      >
-                        <svg
-                          className={`w-5 h-5 transition-transform duration-300 ${
-                            isExpanded ? 'rotate-180' : ''
-                          }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                        <span className="ml-1 text-xs text-gray-400 group-hover/btn:text-[#008080]">
-                          {isExpanded ? '收起' : `展开其余 ${grantStatusPairs.length - 1} 个`}
-                        </span>
-                      </button>
-                    )}
-                  </div>
-
-                  {/* 悬停操作 */}
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a
-                      href={`https://pubmed.ncbi.nlm.nih.gov/?term= ${encodeURIComponent(paper.title)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full bg-[#008080] text-white flex items-center justify-center hover:bg-[#066] transition-colors"
-                      onClick={(e) => e.stopPropagation()}
+        <div className="pt-4 border-t border-gray-100">
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-xs text-gray-500">资助项目</p>
+            {hasMultipleGrants && (
+              <span className="text-xs text-gray-400">
+                共 {grantStatusPairs.length} 个
+              </span>
+            )}
+          </div>
+          
+          {/* 每个项目编号一行：Program Type + 编号 + 状态 */}
+          <div className="flex flex-col gap-2">
+            {displayPairs.map((pair, idx) => {
+              const progType = getProgramType(paper, pair.grantNumber);
+              const color = getProgramTypeColor(progType);
+              
+              return (
+                <div key={idx} className="flex items-center gap-2 flex-wrap">
+                  {/* Program Type 标签 */}
+                  <Badge
+                    className="text-[10px] px-1.5 py-0.5"
+                    style={{
+                      backgroundColor: color,
+                      color: progType === 'Clinical' ? '#333' : 'white',
+                    }}
+                  >
+                    {progType}
+                  </Badge>
+                  
+                  {/* 项目编号 */}
+                  <span className="text-xs text-gray-600">{pair.grantNumber}</span>
+                  
+                  {/* 状态标签 */}
+                  <Badge
+                    className={`text-xs ${
+                      pair.status === 'Closed'
+                        ? 'bg-gray-100 text-gray-600'
+                        : 'bg-[#008080]/10 text-[#008080]'
+                    }`}
+                  >
+                    {pair.status}
+                  </Badge>
+                  
+                  {/* 只在第一个项目后显示展开按钮 */}
+                  {idx === 0 && hasMultipleGrants && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        togglePaperExpand(index);
+                      }}
+                      className="ml-1 p-0.5 text-gray-400 hover:text-[#008080] transition-colors"
+                      title={isExpanded ? '收起' : '展开更多'}
                     >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+                      <ChevronDown 
+                        className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+                      />
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+            
+            {/* 没有项目编号时的备用显示 */}
+            {grantStatusPairs.length === 0 && (
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-gray-600">未指明</span>
+                <Badge
+                  className={`text-xs ${
+                    paper.awardStatus === 'Closed'
+                      ? 'bg-gray-100 text-gray-600'
+                      : 'bg-[#008080]/10 text-[#008080]'
+                  }`}
+                >
+                  {paper.awardStatus || 'Unknown'}
+                </Badge>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* 悬停操作 */}
+        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+          <a
+            href={`https://pubmed.ncbi.nlm.nih.gov/?term= ${encodeURIComponent(paper.title)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 rounded-full bg-[#008080] text-white flex items-center justify-center hover:bg-[#066] transition-colors"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+      </CardContent>
+    </Card>
+  );
+})}
         </div>
 
         {/* 分页组件 */}
