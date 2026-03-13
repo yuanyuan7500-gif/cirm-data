@@ -1,5 +1,3 @@
-
-// TEST: 2024-01-01 版本
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -42,6 +40,9 @@ export function PapersSection({ data }: PapersSectionProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 18; // 每页显示18篇
   
+  // 新增：展开状态管理
+  const [expandedPapers, setExpandedPapers] = useState<Set<number>>(new Set());
+  
   // 当筛选条件变化时，重置到第一页
   useEffect(() => {
     setCurrentPage(1);
@@ -82,13 +83,13 @@ export function PapersSection({ data }: PapersSectionProps) {
   ).slice(0, 10);
 
   // 获取唯一的项目类型（拆分多值，如 "Discovery/Education"）
-const programTypes = Array.from(
-  new Set(
-    data.papers
-      .flatMap((p) => p.programType?.split('/').map(t => t.trim()) || [])
-      .filter(Boolean)
-  )
-).sort();
+  const programTypes = Array.from(
+    new Set(
+      data.papers
+        .flatMap((p) => p.programType?.split('/').map(t => t.trim()) || [])
+        .filter(Boolean)
+    )
+  ).sort();
 
   // 分析更新日期（基于publishedOnline）
   const updateDates = Array.from(
@@ -121,7 +122,7 @@ const programTypes = Array.from(
     return true;
   });
 
-  // 新增：分页计算
+  // 分页计算
   const totalPages = Math.ceil(filteredPapers.length / pageSize);
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
@@ -137,48 +138,59 @@ const programTypes = Array.from(
     }
   };
 
-// 获取最新手动更新日期的论文（先按manualUpdateDate筛选，再按publishedOnline排序）
-const [showAllLatest, setShowAllLatest] = useState(false);
+  // 展开/收起切换
+  const togglePaperExpand = (index: number) => {
+    const newExpanded = new Set(expandedPapers);
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index);
+    } else {
+      newExpanded.add(index);
+    }
+    setExpandedPapers(newExpanded);
+  };
 
-// 辅助函数：解析Excel日期或字符串日期
-const parseDate = (dateValue: string | number | null | undefined): Date | null => {
-  if (!dateValue) return null;
-  
-  // 如果是数字（Excel日期格式）
-  if (typeof dateValue === 'number' || (!isNaN(Number(dateValue)) && String(dateValue).match(/^\d+$/))) {
-    const excelEpoch = new Date(1899, 11, 30);
-    const days = Number(dateValue);
-    return new Date(excelEpoch.getTime() + days * 24 * 60 * 60 * 1000);
-  }
-  
-  // 如果是字符串日期
-  const date = new Date(dateValue);
-  return isNaN(date.getTime()) ? null : date;
-};
+  // 获取最新手动更新日期的论文（先按manualUpdateDate筛选，再按publishedOnline排序）
+  const [showAllLatest, setShowAllLatest] = useState(false);
 
-// 获取最新手动更新日期
-const latestManualDate = data.papers
-  .map(p => parseDate(p.manualUpdateDate))
-  .filter((date): date is Date => date !== null)
-  .sort((a, b) => b.getTime() - a.getTime())[0];
+  // 辅助函数：解析Excel日期或字符串日期
+  const parseDate = (dateValue: string | number | null | undefined): Date | null => {
+    if (!dateValue) return null;
+    
+    // 如果是数字（Excel日期格式）
+    if (typeof dateValue === 'number' || (!isNaN(Number(dateValue)) && String(dateValue).match(/^\d+$/))) {
+      const excelEpoch = new Date(1899, 11, 30);
+      const days = Number(dateValue);
+      return new Date(excelEpoch.getTime() + days * 24 * 60 * 60 * 1000);
+    }
+    
+    // 如果是字符串日期
+    const date = new Date(dateValue);
+    return isNaN(date.getTime()) ? null : date;
+  };
 
-// 获取该日期的所有论文，按publishedOnline排序
-const latestPapersAll = latestManualDate
-  ? data.papers
-      .filter(p => {
-        const pDate = parseDate(p.manualUpdateDate);
-        return pDate && pDate.getTime() === latestManualDate.getTime();
-      })
-      .filter(p => p.publishedOnline)
-      .sort((a, b) => {
-        const dateA = new Date(a.publishedOnline || '');
-        const dateB = new Date(b.publishedOnline || '');
-        return dateB.getTime() - dateA.getTime();
-      })
-  : [];
+  // 获取最新手动更新日期
+  const latestManualDate = data.papers
+    .map(p => parseDate(p.manualUpdateDate))
+    .filter((date): date is Date => date !== null)
+    .sort((a, b) => b.getTime() - a.getTime())[0];
 
-const latestPapers = showAllLatest ? latestPapersAll : latestPapersAll.slice(0, 6);
-const hasMoreLatest = latestPapersAll.length > 6;
+  // 获取该日期的所有论文，按publishedOnline排序
+  const latestPapersAll = latestManualDate
+    ? data.papers
+        .filter(p => {
+          const pDate = parseDate(p.manualUpdateDate);
+          return pDate && pDate.getTime() === latestManualDate.getTime();
+        })
+        .filter(p => p.publishedOnline)
+        .sort((a, b) => {
+          const dateA = new Date(a.publishedOnline || '');
+          const dateB = new Date(b.publishedOnline || '');
+          return dateB.getTime() - dateA.getTime();
+        })
+    : [];
+
+  const latestPapers = showAllLatest ? latestPapersAll : latestPapersAll.slice(0, 6);
+  const hasMoreLatest = latestPapersAll.length > 6;
 
   const formatDate = (dateStr?: string | null) => {
     if (!dateStr) return '-';
@@ -193,6 +205,7 @@ const hasMoreLatest = latestPapersAll.length > 6;
       return dateStr;
     }
   };
+
   // 辅助函数：拆分多个项目编号
   const parseGrantNumbers = (grantNumberStr: string): string[] => {
     if (!grantNumberStr) return [];
@@ -271,19 +284,21 @@ const hasMoreLatest = latestPapersAll.length > 6;
     };
     return colorMap[programType] || '#4ECDC4';
   };
-// 计算 Manual Update Date 的最新日期
-const latestManualUpdateDate = data.papers
-  .map(p => p.manualUpdateDate ? new Date(p.manualUpdateDate) : null)
-  .filter((date): date is Date => date !== null && !isNaN(date.getTime()))
-  .sort((a, b) => b.getTime() - a.getTime())[0];
 
-const formattedLatestDate = latestManualUpdateDate 
-  ? latestManualUpdateDate.toLocaleDateString('zh-CN', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    })
-  : data.updateDate || '暂无更新';
+  // 计算 Manual Update Date 的最新日期
+  const latestManualUpdateDate = data.papers
+    .map(p => p.manualUpdateDate ? new Date(p.manualUpdateDate) : null)
+    .filter((date): date is Date => date !== null && !isNaN(date.getTime()))
+    .sort((a, b) => b.getTime() - a.getTime())[0];
+
+  const formattedLatestDate = latestManualUpdateDate 
+    ? latestManualUpdateDate.toLocaleDateString('zh-CN', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      })
+    : data.updateDate || '暂无更新';
+
   return (
     <section ref={sectionRef} className="py-20 sm:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -315,8 +330,7 @@ const formattedLatestDate = latestManualUpdateDate
             </span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            
-                                                {latestPapers.map((paper, index) => {
+            {latestPapers.map((paper, index) => {
               // 获取项目编号和状态的配对
               const grantStatusPairs = getGrantNumberStatusPairs(paper);
               
@@ -405,36 +419,33 @@ const formattedLatestDate = latestManualUpdateDate
               );
             })}
             {/* 查看更多按钮 */}
-{hasMoreLatest && !showAllLatest && (
-  <div className="col-span-1 md:col-span-2 lg:col-span-3 flex items-center justify-center py-4">
-    <button
-      onClick={() => setShowAllLatest(true)}
-      className="group relative text-[#0d9488] hover:text-[#0f766e] transition-colors text-2xl font-bold"
-    >
-      <span className="tracking-widest">...</span>
-      <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-        查看更多
-      </span>
-    </button>
-  </div>
-)}
+            {hasMoreLatest && !showAllLatest && (
+              <div className="col-span-1 md:col-span-2 lg:col-span-3 flex items-center justify-center py-4">
+                <button
+                  onClick={() => setShowAllLatest(true)}
+                  className="group relative text-[#0d9488] hover:text-[#0f766e] transition-colors text-2xl font-bold"
+                >
+                  <span className="tracking-widest">...</span>
+                  <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                    查看更多
+                  </span>
+                </button>
+              </div>
+            )}
 
-{/* 收起按钮 */}
-{showAllLatest && hasMoreLatest && (
-  <div className="col-span-1 md:col-span-2 lg:col-span-3 flex items-center justify-center py-4">
-    <button
-      onClick={() => setShowAllLatest(false)}
-      className="px-6 py-2 border border-[#0d9488] text-[#0d9488] rounded-full hover:bg-[#0d9488] hover:text-white transition-colors text-sm"
-    >
-      收起
-    </button>
-  </div>
-)}
+            {/* 收起按钮 */}
+            {showAllLatest && hasMoreLatest && (
+              <div className="col-span-1 md:col-span-2 lg:col-span-3 flex items-center justify-center py-4">
+                <button
+                  onClick={() => setShowAllLatest(false)}
+                  className="px-6 py-2 border border-[#0d9488] text-[#0d9488] rounded-full hover:bg-[#0d9488] hover:text-white transition-colors text-sm"
+                >
+                  收起
+                </button>
+              </div>
+            )}
           </div>
         </div>
-
-        
-    
 
         {/* 可视化按钮 */}
         <div className="flex justify-center mb-8">
@@ -553,10 +564,14 @@ const formattedLatestDate = latestManualUpdateDate
 
         {/* 论文网格 */}
         <div className="papers-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                              {currentPapers.map((paper, index) => {
+          {currentPapers.map((paper, index) => {
             // 获取项目编号和状态的配对
             const grantStatusPairs = getGrantNumberStatusPairs(paper);
+            const isExpanded = expandedPapers.has(index);
+            const hasMultipleGrants = grantStatusPairs.length > 1;
             
+            // 要显示的项目：如果展开显示全部，否则只显示第一个
+            const displayPairs = isExpanded ? grantStatusPairs : grantStatusPairs.slice(0, 1);
             
             return (
               <Card
@@ -565,8 +580,6 @@ const formattedLatestDate = latestManualUpdateDate
                 style={{ perspective: '1000px' }}
               >
                 <CardContent className="p-6">
-                 
-
                   {/* 标题 */}
                   <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#008080] transition-colors">
                     {paper.title}
@@ -595,64 +608,97 @@ const formattedLatestDate = latestManualUpdateDate
                     </span>
                   </div>
 
-                                  {/* 资助项目 - 显示每个项目编号及其Program Type和状态 */}
-                <div className="pt-4 border-t border-gray-100">
-                  <p className="text-xs text-gray-500 mb-2">资助项目</p>
-                  
-                  {/* 每个项目编号一行：Program Type + 编号 + 状态 */}
-                  <div className="flex flex-col gap-2">
-                    {grantStatusPairs.map((pair, idx) => {
-                      // 使用新的 getProgramType 函数
-                      const progType = getProgramType(paper, pair.grantNumber);
-                      const color = getProgramTypeColor(progType);
+                  {/* 资助项目 - 只显示第一个，点击展开显示其余 */}
+                  <div className="pt-4 border-t border-gray-100">
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-xs text-gray-500">资助项目</p>
+                      {hasMultipleGrants && (
+                        <span className="text-xs text-gray-400">
+                          共 {grantStatusPairs.length} 个
+                        </span>
+                      )}
+                    </div>
+                    
+                    {/* 每个项目编号一行：Program Type + 编号 + 状态 */}
+                    <div className="flex flex-col gap-2">
+                      {displayPairs.map((pair, idx) => {
+                        const progType = getProgramType(paper, pair.grantNumber);
+                        const color = getProgramTypeColor(progType);
+                        
+                        return (
+                          <div key={idx} className="flex items-center gap-2 flex-wrap">
+                            {/* Program Type 标签 */}
+                            <Badge
+                              className="text-[10px] px-1.5 py-0.5"
+                              style={{
+                                backgroundColor: color,
+                                color: progType === 'Clinical' ? '#333' : 'white',
+                              }}
+                            >
+                              {progType}
+                            </Badge>
+                            
+                            {/* 项目编号 */}
+                            <span className="text-xs text-gray-600">{pair.grantNumber}</span>
+                            
+                            {/* 状态标签 */}
+                            <Badge
+                              className={`text-xs ${
+                                pair.status === 'Closed'
+                                  ? 'bg-gray-100 text-gray-600'
+                                  : 'bg-[#008080]/10 text-[#008080]'
+                              }`}
+                            >
+                              {pair.status}
+                            </Badge>
+                          </div>
+                        );
+                      })}
                       
-                      return (
-                        <div key={idx} className="flex items-center gap-2 flex-wrap">
-                          {/* Program Type 标签 */}
-                          <Badge
-                            className="text-[10px] px-1.5 py-0.5"
-                            style={{
-                              backgroundColor: color,
-                              color: progType === 'Clinical' ? '#333' : 'white',
-                            }}
-                          >
-                            {progType}
-                          </Badge>
-                          
-                          {/* 项目编号 */}
-                          <span className="text-xs text-gray-600">{pair.grantNumber}</span>
-                          
-                          {/* 状态标签 */}
+                      {/* 没有项目编号时的备用显示 */}
+                      {grantStatusPairs.length === 0 && (
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-gray-600">未指明</span>
                           <Badge
                             className={`text-xs ${
-                              pair.status === 'Closed'
+                              paper.awardStatus === 'Closed'
                                 ? 'bg-gray-100 text-gray-600'
                                 : 'bg-[#008080]/10 text-[#008080]'
                             }`}
                           >
-                            {pair.status}
+                            {paper.awardStatus || 'Unknown'}
                           </Badge>
                         </div>
-                      );
-                    })}
-                    
-                    {/* 没有项目编号时的备用显示 */}
-                    {grantStatusPairs.length === 0 && (
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs text-gray-600">未指明</span>
-                        <Badge
-                          className={`text-xs ${
-                            paper.awardStatus === 'Closed'
-                              ? 'bg-gray-100 text-gray-600'
-                              : 'bg-[#008080]/10 text-[#008080]'
+                      )}
+                    </div>
+
+                    {/* 展开/收起按钮 */}
+                    {hasMultipleGrants && (
+                      <button
+                        onClick={() => togglePaperExpand(index)}
+                        className="mt-3 flex items-center justify-center w-full py-2 text-gray-400 hover:text-[#008080] transition-colors group/btn"
+                      >
+                        <svg
+                          className={`w-5 h-5 transition-transform duration-300 ${
+                            isExpanded ? 'rotate-180' : ''
                           }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
                         >
-                          {paper.awardStatus || 'Unknown'}
-                        </Badge>
-                      </div>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                        <span className="ml-1 text-xs text-gray-400 group-hover/btn:text-[#008080]">
+                          {isExpanded ? '收起' : `展开其余 ${grantStatusPairs.length - 1} 个`}
+                        </span>
+                      </button>
                     )}
                   </div>
-                </div>
 
                   {/* 悬停操作 */}
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -672,7 +718,7 @@ const formattedLatestDate = latestManualUpdateDate
           })}
         </div>
 
-                {/* 分页组件 */}
+        {/* 分页组件 */}
         {totalPages > 1 && (
           <div className="mt-8 flex flex-col items-center gap-4">
             {/* 分页按钮 */}
