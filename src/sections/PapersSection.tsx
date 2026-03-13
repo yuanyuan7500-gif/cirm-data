@@ -602,7 +602,9 @@ export function PapersSection({ data }: PapersSectionProps) {
               >
                 <CardContent className="p-6">
                   {/* 标题 */}
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#008080] transition-colors">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#008080] group-hover:line-clamp-none transition-colors cursor-pointer"
+  title={paper.title}
+>
                     {paper.title}
                   </h3>
 
