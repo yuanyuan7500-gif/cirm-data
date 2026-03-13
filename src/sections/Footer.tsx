@@ -31,6 +31,7 @@ export function Footer() {
             >
               资助项目
             </a>
+            {/* 注释掉"关于 CIRM"
             <a
               href="https://www.cirm.ca.gov/about-cirm"
               target="_blank"
@@ -39,6 +40,8 @@ export function Footer() {
             >
               关于 CIRM
             </a>
+            */}
+            {/* 注释掉"联系我们"
             <a
               href="https://www.cirm.ca.gov/contact-us"
               target="_blank"
@@ -47,6 +50,7 @@ export function Footer() {
             >
               联系我们
             </a>
+            */}
           </div>
         </div>
       </div>
