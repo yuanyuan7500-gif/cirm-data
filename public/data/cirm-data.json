@@ -8663,7 +8663,7 @@
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
       "previousAwardValue": 27388,
       "previousAwardStatus": null
