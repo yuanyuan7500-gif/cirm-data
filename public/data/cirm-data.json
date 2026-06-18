@@ -2,12 +2,12 @@
   "summary": {
     "totalGrants": 90,
     "totalProjects": 1575,
-    "totalAmount": 4471551688.839999,
+    "totalAmount": 4451808464.839999,
     "activeProjects": 648,
-    "totalPapers": 678,
+    "totalPapers": 703,
     "activeGrants": 571
   },
-  "updateDate": "2026/05/14",
+  "updateDate": "2026/06/18",
   "grants": [
     {
       "id": 1,
@@ -37,7 +37,7 @@
       "grantType": "DISC 2 (Quest – Discovery Stage Research Projects)",
       "icocApproval": "2024-09-26",
       "totalAwards": 154,
-      "awardValue": 228939633,
+      "awardValue": 228841648,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -103,7 +103,7 @@
       "grantType": "TRAN 1 (Therapeutic Translational Research Projects)",
       "icocApproval": "2025-01-30",
       "totalAwards": 94,
-      "awardValue": 372961348,
+      "awardValue": 369836512,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -169,7 +169,7 @@
       "grantType": "CLIN 2 (Clinical Trial Stage Projects)",
       "icocApproval": "2026-03-26",
       "totalAwards": 106,
-      "awardValue": 879341159,
+      "awardValue": 863514919,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -213,7 +213,7 @@
       "grantType": "EDUC 2 (Bridges)",
       "icocApproval": "2021-07-20",
       "totalAwards": 29,
-      "awardValue": 94720852,
+      "awardValue": 94055182,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -246,7 +246,7 @@
       "grantType": "EDUC 5 (COMPASS Training Grant)",
       "icocApproval": "2022-08-30",
       "totalAwards": 16,
-      "awardValue": 44806611,
+      "awardValue": 44778118,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -1877,13 +1877,13 @@
       "principalInvestigator": "Gladstone Institutes, J. David",
       "awardValue": 1406622,
       "icocApproval": "2022-09-20",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "DISC0-13901",
@@ -1911,13 +1911,13 @@
       "principalInvestigator": "Stanford University",
       "awardValue": 1378365,
       "icocApproval": "2022-09-20",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "DISC0-13816",
@@ -1945,13 +1945,13 @@
       "principalInvestigator": "UC San Diego",
       "awardValue": 1518982,
       "icocApproval": "2022-09-20",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "DISC0-13806",
@@ -2234,13 +2234,13 @@
       "principalInvestigator": "Gandhi, Sunil – Novoglia, Inc.",
       "awardValue": 1413387,
       "icocApproval": "2023-09-28",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "DISC2-15119",
@@ -2317,14 +2317,14 @@
       "grantTitle": "Development of an Optogenetic Vision Restoration Gene Therapy Using an Engineered Form of Melanopsin",
       "diseaseFocus": "Vision Loss",
       "principalInvestigator": "Baker, Cameron – Adverum Biotechnologies",
-      "awardValue": 1150820,
+      "awardValue": 1053471,
       "icocApproval": "2023-09-28",
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 1150820,
       "previousAwardStatus": null
     },
     {
@@ -2844,14 +2844,14 @@
       "grantTitle": "Novel methods to eliminate cancer stem cells",
       "diseaseFocus": "Blood Cancer, Cancer, Leukemia",
       "principalInvestigator": "UC Los Angeles",
-      "awardValue": 1384345,
+      "awardValue": 1383709,
       "icocApproval": "2022-06-23",
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 1384345,
       "previousAwardStatus": null
     },
     {
@@ -4784,7 +4784,7 @@
       "principalInvestigator": "Maria Mirotsou – Scribe Therapeutics",
       "awardValue": 12714480,
       "icocApproval": "2025-12-11",
-      "awardStatus": "Pre-Active",
+      "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
@@ -4852,7 +4852,7 @@
       "principalInvestigator": "Brett Staahl – Scribe Therapeutics",
       "awardValue": 13000000,
       "icocApproval": "2025-12-11",
-      "awardStatus": "Pre-Active",
+      "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
@@ -4937,7 +4937,7 @@
       "principalInvestigator": "Bertha Chen – Stanford",
       "awardValue": 7275596,
       "icocApproval": "2025-12-11",
-      "awardStatus": "Pre-Active",
+      "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
@@ -4971,7 +4971,7 @@
       "principalInvestigator": "Ana Moreno – Navega Therapeutics",
       "awardValue": 9486864,
       "icocApproval": "2025-12-11",
-      "awardStatus": "Pre-Active",
+      "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
@@ -5005,13 +5005,13 @@
       "principalInvestigator": "Johnston, Jennifer — NysnoBio GT Neurology",
       "awardValue": 2450510,
       "icocApproval": "2025-01-30",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "TRAN1-16959",
@@ -5105,14 +5105,14 @@
       "grantTitle": "Development of an AAV Epigenetic Gene Therapy for Gain-of-Function SCN9A Disorders and Chronic Pain",
       "diseaseFocus": null,
       "principalInvestigator": "Moreno, Ana — Navega Therapeutics",
-      "awardValue": 3982633,
+      "awardValue": 2525000,
       "icocApproval": "2025-01-30",
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 3982633,
       "previousAwardStatus": null
     },
     {
@@ -5277,13 +5277,13 @@
       "principalInvestigator": "AcuraStem Inc.",
       "awardValue": 4012325,
       "icocApproval": "2024-05-30",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "TRAN1-16012",
@@ -5515,13 +5515,13 @@
       "principalInvestigator": "ImmunoVec",
       "awardValue": 3999899,
       "icocApproval": "2023-04-27",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "TRAN1-14671",
@@ -5564,14 +5564,14 @@
       "grantTitle": "Hematopoietic Stem/Progenitor Cell-Based Chimeric Antigen Receptor Gene Therapy for HIV Infection",
       "diseaseFocus": "HIV/AIDS, Infectious Disease",
       "principalInvestigator": "UC Los Angeles",
-      "awardValue": 6080000,
+      "awardValue": 4412797,
       "icocApproval": "2023-04-27",
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 6080000,
       "previousAwardStatus": null
     },
     {
@@ -5876,9 +5876,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "TRAN1-12893",
@@ -6046,9 +6046,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "TRAN1-11544",
@@ -6080,9 +6080,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "TRAN1-11300",
@@ -6144,13 +6144,13 @@
       "principalInvestigator": "Children’s Hospital of Los Angeles",
       "awardValue": 7077352,
       "icocApproval": "2016-03-16",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "TRAN2-10990-B",
@@ -6229,13 +6229,13 @@
       "principalInvestigator": "Stanford University",
       "awardValue": 1347722,
       "icocApproval": "2024-05-30",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "TRAN4-15298",
@@ -6266,9 +6266,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 979189,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -6314,13 +6314,13 @@
       "principalInvestigator": "Organos, Inc.",
       "awardValue": 1119382,
       "icocApproval": "2021-11-23",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "CLIN1-17090",
@@ -6603,13 +6603,13 @@
       "principalInvestigator": "Elpida Therapeutics",
       "awardValue": 3930964,
       "icocApproval": "2023-11-28",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "CLIN1-14933",
@@ -6756,13 +6756,13 @@
       "principalInvestigator": "Ossium Health, Inc.",
       "awardValue": 3457858,
       "icocApproval": "2023-01-26",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "CLIN1-14006",
@@ -6861,10 +6861,10 @@
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
-      "showStatusChange": true,
-      "previousAwardValue": 5999782,
-      "previousAwardStatus": "Active"
+      "showValueChange": false,
+      "showStatusChange": false,
+      "previousAwardValue": null,
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "CLIN1-12865",
@@ -6958,15 +6958,15 @@
       "grantTitle": "Clinical Development of ETX101, a Gene Regulation Therapy for SCN1A+ Dravet Syndrome",
       "diseaseFocus": null,
       "principalInvestigator": "Salvador Rico – Encoded Therapeutics",
-      "awardValue": 15000000,
+      "awardValue": 0,
       "icocApproval": "2025-12-11",
-      "awardStatus": "Pre-Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
-      "showStatusChange": false,
-      "previousAwardValue": null,
-      "previousAwardStatus": null
+      "showValueChange": true,
+      "showStatusChange": true,
+      "previousAwardValue": 15000000,
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "CLIN2-18595",
@@ -7130,13 +7130,13 @@
       "principalInvestigator": "Senti Biosciences, Inc.",
       "awardValue": 8000000,
       "icocApproval": "2024-06-27",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "CLIN2-15218",
@@ -7589,13 +7589,13 @@
       "principalInvestigator": "Excision BioTherapeutics",
       "awardValue": 4940000,
       "icocApproval": "2022-09-20",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "CLIN2-13267",
@@ -7672,15 +7672,15 @@
       "grantTitle": "PHASE 1, OPEN LABEL, DOSE-ESCALATION STUDY OF CRX100 IN PATIENTS WITH ADVANCED SOLID TUMORS",
       "diseaseFocus": "Cancer, Solid Tumors",
       "principalInvestigator": "BioEclipse Therapeutics INC.",
-      "awardValue": 7999689,
+      "awardValue": 7060000,
       "icocApproval": "2022-05-26",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
-      "showStatusChange": false,
-      "previousAwardValue": null,
-      "previousAwardStatus": null
+      "showValueChange": true,
+      "showStatusChange": true,
+      "previousAwardValue": 7999689,
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "CLIN2-12735",
@@ -8510,9 +8510,9 @@
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 32071,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -9003,9 +9003,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 3530873,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -9122,9 +9122,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 2828738,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -9185,14 +9185,14 @@
       "grantTitle": "Bridges to Stem Cell Research Internship Program",
       "diseaseFocus": null,
       "principalInvestigator": "San Diego State University Foundation",
-      "awardValue": 4185463,
+      "awardValue": 3519793,
       "icocApproval": "2021-07-20",
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 4185463,
       "previousAwardStatus": null
     },
     {
@@ -9309,9 +9309,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 499573,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -9360,9 +9360,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 488621,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -9785,9 +9785,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 2889750,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -9831,14 +9831,14 @@
       "grantTitle": "A COMPASS to guide the growth of a diverse regenerative medicine workforce that represents California and benefits the world",
       "diseaseFocus": null,
       "principalInvestigator": "Cal Poly Corporation, an Auxiliary of California Polytechnic State University, San Luis Obispo",
-      "awardValue": 2877792,
+      "awardValue": 2849299,
       "icocApproval": "2022-08-30",
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 2877792,
       "previousAwardStatus": null
     },
     {
@@ -9955,9 +9955,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 2713400,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -9989,9 +9989,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 2909950,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -10513,13 +10513,13 @@
       "principalInvestigator": "Cedars-Sinai Medical Center",
       "awardValue": 2000000,
       "icocApproval": "2023-05-31",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "INFR4-13952",
@@ -13945,14 +13945,14 @@
       "grantTitle": "Autologous iPSC-derived Retinal Pigment Epithelium Cell Therapy to Restore Vision in Blinding Eye Disease",
       "diseaseFocus": null,
       "principalInvestigator": "Steven Schwartz - Cellio Therapeutics",
-      "awardValue": 7886551,
+      "awardValue": 8000000,
       "icocApproval": "2026-03-26",
-      "awardStatus": "Pre-Active",
+      "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 7886551,
       "previousAwardStatus": null
     },
     {
@@ -13964,7 +13964,7 @@
       "principalInvestigator": "Dr Robert Hayes - Immusoft Corporation",
       "awardValue": 15000000,
       "icocApproval": "2026-03-26",
-      "awardStatus": "Pre-Active",
+      "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
@@ -13981,7 +13981,7 @@
       "principalInvestigator": "Dr. Yael Weiss - Mahzi Therapeutics",
       "awardValue": 8000000,
       "icocApproval": "2026-03-26",
-      "awardStatus": "Pre-Active",
+      "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
@@ -24686,6 +24686,409 @@
       "grantType": "Research Training Grant",
       "programType": "Education",
       "grantTitle": "Scholars Research Training Program in Regenerative Medicine, Gene Therapy, and Stem Cell Research",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Spatial engineering of posterior organizers in cerebral organoids via controlled morphogen exposure within hydrogels",
+      "researchTopic": "研究提出了一种空间工程化水凝胶平台，通过刚度可控的三层结构（类器官层-中间阻渗层-形态发生素枢纽层）实现BMP4向脑类器官的单向定向递送，在暴露面特异性诱导后部组织者（DMT）形成，克服了传统浴液施加导致的空间无序分化问题。平台兼容DLP 3D生物打印，支持微孔定位与规模化生产，并演示了双形态发生素共定位的可行性，为构建具有生理拓扑结构的复杂脑类器官提供了新工具。",
+      "authors": "Jeong, Harrison; Ozaki, Hajime; Tsai, Yuan-Chen; Nie, Caihao; Shiraiwa, Kaori; Miller, Doyle; Noh, Matthew Jung Min; Dalal, Jiya Kinjal; Salem, Aya Galal; Vu, Christine Hien; ",
+      "publication": "bioRxiv",
+      "publishedOnline": "2026-06-05",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4-12822 (2021)/INFR6.2-15368 (2024)",
+      "grantNumbers": [
+        "EDUC4-12822",
+        "INFR6"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education/Infrastructure",
+      "grantTitle": "CIRM Scholars Comprehensive Research Training Program",
+      "awardStatus": "Active/Active"
+    },
+    {
+      "title": "Optical genome mapping identifies source-associated structural variant differences across early-passage human iPSCs",
+      "researchTopic": "研究利用光学基因组图谱（OGM）对25名供者的73个低代次iPSC克隆进行亲子代配对分析，发现成纤维细胞来源iPSC的结构变异负担显著高于外周血来源（3.12 vs 1.86 SV/克隆），且更富集≥100kbp的大型重复；PBMC-iPSC则更多无检测到的克隆特异性变异。OGM可在≥2kbp分辨率下检测平衡重排及低频率嵌合事件，优于常规质控手段。研究结果支持将OGM作为iPSC重编程后补充质控策略，并提示外周血可能是更基因组稳定的重编程起始材料。",
+      "authors": "Namvar, Leila; Sedov, Kamilla; Yang, Madison J; Hermosillo, Rebecca; Zafar, Faria; Schuele, Birgitt; ",
+      "publication": "bioRxiv",
+      "publishedOnline": "2026-05-31",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC2-12677 (2021)",
+      "grantNumbers": [
+        "EDUC2-12677"
+      ],
+      "grantType": "Bridges",
+      "programType": "Education",
+      "grantTitle": "Stem Cell Internships in Laboratory-based Learning ( SCILL) continue to expand the scientific workforce for stem cells research and therapies .",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Single-cell proteomic maps of human induced pluripotent stem cells and their differentiation into motor neurons",
+      "researchTopic": "研究利用单细胞蛋白质组学（MS-SCP）绘制人iPSC向运动神经元分化的蛋白质组图谱，发现iPSC存在三种蛋白质组异质性亚群及细胞周期依赖性代谢转换；分化过程中呈现阶段特异性通路激活和细胞器重塑，并鉴定出ELAVL2/3+运动神经元亚群及UCHL1、Scg2等新标记物。研究还揭示了随分化进展而加剧的RNA-蛋白质discordance，提示转录后调控在运动神经元成熟中的关键作用，为神经发育和退行性疾病研究提供了蛋白质层面的新视角。",
+      "authors": "Zhemkov, Vladimir; Binek, Aleksandra; Haghani, Ali; Israely, Edo; Bell, Shaughn; Sansa, Alba; Lawless, George; Van Eyk, Jennifer; Svendsen, Clive N; ",
+      "publication": "bioRxiv",
+      "publishedOnline": "2026-05-29",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4-12751 (2021)",
+      "grantNumbers": [
+        "EDUC4-12751"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "CIRM Training Program in Translational Regenerative Medicine",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Inducible lipid storage and steatosis in the human choroid plexus associated with age and adiposity",
+      "researchTopic": "研究揭示人类脉络丛上皮细胞（CPEC）存在年龄和肥胖相关的可诱导性脂质储存与脂肪变性：通过手动及深度学习分析245例人脑标本，发现>5μm的大脂质滴 prevalence 随年龄和BMI显著增加；体外人ESC来源CPEC模型证实过量脂肪酸可直接诱导脂肪变性，油酸特异性促进大脂质滴形成。这一发现将脉络丛纳入代谢综合征和衰老的靶器官，为理解肥胖与年龄相关的中枢神经系统功能障碍提供了新机制。",
+      "authors": "Espericueta, N Victoria; Neel, Michael J; Wang, Yao; Soo, Todd J; Porahang, Parastou; Goyokpin, Frances A; Salehi, Ryan S; Khan, Sara; Lee, Jasmine; Maramica, Nicolas B; ",
+      "publication": "bioRxiv",
+      "publishedOnline": "2026-05-26",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4-12822 (2021)/EDUC2- 12638 (2021)/EDUC5-13647 (2022)/RN2-00915-1 (2008)",
+      "grantNumbers": [
+        "EDUC4-12822",
+        "EDUC2-",
+        "EDUC5-13647",
+        "RN2-00915"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education/Education/Education/Discovery",
+      "grantTitle": "CIRM Scholars Comprehensive Research Training Program",
+      "awardStatus": "Active/Active/Active/Closed"
+    },
+    {
+      "title": "BMP signaling during gastrulation pre-patterns the dorsal spinal cord",
+      "researchTopic": "研究挑战了背侧脊髓由顶板BMP浓度梯度直接模式化的经典模型，证明背侧中间神经元命运实际上在原肠胚形成期即被BMP信号预模式化：通过单细胞测序、时序性BMP抑制和光转化谱系追踪，发现腹侧原肠胚细胞在BMP作用下建立背侧转录状态（如olig3），随后迁移形成背侧脊髓；而神经管形成后的顶板BMP仅负责dI1维持和神经元成熟精细化。这一多阶段模型为理解形态发生素梯度如何生成神经多样性提供了新框架。",
+      "authors": "Greenfeld, Hannah; Wagner, Daniel E; ",
+      "publication": "bioRxiv",
+      "publishedOnline": "2026-05-20",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4-12812 (2021)",
+      "grantNumbers": [
+        "EDUC4-12812"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Scholars Research Training Program in Regenerative Medicine, Gene Therapy, and Stem Cell Research",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "PARP1 trapping activates ATM-mediated NF-κB signaling independent of replication in response to TOP1 blockade",
+      "researchTopic": "研究揭示PARP抑制剂联合TOP1阻断通过两条独立通路激活ATM-NF-κB炎症信号：除经典的S期复制叉崩溃通路外，PARP1被捕获于DNA损伤位点可触发复制非依赖性通路，使NF-κB激活扩展至全细胞周期。机制上，PARP1捕获（而非酶活抑制）与TDP1缺失表型上位，均通过阻断修复、促进DSB积累激活ATM。该发现为联合TOP1/PARP抑制剂增强肿瘤免疫应答提供了新策略。",
+      "authors": "Bournique, Elodie; Sanchez, Ambrocio; Ha, Kim; Yan, Katrina M; Manjunath, Lavanya; Santiago, Gisselle; Ortega, Pedro; Buisson, Rémi; ",
+      "publication": "Nucleic Acids Research",
+      "publishedOnline": "2026-06-04",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "TG2-01152 (2009)",
+      "grantNumbers": [
+        "TG2-01152"
+      ],
+      "grantType": "Research Training II",
+      "programType": "Education",
+      "grantTitle": "UCI-CIRM Research Training Program II",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "Identifying donor immune cells in the intestinal mucosa of chimeric recipient mice by immunofluorescence",
+      "researchTopic": "研究针对竞争性骨髓移植小鼠模型中免疫细胞空间定位分析的技术瓶颈，优化了免疫荧光方案：采用OCT速冻及切片后甲醇固定，保留了流式验证抗体识别的CD45.1/CD45.2膜表位抗原性，并结合Fiji软件的共定位与通道减法分析，实现了在肠道组织中同时区分三种来源免疫细胞（WT供体、KO供体、受体）的原位定位。该方法弥补了流式细胞术缺乏空间信息的不足，为研究基因对免疫细胞外周器官定植及相互作用的影响提供了可靠工具。",
+      "authors": "Canale, Vinicius; Asiedu, Samuel; Malki, Fuad; Chen, Gang; Nair, Meera G; McCole, Declan F; ",
+      "publication": "Current Protocols",
+      "publishedOnline": "2026-05-18",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4- 12752 (2021)",
+      "grantNumbers": [
+        "EDUC4-"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "TRANSCEND – Training Program to Advance Interdisciplinary Stem Cell Research, Education, and Workforce Diversity",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Rejuvenated Hematopoietic Stem and Progenitor Cell-Engineered CAR-Armored Natural Killer T Cells for Malignant Pleural Mesothelioma",
+      "researchTopic": "研究开发了基于脐带血造血干细胞基因工程改造的现货型间皮素靶向CAR-NKT细胞（Allo¹⁵MCAR-NKT），通过6周无饲养层分化实现>97%纯度、>10¹²细胞产量的规模化生产。该细胞具有混合T/NK表型、CAR/NKR/TCR三重肿瘤杀伤机制、低免疫检查点表达的\"年轻化\"耗竭抗性特征，在皮下和转移性MPM模型中展现强效抗肿瘤活性，可重塑肿瘤微环境清除CD1d⁺巨噬细胞，且无GvHD、CRS及神经毒性，为恶性胸膜间皮瘤提供了安全有效的通用型细胞治疗新策略。",
+      "authors": "Li, Yan-Ruide; Zhu, Yichen; Li, Zhe; Shen, Xinyuan; Li, Shuo; Chen, Yuning; Lyu, Zibai; Huang, Jie; Ma, Nathan; Zhang, Catherine; ",
+      "publication": "Research",
+      "publishedOnline": "2026-06-11",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "DISC2-11157 (2018)/DISC2-13505 (2022)/TRAN1-12250 (2021)/TRAN1-16050 (2024)",
+      "grantNumbers": [
+        "DISC2-11157",
+        "DISC2-13505",
+        "TRAN1-12250",
+        "TRAN1-16050"
+      ],
+      "grantType": "Quest – Discovery Stage Research Projects",
+      "programType": "Discovery/Discovery/Translational/Translational",
+      "grantTitle": "Preclinical Development of An HSC-Engineered Off-The-Shelf iNKT Cell Therapy for Cancer",
+      "awardStatus": "Closed/Closed/Closed/Active"
+    },
+    {
+      "title": "New functions for adult neurogenesis in humans: Guideposts for regenerative medicine",
+      "researchTopic": "研究通过整合药物难治性颞叶癫痫患者术前认知评估与切除海马组织的组织学分析，在人体内建立成人海马神经发生与认知功能的直接关联，发现未成熟颗粒神经元数量与听觉言语学习呈强正相关，且随癫痫病程呈指数下降、约20年后消失；该关联具有种间特异性（人类侧重言语编码vs啮齿类侧重空间记忆），为再生医学中神经发生增强策略的临床转化提供了关键证据和安全考量。",
+      "authors": "Ammothumkandy, Aswathy; Bonaguidi, Michael A; ",
+      "publication": "Neural Regeneration Research",
+      "publishedOnline": "2026-05-14",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "未指明",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Computational insights into the activation mechanism of CXCR4: implications for the design of small molecule agonists",
+      "researchTopic": "研究通过TMD-CG模拟揭示CXCR4激活涉及三个过渡态，发现W94和E288是正构位点内的关键分子开关，其活性构象稳定可显著降低激活能垒；丙氨酸扫描显示残基在激活过程中从抑制失活态转变为促进激活态。基于这些机制洞察，采用双模块策略将拮抗剂HF51116与SDF-1α的Lys-Pro信号模块融合，设计出小分子激动剂HL82624，经竞争结合和细胞迁移实验证实其CXCR4激动活性，为神经退行性疾病治疗提供了新的分子工具和设计范式。",
+      "authors": "Zhou, Jiao; Liu, Xiang; Xu, Yan; Cruz, Alejandro; An, Jing; Warshel, Arieh; Huang, Ziwei; ",
+      "publication": "Journal of the American Chemical Society",
+      "publishedOnline": "2026-05-27",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "DISC2-12666 (2021)",
+      "grantNumbers": [
+        "DISC2-12666"
+      ],
+      "grantType": "Quest – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Development of a new therapeutic for directing target specific stem cell migration and treatment",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Lipid nanoparticles for nucleic acid delivery to osteoblasts and osteoblast-lineage cells: A systematic review",
+      "researchTopic": "系统综述纳入9项研究、11种LNP配方，评估其向成骨细胞递送核酸的能力。结果显示，含DLin/SM102离子化脂质、DSPC辅助脂质及CH6适配体等骨靶向配体的LNP，可在体外高效转染成骨谱系细胞并在体内靶向骨组织，显著改善骨质疏松模型骨量；离子化LNP体外毒性极低，体内仅个别配方引起轻度炎症标志物升高，为骨疾病核酸治疗提供了安全有效的递送平台。",
+      "authors": "Murphy, Alexander I; Vargas, Christopher; Pomerantz, Jason H; ",
+      "publication": "Bone Reports",
+      "publishedOnline": "2026-05-12",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4-12812 (2021)",
+      "grantNumbers": [
+        "EDUC4-12812"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Scholars Research Training Program in Regenerative Medicine, Gene Therapy, and Stem Cell Research",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Autophagy as a Redox Rheostat Linking Cigarette Smoke, Electronic Cigarettes, and Nicotine Exposure to Lung Development, Disease, and Interorgan Communication",
+      "researchTopic": "综述提出自噬作为氧化还原调节变阻器的统一框架，系统阐述香烟烟雾、电子烟和尼古丁如何通过氧化应激破坏肺自噬通量，从适应性保护转变为病理性驱动。研究揭示四大机制轴——溶酶体功能障碍、线粒体质量控制紊乱、选择性自噬模块破坏及免疫极化——共同导致COPD、哮喘等慢性肺病，并通过系统性炎症信号影响心血管、肠道及母胎健康，为开发恢复自噬通量和溶酶体功能的治疗策略提供新靶点。",
+      "authors": "Lotfi, Noushin; Rezaei, Nahid; Chandan, Gourav; Akbari, Omid; Rehan, Virender K; ",
+      "publication": "Comprehensive Physiology",
+      "publishedOnline": "2026-05-08",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4-12837 (2021)",
+      "grantNumbers": [
+        "EDUC4-12837"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Stem Cell Training Program at the Lundquist Institute",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Cohesin bridging as a physical principle of enhancer-promoter communication",
+      "researchTopic": "研究提出黏连蛋白桥接作为增强子-启动子远程通讯的物理原理，通过一维环挤压定向扫描替代随机三维扩散，建立定量模型预测转录输出。基因组工程实验证实：CTCF侧翼位点通过扩展\"天线\"和延长桥接时间超加性促进转录，而间隔CTCF通过阻断单环桥接实现>50倍绝缘。研究揭示CTCF背面导致黏连蛋白环释放而非通过，统一了绝缘与促进的双重功能，为理解基因组结构变异和合成调控架构设计提供基础。",
+      "authors": "Foldes, Timothy C; Hansen, Karissa; Imakaev, Maxim; Dahl Pinholt, Henrik; Abdennur, Nezar Alexander; Fudenberg, Geoffrey C; Carel, Irie; Handal, Tayma; Vargas-Romero, Fernanda; Nora, Elphege; ",
+      "publication": "bioRxiv",
+      "publishedOnline": "2026-05-09",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4-12812 (2021)",
+      "grantNumbers": [
+        "EDUC4-12812"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Scholars Research Training Program in Regenerative Medicine, Gene Therapy, and Stem Cell Research",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Creatine kinase regulates energy metabolism and growth of trophoblasts",
+      "researchTopic": "研究系统描绘了人胎盘肌酸-磷酸肌酸系统从早孕至足月的时空表达图谱，发现合成酶AGAT定位于间充质而GAMT主要在滋养层，转运蛋白SLC6A8随孕周从滋养层转移至血管，线粒体CKMT1则持续表达于滋养层。利用环肌酸抑制CK功能后，原代滋养层干细胞出现细胞周期阻滞、凋亡增加及线粒体和糖酵解双重能量代谢障碍，类器官生长亦受抑；外源性肌酸可部分挽救上述表型。该研究揭示了肌酸激酶在胎盘早期发育中的关键作用，为妊娠相关疾病的代谢干预提供了新靶点。",
+      "authors": "Sah, Nirvay; Zheng, Claire; Shaik, Walee; Stein, Frances H; Rajupalem, Rachana; Meads, Morgan; Pizzo, Donald; Soncin, Francesca; ",
+      "publication": "bioRxiv",
+      "publishedOnline": "2026-05-07",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4-12804 (2021)/DISC0-13757 (2022)",
+      "grantNumbers": [
+        "EDUC4-12804",
+        "DISC0-13757"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education/Discovery",
+      "grantTitle": "Interdisciplinary Stem Cell Training Grant at UCSD III",
+      "awardStatus": "Active/Active"
+    },
+    {
+      "title": "Human pancreatic ductal cells from non-diabetic donors function as non-professional antigen-presenting cells upon inflammatory cytokine exposure",
+      "researchTopic": "研究证实非糖尿病供体的人胰腺导管细胞在T1D相关促炎细胞因子（TNF-α/IL-1β/IFN-γ）刺激下，可上调HLA-DR/DQ、CD40、ICAM-1及抗原加工分子（组织蛋白酶S、HLA-DM），获得非专业抗原呈递细胞功能，有效呈递GAD65自身抗原并激活GAD65特异性自身反应性CD4⁺ T细胞。单细胞分析显示该反应与APC基因程序强相关（OR=17.59）。意外发现约0.9%导管细胞内源性表达GAD65/67蛋白，提示其可能直接参与T1D自身免疫放大，为理解胰腺外分泌部在T1D发病中的作用提供了新证据。",
+      "authors": "Erdem, Neslihan; Arribas-Layton, David; Zook, Heather N; O’Meally, Denis; Mares, Jacob; Quijano, Janine C; Donohue, Cecile; Ortiz, Jose A; Jou, Kevin; Vasavada, Rupangi C; ",
+      "publication": "Diabetologia",
+      "publishedOnline": "2026-05-07",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4-12772 (2021)",
+      "grantNumbers": [
+        "EDUC4-12772"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Research Training Program in Stem Cell Biology and Regenerative Medicine",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Mitochondrial transfer technologies with molecular insights into clinical applications",
+      "researchTopic": "综述系统阐述了细胞间线粒体转移作为应激响应修复程序的双重角色：在生理条件下通过TNT、囊泡和巨胞饮等途径重建受体细胞呼吸能力与氧化还原平衡，促进组织修复；在肿瘤中则被劫持以增强代谢可塑性、治疗耐药和免疫逃逸。全面评估了从细胞融合、共培养到MitoPunch、光热纳米刀等新兴生物物理递送技术的优缺点，并讨论了直接线粒体移植与MSC介导转移的临床转化前景及关键挑战，为线粒体遗传学和疾病治疗提供了新框架。",
+      "authors": "Martirosian, Vahan; Peng, Berney; Teitell, Michael A; ",
+      "publication": "Stem Cells",
+      "publishedOnline": "2026-05-07",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "未指明",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "MAGMAS Inhibition Enhances Temozolomide Efficacy in Chemotherapy-Resistant Glioblastoma Models",
+      "researchTopic": "探讨了线粒体蛋白转运调控因子(MAGMAS)在复发胶质母细胞瘤(GBM)生物学中的作用，以及MAGMAS抑制对替莫唑胺(TMZ)耐药胶质瘤系和患者来源胶质瘤样干细胞的影响。研究发现线粒体蛋白转运调控因子MAGMAS（PAM16）在复发GBM、TMZ耐药细胞及胶质瘤干细胞中显著高表达，与MGMT正相关并参与代谢重编程。其小分子抑制剂BT9通过阻断线粒体蛋白输入、破坏OXPHOS导致ROS积累而杀伤肿瘤细胞，且对耐药株与敏感株效力相当。BT9联合TMZ在体外呈协同效应，在颅内原位移植瘤模型中使PAM16敲降联合TMZ组小鼠全程存活至150天且无肿瘤迹象。该研究确立MAGMAS为克服GBM化疗耐药的新靶点，BT9联合TMZ具有重要临床转化潜力。",
+      "authors": "Lepe, Javier J; Tran, Jennifer D; Lomeli, Naomi; Dang, Vi P; Nguyen, Valerie C; Chokkalingam, Parthiban; Das, Sasmita; Das, Bhaskar C; Bota, Daniela A; ",
+      "publication": "Cancer Research Communications",
+      "publishedOnline": "2026-06-09",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "TB1-01185 (2009)",
+      "grantNumbers": [
+        "TB1-01185"
+      ],
+      "grantType": "Bridges",
+      "programType": "Education",
+      "grantTitle": "CSUSB Bridges to Stem Cell Research",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "Tumor-enriched circRNA TAFCR1 drives cancer progression and metastasis by disrupting UBE1-dependent TRIM21-mediated CD44 ubiquitination",
+      "researchTopic": "研究从脂肪酸合酶(FASN)基因座鉴定出新型肿瘤富集环状RNA TAFCR1，由MBNL1通过Alu元件介导反向剪接产生。TAFCR1在肝癌和结直肠癌中特异性高表达，通过竞争性结合泛素激活酶UBE1，阻断UBE1依赖的TRIM21介导的CD44泛素化降解，稳定CD44蛋白并激活PI3K/AKT-SOX2-EMT/MMP9信号轴，从而促进肿瘤进展与转移。体内实验证实TAFCR1敲降可抑制肿瘤生长和肺转移、延长生存期，确立TAFCR1-UBE1-CD44轴为肝癌和结直肠癌的潜在治疗靶点。",
+      "authors": "Bai, Rilan; Li, Yan; Zhou, Lei; Yu, Yu; Wen, Xue; Li, Hui; Zhao, Yijing; Hoffman, Andrew R; Li, Wei; Hu, Jifan; ",
+      "publication": "Biomarker Research",
+      "publishedOnline": "2026-06-09",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "RT2-01942 (2010)",
+      "grantNumbers": [
+        "RT2-01942"
+      ],
+      "grantType": "Tools and Technologies II",
+      "programType": "Discovery",
+      "grantTitle": "Robust generation of induced pluripotent stem cells by a potent set of engineered factors",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "High-efficiency base editing enables multiplex inactivation of retroviral and immunologic barriers in porcine xenotransplantation",
+      "researchTopic": "研究开发了无DSB的BE4碱基编辑平台，结合猪受精卵微注射、胎儿预筛选与体细胞核移植，在单代内同时灭活43个PERV拷贝和5个异种移植障碍基因（GGTA1/B4GALNT2/CMAH/GHR）。所获PERV-null猪消除了人畜共患病风险；5KO猪体重降至野生型40%、消除主要糖抗原，且离体人血灌注显示肝脏显著延缓超急性排斥。该策略为临床级异种移植供体猪的快速构建提供了可规模化的高效框架。",
+      "authors": "Park, Ki-Eun; Waters, Jerel; Simpson, Sean; Yeddula, Sai Gowtham Reddy; Scimeca, Erin; Murugesan, Raju; Borges, Alexandria; Sher, Linda; Telugu, Bhanu P; ",
+      "publication": "Rsearch Square",
+      "publishedOnline": "2026-05-26",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "\r\nDISC2-14897 (2023)",
+      "grantNumbers": [
+        "DISC2-14897"
+      ],
+      "grantType": "\r\nQuest – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Assessing the Functional, Immunologic and Microbiologic Characteristics of Human Livers Created in Chimeric Pigs",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "∆ 9-Tetrahydrocannabinol exposure shifts eosinophil and macrophage transcriptional programs towards an anti-inflammatory phenotype in helminth infection",
+      "researchTopic": "探究持续Δ⁹-四氢大麻酚（THC）暴露如何改变宿主对巴西日圆线虫感染的免疫应答。发现THC暴露虽不影响寄生虫负荷，但能重塑2型炎症免疫应答：通过抑制循环嗜酸性粒细胞/单核细胞反应、增加Treg频率、降低T细胞炎症因子分泌，并将肺嗜酸性粒细胞和巨噬细胞的转录程序从炎症/纤维化方向转向氧化磷酸化与应激适应表型，同时保留肺Collagen VI。这些发现提示THC的免疫调节特性或可用于控制过度白细胞活化导致的组织病理损伤。",
+      "authors": "Jennett, Jennell; Olmos, Martin; Lam, Ka Man; Midou, Sarah; DiPatrizio, Nicholas V; Nair, Meera G; ",
+      "publication": "bioRxiv",
+      "publishedOnline": "2026-06-12",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC5-13636 (2022)",
+      "grantNumbers": [
+        "EDUC5-13636"
+      ],
+      "grantType": "\r\nCOMPASS Training Grant",
+      "programType": "Education",
+      "grantTitle": "Research Training and Mentorship Program to Inspire Diverse Undergraduates toward Regenerative Medicine Careers (RAMP)",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Isolation of postnatal human neural stem cells",
+      "researchTopic": "研究结合Smart-seq3 index sorting、STICR克隆条形码及异种移植技术，从出生后人脑中鉴定并分离了两类神经干细胞：A2B5⁺EGFR⁺的NINO亚群偏向分化为中间神经元和少突胶质细胞，A2B5⁻EGFRʰⁱ的NAC亚群偏向星形胶质细胞命运。两类NSC均具备自我更新和三系分化能力，移植后可在鼠脑中功能整合。NINO细胞频率在出生后前20年指数下降后趋于稳定，90岁人脑中仍可检出，为理解人脑发育、衰老及再生医学提供了关键细胞资源。",
+      "authors": "Liu, Daniel D; Eastman, Anna E; Womack-Gambrel, Nicole L; Kim, Chang N; He, Joy Q; Raj, Suyash; Reilly, Emily; Sinha, Rahul; Uchida, Nobuko; Chau, Kelly; ",
+      "publication": "bioRxiv",
+      "publishedOnline": "2026-06-12",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "DISC0-14429 (2023)",
+      "grantNumbers": [
+        "DISC0-14429"
+      ],
+      "grantType": "\r\nFoundation – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Identifying roadblocks to neural stem cell transplantation into human tissues.",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "The incidence, frequency of late liver-related complications, and transplant likelihood in pediatric acute liver failure in Californian children",
+      "researchTopic": "研究基于1990–2018年加利福尼亚州HCAI数据库2270例PALF患儿，利用竞争风险模型和Fine-Gray亚分布风险分析，发现PALF发病率为16.75/10万活产，8.3%接受肝移植，18.7%死亡，且远期死亡与肝脏无关。2002年PELD/MELD评分实施显著提高了<10岁患儿的移植率。移植中心虽死亡率较高，但反映了接收更复杂病例的现实。研究支持PALF患儿应尽早转诊至专科移植中心以优化预后。",
+      "authors": "Lee, Jason TC; Barbetta, Arianna; Bartlett, Johanna Ascher; Bangerth, Sarah; Jordan, Shannon; Lo, Mary; Barhouma, Sarah; Houshmand, Laura; Sher, Linda; Kohli, Rohit; ",
+      "publication": "Hepatology Communications",
+      "publishedOnline": "2026-06-12",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "未指明",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Helminth infection induces RELMɑ-dependent adipose tissue transcriptional reprogramming and protection against diet-induced obesity",
+      "researchTopic": "该研究利用西方饮食肥胖小鼠模型，发现短暂蠕虫感染可在寄生虫清除后持续减轻野生型小鼠肥胖并改善糖耐量，此效应依赖免疫调节蛋白RELMα。机制上，RELMα通过促进脂肪组织嗜酸性粒细胞和M2巨噬细胞浸润，下调胶原沉积与纤维化通路，同时上调脂肪酸氧化和线粒体功能相关基因，实现脂肪组织的代谢重编程。研究揭示RELMα是连接2型免疫与代谢保护的关键分子开关，为肥胖的免疫调节治疗提供了新靶点。",
+      "authors": "Jennett, Jennell; Ruggiero-Ruff, Rebecca E; Lam, Ka Man; Anesko, Kyle; Chen, Gang; Midou, Sarah; Ge, Shaokui; Nair, Meera G; ",
+      "publication": "bioRxiv",
+      "publishedOnline": "2026-06-09",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4- 12752 (2021)/EDUC5-13636 (2022)",
+      "grantNumbers": [
+        "EDUC4-",
+        "EDUC5-13636"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education/Education",
+      "grantTitle": "TRANSCEND – Training Program to Advance Interdisciplinary Stem Cell Research, Education, and Workforce Diversity",
+      "awardStatus": "Active/Active"
+    },
+    {
+      "title": "Macrophage‐Fibroblast Crosstalk Shapes Wound Repair Signaling In Vitro",
+      "researchTopic": "研究利用2D/3D共培养模型结合单细胞测序，系统解析了创面修复中巨噬细胞-成纤维细胞的通讯机制。发现细胞间直接接触（邻分泌）通过连接蛋白43（Cx43）介导的间隙连接通讯，特异性促进巨噬细胞IL-10分泌，但不影响TNFα水平；旁分泌信号则调控其他修复相关通路。单细胞分析进一步揭示创面损伤重塑双向细胞通讯网络，成纤维细胞作为主导信号发送者调控巨噬细胞行为。研究为理解免疫-基质细胞互作调控组织修复结局的分子网络提供了新的机制性认识。",
+      "authors": "Enriquez‐Ochoa, Daniela; Nagalla, Raji R; Liu, Yingzi; Guerrero‐Juarez, Christian F; Atcha, Hamza; Chang, Gordon; Morales, Nancy A; Hooper, Hannah J; Cano, Arian D; Lim, Huy Eng; ",
+      "publication": "The FASEB Journal",
+      "publishedOnline": "2026-05-18",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "EDUC4-12822 (2021)",
+      "grantNumbers": [
+        "EDUC4-12822"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "CIRM Scholars Comprehensive Research Training Program",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Chronic TGFβ1 Signaling Drives Aberrant Alveolar-Basaloid Metaplasia through a KRT17-Stratifin migratory complex",
+      "researchTopic": "研究利用snMultiome测序整合IPF肺、正常肺及类器官模型，揭示AT2细胞存在正常修复（经ETC分化为AT1）与异常修复（分化为DTC）两条轨迹。机制上，DTC特异性表达ITGB6，通过ITGB6/TGFβ1/SMAD3轴局部激活TGFβ1信号；SMAD3直接结合KRT17启动子并协同FOSL2/AP1驱动其转录。TGFβ1同时促进KRT17与SFN在细胞迁移前沿形成物理互作，该互作经AlphaFold3建模和BV02抑制剂验证为DTC迁移所必需。研究确立TGFβ1-KRT17-SFN轴为IPF异常上皮重塑的核心驱动机制，为特发性肺纤维化（IPF）靶向治疗提供新方向。",
+      "authors": "Sahasrabudhe, Isha R; Ma, Xinran; Iantorno, Stefano A; Tran, Tristan; DSouza, Sachin; Sussman, Chaya; Jones, Dakota; Biscotti, Mauer; Cao, Ivy; Katzen, Jeremy; ",
+      "publication": "bioRxiv",
+      "publishedOnline": "2026-05-17",
+      "manualUpdateDate": "2026-06-18",
+      "grantNumber": "DISC0-13788 (2022)",
+      "grantNumbers": [
+        "DISC0-13788"
+      ],
+      "grantType": "Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Modulation of human alveolar stem cells to promote lung regeneration and avoid pulmonary fibrosis",
       "awardStatus": "Active"
     }
   ],
