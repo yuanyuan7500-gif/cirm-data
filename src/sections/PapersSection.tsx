@@ -178,27 +178,33 @@ export function PapersSection({ data }: PapersSectionProps) {
     return isNaN(date.getTime()) ? null : date;
   };
 
-  // 获取最新手动更新日期
-  const latestManualDate = data.papers
-    .map(p => parseDate(p.manualUpdateDate))
-    .filter((date): date is Date => date !== null)
-    .sort((a, b) => b.getTime() - a.getTime())[0];
+  // 以当天(访问当天)为准回推60天，取近60天内发表的论文；无则回退为按发表日期最新的
+  const RECENT_DAYS = 60;
 
-  // 获取该日期的所有论文
-  const latestPapersAll = latestManualDate
-    ? data.papers
-        .filter(p => {
-          const pDate = parseDate(p.manualUpdateDate);
-          return pDate && pDate.getTime() === latestManualDate.getTime();
-        })
-        .filter(p => p.publishedOnline)
-        .sort((a, b) => {
-          const dateA = new Date(a.publishedOnline || '');
-          const dateB = new Date(b.publishedOnline || '');
-          return dateB.getTime() - dateA.getTime();
-        })
-    : [];
+  // 当天 0 点作为窗口上界，往前回推60天作为窗口下界
+  const now = new Date();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  const windowStart = todayStart - RECENT_DAYS * 24 * 60 * 60 * 1000;
 
+  // 论文 + 其规范化发表日期
+  const papersWithPub = data.papers
+    .map(p => ({ paper: p, pub: parseDate(p.publishedOnline) }))
+    .filter(x => x.pub !== null);
+
+  // 按发表时间从新到旧排序（用于展示与回退）
+  const sortedByPub = [...papersWithPub]
+    .sort((a, b) => (b.pub as Date).getTime() - (a.pub as Date).getTime())
+    .map(x => x.paper);
+
+  // 近60天窗口内发表的论文
+  const recentPapers = papersWithPub
+    .filter(x => (x.pub as Date).getTime() >= windowStart &&
+                 (x.pub as Date).getTime() <= todayStart + 24 * 60 * 60 * 1000)
+    .sort((a, b) => (b.pub as Date).getTime() - (a.pub as Date).getTime())
+    .map(x => x.paper);
+
+  // 有近60天的用近60天的；没有则回退为按发表日期最新的
+  const latestPapersAll = recentPapers.length > 0 ? recentPapers : sortedByPub;
   const latestPapers = showAllLatest ? latestPapersAll : latestPapersAll.slice(0, 6);
   const hasMoreLatest = latestPapersAll.length > 6;
 
@@ -327,7 +333,7 @@ export function PapersSection({ data }: PapersSectionProps) {
               最新发表论文
             </h3>
             <span className="text-sm text-gray-500">
-              最近更新的 {latestPapersAll.length} 篇论文
+              近60天发表的 {latestPapersAll.length} 篇论文
             </span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
