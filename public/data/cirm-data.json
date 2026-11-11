@@ -2,12 +2,12 @@
   "summary": {
     "totalGrants": 92,
     "totalProjects": 1627,
-    "totalAmount": 4698056172,
+    "totalAmount": 4691996355,
     "activeProjects": 692,
-    "totalPapers": 726,
+    "totalPapers": 802,
     "activeGrants": 571
   },
-  "updateDate": "2026/10/29",
+  "updateDate": "2026/11/09",
   "grants": [
     {
       "id": 1,
@@ -114,7 +114,7 @@
       "grantType": "TRAN 1 (Therapeutic Translational Research Projects)",
       "icocApproval": "2025-01-30",
       "totalAwards": 94,
-      "awardValue": 367506180,
+      "awardValue": 364165889,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -169,7 +169,7 @@
       "grantType": "CLIN 1 (Late Stage Preclinical Projects)",
       "icocApproval": "2025-05-29",
       "totalAwards": 54,
-      "awardValue": 230597488,
+      "awardValue": 228027439,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -224,7 +224,7 @@
       "grantType": "EDUC 2 (Bridges)",
       "icocApproval": "2021-07-20",
       "totalAwards": 29,
-      "awardValue": 94347973,
+      "awardValue": 94316496,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -301,7 +301,7 @@
       "grantType": "EDUC 1.5 (Conference – 2026 SPARK Annual Meeting)",
       "icocApproval": "2026-01-28",
       "totalAwards": 10,
-      "awardValue": 773067,
+      "awardValue": 655067,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -2001,13 +2001,13 @@
       "principalInvestigator": "UC Berkeley",
       "awardValue": 1234020,
       "icocApproval": "2022-09-20",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": true,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": 1234023,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "DISC0-13788",
@@ -5331,14 +5331,14 @@
       "grantTitle": "Hematopoietic Stem Cell Gene Therapy for Wiskott Aldrich Syndrome",
       "diseaseFocus": "Blood Disorders",
       "principalInvestigator": "ImmunoVec",
-      "awardValue": 3999899,
+      "awardValue": 659608,
       "icocApproval": "2023-04-27",
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 3999899,
       "previousAwardStatus": null
     },
     {
@@ -6640,14 +6640,14 @@
       "grantTitle": "Hematopoietic Stem Cell Gene Therapy for XCGD",
       "diseaseFocus": "Blood Disorders, X-linked Chronic Granulomatous Disease",
       "principalInvestigator": "ImmunoVec",
-      "awardValue": 3999959,
+      "awardValue": 1429910,
       "icocApproval": "2022-04-19",
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 3999959,
       "previousAwardStatus": null
     },
     {
@@ -7439,14 +7439,14 @@
       "grantTitle": "CIRM Bridges to Stem Cell Research and Therapy",
       "diseaseFocus": null,
       "principalInvestigator": "Berkeley City College",
-      "awardValue": 3224918,
+      "awardValue": 3193441,
       "icocApproval": "2021-07-20",
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 3224918,
       "previousAwardStatus": null
     },
     {
@@ -11502,14 +11502,14 @@
       "grantTitle": "Bright Minds Symposium: 2026 SPARK Annual Meeting",
       "diseaseFocus": null,
       "principalInvestigator": "Alexis Carlsson - Capitol Impact Consulting, LLC",
-      "awardValue": 118000,
+      "awardValue": 0,
       "icocApproval": "2026-01-28",
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 118000,
       "previousAwardStatus": null
     },
     {
@@ -40147,6 +40147,1214 @@
       "programType": "Education/Discovery",
       "grantTitle": "Stem Cell Training Program at the Lundquist Institute",
       "awardStatus": "Active/Active"
+    },
+    {
+      "title": "Precision therapeutics for early onset epilepsy: Allele-selective antisense oligonucleotides for SCN2A-related epilepsy.",
+      "researchTopic": "研究针对SCN2A相关早发性癫痫，探讨等位基因选择性反义寡核苷酸(ASO)的精准治疗策略。SCN2A变异是重要遗传病因，功能获得性变异可增强钠通道开放、导致神经元过度兴奋和癫痫发作。设计等位基因特异性ASO，可在转录水平选择性下调突变等位基因而保留野生型拷贝，降低神经元异常兴奋、抑制癫痫并改善神经发育。该策略为难治性早发性癫痫提供了靶向遗传病因的个体化治疗新方向。",
+      "authors": "Kim-McManus, Olivia;",
+      "publication": "Molecular therapy. Nucleic acids",
+      "publishedOnline": "2026-09-07",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "CLIN2-15085 (2024)",
+      "grantNumbers": [
+        "CLIN2-15085"
+      ],
+      "grantType": "Clinical Trial Stage Projects",
+      "programType": "Clinical",
+      "grantTitle": "Personalized antisense oligonucleotide therapy for rare pediatric genetic disease: SCN2A",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Surviving the Nucleus Pulposus Desert: Next-Generation Strategies for Intervertebral Disc Cell Therapy.",
+      "researchTopic": "综述探讨椎间盘退变(IVDD)细胞治疗新策略。细胞治疗虽临床前有效，却因退变椎间盘恶劣微环境（缺氧、营养缺乏、酸化、炎症、衰老等）致临床结局不佳。研究比较间充质基质细胞、髓核细胞及iPSC来源治疗的利弊，讨论生物材料载体、细胞外囊泡、基因工程、预处理与智能递送等策略以改善细胞存活、表型稳定与基质修复。作者强调整合细胞来源、生物材料递送、微环境调控与精准生物工程，方能持久修复并推动临床转化。",
+      "authors": "Hamidouche, Tynhinane; More, Namdev; Lee, Tiffany; Orr, Mia; Camus, Anne; Purmessur, Devina; Gulbrand, Sarah E; Chahine, Nadeen O; Silverman, Lara; Sheyn, Dmitriy;",
+      "publication": "JOR spine",
+      "publishedOnline": "2026-08-05",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12751 (2021)/DISC2-14049 (2023)",
+      "grantNumbers": [
+        "EDUC4-12751",
+        "DISC2-14049"
+      ],
+      "grantType": "Research Training Grant/Discovery Research Projects",
+      "programType": "Education/Discovery",
+      "grantTitle": "CIRM Training Program in Translational Regenerative Medicine",
+      "awardStatus": "Active/Active"
+    },
+    {
+      "title": "Edited HSPCs rescue frataxin deficiency and inflammation-driven multisystemic pathology in Friedreich's ataxia mice.",
+      "researchTopic": "研究以离体CRISPR/Cas9切除造血干细胞和祖细胞(HSPC)中frataxin(FXN)基因的GAA重复扩增，编辑细胞单次输注至Friedreich共济失调(FRDA)人源化小鼠。结果供体细胞长期植入，恢复FXN表达，纠正线粒体应激、胶质细胞活化和炎症等关键致病因素，改善运动、保留小脑、减轻心脏病理并维持胰岛β细胞存活，确立了编辑自体HSPC为一次性疾病修饰疗法的潜力。",
+      "authors": "Sivakumar, Anusha; Corl, Alexis N; Muñoz, Keneth Jordan; Arumugam, Subhashini; Gunes, Betul B; Solis, Angelyn B; Murthy, Rishika; El-Hachem, Lilas Rony; Pizzo, Donald P; Blair, Ian A; Rojsajjakul, Teerapat; Mesaros, Clementina; Wan, Xinlong; Rainaldi, Joseph N; Badell-Grau, Rafael A; Khare, Veenita; Thai, Kevin Eric; Biederman, Kavya; Cherqui, Stephanie;",
+      "publication": "The Journal of clinical investigation",
+      "publishedOnline": "2026-10-15",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "TRAN1-13983 (2022)/PDEV-19140 (2025)",
+      "grantNumbers": [
+        "TRAN1-13983"
+      ],
+      "grantType": "Therapeutic Translational Research Projects/Preclinical Stage Projects",
+      "programType": "Translational/Preclinical",
+      "grantTitle": "CRISPR/Cas9-mediated gene editing of Hematopoietic stem and progenitor cells for Friedreich’s ataxia",
+      "awardStatus": "Active/Active"
+    },
+    {
+      "title": "Δ9-Tetrahydrocannabinol exposure shifts eosinophil and macrophage transcriptional programs toward an anti-inflammatory phenotype in helminth infection.",
+      "researchTopic": "研究探讨持续暴露Δ9-四氢大麻酚(THC)对蠕虫感染免疫应答的影响。小鼠感染巴西鼠圆线虫前给予THC或溶剂14天，结果THC未显著改变体重或虫荷，但抑制循环嗜酸性粒细胞和单核细胞、增加调节性T细胞，降低脾细胞TNFα和IFNγ分泌；RNA测序示THC使肺嗜酸性粒细胞和巨噬细胞从炎症、纤维化转向应激与代谢适应程序并缓解肺胶原丢失，提示THC约束固有和T细胞效应应答重塑抗蠕虫免疫反应。",
+      "authors": "Jennett, Jennell; Olmos, Martin; Lam, Ka Man; Midou, Sarah; DiPatrizio, Nicholas V; Nair, Meera G;",
+      "publication": "Journal of leukocyte biology",
+      "publishedOnline": "2026-10-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC5-13636 (2022)",
+      "grantNumbers": [
+        "EDUC5-13636"
+      ],
+      "grantType": "COMPASS Training Grant",
+      "programType": "Education",
+      "grantTitle": "Research Training and Mentorship Program to Inspire Diverse Undergraduates toward Regenerative Medicine Careers (RAMP)",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Generation of two induced pluripotent stem cell lines from dilated cardiomyopathy patients with TTN mutations.",
+      "researchTopic": "研究从携带titin(TTN)截短突变的扩张型心肌病(DCM)女性患者外周血单个核细胞(PBMC)中重编程生成两株诱导多能干细胞(iPSC)系，每株均携带杂合无义点突变。两株细胞系均表达未分化人iPSC标记、具备三胚层分化能力，并经拷贝数分析确认基因组完整性。这些患者来源的iPSC系为在体外研究TTN截短所致DCM的力学生物学机制提供了可用平台。",
+      "authors": "Li, Jiawei; Kumar, Anurendra; Chen, Yin-Tzu; Zhou, Yang; Parikh, Victoria; Wu, Joseph C;",
+      "publication": "Stem cell research",
+      "publishedOnline": "2026-07-20",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC0-18038 (2025)",
+      "grantNumbers": [
+        "DISC0-18038"
+      ],
+      "grantType": "Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Base Editing, Single-Cell Multiomics, and Cardiac Organoids to Decode Genetic Variants",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Charge-switching ionizable lipids lower the toxicity of lipid nanoparticles.",
+      "researchTopic": "研究开发含羧酸和胺基的可电离脂质(S-lipid)，其带电状态可在pH 7.4与4.0间切换，构建可高效包载核酸并触发内体释放的纳米粒子，同时避免激活TLR4、补体、半乳糖凝集素-8及血小板活化因子等炎症信号通路。与常规脂质纳米粒子(LNP)相比，该粒子治疗脂多糖诱导的急性肺损伤时不会加重既定炎症，疗效更优。结果表明带负电的可电离脂质可减轻LNP毒性，为低炎症性核酸递送平台提供新思路。",
+      "authors": "Liang, Dengpan; Qi, Yalin; Han, Hesong; Ahmadian, Negar; Gao, Kewa; Sapasap, Kaycee; Zhang, Yuxi; Guo, Silin; Lawanprasert, Atip; Pimcharoen, Sopida; Zhao, Sheng; Del Buono, Milan T; Xia, He; Enders, Zoe O; Burgstone, Benjamin W; Calio, Antonino; Dankar, Neel; Lu, Bingwei; Qi, Lei S; Wang, Aijun; Murthy, Niren;",
+      "publication": "Nature nanotechnology",
+      "publishedOnline": "2026-09-08",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC2-14045 (2023)/DISC2-14097 (2023)",
+      "grantNumbers": [
+        "DISC2-14045",
+        "DISC2-14097"
+      ],
+      "grantType": "Discovery Research Projects/Discovery Research Projects",
+      "programType": "Discovery/Discovery",
+      "grantTitle": "Novel Lipid Nanoparticles for Enhancing eNOS Synthesis for Cardioprotection Post Myocardial Infarction",
+      "awardStatus": "Active/Active"
+    },
+    {
+      "title": "Saving the Capillaries: FGFR1/KLB and MFG-E8 in Diabetic Hearts.",
+      "researchTopic": "研究聚焦糖尿病心脏中FGFR1/KLB与MFG-E8对毛细血管的保护作用。糖尿病心肌常伴微血管损伤和毛细血管稀疏，是心功能恶化的重要基础。研究揭示成纤维细胞生长因子受体1(FGFR1)及其共受体KLB、乳脂球表皮生长因子8(MFG-E8)在维持心肌微血管完整性、促进血管新生和内皮保护中的作用，有助于阐明糖尿病心肌微血管病变的分子通路，为改善微循环、延缓心力衰竭提供潜在干预靶点。",
+      "authors": "Elbatreek, Mahmoud H; Lefer, David J;",
+      "publication": "Circulation research",
+      "publishedOnline": "2026-10-22",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "PDEV-19141 (2025)",
+      "grantNumbers": [],
+      "grantType": "Preclinical Stage Projects",
+      "programType": "Preclinical",
+      "grantTitle": "TY1 and Semaglutide to Treat Cardiometabolic HFpEF",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Intrinsic tumor cell line immunogenicity may drive CAR-independent T cell responses and confound CAR T cell preclinical modeling.",
+      "researchTopic": "研究评估肿瘤细胞系固有免疫原性对嵌合抗原受体T细胞(CAR-T)临床前建模的影响。将靶向CD19的CAR19及未转导人T细胞与Raji等细胞系共培养并评估疗效。结果T细胞除介导CAR依赖的细胞毒性外，还对CD19敲除(KO)的Raji细胞表现出CAR非依赖性反应，伴促炎因子分泌和活化标志上调，提示内源性T细胞受体介导，警示肿瘤细胞系免疫原性可能干扰CAR-T临床前结果的解读。",
+      "authors": "Sheng, Michael K; Firoz, Wahed A; Loi, Kelly; Vick, Logan V; Collins, Craig P; Nielsen, Ryan N; Schmeling, Jessica L; Gulati, Shuchi; Judge, Sean J; Canter, Robert J; Monjazeb, Arta M; Zamora, Anthony E; Murphy, William J;",
+      "publication": "Journal for immunotherapy of cancer",
+      "publishedOnline": "2026-07-23",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "TRAN1-13996 (2022)",
+      "grantNumbers": [
+        "TRAN1-13996"
+      ],
+      "grantType": "Therapeutic Translational Research Projects",
+      "programType": "Translational",
+      "grantTitle": "Overcoming resistance to standard CD19-targeted CAR T using a novel triple antigen targeted vector",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "An Infusible Decellularized Extracellular Matrix Material Binds to Vasculature in Infarcted Myocardium and Induces Pro-Reparative Gene Expression Following Acute Myocardial Infarction Through Inherent Avidity and Bioactive Signaling.",
+      "researchTopic": "研究剖析可注射去细胞细胞外基质(iECM)的组分及其治疗急性心肌梗死(MI)的作用。将iECM分为高分子量(HMW)与低分子量(LMW)组分，发现HMW含更多硫酸化糖胺聚糖并具更强结合能力，LMW驱动血管通透性降低；单一组分无法达到完整iECM的梗死保留水平，显示二者协同定位。单核RNA测序示两成分引发相当的免疫调节与促修复转录谱，阐明材料特性与下游生物行为的关系，为优化心梗修复提供依据。",
+      "authors": "Nguyen, Michael B; Chen, Alexander; Lyons, Quincy; Ninh, Van K; McCabe, Maxwell C; Luo, Colin; Bridgelal, Benjamin D; Uhre, Connor; Cheng, Julian; Reimold, Kate E; Cao, Selena; Hansen, Kirk C; King, Kevin R; Christman, Karen L;",
+      "publication": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+      "publishedOnline": "2026-10-29",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "TRAN1-15291 (2023)",
+      "grantNumbers": [
+        "TRAN1-15291"
+      ],
+      "grantType": "Therapeutic Translational Research Projects",
+      "programType": "Translational",
+      "grantTitle": "Pro-regenerative infusible ECM biomaterial for treating acute myocardial infarction",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Induced Pluripotent Stem Cell-Derived Hepatocytes From Patients With Metabolic Dysfunction-Associated Steatotic Liver Disease Exhibit Early Mitochondrial Dysfunction.",
+      "researchTopic": "研究利用代谢功能障碍相关脂肪性肝病(MASLD)患者来源的诱导多能干细胞(iPSC)分化获得的肝细胞，探讨该病早期的细胞病理特征。结果显示这些患者来源的肝细胞表现出早期线粒体功能障碍，提示线粒体异常可能在MASLD发病早期即已出现，并可能参与脂质代谢紊乱与肝损伤的进展。该患者特异性iPSC肝细胞模型为在体外研究MASLD的早期分子机制、筛选干预靶点及推进个体化治疗提供了有价值的实验平台。",
+      "authors": "Le Guillou, Dounia; Siao, Kevin; Her, Chris L; Duwaerts, Caroline C; Maher, Jacquelyn J;",
+      "publication": "Cellular and molecular gastroenterology and hepatology",
+      "publishedOnline": "2026-08-13",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "IT1-06563 (2013)",
+      "grantNumbers": [
+        "IT1-06563"
+      ],
+      "grantType": "IT1 (Tissue Collection for Disease Modeling)",
+      "programType": "Infrastructure",
+      "grantTitle": "iPSC-derived Hepatocytes as Platforms for Research in Viral Hepatitis and Non-alcoholic Steatohepatitis",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "Temporal mapping of radiation-induced neural injury and mitigation in human cortical organoids.",
+      "researchTopic": "研究利用成熟人诱导多能干细胞(iPSC)来源皮层类器官，模拟电离辐射(单次或分次5×2 Gy)所致中枢神经系统损伤，评估DNA损伤、结构组织、突触完整性与神经炎症并转录组分析，测试NSPP和氨磺必利两种缓解剂。结果类器官照射后部分恢复，辐射还重塑谱系轨迹，耗竭干/祖细胞、丧失神经元身份、增强胶质生成、增加炎症因子并破坏皮层分层；缓解剂可减轻相关改变。该模型为辐射生物学和缓解剂筛选提供了人源平台。",
+      "authors": "He, Ling; Kornblum, Harley I; Bhaduri, Aparna; Pajonk, Frank;",
+      "publication": "Stem cells translational medicine",
+      "publishedOnline": "2026-08-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC2-14083 (2023)",
+      "grantNumbers": [
+        "DISC2-14083"
+      ],
+      "grantType": "Discovery Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Development of novel small molecules against cancer stem cells in solid cancers",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Distinct differentiation trajectories leave lasting impacts on gene regulation and function of V2a neurons.",
+      "researchTopic": "研究探讨V2a中间神经元分化轨迹对成熟基因调控与功能的影响。经后脑样与脊髓样祖细胞路线分化V2a神经元并单核多组学测序，发现两谱系在转录因子基序富集及调控轴突生长、钙处理的基因上显著不同；直接诱导V2a转录因子而跳过发育模式化则产生异于两者的群体，说明祖细胞历史不可替换。结合CellOracle与慢病毒敲低，鉴定CREB5和TCF7L2为脊髓样特异性调节因子，揭示祖细胞来源塑造V2a身份。",
+      "authors": "Elder, Nicholas H; Majd, Alireza; Cesiulis, Andrius; Nyarady, Spencer; Sankar, Kalyan; Bulger, Emily A; Samuel, Ryan M; Zholudeva, Lyandysha V; McDevitt, Todd C; Fattahi, Faranak;",
+      "publication": "Nature communications",
+      "publishedOnline": "2026-07-29",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC2-15119 (2023)/DISC2-16715 (2024)/DISC0-14521 (2023)",
+      "grantNumbers": [
+        "DISC2-15119",
+        "DISC2-16715",
+        "DISC0-14521"
+      ],
+      "grantType": "Discovery Research Projects/Discovery Research Projects/Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery/Discovery/Discovery",
+      "grantTitle": "Drug discovery for gastrointestinal motility disorders using hPSC-derived enteric ganglioids",
+      "awardStatus": "Active/Active/Active"
+    },
+    {
+      "title": "Combination of genetic eNOS deficiency and high-fat diet induces reproducible cardiometabolic HFpEF.",
+      "researchTopic": "研究构建结合内皮型一氧化氮合酶(eNOS)敲除与高脂饮食(HFD)代谢应激的小鼠模型，模拟射血分数保留的心力衰竭(HFpEF)。eNOS敲除小鼠经HFD后两性均出现严重且可重复的HFpEF表型：射血分数保留但明显舒张功能障碍和运动不耐受，伴心肌纤维化、肝脂肪变和肾小管间质纤维化；GIP/GLP-1双受体激动剂替尔泊肽可大幅逆转上述异常。该模型为HFpEF机制研究和新型疗法测试提供了理想平台。",
+      "authors": "Elbatreek, Mahmoud H; Khodade, Vinayak S; Amin, Darshan; Huerta, Miguel; Allerton, Timothy D; Polhemus, David J; Shah, Sanjiv J; Vondriska, Thomas M; Goodchild, Traci T; Lefer, David J;",
+      "publication": "Redox biology",
+      "publishedOnline": "2026-09-11",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "PDEV-19141 (2025)",
+      "grantNumbers": [],
+      "grantType": "Preclinical Stage Projects",
+      "programType": "Preclinical",
+      "grantTitle": "TY1 and Semaglutide to Treat Cardiometabolic HFpEF",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "An improved formulation of human neural stem cells for the treatment of geographic atrophy.",
+      "researchTopic": "研究在RCS大鼠中比较视网膜下递送人中枢神经系统干细胞(HuCNS-SC)与其新型单细胞悬浮制剂Neubright(NB)的神经保护作用。向大鼠视网膜下注射15万细胞，以视动追踪和视网膜电图评估视觉功能。结果两种制剂均有阳性细胞存留于视网膜下腔，注射区附近外核层更厚；与HuCNS-SC相比，NB扩散和视觉表现显著提高，支持其为高活力单细胞悬浮制剂，为黄斑视网膜变性治疗提供临床前依据。",
+      "authors": "Arrizabalaga, Sebastian E; Uchida, Nobuko; Curtis, Allison; Tsukamoto, Ann; Leng, Theodore; Ryals, Renee C;",
+      "publication": "PloS one",
+      "publishedOnline": "2026-08-10",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "TRAN1-11300 (2018)",
+      "grantNumbers": [
+        "TRAN1-11300"
+      ],
+      "grantType": "Therapeutic Translational Research Projects",
+      "programType": "Translational",
+      "grantTitle": "NeuBright, a purified allogeneic cell therapy product for treatment of Dry Age-related Macular Degeneration",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "Clinical landscape of human pluripotent stem cell-derived cardiomyocyte therapy.",
+      "researchTopic": "综述了人心多能干细胞来源心肌细胞(hPSC-CM)疗法的临床格局。心力衰竭影响全球约6000万人，现有药物仅能延缓进展而无法恢复心肌细胞丢失；分化与组织工程进展使hPSC来源心肌细胞制品进入首次人体临床试验。本文阐述射血分数降低心衰细胞治疗的病理生理依据，比较细胞悬液、心外膜片、工程化心肌及心脏球体等制品形式的优缺点与转化考量，并更新在研及已完成临床试验的安全性、可行性和初步疗效。",
+      "authors": "Mui, Byron W H; Neofytou, Evgenios; Wu, Joseph C;",
+      "publication": "Cell reports. Medicine",
+      "publishedOnline": "2026-08-05",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "CLIN2-12735 (2021)",
+      "grantNumbers": [
+        "CLIN2-12735"
+      ],
+      "grantType": "Clinical Trial Stage Projects",
+      "programType": "Clinical",
+      "grantTitle": "A Phase I, Pilot Study of Human Embryonic Stem Cell-Derived Cardiomyocytes in PaTients with ChrOnic Ischemic Left VentRicular Dysfunction (HECTOR)",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Individualized antisense oligonucleotides for SCN2A-related developmental epileptic encephalopathy.",
+      "researchTopic": "研究针对SCN2A相关发育性癫痫性脑病(DEE)开展两项平行的n=1个体化研究，为两名患者设计等位基因选择性反义寡核苷酸(ASO)，选择性降低突变SCN2A转录本表达而保留野生型拷贝。结果两患者癫痫发作频率分别下降26%和90%，伴随用药减少及神经发育改善，且ASO耐受良好；独立SCN2A相关疾病婴儿队列中16%患者携带可匹配SNP。这些初步结果为个体化单基因病治疗推广提供了路径。",
+      "authors": "Kim-McManus, Olivia; Mignon, Laurence; Douville, Julie; Pu, He; Parisien, Catherine; Glass, Sarah; Bennett, C Frank; Celso, Janelle; Robbins, Kendall; Ung, Hoameng; Olson, Heather; Kingsmore, Stephen F; Petrou, Steven; Crooke, Stanley T; Gleeson, Joseph G; Berry-Kravis, Elizabeth;",
+      "publication": "Nature medicine",
+      "publishedOnline": "2026-07-21",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "CLIN2-15085 (2024)",
+      "grantNumbers": [
+        "CLIN2-15085"
+      ],
+      "grantType": "Clinical Trial Stage Projects",
+      "programType": "Clinical",
+      "grantTitle": "Personalized antisense oligonucleotide therapy for rare pediatric genetic disease: SCN2A",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Treatment sequence of stem cell delivered heterologous oncolytic virus impact on tumor microenvironment in immunocompetent ovarian cancer model.",
+      "researchTopic": "研究在免疫健全的卵巢癌小鼠模型中，考察神经干细胞递送的条件复制型腺病毒(NNV24)与间充质干细胞递送的痘苗病毒(SNV1)两种溶瘤病毒制品的给药顺序对肿瘤微环境和疗效的影响。结果显示以NNV24起始、后接SNV1的方案显著延长生存，增强瘤内病毒定植、细胞毒性T淋巴细胞和成熟树突状细胞浸润，并降低致耐受性树突状细胞；反向顺序则削弱免疫激活与疗效。该研究确立了异源溶瘤病毒给药顺序的关键作用。",
+      "authors": "Abd El-Fattah, Eslam E; Flores, Linda; Lara, Jacqueline; Ngai, Gary; Mooney, Rachael; Aboody, Karen;",
+      "publication": "Frontiers in immunology",
+      "publishedOnline": "2026-08-31",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "CLIN1-14845 (2024)",
+      "grantNumbers": [
+        "CLIN1-14845"
+      ],
+      "grantType": "Late Stage Preclinical Projects",
+      "programType": "Clinical",
+      "grantTitle": "Neural stem cell delivered CRAd-S-pk7 oncolytic viro-immunotherapy for ovarian cancer",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "A Vegan Diet Epigenetically Modulates Inflammatory Pathways and Biological Aging: Genome-Wide DNA Methylation Analysis of a One-Month Isocaloric Vegan Versus Meat-Rich Dietary Intervention.",
+      "researchTopic": "研究探讨纯素饮食(VD)相对富肉饮食(MR)的表观基因组效应。对48名健康人进行1个月随机等能量饮食干预及全基因组甲基化分析。结果VD组在癌症相关及细胞生长相关(mTOR和Hippo)通路出现更多启动子沉默；细胞反卷积提示抗炎转变，中性粒细胞减少、CD4+T细胞比例升高；表观遗传时钟(PhenoAge、GrimAge)示VD组衰老减速。提示VD驱动与癌症风险降低和衰老减速相关的表观基因组改变。",
+      "authors": "Karbacher, L; Mertens, Jerome; Kowarschik, S; Lederer, A K; Ku, M; Huber, R; Storz, Maximilian Andreas;",
+      "publication": "MedComm",
+      "publishedOnline": "2026-08-03",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC0-17507 (2025)",
+      "grantNumbers": [
+        "DISC0-17507"
+      ],
+      "grantType": "Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Unraveling nuclear Tau functions using age-equivalent human induced neurons from healthy aging donors and tauopathy patients",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Desmoplakin Mutations in Cardiac Fibroblasts Cause TGFβ1-Mediated Pathological Fibrogenesis in Desmoplakin Cardiomyopathy Via Beclin-1 Regulation.",
+      "researchTopic": "研究探讨桥粒斑蛋白(desmoplakin, DSP)突变在心肌纤维化中的作用。以DSP突变与正常供体iPSC来源心肌间充质基质细胞研究其对转化生长因子β1(TGFβ1)的应答。结果突变细胞过度积累波形蛋白/纤维状胶原并激活纤维化基因；突变细胞呈单倍剂量不足，未结合DSP的波形蛋白隔离beclin-1抑制自噬、扰乱caveolin-1内吞，加剧胶原和纤连蛋白表达，揭示DSP致心肌纤维化的新机制。",
+      "authors": "Wei, Chuanyu; Shou, Weinian; Chan, Shing-Fai; Saguner, Ardan M; Brunckhorst, Corinna; Duru, Firat; Marine, Joseph E; James, Cynthia A; Calkins, Hugh; Judge, Daniel P; Chen, Huei-Sheng Vincent;",
+      "publication": "Circulation research",
+      "publishedOnline": "2026-08-19",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "RB4-06276 (2012)",
+      "grantNumbers": [
+        "RB4-06276"
+      ],
+      "grantType": "RB4 (Basic Biology IV)",
+      "programType": "Discovery",
+      "grantTitle": "Studying Arrhythmogenic Right Ventricular Dysplasia with patient-specific iPS cells",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "Hippocampal Astrocytes Impact Postnatal Development of Inhibitory Connections, Parvalbumin Levels, Social, and Spatial Navigation Behaviors in a Mouse Model of Fragile X Syndrome.",
+      "researchTopic": "研究探讨海马星形胶质细胞在脆性X综合征(FXS)抑制性回路发育中的作用。以星形胶质细胞Fmr1条件敲除(cKO)脑片电生理检测CA1抑制性传递：cKO中GABA_A受体及体周GABA能突触密度降低，而锥体细胞自发抑制性突触后电流(sIPSC)增强，推测因异常GABA转运致细胞外GABA升高；急性抑制GABA转运可增强小白蛋白(PV)并改善空间记忆和社交，表明其是FXS抑制性回路关键调控者。",
+      "authors": "Wagner, Victoria A; Maples, Sarah; Thapa, Ritika; Wimberly, Jordan; Pettijohn, Ellie; Varallo, Alexandra; Rais, Maham; Sutley-Koury, Samantha; Hickmott, Peter; Ethell, Iryna M;",
+      "publication": "Journal of neurochemistry",
+      "publishedOnline": "2026-08-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12752 (2021)",
+      "grantNumbers": [
+        "EDUC4-12752"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "TRANSCEND – Training Program to Advance Interdisciplinary Stem Cell Research, Education, and Workforce Diversity",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Inhaled vitamin A mitigates hyperoxia-induced acute and chronic lung damage in a neonatal rat model of bronchopulmonary dysplasia.",
+      "researchTopic": "研究在新生大鼠持续高氧七天的支气管肺发育不良(BPD)模型中,比较雾化吸入、肠内和肌内给药维生素A的疗效。结果显示,吸入维生素A在出生第7天和21天均显著抑制高氧诱导的肺损伤,肺泡形态学及损伤与炎症标志物近乎恢复正常,并促进正常肺泡化和肺功能恢复,优于肠内和肌内给药。该研究支持吸入维生素A作为BPD预防策略的进一步开发。",
+      "authors": "Gelfand, Craig A; Wang, Ying; Sakurai, Reiko; Liu, Jie; Yu, Celia; Chandan, Gourav; Madrigal, Sabrina; Juan, Lisette; Segal, Robert; Rehan, Virender K;",
+      "publication": "American journal of respiratory cell and molecular biology",
+      "publishedOnline": "2026-08-20",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12837 (2021)",
+      "grantNumbers": [
+        "EDUC4-12837"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Stem Cell Training Program at the Lundquist Institute",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Generation of two induced pluripotent stem cell lines from Fabry disease patients carrying GLA mutations.",
+      "researchTopic": "研究从两名携带GLA基因杂合突变女性法布里病(Fabry disease)患者的外周血单个核细胞(PBMC)中建立并全面鉴定了两株诱导多能干细胞(iPSC)系。法布里病由GLA功能缺失导致溶酶体酶α-半乳糖苷酶A(α-Gal A)缺乏,引发球三糖神经酰胺蓄积并增加心脏疾病死亡风险。所建两株iPSC系经充分表征且遗传准确,为法布里病临床前研究提供了宝贵的人类细胞资源。",
+      "authors": "Patra, Debarun; Cabrera, David G T; Yang, Xiaochun; Walther, Parker; Mukherjee, Souhrid; Sampson, Jacinda; Wu, Joseph C;",
+      "publication": "Stem cell research",
+      "publishedOnline": "2026-08-22",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC0-18038 (2025)",
+      "grantNumbers": [
+        "DISC0-18038"
+      ],
+      "grantType": "Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Base Editing, Single-Cell Multiomics, and Cardiac Organoids to Decode Genetic Variants",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Bioengineering technologies for enabling biomedical research in space.",
+      "researchTopic": "综述评述了支撑太空生物医学研究的生物工程技术,包括组织工程、三维(3D)生物打印、组织芯片与生物传感器。组织工程构建物和干细胞来源类器官提供人类相关替代,利用微重力形成更均匀复杂的多细胞结构;3D生物打印减少构建物塌陷与沉降缺陷,国际空间站已演示飞行中打印;组织芯片可模拟心脏、骨骼肌和血脑屏障等器官;生物传感器实现实时原位监测。这些技术正向统一自主平台汇聚,促进航天健康与陆地再生医学发展。",
+      "authors": "Gupta, Jasmine; Mozneb, Maedeh; Moses, Jemima; Sharma, Arun;",
+      "publication": "Frontiers in bioengineering and biotechnology",
+      "publishedOnline": "2026-10-13",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "INFR6.2-15475 (2024)",
+      "grantNumbers": [
+        "INFR6"
+      ],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "Shared Resource Laboratory for Advanced Stem Cell-Based Modeling",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Nanomolar vanillin, an e-cigarette flavorant, appears to disrupt pluripotency and promote endodermal differentiation in human embryonic stem cells via TRPV4 activation.",
+      "researchTopic": "研究以模拟人上胚层阶段的人胚胎干细胞(hESC)为模型,评估电子烟调味剂香草醛对原肠形成的影响。结果表明,与孕期电子烟暴露相关的纳摩尔浓度香草醛通过激活TRPV4通道,促进多能性丧失、EpCAM下调并转向内胚层基因表达;微摩尔浓度则诱导细胞毒性、集落脱落和死亡,且被TRPV4拮抗剂阻断。研究揭示香草醛经TRPV4激活浓度依赖地扰乱早期人胚胎发育核心过程,提示孕期电子烟使用的潜在风险。",
+      "authors": "Etemadi, Shabnam; Talbot, Prue;",
+      "publication": "Human reproduction (Oxford, England)",
+      "publishedOnline": "2026-10-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12752 (2021)",
+      "grantNumbers": [
+        "EDUC4-12752"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "TRANSCEND – Training Program to Advance Interdisciplinary Stem Cell Research, Education, and Workforce Diversity",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Machine Learning-Driven Automated Culture Reveals Similar Performance of mTeSR+ and StemFlex in Human iP11N Pluripotent Stem Cells.",
+      "researchTopic": "研究利用CellXpress.ai自动化组织培养平台结合基于机器学习的图像分析,在标准化条件下比较mTeSR+与StemFlex培养基维持人诱导多能干细胞(hiPSC)的能力。结果显示两种培养基增殖率无显著差异,多能性标志物表达与定位相当,干性因子表达相似,均能短期稳定维持iPSC多能性。该研究凸显自动化成像与机器学习分析在降低操作者差异、提高培养一致性方面的价值,支持其用于高通量干细胞研究。",
+      "authors": "Bogoniewski, Aleksander A; Gonzalez, Melissa F; Reyes, Rachel E; Rivera, Susanna F; Taylor, Cameron; Schurr, Todd; Damoiseaux, Robert; Lipshutz, Gerald S;",
+      "publication": "Cells",
+      "publishedOnline": "2026-08-25",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC2-14090 (2023)",
+      "grantNumbers": [
+        "DISC2-14090"
+      ],
+      "grantType": "Discovery Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Gene Therapy for SLC6A8 Creatine Transporter Disorder",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Morphogen-guided neocortical organoids with anteroposterior areal identity.",
+      "researchTopic": "研究通过短期暴露前部或后部形态发生素,建立了具有前后(AP)区域特性的新皮质类器官。空间与单细胞RNA测序证实形成稳定AP极化,区域特异分子特征与人产前皮质一致。为验证实用性,研究在具不同AP身份的类器官中建模脆性X综合征(FXS),发现其沿AP轴表达梯度异常,与自闭症谱系障碍改变一致。该研究提供了生成具AP分子特征新皮质类器官的稳健平台,强调以具神经解剖特异性的平台建模神经发育疾病。",
+      "authors": "Tsai, Yuan-Chen; Ozaki, Hajime; Almet, Axel A; Fleming, Isabel; Nie, Caihao; Luo, Songhao; Wang, Xinyi; Shiraiwa, Kaori; Noh, Matthew Jung Min; Trejo, Sunnyana; Sugita, Bret Kiyoshi; Dalal, Jiya; Gonzalez, Ruben Alberto; De Jesus, Briana; Branco, Nate; Chen, Gregory Li-Min; Gandal, Michael J; Nie, Qing; Watanabe, Momoko;",
+      "publication": "Cell stem cell",
+      "publishedOnline": "2026-08-20",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12822 (2021)/EDUC5-13637 (2022)/EDUC2-12734 (2021)",
+      "grantNumbers": [
+        "EDUC4-12822",
+        "EDUC5-13637",
+        "EDUC2-12734"
+      ],
+      "grantType": "Research Training Grant/COMPASS Training Grant/Bridges",
+      "programType": "Education/Education/Education",
+      "grantTitle": "CIRM Scholars Comprehensive Research Training Program",
+      "awardStatus": "Active/Active/Active"
+    },
+    {
+      "title": "Modeling Heart Failure With Preserved Ejection Fraction Using Human Induced Pluripotent Stem Cell-Derived Cardiomyocytes.",
+      "researchTopic": "研究利用人诱导多能干细胞来源的心肌细胞(hiPSC-CM)建立射血分数保留型心力衰竭(HFpEF)的体外模型,以模拟其相关病理生理特征并评估功能与分子变化,旨在为这类缺乏有效治疗的心力衰竭亚型创建更具人类相关性的研究平台,促进HFpEF发病机制的研究与药物筛选,为疾病机制探索和新药研发提供参考。",
+      "authors": "Yu, Brian; Ren, Lu; Liu, Yu; Tu, Chengyi; Kojic, Ana; Dai, Yuanyuan; Venkateshappa, Ravichandra; Shen, Mengcheng; Zhao, Shane R; Wu, Joseph C;",
+      "publication": "Circulation",
+      "publishedOnline": "2026-09-28",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC0-18038 (2025)",
+      "grantNumbers": [
+        "DISC0-18038"
+      ],
+      "grantType": "Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Base Editing, Single-Cell Multiomics, and Cardiac Organoids to Decode Genetic Variants",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Epigenetic mechanisms in traumatic brain injury: a focus on astrocytes and therapeutic implications.",
+      "researchTopic": "综述评估创伤性脑损伤(TBI)后的表观遗传调控机制,聚焦星形胶质细胞将急性损伤与慢性病理相联系的介质作用。TBI引发的神经炎症持续存在,损伤诱导的星形胶质细胞表观遗传重编程可能延续炎症与代谢异常,增加迟发神经退变风险;临床前研究提示调节表观遗传因子可改善实验性TBI结局。研究讨论了细胞特异性与脱靶效应等转化挑战,并强调以细胞特异、时间可控的表观遗传精准调控缓解长期神经损伤。",
+      "authors": "Li, Lulin; Bonfoey, Alyssa M; Sun, Bryan; Harris, Odette A; Luo, Jian;",
+      "publication": "Journal of neuroinflammation",
+      "publishedOnline": "2026-07-22",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC2-16562 (2024)",
+      "grantNumbers": [
+        "DISC2-16562"
+      ],
+      "grantType": "Discovery Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Human induced pluripotent stem cells-derived glial enriched progenitors for the treatment of mild traumatic brain injury",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Regulators of interferon-responsive microglia uncovered by Genome-wide CRISPRi screening.",
+      "researchTopic": "研究通过在人iPSC来源小胶质细胞中进行基因组范围CRISPR干扰(CRISPRi)筛选,以IFIT1作为干扰素响应小胶质细胞(IRM)标志,系统鉴定其遗传调控因子。共发现772个调控IRM的基因,包括经典I型干扰素信号基因及新发现的调节因子,并揭示CCR4-NOT复合物亚基CNOT10在IRM激活中的非经典作用。该研究为解析IRM功能及调控小胶质细胞干扰素信号提供了综合资源与新靶点。",
+      "authors": "McQuade, Amanda; Castillo, Vincent Cele; Hagan, Venus; Liang, Weiwei; Ta, Thomas; Mishra, Reet; Teter, Olivia; Gomes, Layla; Gonzalez, Bianca; Teyssier, Noam; Leng, Kun; Kampmann, Martin;",
+      "publication": "NPJ dementia",
+      "publishedOnline": "2026-09-02",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC2-12730 (2021)",
+      "grantNumbers": [
+        "EDUC2-12730"
+      ],
+      "grantType": "Bridges",
+      "programType": "Education",
+      "grantTitle": "Building Career Pathways into Stem Cell Research and Therapy Development",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "DNA-bound avian R2 non-LTR retrotransposon protein recruits a second R2 protein for genome-protective second-strand nicking.",
+      "researchTopic": "研究通过生化重构、细胞实验与定量基因组学,阐明鸟类R2非长末端重复(LTR)逆转录转座子蛋白(R2p)支持人类基因组精确插入的第二链切口机制。研究发现,结合靶位点的R2p可募集另一R2p切口第二链;第二链切口受损的变体降低转基因插入效率,并使靶位点由小缺失转为需大量DNA修复的大片段重复。该结果揭示逆转录转座子移动机制,并为精确RNA介导的转基因插入(PRINT)优化提供依据。",
+      "authors": "Aderounmu, Adedeji M; Horton, Connor A; Van Treeck, Briana; Rodríguez-Vargas, Anthony; Collins, Kathleen;",
+      "publication": "Proceedings of the National Academy of Sciences of the United States of America",
+      "publishedOnline": "2026-08-11",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12790 (2021)",
+      "grantNumbers": [
+        "EDUC4-12790"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Training the Next Generation of Biologists and Engineers for Regenerative Medicine",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "HIPPIE: a generative model for electrophysiological analysis across species, technologies, and modalities.",
+      "researchTopic": "研究提出HIPPIE,一种结合自监督预训练与监督微调的深度学习框架,用于细胞外电生理记录的神经元分类。该框架通过学习技术自适应的细胞外波形与放电动态表征,在小鼠、大鼠和猕猴记录中分类效果与现有方法相当,并支持信号反事实解码、跨物种隐空间插值等生成分析,为跨技术、跨物种多模态神经元分类提供了统一框架。",
+      "authors": "Gonzalez-Ferrer, Jesus; Lehrer, Julian; Alvarez-Esteban, Bruno; Moreno-Ochando, Avelina; Schweiger, Hunter E; Geng, Jinghui; Eugenio Dos Santos, Luiz F S; Hernandez, Sebastian; Reyes, Francisco; Sevetson, Jess L; Schneider, Aidan; Salama, Sofie R; Teodorescu, Mircea; Haussler, David; Mostajo-Radji, Mohammed A;",
+      "publication": "Nature communications",
+      "publishedOnline": "2026-08-21",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC4-16285 (2024)/DISC4-16337 (2025)/DISC4-19334 (2026)",
+      "grantNumbers": [
+        "DISC4-16285",
+        "DISC4-16337",
+        "DISC4-19334"
+      ],
+      "grantType": "ReMIND – Discovery Stage ReMIND/ReMIND – Discovery Stage ReMIND/ReMIND – Discovery Stage ReMIND",
+      "programType": "Discovery/Discovery/Discovery",
+      "grantTitle": "Deep phenotyping of human brain organoid models of autism spectrum disorder to unravel disease heterogeneity and develop biomarkers and treatments",
+      "awardStatus": "Active/Active/Active"
+    },
+    {
+      "title": "LMO2 regulates STAT3 localization to the nucleus in breast cancer cells.",
+      "researchTopic": "研究探讨转录接头蛋白LMO2在乳腺癌细胞中STAT3信号活化与定位的作用。结果发现,缺乏LMO2时,组成性活化的STAT3不足以驱动乳腺癌转移;机制上,LMO2不仅促进STAT3胞质磷酸化,还调控其向细胞核的转位,协同促进STAT3活化与核定位。该研究提示LMO2通过促进STAT3活化及其核定位在乳腺癌生长与转移中发挥关键作用,为理解STAT3信号调控提供新视角。",
+      "authors": "Fetter, Isobel J; Haro Acosta, Veronica; Parecadan, Sachin; Sikandar, Shaheen S;",
+      "publication": "microPublication biology",
+      "publishedOnline": "2026-07-30",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12759 (2021)",
+      "grantNumbers": [
+        "EDUC4-12759"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "CIRM Training Program in Systems Biology of Stem Cells",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Short term ex vivo graft conditioning with venetoclax, fluticasone propionate, and IL-2 reduces graft versus host disease in mouse allogeneic hematopoietic cell transplantation",
+      "researchTopic": "研究在异体造血细胞移植前,将小鼠移植物用venetoclax、丙酸氟替卡松和白细胞介素-2(IL-2)联合离体(ex vivo)处理6小时,以预防移植物抗宿主病(GVHD)。结果显示,预处理增加了移植前后耐受性调节性T细胞的频率;接受处理细胞的受体小鼠在完全错配和单倍相合模型中GVHD严重程度降低、总生存率升高。该研究提供了降低对细胞毒或免疫抑制化合物依赖的GVHD预防替代策略。",
+      "authors": "Ayala, L. Angel; Ahmedani, Alizeh; Zhou, Cuiwen; Hisoire, Gabriella L.; Villamar, Alexii; Baez, Michelle; Onofre, Nathalia; De Smet, Chanel; Nguyen, Pauline U.; Scarfone, Vanessa M.; Varady, Erika S.; Chen, Xiyu; Daud, Ankita; Inlay, Matthew A.;",
+      "publication": "Frontiers in immunology",
+      "publishedOnline": "2026-10-09",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "CL1-00520-1.2 (2007)/EDUC4-12822 (2021)/INFR6.2-15368 (2024)",
+      "grantNumbers": [
+        "CL1-00520",
+        "EDUC4-12822",
+        "INFR6"
+      ],
+      "grantType": "CL1 (Shared Labs)/Research Training Grant",
+      "programType": "Infrastructure/Education",
+      "grantTitle": "The University of California: Irvine Regional Human Embryonic Stem Cell Shared Research Laboratory and Stem Cell Techniques Course",
+      "awardStatus": "Closed/Active/Active"
+    },
+    {
+      "title": "Targeting Artemis sensitizes acute lymphoblastic leukemia cells to topoisomerase 2 poisons by disrupting DNA-PKcs-dependent repair.",
+      "researchTopic": "研究探讨非同源末端连接(NHEJ)酶Artemis在拓扑异构酶2(Top2)毒物治疗人B细胞急性淋巴细胞白血病(ALL)中的作用。结果显示,Artemis敲除使细胞对纳米摩尔依托泊苷敏感并致更多未修复DNA双链断裂;抑制活化子DNA-PKcs与Top2毒物协同增敏,Artemis缺失则消除协同并致Top2A-DNA加合物蓄积。该研究为治疗侵袭性癌症提供了新途径。",
+      "authors": "Folkerts, Melissa L; Hom, Cameron; Nguyen, Angie T M; Shen, Kaiyuan V; Monterroso, Alyssa M; Damozonio, Ellianna M; Aguilar-Quintero, Alejandra; Rangel, Valeria; Ortega, Pedro; Masri, Selma; Adachi, Noritaka; Buisson, Rémi; Meek, Katheryn; Pannunzio, Nicholas R;",
+      "publication": "Communications biology",
+      "publishedOnline": "2026-08-21",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "TG2-01152 (2009)",
+      "grantNumbers": [
+        "TG2-01152"
+      ],
+      "grantType": "TG2 (Research Training II)",
+      "programType": "Education",
+      "grantTitle": "UCI-CIRM Research Training Program II",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "Noncoding RNA TY1 reverses fibrosis in systemic sclerosis by attenuating the cGAS/STING pathway.",
+      "researchTopic": "研究评估非编码RNA药物TY1对系统性硬化(SSc)纤维化的作用,其通过抑制DNA损伤进而抑制cGAS/STING通路。结果显示,SSc患者巨噬细胞中DNA损伤、cGAS、STING及干扰素水平在TY1处理后下降;口服TY1使博来霉素及tsk-1模型小鼠的运动耐量、心脏功能、肺羟脯氨酸和皮肤厚度恢复正常,并减轻人SSc皮肤成纤维细胞纤维化。研究支持cGAS/STING是SSc纤维化关键驱动因素。",
+      "authors": "Jones, Xaviar M; Soussi, Salwa; Ciullo, Alessandra; Tsi, Kara; Liu, Weixin; Li, Liang; Fournier, Mario; Mesquita, Thassio; Marchevsky, Alberto M; Bottini, Nunzio; Boin, Francesco; Ibrahim, Ahmed Ge; Marbán, Eduardo;",
+      "publication": "JCI insight",
+      "publishedOnline": "2026-09-08",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "TRAN1-15317 (2023)",
+      "grantNumbers": [
+        "TRAN1-15317"
+      ],
+      "grantType": "Therapeutic Translational Research Projects",
+      "programType": "Translational",
+      "grantTitle": "Noncoding RNA drug TY1 as a therapeutic candidate for scleroderma and systemic sclerosis",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "Scalable generation of hematopoietic stem cell-engineered off-the-shelf mono-specific cytotoxic T cells targeting solid tumors.",
+      "researchTopic": "研究建立可扩展、无饲养层的平台,将基因工程造血干/祖细胞(HSPC)分化为同种异体NY-ESO-1特异性细胞毒T(AlloESO-T)细胞。该细胞呈均匀细胞毒表型,经转基因T细胞受体和自然杀伤受体双重靶向肿瘤,相比外周血单个核细胞来源T细胞具有更优细胞毒性、选择性实体瘤归巢、持久杀伤和抗免疫逃逸能力,同时维持低移植物抗宿主病风险。该研究确立了其作为即用型实体瘤细胞毒T细胞疗法的可行性。",
+      "authors": "Zhu, Yichen; Yu, Jiaji; Kim, Yu Jeong; Tian, Yanxin; Li, Zhe; Chen, Yuning; Lyu, Zibai; Zhu, Enbo; Zhao, Annabel S; Ma, Nathan; Zhang, Catherine; Kramer, Adam; Wilson, Matthew; Hon, Ryan; Wang, Yu-Chen; Lin, Siyu; Shen, Xinyuan; Hahn, Zoe; Zhang, Yuchong; Wang, Aijun; Li, Yan-Ruide; Yang, Lili;",
+      "publication": "Cell reports. Medicine",
+      "publishedOnline": "2026-08-19",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC2-11157 (2018)/TRAN1-12250 (2021)/TRAN1-16050 (2024)",
+      "grantNumbers": [
+        "DISC2-11157",
+        "TRAN1-12250",
+        "TRAN1-16050"
+      ],
+      "grantType": "Discovery Research Projects/Therapeutic Translational Research Projects/Therapeutic Translational Research Projects",
+      "programType": "Discovery/Translational/Translational",
+      "grantTitle": "Preclinical Development of An HSC-Engineered Off-The-Shelf iNKT Cell Therapy for Cancer",
+      "awardStatus": "Closed/Closed/Active"
+    },
+    {
+      "title": "Modeling human neurodegeneration with iPSCs: opportunities, limitations, and the challenge of aging",
+      "researchTopic": "综述评述患者来源诱导多能干细胞(iPSC)在神经退行性疾病建模中的应用、局限与挑战,围绕家族突变汇聚通路与散发性疾病生物学、从二维单培养到类器官的培养系统、以及重编程擦除供体表观年龄的衰老问题展开讨论。研究提出将模型系统与生物学问题相匹配的框架,以改进机制理解与治疗开发,并强调直接转分化等在保留表观年龄方面的潜在价值。",
+      "authors": "Wang, Shijie; Elia, Lisa; Liu, Weiyi; Finkbeiner, Steven;",
+      "publication": "The Journal of clinical investigation",
+      "publishedOnline": "2026-10-19",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC0-13914 (2022)/DISC0-16039 (2024)",
+      "grantNumbers": [
+        "DISC0-13914",
+        "DISC0-16039"
+      ],
+      "grantType": "Foundation – Discovery Stage Research Projects/Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery/Discovery",
+      "grantTitle": "Developing a Human Model of Sporadic ALS Using Machine Learning and Robotic Microscopy",
+      "awardStatus": "Closed/Active"
+    },
+    {
+      "title": "Exosomal miR-26a delivery increases erythroid expansion in models of Diamond-Blackfan anemia.",
+      "researchTopic": "研究探讨外泌体递送miR-26a对Diamond-Blackfan贫血(DBA)红系扩增的作用。DBA红系祖细胞中nemo样激酶(NLK)活化而mTORC1活性受抑;外泌体递送miR-26a通过降解NLK转录本恢复mTORC1基础活性,可在十分之一亮氨酸剂量下启动mTORC1过度刺激和红系扩增,且不增加非红系细胞转化风险。该策略为DBA提供了安全、新颖且有效的促红细胞生成方案。",
+      "authors": "Mercado, Jaqueline; Saxena, Mallika; Traber, Gavin M; Sathianathen, Ryan S; Glader, Bertil; Kenny, Paraic; Sakamoto, Kathleen M; Wilkes, Mark C;",
+      "publication": "Blood red cells & iron",
+      "publishedOnline": "2026-07-21",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC2-12475 (2021)",
+      "grantNumbers": [
+        "DISC2-12475"
+      ],
+      "grantType": "Discovery Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Small Molecules to inhibit Nemo-like Kinase for Treatment of Diamond Blackfan Anemia",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "A massively parallel CRISPR-based screening platform for modifiers of neuronal depolarization.",
+      "researchTopic": "研究建立了结合CRISPR干扰(CRISPRi)与钙整合荧光蛋白CaMPARI2的池化筛选平台,以评估神经元去极化的遗传修饰因子。应用该方法在人iPSC来源神经元中评估1343个基因对去极化的影响,揭示其与神经退行性和神经发育疾病的潜在关联,包括已知兴奋性调节因子TARP和离子通道,以及与自闭症、阿尔茨海默病相关的新基因。该平台为揭示神经元功能调控机制提供了多功能工具。",
+      "authors": "Boggess, Steven C; Gandhi, Vaidehi; Tsai, Ming-Chi; Marzette, Emily; Teyssier, Noam; Chou, Joanna Yu-Ying; Hu, Xiaoyu; Cramer, Amber; Yadanar, Lin; Shroff, Kunal; Jeong, Claire G; Eidenschenk, Celine; Hanson, Jesse E; Tian, Ruilin; Kampmann, Martin;",
+      "publication": "Nature communications",
+      "publishedOnline": "2026-08-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC2-12730 (2021)",
+      "grantNumbers": [
+        "EDUC2-12730"
+      ],
+      "grantType": "Bridges",
+      "programType": "Education",
+      "grantTitle": "Building Career Pathways into Stem Cell Research and Therapy Development",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Small populations, big impact: leveraging rare disease gene therapies to benefit millions.",
+      "researchTopic": "研究聚焦罕见病基因治疗如何惠及广泛人群。罕见病单个患者群体虽小，但其基因治疗技术平台与研发路径有望外推至更多常见疾病，从而造福更广人群。通过这种以小见大的策略，单病种研发所积累的技术、监管与商业经验可反哺更大患者群体。该论述旨在阐释以罕见病为切入点的基因治疗在扩大治疗可及性与推动医学进步方面的战略价值。",
+      "authors": "Cherqui, Stephanie;",
+      "publication": "The Journal of clinical investigation",
+      "publishedOnline": "2026-10-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "CLIN2-11478 (2019)/PDEV-19140 (2025)/TRAN1-13983 (2022)",
+      "grantNumbers": [
+        "CLIN2-11478",
+        "TRAN1-13983"
+      ],
+      "grantType": "Clinical Trial Stage Projects/Preclinical Stage Projects/Therapeutic Translational Research Projects",
+      "programType": "Clinical/Preclinical/Translational",
+      "grantTitle": "Phase 1/2 study for autologous human CD34+ hematopoietic stem cells ex vivo transduced with pCCL-CTNS lentiviral vector for treatment of Cystinosis",
+      "awardStatus": "Active/Active/Active"
+    },
+    {
+      "title": "Elevated contractility drives implantation failure in mouse embryos from aged females.",
+      "researchTopic": "研究基于小鼠为模型探究高龄雌性胚胎着床失败的力学机制。研究发现生殖衰老使滋养外胚层过度收缩，增加囊胚表面张力与黏度，阻碍着床扩散，且这种收缩性升高既是年龄相关着床失败的充分条件也是必要条件。借非侵入性影像学特征可推断胚胎力学并预测着床成功率，人胚胎及体外受精临床数据亦显示保守的年龄相关力学改变。该研究提示胚胎力学是调控生殖寿命的关键因素，为高龄生育力评估提供新思路。",
+      "authors": "Cavanaugh, Kate E; Franco-Oñate, M J; Horsley, Nicole; Gokyer, Dilan; Atazhanova, Tomiris; Laird, Diana J; Oakes, Patrick W; Riley, Joan K; Duncan, Francesca E; Pavone, MaryEllen; Molé, Matteo; Alert, Ricard; Weiner, Orion D;",
+      "publication": "Nature cell biology",
+      "publishedOnline": "2026-08-25",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC0-17685 (2025)",
+      "grantNumbers": [
+        "DISC0-17685"
+      ],
+      "grantType": "Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Dissecting the cellular and molecular interactions between embryo and endometrium during human implantation",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Developmental Control of DNA Damage Responses in α- and β-Cells Shapes the Selective β-Cell Susceptibility in Diabetes.",
+      "researchTopic": "研究基于小鼠模型探究生长发育中α、β细胞DNA损伤反应差异如何塑造糖尿病中β细胞的选择性易感。发现复制在新生期α、β细胞中均引入基因组脆弱窗口，新生β细胞在有丝分裂中更高效无错修复，而α细胞以更高细胞周转补偿；营养过剩与糖尿病小鼠模型中β细胞对终末损伤更脆弱，胰腺祖细胞中DNA甲基转移酶Dnmt3a缺失选择性增加β细胞损伤易感性。该研究揭示糖尿病中β、α细胞DNA损伤反应差异的新机制。",
+      "authors": "Varghese, Sneha S; Hernandez-De La Peña, Alessandro Giovanni; Wang, Liu; Ruiz, Victor; Tixi, Wilma; Pandey, Aparamita; Anchondo, Laura; Chiu, Amy; Wu, Xiwei; Georgia, Senta K; Shih, Hung-Ping; Wei, Zong; Bhattacharya, Supriyo; Dhawan, Sangeeta;",
+      "publication": "Diabetes",
+      "publishedOnline": "2026-09-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12772 (2021)",
+      "grantNumbers": [
+        "EDUC4-12772"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Research Training Program in Stem Cell Biology and Regenerative Medicine",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Cell-based therapies for malignant glioma.",
+      "researchTopic": "研究系统回顾恶性胶质瘤细胞治疗现状，指出其尚未在胶质母细胞瘤中带来持续生存获益。针对工程化效应细胞(CAR-T、自然杀伤NK细胞)、免疫教育平台(树突状及全细胞疫苗)及载体细胞三大类方式，试验显示可测生物活性但持久性不一。研究从疗效较佳者归纳4个设计特征：微小残留病灶情景治疗、Th1支持环境、广谱抗原覆盖及免疫衔接，可为组织多模式试验、将短暂生物活性转化为持久控制提供参考。",
+      "authors": "Mooney, Rachael; Abd El-Fattah, Eslam E; Ngai, Gary; Lara, Jacqueline; Hammad, Mohamed; Aboody, Karen S;",
+      "publication": "Stem cells translational medicine",
+      "publishedOnline": "2026-10-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "CLIN1-14845 (2024)/CLIN2-13162 (2022)",
+      "grantNumbers": [
+        "CLIN1-14845",
+        "CLIN2-13162"
+      ],
+      "grantType": "Late Stage Preclinical Projects/Clinical Trial Stage Projects",
+      "programType": "Clinical/Clinical",
+      "grantTitle": "Neural stem cell delivered CRAd-S-pk7 oncolytic viro-immunotherapy for ovarian cancer",
+      "awardStatus": "Active/Active"
+    },
+    {
+      "title": "Chemical induction and reversal of photoreceptor dystrophy in retinal organoids.",
+      "researchTopic": "研究探究转录激活因子6(ATF6)对光感受器的维持作用，其失活突变导致遗传性光感受器疾病。用小分子Ceapin-A7选择性抑制ATF6并处理人视网膜类器官2个月，经单核RNA测序(snRNA-seq)与显微观察发现，ATF6抑制使视杆视锥内外节减少、锥节段畸形及Müller胶质增生但无细胞死亡，撤除后节段回增，证明ATF6维持光感受器内外节完整性，化学恢复其活性为治疗光感受器疾病提供靶向通路。",
+      "authors": "Bradley, Allyssa; Min, Hyejung; Park, Soyoung; Temme, William; Park, Soyeon; Al-Moujahed, Ahmad; Lee, Eun-Jin; Lin, Jonathan H;",
+      "publication": "Stem cell reports",
+      "publishedOnline": "2026-09-10",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC2-10973 (2018)",
+      "grantNumbers": [
+        "DISC2-10973"
+      ],
+      "grantType": "Discovery Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Small Molecule Proteostasis Regulators to Treat Photoreceptor Diseases",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "A scale CUBIC-based clearing protocol preserves fluorescence in mouse rib bone and cartilage.",
+      "researchTopic": "研究开发基于Scale CUBIC的组织透明化方案，用于成年小鼠肋骨骨与软骨荧光成像。骨与软骨因细胞外基质致密、富含胶原、矿化度高并含骨髓而难以透明化，传统方法(如BABB、DISCO、PEGASOS、CLARITY)常在提升透明度的同时损伤荧光蛋白。新方案无需脱钙，约48小时内改善透明度，并能利用转基因小鼠证明其有效保留内源荧光与组织形态，为骨骼组织三维荧光成像提供更简便可靠的技术手段。",
+      "authors": "Fernandez, Mackenzie; Soo-Hoo, Emerson; Perez Castro, Kaelynn; Kundu, Kimtee; Patel, Divya D; Mariani, Francesca V;",
+      "publication": "JBMR plus",
+      "publishedOnline": "2026-07-28",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12756 (2021)",
+      "grantNumbers": [
+        "EDUC4-12756"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Training Program Bridging Stem Cell Research with Clinical Applications in Regenerative Medicine",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Immune cell development from human pluripotent stem cells.",
+      "researchTopic": "综述总结人多能干细胞向免疫细胞分化的进展与临床转化。几乎所有人类血细胞群均可由人诱导多能干细胞(iPSC)分化获得；虽可移植造血干细胞分化较难，但iPSC来源免疫细胞临床转化显著。iPSC为分化前整合多重基因编辑提供平台，可对自然杀伤(NK)细胞进行肿瘤靶向嵌合抗原受体(CAR)、细胞因子支持及抗排斥等修饰，其在治疗难治性恶性肿瘤及自身免疫病临床试验中应用最广。",
+      "authors": "Cruz, Luisjesus S; Castañeda, Alejandro R; Srisantitham, Jakkrapatra; Kaufman, Dan S;",
+      "publication": "Stem cells (Dayton, Ohio)",
+      "publishedOnline": "2026-10-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC2-09615 (2017)/DISC2-12105 (2020)/DISC2-12657 (2021)/TRAN1-10587 (2017)",
+      "grantNumbers": [
+        "DISC2-09615",
+        "DISC2-12105",
+        "DISC2-12657",
+        "TRAN1-10587"
+      ],
+      "grantType": "Discovery Research Projects/Discovery Research Projects/Discovery Research Projects/Therapeutic Translational Research Projects",
+      "programType": "Discovery/Discovery/Discovery/Translational",
+      "grantTitle": "Targeted off-the-shelf immunotherapy to treat refractory cancers",
+      "awardStatus": "Closed/Closed/Closed/Closed"
+    },
+    {
+      "title": "Transplantation of human iPSC-derived microglia ameliorates neuropathology and circuit dysfunction in progranulin-deficient mice.",
+      "researchTopic": "研究探究小胶质细胞源性颗粒蛋白前体在额颞叶痴呆(FTD)中的作用，其单倍剂量不足是家族性FTD主要遗传病因，扰乱溶酶体、脂代谢、自噬与神经免疫信号。将人诱导多能干细胞(iPSC)来源小胶质细胞祖细胞移植入颗粒蛋白前体缺陷(Grn)小鼠，发现野生型(而非Grn缺陷)人小胶质细胞可恢复全脑颗粒蛋白前体水平、使小胶质细胞转录正常化并改善病理、功能与行为表型，证明小胶质细胞源性颗粒蛋白前体足以恢复稳态。",
+      "authors": "Davtyan, Hayk; Naguib, Sarah; Voskobiynyk, Yuliya; Chadarevian, Jean Paul; Capocchi, Joia K; Giacchino, Jeannie L; Eskandari-Sedighi, Ghazaleh; DeNittis, Vivianna; Ford, Jeremy B; Agababian, Ani; Nguyen, Jasmine; Chadarevian, Alina L; Sutherland, Madison S; Shabestari, Sepideh Kiani; Tran, Kayla; Holt, Bret; Nana, Alissa L; Zhang, Jiasheng; Spina, Salvatore; Wong, Man Ying; Grinberg, Lea T; Seeley, William W; Huang, Eric; Clelland, Claire D; Gong, Shiaoching; Fan, Li; Paz, Jeanne T; Blurton-Jones, Mathew; Gan, Li;",
+      "publication": "Molecular neurodegeneration",
+      "publishedOnline": "2026-07-16",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12822 (2021)/RT3-07893 (2015)",
+      "grantNumbers": [
+        "EDUC4-12822",
+        "RT3-07893"
+      ],
+      "grantType": "Research Training Grant/RT3 (Tools and Technologies III)",
+      "programType": "Education/Discovery",
+      "grantTitle": "CIRM Scholars Comprehensive Research Training Program",
+      "awardStatus": "Active/Closed"
+    },
+    {
+      "title": "Spatially Resolved Photostimulation of Cardiac Activity Using Optoelectronic Peptides.",
+      "researchTopic": "报道了基于生物分子的空间可控光刺激心脏活性平台。研究设计肽-四噻吩-肽单元，在生物聚合物水凝胶上形成导电图案，以光激活方式影响心肌细胞排列与细胞间通讯，并在生理范围内调制基底刚度以模拟健康与纤维化心脏组织。与不导电基底相比，π共轭肽基底上新生大鼠心室肌细胞(NRVMs)排列增强、同步收缩；平台无需电极或光遗传学遗传修饰即可实现高分辨光诱导局部刺激，为心脏组织工程与光刺激调控提供新途径。",
+      "authors": "Lundqvist, Emil M; Nguyen, Krystal; Chung, Caleb O; Tang, Sheng Wei; Celt, Natalie; Jeong, Harrison C; Lim, Sujeung; Le, Lanie; Lee, Kathryn K; Chua, Kenneth O; Mandala Kol, Alessandra; Stahl, Jayden R; Foust, Skylar R; Kuang, Yuyao; Jackson, Megan N; Ardoña, Herdeline Ann M;",
+      "publication": "ACS central science",
+      "publishedOnline": "2026-08-19",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12822 (2021)/INFR6.2-15368 (2024)",
+      "grantNumbers": [
+        "EDUC4-12822",
+        "INFR6"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "CIRM Scholars Comprehensive Research Training Program",
+      "awardStatus": "Active/Active"
+    },
+    {
+      "title": "Regulatable in vivo gene expression via adaptamers.",
+      "researchTopic": "研究报道可调控体内基因表达的适配体开关(adaptamer，<120碱基对RNA开关)，将FDA批准的小分子响应适配体与内源腺苷脱氨酶(ADAR)介导的RNA编辑偶联：配体结合稳定双链RNA，招募ADAR将终止密码子转为有义密码子、恢复翻译，实现无切割的精确小分子依赖调控。研究证明其在包括人T细胞的多种细胞系中高效工作；体内经腺相关病毒(AAV)递送调控FGF21表达可逆转肥胖与肝脂肪变性。",
+      "authors": "Bryant, Jack; Herron, Laura; Doctor, Yesh; McRae, Finn; Wang, Jocelyn; Hirsch, Theodore; Portell, Andrew; Kumar, Satheesh; Mali, Prashant;",
+      "publication": "Molecular cell",
+      "publishedOnline": "2026-10-20",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC4-19271 (2026)",
+      "grantNumbers": [
+        "DISC4-19271"
+      ],
+      "grantType": "ReMIND – Discovery Stage ReMIND",
+      "programType": "Discovery",
+      "grantTitle": "Tracing the metabolic basis of neurological disorders",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "A single-cell transcriptomic atlas reveals the emergence of medusa-specific cell states in the scyphozoan Aurelia coerulea.",
+      "researchTopic": "研究构建钵水母纲耳水母的单细胞转录组图谱，聚焦其从无性繁殖固着水螅体向有性繁殖运动水母转变中的细胞状态变化。研究显示该转变伴随细胞类型多样性增加，包括神经亚型扩展与横纹肌出现；海葵与耳水母中两族神经元谱系由同源转录因子指定，提示其起源于约5亿年前共同祖先。分析提示基因重复可能是细胞复杂度升高的驱动因素，并首次比较平滑肌与横纹肌转录组差异，提示平滑肌收缩调控是祖先性状。",
+      "authors": "Link, Oliver; Jahnel, Stefan M; Janicek, Kristin; Guerguerian, Daniel; Kraus, Johanna; Montenegro, Juan D; Zimmermann, Bob; Wick, Brittney; Khalturin, Konstantin; Cole, Alison G; Technau, Ulrich;",
+      "publication": "PLoS biology",
+      "publishedOnline": "2026-08-14",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC0-14514 (2023)",
+      "grantNumbers": [
+        "DISC0-14514"
+      ],
+      "grantType": "Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "An interactive data resource for hypothesis testing in stem cell single-cell gene expression and validation of the results with brain organoids",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Cortical organoids reveal human-specific role of METTL5 in neurodevelopment via regulation of CHCHD2.",
+      "researchTopic": "研究利用人皮质类器官揭示甲基转移酶样蛋白5(METTL5)在神经发育中的人类特异性作用，其功能缺失突变在人类引起小头畸形与智力障碍。生成METTL5敲除的人诱导多能干细胞(hiPSC)来源皮质类器官，显示神经祖细胞增殖分化受损；单细胞RNA测序发现线粒体调节因子CHCHD2下调，过表达CHCHD2可挽救增殖并部分恢复氧化代谢，揭示CHCHD2与METTL5调控神经发生的新联系。",
+      "authors": "Turkalj, Elena M; Kang, Gugene; Liu, Isabelle; Kuljanishvili, Mariami; Keyhanvar, Neda; Oldham, Michael C; Vissers, Caroline;",
+      "publication": "Stem cell reports",
+      "publishedOnline": "2026-08-06",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12812 (2021)",
+      "grantNumbers": [
+        "EDUC4-12812"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Scholars Research Training Program in Regenerative Medicine, Gene Therapy, and Stem Cell Research",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Boosting the Predictive Power of Virus-Specific T-Cell Clinical Trials via Generative Models.",
+      "researchTopic": "研究提出用生成式模型提升病毒特异性T细胞(VST)临床试验的预测能力。早期试验入组人数有限，制约反应预测模型开发；针对人白细胞抗原(HLA)部分匹配的第三方VST治疗免疫低下者病毒感染的试验即缺乏有效计算模型。研究者用变分自编码器生成合成反应数据以提升机器学习稳健性，再训练二元分类器预测第三方VST治疗反应并经3个试验交叉验证显示高准确度，为患者筛选及小样本临床建模提供通用框架。",
+      "authors": "Chansky, Pamela; Rubinstein, Jeremy; Grimley, Michael; Davies, Stella M; Blyth, Emily; Gottlieb, David; Pulsipher, Michael A; Bollard, Catherine; Keller, Michael D; Li, Wei;",
+      "publication": "Computational and structural biotechnology journal",
+      "publishedOnline": "2026-09-21",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "CLIN2-10392 (2017)",
+      "grantNumbers": [
+        "CLIN2-10392"
+      ],
+      "grantType": "Clinical Trial Stage Projects",
+      "programType": "Clinical",
+      "grantTitle": "Antiviral Cellular Therapy for Enhancing T-cell Reconstitution Before or After Hematopoietic Stem Cell Transplantation (ACES)",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "Demographic factors associated with response to topical Jak inhibitors in a diverse vitiligo cohort.",
+      "researchTopic": "研究在多样性白癜风队列中探讨局部JAK抑制剂治疗应答相关的人口学因素。研究为单机构回顾性队列，纳入美国南加州学术医疗中心2018—2024年间接受局部JAK抑制剂(如芦可替尼乳膏)的患者。结果发现西班牙裔与较长治疗时长显著与白癜风面积评分改善相关，多变量分析中治疗时长是独立预测因子，而非西班牙裔改善几率更低、公共保险患者拒赔率更高，并指出保险差异与少数族裔代表性不足暴露了照护可及性不平等。",
+      "authors": "Rizwi, Hira; Nguyen, Britney T; Chahine, Anastasia; Dahdoul, Thabat; Shiu, Jessica;",
+      "publication": "JID innovations : skin science from molecules to population health",
+      "publishedOnline": "2026-08-03",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12822 (2021)",
+      "grantNumbers": [
+        "EDUC4-12822"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "CIRM Scholars Comprehensive Research Training Program",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Rad51 strand invasion function is needed for its role in CCTG tetranucleotide DNA repeat contractions.",
+      "researchTopic": "研究利用酿酒酵母遗传检测系统探究RAD51链侵入功能在CCTG四核苷酸重复序列收缩中的作用。2型肌强直性营养不良由CNBP基因中CCTG重复扩增引起，此前发现同源重组参与其大规模收缩；本研究改用链同源搜寻与链侵入缺陷的RAD51-II3A等位基因测量收缩率，发现其与rad51Δ菌株无异，提示CCTG序列结构特征不能通过促进链侵入启动双链断裂修复，即RAD51链侵入功能是其介导收缩所必需的。",
+      "authors": "Rutkowski, Symphony A; Serumaga, Neila V; Bond, Eva J; Kim, Jane C;",
+      "publication": "microPublication biology",
+      "publishedOnline": "2026-08-10",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC5-13667 (2022)",
+      "grantNumbers": [
+        "EDUC5-13667"
+      ],
+      "grantType": "COMPASS Training Grant",
+      "programType": "Education",
+      "grantTitle": "COMPASS Program for Southern California Hispanic Serving Institution",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Transcriptional regulation of disease-relevant microglial activation programs.",
+      "researchTopic": "研究通过CRISPR干扰(CRISPRi)筛选在诱导多能干细胞(iPSC)来源小胶质细胞中鉴定疾病相关激活状态的调控因子。对6种小胶质细胞状态进行筛选，在两种模型中于单细胞转录组与蛋白组水平刻画31个调控因子；ZNF532与PRDM1敲低驱动疾病相关脂质富集特征并增强吞噬，DNMT1敲低导致DNA甲基化丢失并激活干扰素信号负调控因子，为定向调控小胶质细胞激活状态、指导治疗提供框架。",
+      "authors": "McQuade, Amanda; Mishra, Reet; Hagan, Venus; Liang, Weiwei; Colias, Peter J; Castillo, Vincent Cele; Gonzalez, Bianca; Lubin, Justin P; Haage, Verena; Marshe, Victoria; Fujita, Masashi; Ta, Thomas; Gomes, Layla; Teter, Olivia; Han, Xia; Robichaud, Nathaniel; Chasins, Sarah E; Rexach, Jessica E; De Jager, Philip L; Nuñez, James K; Kampmann, Martin;",
+      "publication": "Neuron",
+      "publishedOnline": "2026-07-29",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC2-12730 (2021)",
+      "grantNumbers": [
+        "EDUC2-12730"
+      ],
+      "grantType": "Bridges",
+      "programType": "Education",
+      "grantTitle": "Building Career Pathways into Stem Cell Research and Therapy Development",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Immune Landscape and Intercellular Crosstalk in the Cornea of an Autoimmune-Mediated Dry Eye Disease.",
+      "researchTopic": "研究表征自身免疫介导干眼病(DED)角膜的免疫景观与细胞间通讯。以自身免疫调节因子缺陷(Aire-/-)小鼠为自发干眼模型，经单细胞RNA测序(scRNA-seq)分析角膜免疫细胞并用CellChat分析细胞间信号。结果发现角膜中CD3⁺/CD4⁺ T细胞、CD45R⁺ B细胞及IBA1⁺巨噬细胞大量浸润，上皮与角膜细胞亦上调促炎基因特征，揭示复杂炎症微环境，提示非T细胞机制参与干眼病发病。",
+      "authors": "An, Luye; Robledo, Mario A; Niknezhad, Seyyed Vahid; Ko, Wendy; Zhang, Beryl; Chen, Yu Ting; McNamara, Nancy A; Knox, Sarah M;",
+      "publication": "Investigative ophthalmology & visual science",
+      "publishedOnline": "2026-10-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC5-13679 (2022)",
+      "grantNumbers": [
+        "EDUC5-13679"
+      ],
+      "grantType": "COMPASS Training Grant",
+      "programType": "Education",
+      "grantTitle": "Inclusive Pathways for a Stem Cell Scholar (iPSCS) Undergraduate Training Program",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Lysosomal dysfunction drives a transcriptional and epigenetic signature found in disease-associated microglia in neurodegenerative diseases.",
+      "researchTopic": "研究探究溶酶体功能障碍如何驱动神经退行性疾病中疾病相关小胶质细胞表型的转录与表观遗传特征。采用溶酶体水解酶SGSH缺陷所致黏多糖贮积症ⅢA型小鼠模型，发现小胶质细胞是脑中最受影响的细胞类型；MITF/TFE家族是特异表观遗传与转录改变的驱动因子，并与AP-1、C/EBP等转录因子协同。该改变亦见于年龄相关神经退行模型及阿尔茨海默病(AD)患者小胶质细胞，揭示疾病相关小胶质细胞表型的保守转录机制。",
+      "authors": "Balak, Christopher D; Schlachetzki, Johannes C M; Lana, Addison J; West, Elizabeth; Hong, Christine; DuGal, Jordan; Zhou, Yi; Li, Benjamin; Spann, Nathanael J; Saisan, Payam; Sarsani, Vishal; Kleemann, Kilian L; Zhang, Xiaoming; Pasillas, Martina P; O'Brien, Sydney; Bokor, Juliette A; Gordts, Philip L S M; Butovsky, Oleg; Stevens, Beth; Kamme, Fredrik; Glass, Christopher K;",
+      "publication": "Immunity",
+      "publishedOnline": "2026-08-03",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC2-13077 (2022)",
+      "grantNumbers": [
+        "DISC2-13077"
+      ],
+      "grantType": "Discovery Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Transplantation of genetically corrected iPSC-microglia for the treatment of Sanfilippo Syndrome (MPSIIIA)",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "ARID5A RNA-binding coordinates microglial defense and ferroptosis in iPSC-derived models.",
+      "researchTopic": "研究在iPSC来源模型中揭示RNA结合蛋白(RBP)ARID5A协调小胶质细胞防御与铁死亡的作用。通过整合多组学分析发现，ARID5A调控靶标选择性剪接与翻译，许多靶向溶酶体、免疫与铁代谢通路，并调控小胶质细胞的溶酶体活性、细胞因子分泌、铁蓄积与铁死亡，敲低ARID5A可减少共培养中的神经元铁死亡；在TREM2-T66M突变的小胶质细胞中，ARID5A缺失可恢复失调的溶酶体与代谢功能。",
+      "authors": "Schafer, Danielle M; Blue, Steven M; Xu, Shuhao; Mizrahi, Orel; Gosztyla, Maya L; Street, Lena; Rothamel, Katherine L; Kopalle, Hema; Landry, Samuel B; Rosales, Elijah Khalil F; Tien, Rebecca H; Elmsaouri, Sara; Coufal, Nicole G; Jovanovic, Marko; Yeo, Gene W;",
+      "publication": "Nature communications",
+      "publishedOnline": "2026-08-12",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "FA1-00607 (2007)",
+      "grantNumbers": [
+        "FA1-00607"
+      ],
+      "grantType": "FA1 (Major Facilities)",
+      "programType": "Infrastructure",
+      "grantTitle": "Sanford Consortium for Regenerative Medicine",
+      "awardStatus": "Closed"
+    },
+    {
+      "title": "Double-stranded DNA donors and CRISPR-Cas9 for universal correction of mutations causing cystic fibrosis in human airway cells.",
+      "researchTopic": "研究以靶向CFTR基因5'非翻译区的sgRNA配合CRISPR-Cas9，用化学修饰线性双链DNA作同源定向修复供体，纠正人气道细胞囊性纤维化(CF)突变。在人支气管上皮细胞系16HBE14o中，仅1%-2%的密码子优化供体整合即可使CFTR表达达野生型约50%，电生理显示氯离子电流恢复超40%。结果表明低水平CFTR整合经优化设计也能达到治疗相关水平，为非病毒体内基因治疗CF奠定基础。",
+      "authors": "Sinha V, Ayoub PG, Juett CJ, Lathrop LE, Foley RA, Sims RA, Long JD, Duggan EC, Fernandes NR, Illek B, Gomperts BN, Jonas SJ, Kohn DB",
+      "publication": "Molecular therapy. Nucleic acids",
+      "publishedOnline": "2026-08-03",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC0-14458 (2023)",
+      "grantNumbers": [
+        "DISC0-14458"
+      ],
+      "grantType": "Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Overcoming barriers for airway stem cell gene therapy for Cystic Fibrosis",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Extracellular vesicles from cytokine-treated human pancreatic ductal cells enhance HLA class I expression in beta cells.",
+      "researchTopic": "研究探讨1型糖尿病(T1D)中导管细胞对β细胞的细胞间通讯。将非糖尿病供体原代人胰外分泌组织三维培养，经TNF-α等细胞因子处理后分离细胞外囊泡(EV)，检测其对EndoC-βH1及原代β细胞的影响。细胞因子处理的导管细胞EV能被β细胞内化，显著上调HLA I类基因与蛋白表达，其转录本富集炎症与抗原呈递通路。研究揭示了未知的导管细胞-β细胞通讯通路，可能参与T1D中β细胞的调节。",
+      "authors": "Erdem N, Zook HN, Quijano JC, Hansen NP, Palade J, Oh E, Mares J, Donohue C, Ortiz JA, Jou K, Talley M, Guthalu Kondegowda N, Arribas-Layton D, Vasavada RC, Montero E, Reijonen H, Thurmond DC, Pirrotte P, Jovanovic-Talisman T, Ku HT",
+      "publication": "Frontiers in immunology",
+      "publishedOnline": "2026-07-23",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12772 (2021)",
+      "grantNumbers": [
+        "EDUC4-12772"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Research Training Program in Stem Cell Biology and Regenerative Medicine",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Adma and Ackr3a regulate cardiac lymphatic vessel formation and function during heart development and regeneration.",
+      "researchTopic": "研究对斑马鱼心脏进行单细胞水平空间转录组分析，探究心脏淋巴管形成机制。肾上腺髓质素a(adma)主要表达于淋巴管旁心外膜，adma突变体淋巴管减少、构型异常，心室淋巴管扩张、出芽减少；编码Adm诱饵受体的ackr3a缺失则增加淋巴管出芽。两者在再生伤口心外膜来源细胞表达，adma突变体中性粒细胞清除减少。该研究揭示心脏淋巴内皮细胞异质性，表明Adm与Ackr3共同调控斑马鱼心脏淋巴管形成与功能。",
+      "authors": "Feng X, Chen HY, Sun Y, Sun F, Yan S, Kapuria S, Rodriguez R, Gamba L, Crump JG, Hong YK, Poss KD, Lien CL",
+      "publication": "Nature communications",
+      "publishedOnline": "2026-10-17",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12802 (2021)",
+      "grantNumbers": [
+        "EDUC4-12802"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "CIRM Training Program for Stem Cell and Regenerative Medicine Research",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Biochemical and Physicomechanical Cues of Biomaterials Guide Osteogenic Differentiation of Mesenchymal Stem Cells.",
+      "researchTopic": "综述生物材料通过生化和物理力学线索引导间充质干细胞(MSC)成骨分化的进展。载药支架负载生长因子、小分子、肽、蛋白及细胞外囊泡(EV)可增强成骨，但存在毒性、脱靶与监管限制；刚度、黏弹性、拓扑、孔隙率及剪切、压缩、振动等物理力学线索日益成为替代或互补策略。综述探讨了多物理力学线索协同调控MSC促进骨再生的作用，并讨论挑战与未来方向，强调开发整合生化与物理力学的手段用于临床骨修复与再生。",
+      "authors": "Pan B, Maalal A, Hao D",
+      "publication": "International journal of molecular sciences",
+      "publishedOnline": "2026-07-28",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明（Stem Cell and Gene Therapy Training Program）",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Temporal Matrix Stiffening Programs Osteogenic Differentiation and Immunomodulation to Enhance Osteogenesis.",
+      "researchTopic": "研究开发动态变硬的GelMA水凝胶，探究时间程序化基质力学对骨髓间充质干细胞(BMSC)成骨及巨噬细胞旁分泌信号的调控。与持续静态硬化相比，延迟硬化更利于炎性刺激下巨噬细胞维持炎症消退表型，并保持更高细胞活力、更优旁分泌信号及更强成骨效果；两种硬化条件均促进YAP核定位。研究表明时间性力学编程可协调细胞适应、巨噬细胞炎症反应与成骨分化，为免疫调节性生物材料设计提供新思路。",
+      "authors": "Pan B, Rodarte JE, Tong JM, Nabeta E, Hao D",
+      "publication": "Gels (Basel, Switzerland)",
+      "publishedOnline": "2026-10-14",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明（Stem Cell and Gene Therapy Training Program）",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Bone Morphogenetic Protein-2 and Cabozantinib for Temporomandibular Joint Cartilage Repair: Murine and Porcine Injury Models",
+      "researchTopic": "研究利用小鼠与猪颞下颌关节(TMJ)软骨损伤模型，评估骨形态发生蛋白-2(BMP-2)联合卡博替尼(cabozantinib，FDA批准的具VEGF受体活性的多激酶抑制剂)的再生潜能。小鼠下颌髁突针刺损伤模型中，该联合治疗与软骨结构改善及纤维软骨厚度增加相关；猪TMJ缺损模型则证明局部递送后缺损内修复组织形成的技术可行性。该研究为联合BMP-2与卡博替尼用于TMJ软骨修复提供初步证据。",
+      "authors": "Silverstein M, Hou S, Ge C, Garcia T, Chan C, Bruckman K, Takematsu E",
+      "publication": "International journal of molecular sciences",
+      "publishedOnline": "2026-10-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明（Translational Award）",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Spatiotemporal clonal architecture of the newborn mouse forebrain.",
+      "researchTopic": "研究对新生小鼠前脑各主要分区进行慢病毒条形码谱系追踪，结合空间转录组学构建克隆细胞谱系图谱。发现腹侧与背侧中型多棘神经元的产生方式存在此前未识别的差异，并揭示晚期生成的中型多棘神经元、纹状体星形胶质细胞与嗅球神经元亚群间的新谱系关系。结果表明谷氨酸能神经元与星形胶质细胞克隆相关并保留于起源区域，而γ-氨基丁酸(GABA)能神经元与少突胶质前体细胞克隆相关但广泛扩散，为前脑发育研究提供基础参考。",
+      "authors": "Yuan G, Kunst M, Steyert MR, Keefe MG, Mathieu R, van Velthoven CTJ, McMillen D, Waters J, Fukushima Y, Kazerounian A, Alvarez-Buylla A, Zeng H, Nowakowski TJ",
+      "publication": "Nature",
+      "publishedOnline": "2026-09-30",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "DISC0-14429 (2023)",
+      "grantNumbers": [
+        "DISC0-14429"
+      ],
+      "grantType": "Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Identifying roadblocks to neural stem cell transplantation into human tissues",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Subnuclear genome compartmentalization controls bivalent chromatin activity.",
+      "researchTopic": "研究利用妊娠中期人类皮层神经源谱系细胞，生成基因组与核层及核斑点的高分辨率互作图谱。皮层神经发生过程中，数百个神经元基因从核层迁至核斑点，包括H3K27me3/H3K4me3双价修饰的关键神经发育基因。与核层结合的双价基因表达极低，迁至核斑点后解析为H3K4me3单价状态、转录上调超8倍；维持其低表达静止的是靠近核周缘而非H3K27me3本身。该研究确立了基因空间定位对其表观调控必要性的新范式。",
+      "authors": "Ahanger SH, Semenza ER, Zhang C, Gil E, Cole MA, Lu SH, Wang L, Kriegstein AR, Lim DA",
+      "publication": "Nature",
+      "publishedOnline": "2026-07-22",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明（postdoctoral fellowship）",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "The Case for Master Protocols for Rare Neurological Diseases.",
+      "researchTopic": "探讨了主方案(master protocol)试验设计在罕见神经系统疾病中的应用，以神经元蜡样脂褐质沉积症为例。主方案试验允许在共同框架内同时进行多重假设检验，通过共享方案要素与试验基础设施，可降低成本并提高测试罕见病潜在疗法的效率，从而加速向患者输送急需的治疗方案。文章基于2025年5月神经科学临床试验卓越网络主办的多方利益相关者会议，讨论了主方案试验用于罕见神经疾病的可行性与价值。",
+      "authors": "Vermilion J, Paganoni S, Plotkin SR, Quintana M, Calvert SB, Whiteman IT, Wang RY, Moore N, Augustine EF",
+      "publication": "Annals of neurology",
+      "publishedOnline": "2026-07-21",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "INFR4-13952 (2022)",
+      "grantNumbers": [
+        "INFR4-13952"
+      ],
+      "grantType": "Alpha Stem Cell Clinics Network Expansion",
+      "programType": "Infrastructure",
+      "grantTitle": "A hub and spoke community model to equitably deliver regenerative medicine therapies to diverse populations across four California counties",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Dose-dependent sensitivity of human three-dimensional chromatin to a heart disease-linked transcription factor.",
+      "researchTopic": "研究在人心肌细胞分化模型中揭示先天性心脏病(CHD)相关转录因子TBX5对三维(3D)染色质组织的剂量依赖性调控。基因组区室、拓扑关联域(TAD)及染色质环等随TBX5剂量降低呈敏感变化；TBX5剂量依赖性减少其结合增强子上的黏连蛋白(cohesin)结合，为环形成受损提供潜在机制。结果表明谱系受限转录因子剂量对细胞类型特异的3D染色质动态至关重要，提示转录因子依赖性疾病机制。",
+      "authors": "Grant ZL, Kuang S, Zhang S, Horrillo AJ, Chen Z, Rao KS, Celen C, Kameswaran V, Joubran C, Lau PK, Dong K, Yang B, Bartosik WM, Zemke NR, Ren B, Srivastava D, Kathiriya IS, Pollard KS, Bruneau BG",
+      "publication": "Science (New York, N.Y.)",
+      "publishedOnline": "2026-07-23",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Donor-targeted anti–HLA-A2 antibody shows nanogram-level efficacy in a novel GVHD mouse model",
+      "researchTopic": "报道了一种靶向供者HLA-A2的抗体，在一种新型移植物抗宿主病(GVHD)小鼠模型中显示出纳克级别的效力。研究围绕供者定向的抗HLA-A2抗体，评估其在减少或缓解移植后免疫损伤中的作用，提示超低剂量的此类抗体可能有效干扰GVHD相关的供者免疫反应，为GVHD的抗体干预策略提供了有价值的新临床前证据，并可能推动新型、低剂量抗体的临床转化研究。",
+      "authors": "Niizuma K, Chang A, Okamoto Y, Kim J, Sasaki K, Busque S, Majeti R, Nakauchi H, Nakauchi Y",
+      "publication": "Blood advances",
+      "publishedOnline": "2026-07-23",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明（research training fellowship）",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Regional diversity of cranial skeletal stem cells governs bone morphogenetic protein-2 mediated bone regeneration.",
+      "researchTopic": "研究探究颅骨骨骼干细胞(SSC)的区域异质性及其对骨形态发生蛋白-2(BMP-2)介导骨再生的调控。因颅骨起源于神经嵴与中胚层，颅骨SSC为研究此多样性提供独特模型。通过体内外功能实验及qPCR分析，颅骨SSC具区域特异转录特征与谱系偏向，影响其成骨与成软骨能力；随年龄增长SSC相对祖细胞增多。研究还证明SSC异质性关键影响其对BMP-2的再生反应，提示需区域特异性优化BMP-2再生治疗。",
+      "authors": "Takematsu E, Lachmansingh RN, Johnston K, Hou S, Bailey E, Wang Y, Zhao L, Hoover M, Nguyen HTM, Parmar KM, Talbott H, Longaker MT, Chan CKF",
+      "publication": "Nature communications",
+      "publishedOnline": "2026-08-06",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明（Translational Award）",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Form and function of actin impacts actin health and aging.",
+      "researchTopic": "基于秀丽隐杆线虫探究肌动蛋白结构与功能对寿命及衰老标志的影响。敲低肌动蛋白及关键结合蛋白arx-2(Arp2/3)、unc-60(cofilin)导致丝状结构过早破坏、寿命缩短，加剧线粒体功能障碍、脂质失调及肠道屏障衰竭等衰老表型。Latrunculin A去稳定与遗传敲低一致，Jasplakinolide稳定则适度延长寿命。该研究系统绘制了肌动蛋白完整性与衰老表型的关系图谱。",
+      "authors": "Averbukh M, Nelson HT, Wang T, Lange CM, Alcala A, Kim J, Suh D, Vega M, Gao SM, Dutta N, Young KE, Aviles Barahona R, Coakley AJ, Gerke JA, Odron SF, Clarke JG, Singh N, Nickel MS, Peterson JC, Lam-Truong HL, Moaddeli D, Castro Torres T, Oorloff M, Peruch M, Nair T, Mehta HH, Thorwald MA, Ono S, Curran SP, Wang MC, Benayoun BA, Hill CM, Johnson TA, Crimmins EM, Arpawong TE, Kumsta C, Garcia G, Higuchi-Sanabria R",
+      "publication": "iScience",
+      "publishedOnline": "2026-08-24",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明（COMPASS CIRM grant、 Predoctoral Fellowship）",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Evaluating pharmacological targeting of actin regulatory pathways during aging in C. elegans.",
+      "researchTopic": "研究在秀丽隐杆线虫中评估靶向不同肌动蛋白调控通路的小分子对寿命及肌动蛋白组织的影响，测试了Arp2/3、原肌球蛋白、formins、cofilin及肌动蛋白稳定等通路的化合物。仅Arp2/3抑制剂CK666持续以剂量依赖方式缩短寿命并加剧增龄性肌肉紊乱，提示Arp2/3介导的肌动蛋白分支是衰老中细胞骨架完整性的关键调控因子，其余化合物影响有限。该研究建立了增龄时肌动蛋白药理调控的评估框架。",
+      "authors": "Wang T, Alcala A, Berdan D, Kuo V, Garcia G, Higuchi-Sanabria R, Averbukh M",
+      "publication": "Biogerontology",
+      "publishedOnline": "2026-09-02",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明（COMPASS CIRM grant）",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Alterations of actin in aging.",
+      "researchTopic": "综述肌动蛋白细胞骨架在衰老中的改变。肌动蛋白为高度动态、进化保守的多蛋白复合物，调控细胞架构、力学与胞内组织；衰老伴随进行性肌动蛋白失序，表现为丝状解聚、聚集与错误定位。综述整合了通过伴侣网络、肌动蛋白结合蛋白、转录程序及翻译后修饰维持肌动蛋白完整性的机制及其在衰老中的变化，阐述其与蛋白稳态丧失、线粒体功能障碍、细胞衰老等衰老标志及神经退行、癌症等增龄疾病的联系。",
+      "authors": "Averbukh M, Wang T, Garcia G, Higuchi-Sanabria R",
+      "publication": "Journal of cell science",
+      "publishedOnline": "2026-08-10",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明（COMPASS CIRM grant）",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Immune mechanisms and pathophysiology of T cell-mediated pediatric acute liver failure (TC-PALF).",
+      "researchTopic": "综述T细胞介导的儿童急性肝衰竭(TC-PALF)的免疫机制与病理生理。儿童急性肝衰竭中相当一部分患者为统一的免疫介导性疾病，以肝活检密集T细胞浸润为特征，与自身免疫性肝炎等炎症肝病有共同特征又有独特病理表现。文章总结了疾病谱系、幼龄与老龄肝脏免疫微环境差异及采用精确组学技术关联特定免疫亚群的最新研究，指出免疫失调是其核心特征，相关特征可助生物标志物识别与临床管理。",
+      "authors": "Lee JTC, Sutton H, Pai P, Barbetta A, Zhou S, Kohli R, MacParland S, Emamaullee J",
+      "publication": "Hepatology communications",
+      "publishedOnline": "2026-08-20",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明（Clinical Research Fellowship）",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Navigating the gastric frontier of mucosal immunity against &lt;i&gt;Helicobacter pylori&lt;/i&gt;.",
+      "researchTopic": "综述胃黏膜免疫与幽门螺杆菌(H. pylori)的相互作用，重点阐述黏膜相关恒定T(MAIT)细胞在宿主防御中的独特功能。H. pylori为普遍存在的慢性感染病原体，常无症状，却是胃炎、消化性溃疡的病因及胃癌和MALT淋巴瘤的危险因素。感染引发胃黏膜免疫应答，但细菌常通过CagA介导的上皮损伤等机制逃避免疫而持续存在。还探讨以黏膜免疫对抗H. pylori的策略，包括免疫介导的根除干预。",
+      "authors": "Li YR, Chen Y, Zhu Y, Shen X, Yang L",
+      "publication": "Frontiers in immunology",
+      "publishedOnline": "2026-07-28",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "未指明（CIRM-BSCRC Postdoctoral Fellowship）",
+      "grantNumbers": [],
+      "grantType": "",
+      "programType": "",
+      "grantTitle": "",
+      "awardStatus": ""
+    },
+    {
+      "title": "Long-Term Post-Mitotic Culture of Human Fibroblasts Recapitulates and Accelerates Features of In Vivo Aging and Enables Dynamic Testing of Anti-Aging Compounds.",
+      "researchTopic": "研究建立加速型人类衰老研究平台：人成纤维细胞长期有丝分裂后培养可复现并加速体内衰老特征。纵向配对转录组与表观遗传分析显示，体外衰老反映体内原代成纤维细胞衰老的关键特征；体外衰老细胞直接神经元转化可保留生物学年龄，实现神经元衰老的拟纵向建模。利用该平台评估抗衰老化合物，二甲双胍(Metformin)广泛减弱转录与表观衰老，雷帕霉素(Rapamycin)效果有限。",
+      "authors": "Traxler, Larissa; Karbacher, Lukas; Borgogno, Oliver; Ozbun, Taylor; Champion, Kylie; Smaling, Anna; Zhou-Yang, Lucia; Herdy, Joseph R; Böhnke, Lena; Böckle, Barbara C; Gage, Fred H; Mack, Hildegard I D; Defrancesco, Michaela; Mertens, Jerome;",
+      "publication": "Aging cell",
+      "publishedOnline": "2026-11-01",
+      "manualUpdateDate": "2026-11-09",
+      "grantNumber": "EDUC4-12804 (2021)",
+      "grantNumbers": [
+        "EDUC4-12804"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Interdisciplinary Stem Cell Training Grant at UCSD III",
+      "awardStatus": "Active"
     }
   ],
   "programStats": {
