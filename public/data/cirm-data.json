@@ -2,12 +2,12 @@
   "summary": {
     "totalGrants": 92,
     "totalProjects": 1627,
-    "totalAmount": 4691996355,
+    "totalAmount": 4691561944,
     "activeProjects": 692,
-    "totalPapers": 802,
+    "totalPapers": 803,
     "activeGrants": 571
   },
-  "updateDate": "2026/11/09",
+  "updateDate": "2026/11/16",
   "grants": [
     {
       "id": 1,
@@ -92,7 +92,7 @@
       "grantType": "DISC5 (Funding Opportunity Discovery Research)",
       "icocApproval": "46289",
       "totalAwards": 21,
-      "awardValue": 52425400,
+      "awardValue": 51990989,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -1920,9 +1920,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "DISC0-13875",
@@ -2004,10 +2004,10 @@
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
-      "showStatusChange": true,
-      "previousAwardValue": 1234023,
-      "previousAwardStatus": "Active"
+      "showValueChange": false,
+      "showStatusChange": false,
+      "previousAwardValue": null,
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "DISC0-13788",
@@ -2039,9 +2039,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "DISC0-13757",
@@ -2345,9 +2345,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "DISC2-14935",
@@ -2667,9 +2667,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 2060248,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -4674,9 +4674,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "DISC4-16337",
@@ -5014,9 +5014,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "TRAN1-16192",
@@ -5200,9 +5200,9 @@
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 2590224,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -5336,9 +5336,9 @@
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 3999899,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -5387,9 +5387,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 4412797,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -5558,9 +5558,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "TRAN1-13342",
@@ -5693,9 +5693,9 @@
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 3551332,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -6085,9 +6085,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "TRAN4-15222",
@@ -6645,9 +6645,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 3999959,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -7444,9 +7444,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 3224918,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -8311,9 +8311,9 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 2909999,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -8788,9 +8788,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "INFR5-14574",
@@ -8805,9 +8805,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "INFR5-14667",
@@ -8907,9 +8907,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "INFR5-14636",
@@ -11507,9 +11507,9 @@
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 118000,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -11865,9 +11865,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Pre-Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "DISC4-19371",
@@ -11899,9 +11899,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Pre-Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "DISC4-19291",
@@ -11915,10 +11915,10 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
-      "showStatusChange": true,
-      "previousAwardValue": 13000000,
-      "previousAwardStatus": "Pre-Active"
+      "showValueChange": false,
+      "showStatusChange": false,
+      "previousAwardValue": null,
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "DISC4-19271",
@@ -11933,9 +11933,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Pre-Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "DISC4-19200",
@@ -11950,9 +11950,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Pre-Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "PDEV-19735",
@@ -11967,9 +11967,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Pre-Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "PDEV-19727",
@@ -11983,10 +11983,10 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
-      "showStatusChange": true,
-      "previousAwardValue": 7499998,
-      "previousAwardStatus": "Pre-Active"
+      "showValueChange": false,
+      "showStatusChange": false,
+      "previousAwardValue": null,
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "PDEV-19725",
@@ -12000,10 +12000,10 @@
       "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
-      "showStatusChange": true,
-      "previousAwardValue": 7499996,
-      "previousAwardStatus": "Pre-Active"
+      "showValueChange": false,
+      "showStatusChange": false,
+      "previousAwardValue": null,
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "PDEV-19742-A",
@@ -12050,7 +12050,7 @@
       "icocApproval": "2026-09-24",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -12067,7 +12067,7 @@
       "icocApproval": "2026-09-24",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -12084,7 +12084,7 @@
       "icocApproval": "2026-09-24",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -12101,7 +12101,7 @@
       "icocApproval": "2026-09-24",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -12118,7 +12118,7 @@
       "icocApproval": "2026-09-24",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -12135,7 +12135,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -14855,7 +14855,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -14872,7 +14872,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -14889,7 +14889,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -14906,7 +14906,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -14923,7 +14923,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -14940,7 +14940,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -14957,7 +14957,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -14974,7 +14974,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -14991,7 +14991,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -15008,7 +15008,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -15025,7 +15025,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -15042,7 +15042,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -15059,7 +15059,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -15076,7 +15076,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -15093,7 +15093,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -15106,14 +15106,14 @@
       "grantTitle": "Leveraging iPSCs and a deep learning-based virtual cell model to identify therapeutic targets for ALS",
       "diseaseFocus": null,
       "principalInvestigator": "Dr. Justin K Ichida",
-      "awardValue": 2500000,
+      "awardValue": 2349518,
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
-      "showValueChange": false,
+      "isNew": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 2500000,
       "previousAwardStatus": null
     },
     {
@@ -15127,7 +15127,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -15144,7 +15144,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -15157,14 +15157,14 @@
       "grantTitle": "Engineering Nephron Connectivity in Human Kidney Tissue Using Synthetic Signaling Centers",
       "diseaseFocus": "Kidney Disease",
       "principalInvestigator": "Leonardo Morsut",
-      "awardValue": 2500000,
+      "awardValue": 2216071,
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
-      "showValueChange": false,
+      "isNew": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 2500000,
       "previousAwardStatus": null
     },
     {
@@ -15178,7 +15178,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -15195,7 +15195,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16453,7 +16453,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16470,7 +16470,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16487,7 +16487,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16504,7 +16504,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16521,7 +16521,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16538,7 +16538,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16555,7 +16555,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16572,7 +16572,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16589,7 +16589,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16606,7 +16606,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16623,7 +16623,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16640,7 +16640,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16657,7 +16657,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16674,7 +16674,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16691,7 +16691,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16708,7 +16708,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -16725,7 +16725,7 @@
       "icocApproval": "46289",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
-      "isNew": true,
+      "isNew": false,
       "showValueChange": false,
       "showStatusChange": false,
       "previousAwardValue": null,
@@ -27369,9 +27369,9 @@
       "sortOrder": 1,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "CLIN2-14232",
@@ -27607,9 +27607,9 @@
       "sortOrder": 1,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "CLIN2-12319",
@@ -28099,9 +28099,9 @@
       "awardStatus": "Closed",
       "sortOrder": 1,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 9350000,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -28644,9 +28644,9 @@
       "sortOrder": 1,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Pre-Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "CLIN2-19848",
@@ -28661,9 +28661,9 @@
       "sortOrder": 1,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Pre-Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "CLIN2-19526",
@@ -28678,9 +28678,9 @@
       "sortOrder": 1,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Pre-Active"
+      "previousAwardStatus": null
     }
   ],
   "papers": [
@@ -40154,7 +40154,7 @@
       "authors": "Kim-McManus, Olivia;",
       "publication": "Molecular therapy. Nucleic acids",
       "publishedOnline": "2026-09-07",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "CLIN2-15085 (2024)",
       "grantNumbers": [
         "CLIN2-15085"
@@ -40170,7 +40170,7 @@
       "authors": "Hamidouche, Tynhinane; More, Namdev; Lee, Tiffany; Orr, Mia; Camus, Anne; Purmessur, Devina; Gulbrand, Sarah E; Chahine, Nadeen O; Silverman, Lara; Sheyn, Dmitriy;",
       "publication": "JOR spine",
       "publishedOnline": "2026-08-05",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12751 (2021)/DISC2-14049 (2023)",
       "grantNumbers": [
         "EDUC4-12751",
@@ -40187,7 +40187,7 @@
       "authors": "Sivakumar, Anusha; Corl, Alexis N; Muñoz, Keneth Jordan; Arumugam, Subhashini; Gunes, Betul B; Solis, Angelyn B; Murthy, Rishika; El-Hachem, Lilas Rony; Pizzo, Donald P; Blair, Ian A; Rojsajjakul, Teerapat; Mesaros, Clementina; Wan, Xinlong; Rainaldi, Joseph N; Badell-Grau, Rafael A; Khare, Veenita; Thai, Kevin Eric; Biederman, Kavya; Cherqui, Stephanie;",
       "publication": "The Journal of clinical investigation",
       "publishedOnline": "2026-10-15",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "TRAN1-13983 (2022)/PDEV-19140 (2025)",
       "grantNumbers": [
         "TRAN1-13983"
@@ -40203,7 +40203,7 @@
       "authors": "Jennett, Jennell; Olmos, Martin; Lam, Ka Man; Midou, Sarah; DiPatrizio, Nicholas V; Nair, Meera G;",
       "publication": "Journal of leukocyte biology",
       "publishedOnline": "2026-10-01",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC5-13636 (2022)",
       "grantNumbers": [
         "EDUC5-13636"
@@ -40219,7 +40219,7 @@
       "authors": "Li, Jiawei; Kumar, Anurendra; Chen, Yin-Tzu; Zhou, Yang; Parikh, Victoria; Wu, Joseph C;",
       "publication": "Stem cell research",
       "publishedOnline": "2026-07-20",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC0-18038 (2025)",
       "grantNumbers": [
         "DISC0-18038"
@@ -40235,7 +40235,7 @@
       "authors": "Liang, Dengpan; Qi, Yalin; Han, Hesong; Ahmadian, Negar; Gao, Kewa; Sapasap, Kaycee; Zhang, Yuxi; Guo, Silin; Lawanprasert, Atip; Pimcharoen, Sopida; Zhao, Sheng; Del Buono, Milan T; Xia, He; Enders, Zoe O; Burgstone, Benjamin W; Calio, Antonino; Dankar, Neel; Lu, Bingwei; Qi, Lei S; Wang, Aijun; Murthy, Niren;",
       "publication": "Nature nanotechnology",
       "publishedOnline": "2026-09-08",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC2-14045 (2023)/DISC2-14097 (2023)",
       "grantNumbers": [
         "DISC2-14045",
@@ -40252,7 +40252,7 @@
       "authors": "Elbatreek, Mahmoud H; Lefer, David J;",
       "publication": "Circulation research",
       "publishedOnline": "2026-10-22",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "PDEV-19141 (2025)",
       "grantNumbers": [],
       "grantType": "Preclinical Stage Projects",
@@ -40266,7 +40266,7 @@
       "authors": "Sheng, Michael K; Firoz, Wahed A; Loi, Kelly; Vick, Logan V; Collins, Craig P; Nielsen, Ryan N; Schmeling, Jessica L; Gulati, Shuchi; Judge, Sean J; Canter, Robert J; Monjazeb, Arta M; Zamora, Anthony E; Murphy, William J;",
       "publication": "Journal for immunotherapy of cancer",
       "publishedOnline": "2026-07-23",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "TRAN1-13996 (2022)",
       "grantNumbers": [
         "TRAN1-13996"
@@ -40282,7 +40282,7 @@
       "authors": "Nguyen, Michael B; Chen, Alexander; Lyons, Quincy; Ninh, Van K; McCabe, Maxwell C; Luo, Colin; Bridgelal, Benjamin D; Uhre, Connor; Cheng, Julian; Reimold, Kate E; Cao, Selena; Hansen, Kirk C; King, Kevin R; Christman, Karen L;",
       "publication": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
       "publishedOnline": "2026-10-29",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "TRAN1-15291 (2023)",
       "grantNumbers": [
         "TRAN1-15291"
@@ -40298,7 +40298,7 @@
       "authors": "Le Guillou, Dounia; Siao, Kevin; Her, Chris L; Duwaerts, Caroline C; Maher, Jacquelyn J;",
       "publication": "Cellular and molecular gastroenterology and hepatology",
       "publishedOnline": "2026-08-13",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "IT1-06563 (2013)",
       "grantNumbers": [
         "IT1-06563"
@@ -40314,7 +40314,7 @@
       "authors": "He, Ling; Kornblum, Harley I; Bhaduri, Aparna; Pajonk, Frank;",
       "publication": "Stem cells translational medicine",
       "publishedOnline": "2026-08-01",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC2-14083 (2023)",
       "grantNumbers": [
         "DISC2-14083"
@@ -40330,7 +40330,7 @@
       "authors": "Elder, Nicholas H; Majd, Alireza; Cesiulis, Andrius; Nyarady, Spencer; Sankar, Kalyan; Bulger, Emily A; Samuel, Ryan M; Zholudeva, Lyandysha V; McDevitt, Todd C; Fattahi, Faranak;",
       "publication": "Nature communications",
       "publishedOnline": "2026-07-29",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC2-15119 (2023)/DISC2-16715 (2024)/DISC0-14521 (2023)",
       "grantNumbers": [
         "DISC2-15119",
@@ -40348,7 +40348,7 @@
       "authors": "Elbatreek, Mahmoud H; Khodade, Vinayak S; Amin, Darshan; Huerta, Miguel; Allerton, Timothy D; Polhemus, David J; Shah, Sanjiv J; Vondriska, Thomas M; Goodchild, Traci T; Lefer, David J;",
       "publication": "Redox biology",
       "publishedOnline": "2026-09-11",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "PDEV-19141 (2025)",
       "grantNumbers": [],
       "grantType": "Preclinical Stage Projects",
@@ -40362,7 +40362,7 @@
       "authors": "Arrizabalaga, Sebastian E; Uchida, Nobuko; Curtis, Allison; Tsukamoto, Ann; Leng, Theodore; Ryals, Renee C;",
       "publication": "PloS one",
       "publishedOnline": "2026-08-10",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "TRAN1-11300 (2018)",
       "grantNumbers": [
         "TRAN1-11300"
@@ -40378,7 +40378,7 @@
       "authors": "Mui, Byron W H; Neofytou, Evgenios; Wu, Joseph C;",
       "publication": "Cell reports. Medicine",
       "publishedOnline": "2026-08-05",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "CLIN2-12735 (2021)",
       "grantNumbers": [
         "CLIN2-12735"
@@ -40394,7 +40394,7 @@
       "authors": "Kim-McManus, Olivia; Mignon, Laurence; Douville, Julie; Pu, He; Parisien, Catherine; Glass, Sarah; Bennett, C Frank; Celso, Janelle; Robbins, Kendall; Ung, Hoameng; Olson, Heather; Kingsmore, Stephen F; Petrou, Steven; Crooke, Stanley T; Gleeson, Joseph G; Berry-Kravis, Elizabeth;",
       "publication": "Nature medicine",
       "publishedOnline": "2026-07-21",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "CLIN2-15085 (2024)",
       "grantNumbers": [
         "CLIN2-15085"
@@ -40410,7 +40410,7 @@
       "authors": "Abd El-Fattah, Eslam E; Flores, Linda; Lara, Jacqueline; Ngai, Gary; Mooney, Rachael; Aboody, Karen;",
       "publication": "Frontiers in immunology",
       "publishedOnline": "2026-08-31",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "CLIN1-14845 (2024)",
       "grantNumbers": [
         "CLIN1-14845"
@@ -40426,7 +40426,7 @@
       "authors": "Karbacher, L; Mertens, Jerome; Kowarschik, S; Lederer, A K; Ku, M; Huber, R; Storz, Maximilian Andreas;",
       "publication": "MedComm",
       "publishedOnline": "2026-08-03",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC0-17507 (2025)",
       "grantNumbers": [
         "DISC0-17507"
@@ -40442,7 +40442,7 @@
       "authors": "Wei, Chuanyu; Shou, Weinian; Chan, Shing-Fai; Saguner, Ardan M; Brunckhorst, Corinna; Duru, Firat; Marine, Joseph E; James, Cynthia A; Calkins, Hugh; Judge, Daniel P; Chen, Huei-Sheng Vincent;",
       "publication": "Circulation research",
       "publishedOnline": "2026-08-19",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "RB4-06276 (2012)",
       "grantNumbers": [
         "RB4-06276"
@@ -40458,7 +40458,7 @@
       "authors": "Wagner, Victoria A; Maples, Sarah; Thapa, Ritika; Wimberly, Jordan; Pettijohn, Ellie; Varallo, Alexandra; Rais, Maham; Sutley-Koury, Samantha; Hickmott, Peter; Ethell, Iryna M;",
       "publication": "Journal of neurochemistry",
       "publishedOnline": "2026-08-01",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12752 (2021)",
       "grantNumbers": [
         "EDUC4-12752"
@@ -40474,7 +40474,7 @@
       "authors": "Gelfand, Craig A; Wang, Ying; Sakurai, Reiko; Liu, Jie; Yu, Celia; Chandan, Gourav; Madrigal, Sabrina; Juan, Lisette; Segal, Robert; Rehan, Virender K;",
       "publication": "American journal of respiratory cell and molecular biology",
       "publishedOnline": "2026-08-20",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12837 (2021)",
       "grantNumbers": [
         "EDUC4-12837"
@@ -40490,7 +40490,7 @@
       "authors": "Patra, Debarun; Cabrera, David G T; Yang, Xiaochun; Walther, Parker; Mukherjee, Souhrid; Sampson, Jacinda; Wu, Joseph C;",
       "publication": "Stem cell research",
       "publishedOnline": "2026-08-22",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC0-18038 (2025)",
       "grantNumbers": [
         "DISC0-18038"
@@ -40506,7 +40506,7 @@
       "authors": "Gupta, Jasmine; Mozneb, Maedeh; Moses, Jemima; Sharma, Arun;",
       "publication": "Frontiers in bioengineering and biotechnology",
       "publishedOnline": "2026-10-13",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "INFR6.2-15475 (2024)",
       "grantNumbers": [
         "INFR6"
@@ -40522,7 +40522,7 @@
       "authors": "Etemadi, Shabnam; Talbot, Prue;",
       "publication": "Human reproduction (Oxford, England)",
       "publishedOnline": "2026-10-01",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12752 (2021)",
       "grantNumbers": [
         "EDUC4-12752"
@@ -40538,7 +40538,7 @@
       "authors": "Bogoniewski, Aleksander A; Gonzalez, Melissa F; Reyes, Rachel E; Rivera, Susanna F; Taylor, Cameron; Schurr, Todd; Damoiseaux, Robert; Lipshutz, Gerald S;",
       "publication": "Cells",
       "publishedOnline": "2026-08-25",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC2-14090 (2023)",
       "grantNumbers": [
         "DISC2-14090"
@@ -40554,7 +40554,7 @@
       "authors": "Tsai, Yuan-Chen; Ozaki, Hajime; Almet, Axel A; Fleming, Isabel; Nie, Caihao; Luo, Songhao; Wang, Xinyi; Shiraiwa, Kaori; Noh, Matthew Jung Min; Trejo, Sunnyana; Sugita, Bret Kiyoshi; Dalal, Jiya; Gonzalez, Ruben Alberto; De Jesus, Briana; Branco, Nate; Chen, Gregory Li-Min; Gandal, Michael J; Nie, Qing; Watanabe, Momoko;",
       "publication": "Cell stem cell",
       "publishedOnline": "2026-08-20",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12822 (2021)/EDUC5-13637 (2022)/EDUC2-12734 (2021)",
       "grantNumbers": [
         "EDUC4-12822",
@@ -40572,7 +40572,7 @@
       "authors": "Yu, Brian; Ren, Lu; Liu, Yu; Tu, Chengyi; Kojic, Ana; Dai, Yuanyuan; Venkateshappa, Ravichandra; Shen, Mengcheng; Zhao, Shane R; Wu, Joseph C;",
       "publication": "Circulation",
       "publishedOnline": "2026-09-28",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC0-18038 (2025)",
       "grantNumbers": [
         "DISC0-18038"
@@ -40588,7 +40588,7 @@
       "authors": "Li, Lulin; Bonfoey, Alyssa M; Sun, Bryan; Harris, Odette A; Luo, Jian;",
       "publication": "Journal of neuroinflammation",
       "publishedOnline": "2026-07-22",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC2-16562 (2024)",
       "grantNumbers": [
         "DISC2-16562"
@@ -40604,7 +40604,7 @@
       "authors": "McQuade, Amanda; Castillo, Vincent Cele; Hagan, Venus; Liang, Weiwei; Ta, Thomas; Mishra, Reet; Teter, Olivia; Gomes, Layla; Gonzalez, Bianca; Teyssier, Noam; Leng, Kun; Kampmann, Martin;",
       "publication": "NPJ dementia",
       "publishedOnline": "2026-09-02",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC2-12730 (2021)",
       "grantNumbers": [
         "EDUC2-12730"
@@ -40620,7 +40620,7 @@
       "authors": "Aderounmu, Adedeji M; Horton, Connor A; Van Treeck, Briana; Rodríguez-Vargas, Anthony; Collins, Kathleen;",
       "publication": "Proceedings of the National Academy of Sciences of the United States of America",
       "publishedOnline": "2026-08-11",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12790 (2021)",
       "grantNumbers": [
         "EDUC4-12790"
@@ -40636,7 +40636,7 @@
       "authors": "Gonzalez-Ferrer, Jesus; Lehrer, Julian; Alvarez-Esteban, Bruno; Moreno-Ochando, Avelina; Schweiger, Hunter E; Geng, Jinghui; Eugenio Dos Santos, Luiz F S; Hernandez, Sebastian; Reyes, Francisco; Sevetson, Jess L; Schneider, Aidan; Salama, Sofie R; Teodorescu, Mircea; Haussler, David; Mostajo-Radji, Mohammed A;",
       "publication": "Nature communications",
       "publishedOnline": "2026-08-21",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC4-16285 (2024)/DISC4-16337 (2025)/DISC4-19334 (2026)",
       "grantNumbers": [
         "DISC4-16285",
@@ -40654,7 +40654,7 @@
       "authors": "Fetter, Isobel J; Haro Acosta, Veronica; Parecadan, Sachin; Sikandar, Shaheen S;",
       "publication": "microPublication biology",
       "publishedOnline": "2026-07-30",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12759 (2021)",
       "grantNumbers": [
         "EDUC4-12759"
@@ -40670,7 +40670,7 @@
       "authors": "Ayala, L. Angel; Ahmedani, Alizeh; Zhou, Cuiwen; Hisoire, Gabriella L.; Villamar, Alexii; Baez, Michelle; Onofre, Nathalia; De Smet, Chanel; Nguyen, Pauline U.; Scarfone, Vanessa M.; Varady, Erika S.; Chen, Xiyu; Daud, Ankita; Inlay, Matthew A.;",
       "publication": "Frontiers in immunology",
       "publishedOnline": "2026-10-09",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "CL1-00520-1.2 (2007)/EDUC4-12822 (2021)/INFR6.2-15368 (2024)",
       "grantNumbers": [
         "CL1-00520",
@@ -40688,7 +40688,7 @@
       "authors": "Folkerts, Melissa L; Hom, Cameron; Nguyen, Angie T M; Shen, Kaiyuan V; Monterroso, Alyssa M; Damozonio, Ellianna M; Aguilar-Quintero, Alejandra; Rangel, Valeria; Ortega, Pedro; Masri, Selma; Adachi, Noritaka; Buisson, Rémi; Meek, Katheryn; Pannunzio, Nicholas R;",
       "publication": "Communications biology",
       "publishedOnline": "2026-08-21",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "TG2-01152 (2009)",
       "grantNumbers": [
         "TG2-01152"
@@ -40704,7 +40704,7 @@
       "authors": "Jones, Xaviar M; Soussi, Salwa; Ciullo, Alessandra; Tsi, Kara; Liu, Weixin; Li, Liang; Fournier, Mario; Mesquita, Thassio; Marchevsky, Alberto M; Bottini, Nunzio; Boin, Francesco; Ibrahim, Ahmed Ge; Marbán, Eduardo;",
       "publication": "JCI insight",
       "publishedOnline": "2026-09-08",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "TRAN1-15317 (2023)",
       "grantNumbers": [
         "TRAN1-15317"
@@ -40720,7 +40720,7 @@
       "authors": "Zhu, Yichen; Yu, Jiaji; Kim, Yu Jeong; Tian, Yanxin; Li, Zhe; Chen, Yuning; Lyu, Zibai; Zhu, Enbo; Zhao, Annabel S; Ma, Nathan; Zhang, Catherine; Kramer, Adam; Wilson, Matthew; Hon, Ryan; Wang, Yu-Chen; Lin, Siyu; Shen, Xinyuan; Hahn, Zoe; Zhang, Yuchong; Wang, Aijun; Li, Yan-Ruide; Yang, Lili;",
       "publication": "Cell reports. Medicine",
       "publishedOnline": "2026-08-19",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC2-11157 (2018)/TRAN1-12250 (2021)/TRAN1-16050 (2024)",
       "grantNumbers": [
         "DISC2-11157",
@@ -40738,7 +40738,7 @@
       "authors": "Wang, Shijie; Elia, Lisa; Liu, Weiyi; Finkbeiner, Steven;",
       "publication": "The Journal of clinical investigation",
       "publishedOnline": "2026-10-19",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC0-13914 (2022)/DISC0-16039 (2024)",
       "grantNumbers": [
         "DISC0-13914",
@@ -40755,7 +40755,7 @@
       "authors": "Mercado, Jaqueline; Saxena, Mallika; Traber, Gavin M; Sathianathen, Ryan S; Glader, Bertil; Kenny, Paraic; Sakamoto, Kathleen M; Wilkes, Mark C;",
       "publication": "Blood red cells & iron",
       "publishedOnline": "2026-07-21",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC2-12475 (2021)",
       "grantNumbers": [
         "DISC2-12475"
@@ -40771,7 +40771,7 @@
       "authors": "Boggess, Steven C; Gandhi, Vaidehi; Tsai, Ming-Chi; Marzette, Emily; Teyssier, Noam; Chou, Joanna Yu-Ying; Hu, Xiaoyu; Cramer, Amber; Yadanar, Lin; Shroff, Kunal; Jeong, Claire G; Eidenschenk, Celine; Hanson, Jesse E; Tian, Ruilin; Kampmann, Martin;",
       "publication": "Nature communications",
       "publishedOnline": "2026-08-01",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC2-12730 (2021)",
       "grantNumbers": [
         "EDUC2-12730"
@@ -40787,7 +40787,7 @@
       "authors": "Cherqui, Stephanie;",
       "publication": "The Journal of clinical investigation",
       "publishedOnline": "2026-10-01",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "CLIN2-11478 (2019)/PDEV-19140 (2025)/TRAN1-13983 (2022)",
       "grantNumbers": [
         "CLIN2-11478",
@@ -40804,7 +40804,7 @@
       "authors": "Cavanaugh, Kate E; Franco-Oñate, M J; Horsley, Nicole; Gokyer, Dilan; Atazhanova, Tomiris; Laird, Diana J; Oakes, Patrick W; Riley, Joan K; Duncan, Francesca E; Pavone, MaryEllen; Molé, Matteo; Alert, Ricard; Weiner, Orion D;",
       "publication": "Nature cell biology",
       "publishedOnline": "2026-08-25",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC0-17685 (2025)",
       "grantNumbers": [
         "DISC0-17685"
@@ -40820,7 +40820,7 @@
       "authors": "Varghese, Sneha S; Hernandez-De La Peña, Alessandro Giovanni; Wang, Liu; Ruiz, Victor; Tixi, Wilma; Pandey, Aparamita; Anchondo, Laura; Chiu, Amy; Wu, Xiwei; Georgia, Senta K; Shih, Hung-Ping; Wei, Zong; Bhattacharya, Supriyo; Dhawan, Sangeeta;",
       "publication": "Diabetes",
       "publishedOnline": "2026-09-01",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12772 (2021)",
       "grantNumbers": [
         "EDUC4-12772"
@@ -40836,7 +40836,7 @@
       "authors": "Mooney, Rachael; Abd El-Fattah, Eslam E; Ngai, Gary; Lara, Jacqueline; Hammad, Mohamed; Aboody, Karen S;",
       "publication": "Stem cells translational medicine",
       "publishedOnline": "2026-10-01",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "CLIN1-14845 (2024)/CLIN2-13162 (2022)",
       "grantNumbers": [
         "CLIN1-14845",
@@ -40853,7 +40853,7 @@
       "authors": "Bradley, Allyssa; Min, Hyejung; Park, Soyoung; Temme, William; Park, Soyeon; Al-Moujahed, Ahmad; Lee, Eun-Jin; Lin, Jonathan H;",
       "publication": "Stem cell reports",
       "publishedOnline": "2026-09-10",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC2-10973 (2018)",
       "grantNumbers": [
         "DISC2-10973"
@@ -40869,7 +40869,7 @@
       "authors": "Fernandez, Mackenzie; Soo-Hoo, Emerson; Perez Castro, Kaelynn; Kundu, Kimtee; Patel, Divya D; Mariani, Francesca V;",
       "publication": "JBMR plus",
       "publishedOnline": "2026-07-28",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12756 (2021)",
       "grantNumbers": [
         "EDUC4-12756"
@@ -40885,7 +40885,7 @@
       "authors": "Cruz, Luisjesus S; Castañeda, Alejandro R; Srisantitham, Jakkrapatra; Kaufman, Dan S;",
       "publication": "Stem cells (Dayton, Ohio)",
       "publishedOnline": "2026-10-01",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC2-09615 (2017)/DISC2-12105 (2020)/DISC2-12657 (2021)/TRAN1-10587 (2017)",
       "grantNumbers": [
         "DISC2-09615",
@@ -40904,7 +40904,7 @@
       "authors": "Davtyan, Hayk; Naguib, Sarah; Voskobiynyk, Yuliya; Chadarevian, Jean Paul; Capocchi, Joia K; Giacchino, Jeannie L; Eskandari-Sedighi, Ghazaleh; DeNittis, Vivianna; Ford, Jeremy B; Agababian, Ani; Nguyen, Jasmine; Chadarevian, Alina L; Sutherland, Madison S; Shabestari, Sepideh Kiani; Tran, Kayla; Holt, Bret; Nana, Alissa L; Zhang, Jiasheng; Spina, Salvatore; Wong, Man Ying; Grinberg, Lea T; Seeley, William W; Huang, Eric; Clelland, Claire D; Gong, Shiaoching; Fan, Li; Paz, Jeanne T; Blurton-Jones, Mathew; Gan, Li;",
       "publication": "Molecular neurodegeneration",
       "publishedOnline": "2026-07-16",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12822 (2021)/RT3-07893 (2015)",
       "grantNumbers": [
         "EDUC4-12822",
@@ -40921,7 +40921,7 @@
       "authors": "Lundqvist, Emil M; Nguyen, Krystal; Chung, Caleb O; Tang, Sheng Wei; Celt, Natalie; Jeong, Harrison C; Lim, Sujeung; Le, Lanie; Lee, Kathryn K; Chua, Kenneth O; Mandala Kol, Alessandra; Stahl, Jayden R; Foust, Skylar R; Kuang, Yuyao; Jackson, Megan N; Ardoña, Herdeline Ann M;",
       "publication": "ACS central science",
       "publishedOnline": "2026-08-19",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12822 (2021)/INFR6.2-15368 (2024)",
       "grantNumbers": [
         "EDUC4-12822",
@@ -40938,7 +40938,7 @@
       "authors": "Bryant, Jack; Herron, Laura; Doctor, Yesh; McRae, Finn; Wang, Jocelyn; Hirsch, Theodore; Portell, Andrew; Kumar, Satheesh; Mali, Prashant;",
       "publication": "Molecular cell",
       "publishedOnline": "2026-10-20",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC4-19271 (2026)",
       "grantNumbers": [
         "DISC4-19271"
@@ -40954,7 +40954,7 @@
       "authors": "Link, Oliver; Jahnel, Stefan M; Janicek, Kristin; Guerguerian, Daniel; Kraus, Johanna; Montenegro, Juan D; Zimmermann, Bob; Wick, Brittney; Khalturin, Konstantin; Cole, Alison G; Technau, Ulrich;",
       "publication": "PLoS biology",
       "publishedOnline": "2026-08-14",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC0-14514 (2023)",
       "grantNumbers": [
         "DISC0-14514"
@@ -40970,7 +40970,7 @@
       "authors": "Turkalj, Elena M; Kang, Gugene; Liu, Isabelle; Kuljanishvili, Mariami; Keyhanvar, Neda; Oldham, Michael C; Vissers, Caroline;",
       "publication": "Stem cell reports",
       "publishedOnline": "2026-08-06",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12812 (2021)",
       "grantNumbers": [
         "EDUC4-12812"
@@ -40986,7 +40986,7 @@
       "authors": "Chansky, Pamela; Rubinstein, Jeremy; Grimley, Michael; Davies, Stella M; Blyth, Emily; Gottlieb, David; Pulsipher, Michael A; Bollard, Catherine; Keller, Michael D; Li, Wei;",
       "publication": "Computational and structural biotechnology journal",
       "publishedOnline": "2026-09-21",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "CLIN2-10392 (2017)",
       "grantNumbers": [
         "CLIN2-10392"
@@ -41002,7 +41002,7 @@
       "authors": "Rizwi, Hira; Nguyen, Britney T; Chahine, Anastasia; Dahdoul, Thabat; Shiu, Jessica;",
       "publication": "JID innovations : skin science from molecules to population health",
       "publishedOnline": "2026-08-03",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12822 (2021)",
       "grantNumbers": [
         "EDUC4-12822"
@@ -41018,7 +41018,7 @@
       "authors": "Rutkowski, Symphony A; Serumaga, Neila V; Bond, Eva J; Kim, Jane C;",
       "publication": "microPublication biology",
       "publishedOnline": "2026-08-10",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC5-13667 (2022)",
       "grantNumbers": [
         "EDUC5-13667"
@@ -41034,7 +41034,7 @@
       "authors": "McQuade, Amanda; Mishra, Reet; Hagan, Venus; Liang, Weiwei; Colias, Peter J; Castillo, Vincent Cele; Gonzalez, Bianca; Lubin, Justin P; Haage, Verena; Marshe, Victoria; Fujita, Masashi; Ta, Thomas; Gomes, Layla; Teter, Olivia; Han, Xia; Robichaud, Nathaniel; Chasins, Sarah E; Rexach, Jessica E; De Jager, Philip L; Nuñez, James K; Kampmann, Martin;",
       "publication": "Neuron",
       "publishedOnline": "2026-07-29",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC2-12730 (2021)",
       "grantNumbers": [
         "EDUC2-12730"
@@ -41050,7 +41050,7 @@
       "authors": "An, Luye; Robledo, Mario A; Niknezhad, Seyyed Vahid; Ko, Wendy; Zhang, Beryl; Chen, Yu Ting; McNamara, Nancy A; Knox, Sarah M;",
       "publication": "Investigative ophthalmology & visual science",
       "publishedOnline": "2026-10-01",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC5-13679 (2022)",
       "grantNumbers": [
         "EDUC5-13679"
@@ -41066,7 +41066,7 @@
       "authors": "Balak, Christopher D; Schlachetzki, Johannes C M; Lana, Addison J; West, Elizabeth; Hong, Christine; DuGal, Jordan; Zhou, Yi; Li, Benjamin; Spann, Nathanael J; Saisan, Payam; Sarsani, Vishal; Kleemann, Kilian L; Zhang, Xiaoming; Pasillas, Martina P; O'Brien, Sydney; Bokor, Juliette A; Gordts, Philip L S M; Butovsky, Oleg; Stevens, Beth; Kamme, Fredrik; Glass, Christopher K;",
       "publication": "Immunity",
       "publishedOnline": "2026-08-03",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC2-13077 (2022)",
       "grantNumbers": [
         "DISC2-13077"
@@ -41082,7 +41082,7 @@
       "authors": "Schafer, Danielle M; Blue, Steven M; Xu, Shuhao; Mizrahi, Orel; Gosztyla, Maya L; Street, Lena; Rothamel, Katherine L; Kopalle, Hema; Landry, Samuel B; Rosales, Elijah Khalil F; Tien, Rebecca H; Elmsaouri, Sara; Coufal, Nicole G; Jovanovic, Marko; Yeo, Gene W;",
       "publication": "Nature communications",
       "publishedOnline": "2026-08-12",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "FA1-00607 (2007)",
       "grantNumbers": [
         "FA1-00607"
@@ -41098,7 +41098,7 @@
       "authors": "Sinha V, Ayoub PG, Juett CJ, Lathrop LE, Foley RA, Sims RA, Long JD, Duggan EC, Fernandes NR, Illek B, Gomperts BN, Jonas SJ, Kohn DB",
       "publication": "Molecular therapy. Nucleic acids",
       "publishedOnline": "2026-08-03",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC0-14458 (2023)",
       "grantNumbers": [
         "DISC0-14458"
@@ -41114,7 +41114,7 @@
       "authors": "Erdem N, Zook HN, Quijano JC, Hansen NP, Palade J, Oh E, Mares J, Donohue C, Ortiz JA, Jou K, Talley M, Guthalu Kondegowda N, Arribas-Layton D, Vasavada RC, Montero E, Reijonen H, Thurmond DC, Pirrotte P, Jovanovic-Talisman T, Ku HT",
       "publication": "Frontiers in immunology",
       "publishedOnline": "2026-07-23",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12772 (2021)",
       "grantNumbers": [
         "EDUC4-12772"
@@ -41130,7 +41130,7 @@
       "authors": "Feng X, Chen HY, Sun Y, Sun F, Yan S, Kapuria S, Rodriguez R, Gamba L, Crump JG, Hong YK, Poss KD, Lien CL",
       "publication": "Nature communications",
       "publishedOnline": "2026-10-17",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "EDUC4-12802 (2021)",
       "grantNumbers": [
         "EDUC4-12802"
@@ -41146,7 +41146,7 @@
       "authors": "Pan B, Maalal A, Hao D",
       "publication": "International journal of molecular sciences",
       "publishedOnline": "2026-07-28",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明（Stem Cell and Gene Therapy Training Program）",
       "grantNumbers": [],
       "grantType": "",
@@ -41160,7 +41160,7 @@
       "authors": "Pan B, Rodarte JE, Tong JM, Nabeta E, Hao D",
       "publication": "Gels (Basel, Switzerland)",
       "publishedOnline": "2026-10-14",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明（Stem Cell and Gene Therapy Training Program）",
       "grantNumbers": [],
       "grantType": "",
@@ -41174,7 +41174,7 @@
       "authors": "Silverstein M, Hou S, Ge C, Garcia T, Chan C, Bruckman K, Takematsu E",
       "publication": "International journal of molecular sciences",
       "publishedOnline": "2026-10-01",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明（Translational Award）",
       "grantNumbers": [],
       "grantType": "",
@@ -41188,7 +41188,7 @@
       "authors": "Yuan G, Kunst M, Steyert MR, Keefe MG, Mathieu R, van Velthoven CTJ, McMillen D, Waters J, Fukushima Y, Kazerounian A, Alvarez-Buylla A, Zeng H, Nowakowski TJ",
       "publication": "Nature",
       "publishedOnline": "2026-09-30",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "DISC0-14429 (2023)",
       "grantNumbers": [
         "DISC0-14429"
@@ -41204,7 +41204,7 @@
       "authors": "Ahanger SH, Semenza ER, Zhang C, Gil E, Cole MA, Lu SH, Wang L, Kriegstein AR, Lim DA",
       "publication": "Nature",
       "publishedOnline": "2026-07-22",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明（postdoctoral fellowship）",
       "grantNumbers": [],
       "grantType": "",
@@ -41218,7 +41218,7 @@
       "authors": "Vermilion J, Paganoni S, Plotkin SR, Quintana M, Calvert SB, Whiteman IT, Wang RY, Moore N, Augustine EF",
       "publication": "Annals of neurology",
       "publishedOnline": "2026-07-21",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "INFR4-13952 (2022)",
       "grantNumbers": [
         "INFR4-13952"
@@ -41234,7 +41234,7 @@
       "authors": "Grant ZL, Kuang S, Zhang S, Horrillo AJ, Chen Z, Rao KS, Celen C, Kameswaran V, Joubran C, Lau PK, Dong K, Yang B, Bartosik WM, Zemke NR, Ren B, Srivastava D, Kathiriya IS, Pollard KS, Bruneau BG",
       "publication": "Science (New York, N.Y.)",
       "publishedOnline": "2026-07-23",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明",
       "grantNumbers": [],
       "grantType": "",
@@ -41248,7 +41248,7 @@
       "authors": "Niizuma K, Chang A, Okamoto Y, Kim J, Sasaki K, Busque S, Majeti R, Nakauchi H, Nakauchi Y",
       "publication": "Blood advances",
       "publishedOnline": "2026-07-23",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明（research training fellowship）",
       "grantNumbers": [],
       "grantType": "",
@@ -41262,7 +41262,7 @@
       "authors": "Takematsu E, Lachmansingh RN, Johnston K, Hou S, Bailey E, Wang Y, Zhao L, Hoover M, Nguyen HTM, Parmar KM, Talbott H, Longaker MT, Chan CKF",
       "publication": "Nature communications",
       "publishedOnline": "2026-08-06",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明（Translational Award）",
       "grantNumbers": [],
       "grantType": "",
@@ -41276,7 +41276,7 @@
       "authors": "Averbukh M, Nelson HT, Wang T, Lange CM, Alcala A, Kim J, Suh D, Vega M, Gao SM, Dutta N, Young KE, Aviles Barahona R, Coakley AJ, Gerke JA, Odron SF, Clarke JG, Singh N, Nickel MS, Peterson JC, Lam-Truong HL, Moaddeli D, Castro Torres T, Oorloff M, Peruch M, Nair T, Mehta HH, Thorwald MA, Ono S, Curran SP, Wang MC, Benayoun BA, Hill CM, Johnson TA, Crimmins EM, Arpawong TE, Kumsta C, Garcia G, Higuchi-Sanabria R",
       "publication": "iScience",
       "publishedOnline": "2026-08-24",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明（COMPASS CIRM grant、 Predoctoral Fellowship）",
       "grantNumbers": [],
       "grantType": "",
@@ -41290,7 +41290,7 @@
       "authors": "Wang T, Alcala A, Berdan D, Kuo V, Garcia G, Higuchi-Sanabria R, Averbukh M",
       "publication": "Biogerontology",
       "publishedOnline": "2026-09-02",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明（COMPASS CIRM grant）",
       "grantNumbers": [],
       "grantType": "",
@@ -41304,7 +41304,7 @@
       "authors": "Averbukh M, Wang T, Garcia G, Higuchi-Sanabria R",
       "publication": "Journal of cell science",
       "publishedOnline": "2026-08-10",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明（COMPASS CIRM grant）",
       "grantNumbers": [],
       "grantType": "",
@@ -41318,7 +41318,7 @@
       "authors": "Lee JTC, Sutton H, Pai P, Barbetta A, Zhou S, Kohli R, MacParland S, Emamaullee J",
       "publication": "Hepatology communications",
       "publishedOnline": "2026-08-20",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明（Clinical Research Fellowship）",
       "grantNumbers": [],
       "grantType": "",
@@ -41332,7 +41332,7 @@
       "authors": "Li YR, Chen Y, Zhu Y, Shen X, Yang L",
       "publication": "Frontiers in immunology",
       "publishedOnline": "2026-07-28",
-      "manualUpdateDate": "2026-11-09",
+      "manualUpdateDate": "2026-11-02",
       "grantNumber": "未指明（CIRM-BSCRC Postdoctoral Fellowship）",
       "grantNumbers": [],
       "grantType": "",
@@ -41355,6 +41355,22 @@
       "programType": "Education",
       "grantTitle": "Interdisciplinary Stem Cell Training Grant at UCSD III",
       "awardStatus": "Active"
+    },
+    {
+      "title": "XGBoost-SHAP analysis prioritizes lower-frequency variants predicted to affect HNF4A binding motifs in pancreatic progenitors.",
+      "researchTopic": "研究整合单核染色质可及性测序(ATAC-seq)与可解释的XGBoost-SHAP框架，评估非编码变异对转录因子结合的影响。对人诱导多能干细胞(iPSC)来源胰腺祖细胞鉴定数万杂合SNP并训练模型预测等位基因特异性效应。XGBoost优于线性模型，染色质读段深度、峰值评分与次要等位基因频率(MAF)为最强预测因子；低频SNP簇与HNF4A结合基序强互作且与CADD预测有害性相关，提示HNF4A结合元件受选择约束，为低频变异在HNF4A相关MODY1家族内表型变异中的作用提供假说。",
+      "authors": "Frazer, Kelly A; Henson, Benjamin; Nguyen, Jennifer P; Gonzalez Rivera, Wilfredo G; D'Antonio, Matteo;",
+      "publication": "PLoS genetics",
+      "publishedOnline": "2026-11-04",
+      "manualUpdateDate": "2026-11-16",
+      "grantNumber": "GC1R-06673-B",
+      "grantNumbers": [
+        "GC1R-06673"
+      ],
+      "grantType": "GC1R (Genomics Centers of Excellence Awards (R))",
+      "programType": "Infrastructure",
+      "grantTitle": "Center of Excellence for Stem Cell Genomics – Salk",
+      "awardStatus": "Closed"
     }
   ],
   "programStats": {
