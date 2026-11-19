@@ -2,8 +2,8 @@
   "summary": {
     "totalGrants": 92,
     "totalProjects": 1627,
-    "totalAmount": 4691561944,
-    "activeProjects": 692,
+    "totalAmount": 4688938949,
+    "activeProjects": 691,
     "totalPapers": 803,
     "activeGrants": 571
   },
@@ -114,7 +114,7 @@
       "grantType": "TRAN 1 (Therapeutic Translational Research Projects)",
       "icocApproval": "2025-01-30",
       "totalAwards": 94,
-      "awardValue": 364165889,
+      "awardValue": 361542894,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -137,7 +137,7 @@
       "icocApproval": "2022-04-19",
       "totalAwards": 1,
       "awardValue": 3082579,
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "notes": null,
       "isNew": false
     },
@@ -4804,15 +4804,15 @@
       "grantTitle": "A novel non-genotoxic antibody conditioning therapeutic\r\r\r\r\nto expand access to and safety of HSCT and CD34+ gene therapies",
       "diseaseFocus": null,
       "principalInvestigator": "Chhabra, Akanksha — Maro Bio",
-      "awardValue": 4043427,
+      "awardValue": 1420432,
       "icocApproval": "2025-01-30",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
-      "showStatusChange": false,
-      "previousAwardValue": null,
-      "previousAwardStatus": null
+      "showValueChange": true,
+      "showStatusChange": true,
+      "previousAwardValue": 4043427,
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "TRAN1-16935",
@@ -6013,13 +6013,13 @@
       "principalInvestigator": "UC Davis",
       "awardValue": 3082579,
       "icocApproval": "2022-04-19",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "TRAN4-17158",
@@ -15111,9 +15111,9 @@
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 2500000,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -15162,9 +15162,9 @@
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 2500000,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
