@@ -2,12 +2,12 @@
   "summary": {
     "totalGrants": 92,
     "totalProjects": 1627,
-    "totalAmount": 4688938949,
+    "totalAmount": 4688701442,
     "activeProjects": 691,
     "totalPapers": 803,
     "activeGrants": 571
   },
-  "updateDate": "2026/11/19",
+  "updateDate": "2026/11/20",
   "grants": [
     {
       "id": 1,
@@ -180,7 +180,7 @@
       "grantType": "CLIN 2 (Clinical Trial Stage Projects)",
       "icocApproval": "2026-09-24",
       "totalAwards": 114,
-      "awardValue": 921830732,
+      "awardValue": 921593225,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -4809,10 +4809,10 @@
       "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
-      "showStatusChange": true,
-      "previousAwardValue": 4043427,
-      "previousAwardStatus": "Active"
+      "showValueChange": false,
+      "showStatusChange": false,
+      "previousAwardValue": null,
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "TRAN1-16935",
@@ -6017,9 +6017,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "TRAN4-17158",
@@ -12114,14 +12114,14 @@
       "grantTitle": "A Phase 1 study of an engineered Treg cell therapy, GNTI-122, in adults with recently diagnosed Type 1 Diabetes",
       "diseaseFocus": null,
       "principalInvestigator": "Mark Bach",
-      "awardValue": 7766382,
+      "awardValue": 7528875,
       "icocApproval": "2026-09-24",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 7766382,
       "previousAwardStatus": null
     },
     {
