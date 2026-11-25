@@ -2,12 +2,12 @@
   "summary": {
     "totalGrants": 92,
     "totalProjects": 1627,
-    "totalAmount": 4688701442,
+    "totalAmount": 4688985874,
     "activeProjects": 691,
-    "totalPapers": 803,
+    "totalPapers": 805,
     "activeGrants": 571
   },
-  "updateDate": "2026/11/20",
+  "updateDate": "2026/11/25",
   "grants": [
     {
       "id": 1,
@@ -180,7 +180,7 @@
       "grantType": "CLIN 2 (Clinical Trial Stage Projects)",
       "icocApproval": "2026-09-24",
       "totalAwards": 114,
-      "awardValue": 921593225,
+      "awardValue": 921877657,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -12046,14 +12046,14 @@
       "grantTitle": "Phase 2 Open-Label Single-Arm Trial of FT819 in Participants With Refractory Moderate-to-Severe SLE With Lupus Nephritis",
       "diseaseFocus": null,
       "principalInvestigator": "Dr. Vaneet Sandhu",
-      "awardValue": 14715568,
+      "awardValue": 15000000,
       "icocApproval": "2026-09-24",
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 14715568,
       "previousAwardStatus": null
     },
     {
@@ -12119,9 +12119,9 @@
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 7766382,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -14989,13 +14989,13 @@
       "principalInvestigator": "Mohamed Abou-el-Enein",
       "awardValue": 2499738,
       "icocApproval": "46289",
-      "awardStatus": "Pre-Active",
+      "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Pre-Active"
     },
     {
       "grantNumber": "DISC5-19900",
@@ -41371,6 +41371,38 @@
       "programType": "Infrastructure",
       "grantTitle": "Center of Excellence for Stem Cell Genomics – Salk",
       "awardStatus": "Closed"
+    },
+    {
+      "title": "Generation of Human Cardiomyocytes With Adult-Like Metabolism by a Chemically Defined Medium for Mitochondrial Disease Modeling.",
+      "researchTopic": "研究利用生物信息学设计化学限定成熟培养基(MM11)，推动诱导多能干细胞(iPSC)来源心肌细胞代谢成熟，并以原代成人心肌细胞为对照评估分子、结构与功能改变。MM11处理显著上调线粒体呼吸与脂肪酸代谢通路，超微结构显示形成肌纤维间线粒体及呼吸链超复合物，心肌细胞氧化磷酸化增强并优先利用脂肪酸产能。成熟心肌细胞能更真实模拟线粒体依赖性心脏病理（如缺血再灌注损伤、弗里德赖希共济失调心肌病），提升其在人类心脏疾病机制研究中的应用价值。",
+      "authors": "Tu, Chengyi; Caudal, Arianne; Liu, Yu; Belbachir, Nadjet; Kojic, Ana; Stern, Brett; Ren, Lu; Hu, Erin; Cunningham, Nathan; Yu, Brian; Chen, Yi-Ing; Jurney, Patrick; Napierala, Jill S; Napierala, Marek; Ritterhoff, Julia; Tian, Rong; Wu, Joseph C;",
+      "publication": "Circulation",
+      "publishedOnline": "2026-11-10",
+      "manualUpdateDate": "2026-11-25",
+      "grantNumber": "DISC0-18038 (2025)",
+      "grantNumbers": [
+        "DISC0-18038"
+      ],
+      "grantType": "Foundation – Discovery Stage Research Projects",
+      "programType": "Discovery",
+      "grantTitle": "Base Editing, Single-Cell Multiomics, and Cardiac Organoids to Decode Genetic Variants",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Tracking human HSCs and MPPs in mice reveals distinct clonal dynamics and responses to pre-transplant conditioning.",
+      "researchTopic": "研究在NSGW41小鼠中对纯化的人造血干细胞(hHSC)与人多能祖细胞(hMPP)进行定量克隆追踪，覆盖原代与二次移植，并在无清髓、白消安或照射条件下比较克隆动力学。hHSC克隆产生更多血细胞、更早启动淋巴分化、多系分化更稳健，且对清髓处理更不敏感；白消安与照射对造血重建的幅度、谱系偏向与时机影响不同，但不改变植入。二次移植中hHSC与hMPP贡献相当但输出显著减少、克隆多样性增加，并出现髓外造血。研究深化对人类造血的认知，为优化移植清髓策略及HSC细胞与基因治疗的临床前评估提供框架。",
+      "authors": "Vergel Snodgrass, Mary; Eerdeng, Jiya; Condie, Patrick; Gala, Basia; Lu, Rong;",
+      "publication": "NPJ Regenerative medicine",
+      "publishedOnline": "2026-11-17",
+      "manualUpdateDate": "2026-11-25",
+      "grantNumber": "EDUC4-12756 (2021)",
+      "grantNumbers": [
+        "EDUC4-12756"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "Training Program Bridging Stem Cell Research with Clinical Applications in Regenerative Medicine",
+      "awardStatus": "Active"
     }
   ],
   "programStats": {
