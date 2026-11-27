@@ -2,12 +2,12 @@
   "summary": {
     "totalGrants": 92,
     "totalProjects": 1627,
-    "totalAmount": 4688985874,
+    "totalAmount": 4688334330,
     "activeProjects": 691,
-    "totalPapers": 805,
+    "totalPapers": 807,
     "activeGrants": 571
   },
-  "updateDate": "2026/11/25",
+  "updateDate": "2026/11/27",
   "grants": [
     {
       "id": 1,
@@ -180,7 +180,7 @@
       "grantType": "CLIN 2 (Clinical Trial Stage Projects)",
       "icocApproval": "2026-09-24",
       "totalAwards": 114,
-      "awardValue": 921877657,
+      "awardValue": 921226113,
       "awardStatus": "Active",
       "notes": null,
       "isNew": false
@@ -5588,13 +5588,13 @@
       "principalInvestigator": "UC Irvine",
       "awardValue": 4950024,
       "icocApproval": "2021-11-23",
-      "awardStatus": "Active",
+      "awardStatus": "Closed",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Active"
     },
     {
       "grantNumber": "TRAN1-12987",
@@ -12051,9 +12051,9 @@
       "awardStatus": "Pre-Active",
       "sortOrder": 0,
       "isNew": false,
-      "showValueChange": true,
+      "showValueChange": false,
       "showStatusChange": false,
-      "previousAwardValue": 14715568,
+      "previousAwardValue": null,
       "previousAwardStatus": null
     },
     {
@@ -12099,13 +12099,13 @@
       "principalInvestigator": "Curtis Scribner",
       "awardValue": 5516253,
       "icocApproval": "2026-09-24",
-      "awardStatus": "Pre-Active",
+      "awardStatus": "Active",
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": false,
+      "showStatusChange": true,
       "previousAwardValue": null,
-      "previousAwardStatus": null
+      "previousAwardStatus": "Pre-Active"
     },
     {
       "grantNumber": "CLIN2-20416",
@@ -14993,9 +14993,9 @@
       "sortOrder": 0,
       "isNew": false,
       "showValueChange": false,
-      "showStatusChange": true,
+      "showStatusChange": false,
       "previousAwardValue": null,
-      "previousAwardStatus": "Pre-Active"
+      "previousAwardStatus": null
     },
     {
       "grantNumber": "DISC5-19900",
@@ -27193,14 +27193,14 @@
       "grantTitle": "The CuRe Trial: Cellular Therapy for In Utero Repair of Myelomeningocele",
       "diseaseFocus": null,
       "principalInvestigator": "University of California, Davis",
-      "awardValue": 8996477,
+      "awardValue": 8344933,
       "icocApproval": "2023-11-28",
       "awardStatus": "Active",
       "sortOrder": 1,
       "isNew": false,
-      "showValueChange": false,
+      "showValueChange": true,
       "showStatusChange": false,
-      "previousAwardValue": null,
+      "previousAwardValue": 8996477,
       "previousAwardStatus": null
     },
     {
@@ -41402,6 +41402,39 @@
       "grantType": "Research Training Grant",
       "programType": "Education",
       "grantTitle": "Training Program Bridging Stem Cell Research with Clinical Applications in Regenerative Medicine",
+      "awardStatus": "Active"
+    },
+    {
+      "title": "Spatial Engineering of Posterior Signaling Centers in Cerebral Organoids via Controlled Morphogen Exposure Within Hydrogels.",
+      "researchTopic": "研究通过空间工程化水凝胶平台，结合块体光聚合、热交联与数字光处理(DLP)技术，构建含刚度控制分层的水凝胶，实现对脑皮层类器官后部信号中心的局域化诱导：将形态发生素定向递送至类器官一侧，选择性诱导暴露面的后部标记表达；并以荧光标记葡聚糖可视化递送时空动态，同时证明DLP可打印双形态发生素枢纽，在单个类器官内建立两个相反梯度。该平台实现类器官内细胞群体的系统性空间模式化，更忠实重现天然组织的空间组织与细胞多样性，为研究人类发育与疾病提供更高保真度模型。",
+      "authors": "Jeong, Harrison C; Ozaki, Hajime; Tsai, Yuan-Chen; Nie, Caihao; Foust, Skylar R; Shiraiwa, Kaori; Zhuang, Ziye; Miller, Doyle; Noh, Matthew Jung Min; Dalal, Jiya Kinjal; Salem, Aya Galal; Vu, Christine Hien; Mohraz, Ali; Watanabe, Momoko; Ardoña, Herdeline Ann M;",
+      "publication": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+      "publishedOnline": "2026-11-24",
+      "manualUpdateDate": "2026-11-27",
+      "grantNumber": "EDUC4-12822 (2021)/INFR6.2-15368 (2024)",
+      "grantNumbers": [
+        "EDUC4-12822",
+        "INFR6"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "CIRM Scholars Comprehensive Research Training Program",
+      "awardStatus": "Active/Active"
+    },
+    {
+      "title": "Architecture-Dependent Aromatic Residue Interactions Drive Optoelectronic Activity in Peptide Coassemblies.",
+      "researchTopic": "研究提出基于氟化的多肽类策略，以调控生物分子组装体中π单元的排布：通过促进芳烃/全氟芳烃单元共混及其呈递架构（对称vs非对称）的调节，系统研究芳香残基及其配对在季噻吩(4T)/苝二酰亚胺(PDI)供体-受体多肽共组装中的作用。分子动力学模拟显示非对称设计中4T与PDI核心更倾向共组装，含氟非对称设计更倾向形成H型排列；非对称F+F5共组装及退火后氟化对称组装表现出更好的光电流产生。该非经典芳香氨基酸设计为调控多肽模板化组装态及水可加工生物电子材料宏观性质提供了有效分子工程途径。",
+      "authors": "Tang, Sheng Wei; Vlachou, Anastasia; Rohlmeier, Carly M; Yao, Ze-Fan; Mendoza, Zachari S; Kuang, Yuyao; Celt, Natalie; Dold, Kaitlyn G; Fishman, Dmitry A; Tamamis, Phanourios; Ardoña, Herdeline Ann M;",
+      "publication": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+      "publishedOnline": "2026-11-22",
+      "manualUpdateDate": "2026-11-27",
+      "grantNumber": "EDUC4-12822 (2021)",
+      "grantNumbers": [
+        "EDUC4-12822"
+      ],
+      "grantType": "Research Training Grant",
+      "programType": "Education",
+      "grantTitle": "CIRM Scholars Comprehensive Research Training Program",
       "awardStatus": "Active"
     }
   ],
